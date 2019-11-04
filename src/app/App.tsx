@@ -1,11 +1,13 @@
 import React, {PureComponent} from 'react'
+import {BrowserRouter as Router} from 'react-router-dom'
+import Routes from '../routes'
 
 class App extends PureComponent {
-  render(){
+  render() {
     return (
-      <div>
-        App
-      </div>
+      <Router>
+        <Routes />
+      </Router>
     )
   }
 }

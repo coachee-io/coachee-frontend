@@ -1,6 +1,6 @@
-import {css} from "styled-components"
+import {css} from 'styled-components'
 
-const LINE_HEIGHT = 1.5
+const LINE_HEIGHT = 1.2
 
 export const Lato = css`
   font-family: Lato, sans-serif;

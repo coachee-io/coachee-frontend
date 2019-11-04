@@ -1,0 +1,4 @@
+build/
+
+src/ui/images
+src/types/react-app-env.d.ts

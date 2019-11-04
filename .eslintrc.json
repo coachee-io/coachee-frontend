@@ -3,8 +3,16 @@
         "browser": true,
         "es6": true
     },
+    "settings": {
+        "import/resolver": {
+          "node": {
+            "extensions": [".js", ".jsx", ".ts", ".tsx"]
+          }
+        }
+    },
     "extends": [
-        "airbnb"
+        "airbnb",
+        "plugin:react/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -23,5 +31,12 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "no-unused-vars": 0,
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "react/react-in-jsx-scope": "error",
+        "react/jsx-filename-extension": "off",
+        "semi": ["error", "never"],
+        "object-curly-spacing": 0
     }
 }

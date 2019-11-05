@@ -19,33 +19,33 @@ const StyledHeader = styled(Navbar)`
 `
 
 interface State {
-  isScrollPositionOver100: boolean
+  isScrollPositionOver50: boolean
 }
 
 class Header extends PureComponent<{}, State> {
   constructor(props: any) {
     super(props)
     this.state = {
-      isScrollPositionOver100: false,
+      isScrollPositionOver50: false,
     }
   }
 
   componentDidMount = () => {
-    window.addEventListener('scroll', this.isScrollPositionOver100)
+    window.addEventListener('scroll', this.isScrollPositionOver50)
   }
 
-  isScrollPositionOver100 = () => {
-    if (window.scrollY > 200) {
-      this.setState({isScrollPositionOver100: true})
+  isScrollPositionOver50 = () => {
+    if (window.scrollY > 50) {
+      this.setState({isScrollPositionOver50: true})
     } else {
-      this.setState({isScrollPositionOver100: false})
+      this.setState({isScrollPositionOver50: false})
     }
   }
 
   render() {
-    const {isScrollPositionOver100} = this.state
+    const {isScrollPositionOver50} = this.state
     return (
-      <StyledHeader boxShadow={isScrollPositionOver100} fixed="top" expand="lg">
+      <StyledHeader boxShadow={isScrollPositionOver50} fixed="top" expand="lg">
         <Container>
           <Navbar.Brand href="/">
             <Logo />

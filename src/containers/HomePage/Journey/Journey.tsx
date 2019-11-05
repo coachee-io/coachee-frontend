@@ -6,6 +6,7 @@ import SectionRow from '../../../components/SectionRow'
 import CheckmarkTextList from '../../../components/CheckmarkTextList'
 
 import {H1} from '../../../ui/headings'
+import {TextAlignCenter} from '../../../ui/labels'
 
 const StyledRow = styled(Row)`
   margin-top: 30px;
@@ -27,9 +28,11 @@ class Journey extends PureComponent {
         <Col xs={12}>
           <Row>
             <Col xs={12}>
-              <H1 alignCenter>
-                Ready to start your journey?
-              </H1>
+              <TextAlignCenter>
+                <H1>
+                  Ready to start your journey?
+                </H1>
+              </TextAlignCenter>
             </Col>
           </Row>
           <StyledRow>

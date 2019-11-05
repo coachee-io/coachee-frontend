@@ -19,9 +19,11 @@ class Coachee extends PureComponent {
         <Col xs={12}>
           <Row>
             <Col xs={12}>
-              <H1 alignCenter>
-                Why Coachee?
-              </H1>
+              <TextAlignCenter>
+                <H1>
+                  Why Coachee?
+                </H1>
+              </TextAlignCenter>
             </Col>
           </Row>
           <Row>

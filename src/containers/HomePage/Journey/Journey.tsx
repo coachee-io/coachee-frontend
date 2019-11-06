@@ -1,16 +1,13 @@
 import React, {PureComponent} from 'react'
-import styled from 'styled-components'
 import {Row, Col} from 'react-bootstrap'
 
 import SectionRow from '../../../components/SectionRow'
 import CheckmarkTextList from '../../../components/CheckmarkTextList'
+import RouterButtonLink from '../../../components/RouterButtonLink'
 
 import {H1} from '../../../ui/headings'
-import {TextAlignCenter} from '../../../ui/labels'
 
-const StyledRow = styled(Row)`
-  margin-top: 30px;
-`
+import JourneyImage from './Image'
 
 const JourneyListText = [
   'Search coaching programmes by category',
@@ -28,21 +25,30 @@ class Journey extends PureComponent {
         <Col xs={12}>
           <Row>
             <Col xs={12}>
-              <TextAlignCenter>
-                <H1>
-                  Ready to start your journey?
-                </H1>
-              </TextAlignCenter>
+              <H1 textAlign="center">
+                Ready to start your journey?
+              </H1>
             </Col>
           </Row>
-          <StyledRow>
+          <SectionRow>
             <Col sm={4} md={5}>
-              Image
+              <JourneyImage />
             </Col>
             <Col sm={8} md={6}>
-              <CheckmarkTextList list={JourneyListText} />
+              <SectionRow>
+                <Col xs={12}>
+                  <CheckmarkTextList list={JourneyListText} />
+                </Col>
+              </SectionRow>
             </Col>
-          </StyledRow>
+          </SectionRow>
+          <SectionRow>
+            <Col xs={12}>
+              <RouterButtonLink to="signup" primary>
+                Sign Up
+              </RouterButtonLink>
+            </Col>
+          </SectionRow>
         </Col>
       </SectionRow>
     )

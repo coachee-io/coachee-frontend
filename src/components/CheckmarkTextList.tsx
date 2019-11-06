@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import styled from 'styled-components'
 
-import {Para2} from '../ui/labels'
+import {Para} from '../ui/labels'
 
 import Checkmark from '../ui/images/checkmark.svg'
 
@@ -34,9 +34,9 @@ class CheckmarkTextList extends PureComponent<Props> {
         {list.map((text) => (
           <List key={text}>
             <Icon />
-            <Para2>
+            <Para>
               {text}
-            </Para2>
+            </Para>
           </List>
         ))}
       </>

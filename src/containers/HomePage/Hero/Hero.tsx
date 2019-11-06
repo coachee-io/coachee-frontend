@@ -1,12 +1,13 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import HeroImage from '../../../components/HeroImage'
 import CheckmarkTextList from '../../../components/CheckmarkTextList'
+import SectionRow from '../../../components/SectionRow'
 
 import {H1} from '../../../ui/headings'
-import {Para1} from '../../../ui/labels'
+import {Para} from '../../../ui/labels'
 
+import HeroImage from './Image'
 
 const HeroListText = [
   'Improve your relationship with fitness, food and body image',
@@ -18,7 +19,7 @@ const HeroListText = [
 class Hero extends PureComponent {
   render() {
     return (
-      <Row>
+      <SectionRow>
         <Col sm={4} md={5}>
           <H1>
             Achieve your goals,
@@ -26,16 +27,16 @@ class Hero extends PureComponent {
           <H1>
             change your life
           </H1>
-          <Para1>
+          <Para large>
             Coaching is more than a trend, it&apos;s a powerful resource!
             Some of the results you can achieve with our coaches include:
-          </Para1>
+          </Para>
           <CheckmarkTextList list={HeroListText} />
         </Col>
         <Col sm={8} md={6}>
           <HeroImage />
         </Col>
-      </Row>
+      </SectionRow>
     )
   }
 }

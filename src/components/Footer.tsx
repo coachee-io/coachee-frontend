@@ -6,7 +6,7 @@ import SectionRow from './SectionRow'
 
 const StyledFooter = styled.div`
   width: 100%;
-  max-height: 90px;
+  height: 90px;
 `
 
 class Footer extends PureComponent {

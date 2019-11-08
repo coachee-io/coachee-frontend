@@ -1,11 +1,17 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import SectionRow from '../../../components/SectionRow'
 import CheckmarkTextList from '../../../components/CheckmarkTextList'
 import RouterButtonLink from '../../../components/RouterButtonLink'
+import RouterLink from '../../../components/RouterLink'
+
+import VerticalMargin from '../../../components/VerticalMargin'
+import MediaQuery from '../../../components/MediaQuery'
+
+import {FlexboxColAlignCenter} from '../../../components/Flexbox'
 
 import {H1} from '../../../ui/headings'
+import {Para} from '../../../ui/labels'
 
 import JourneyImage from './Image'
 
@@ -21,8 +27,8 @@ const JourneyListText = [
 class Journey extends PureComponent {
   render() {
     return (
-      <SectionRow>
-        <Col xs={12}>
+      <>
+        <VerticalMargin mt={30}>
           <Row>
             <Col xs={12}>
               <H1 textAlign="center">
@@ -30,27 +36,56 @@ class Journey extends PureComponent {
               </H1>
             </Col>
           </Row>
-          <SectionRow>
-            <Col sm={4} md={5}>
-              <JourneyImage />
-            </Col>
-            <Col sm={8} md={6}>
-              <SectionRow>
-                <Col xs={12}>
-                  <CheckmarkTextList list={JourneyListText} />
+        </VerticalMargin>
+        <VerticalMargin mt={30}>
+          <Row>
+            <MediaQuery>
+              {({isDesktop}) => isDesktop() && (
+                <Col md={6}>
+                  <JourneyImage />
                 </Col>
-              </SectionRow>
+              )}
+            </MediaQuery>
+            <MediaQuery>
+              {({isDesktop}) => (
+                <Col xs={12} md={isDesktop() ? 6 : {span: 8, offset: 2}}>
+                  <VerticalMargin mt={30}>
+                    <CheckmarkTextList list={JourneyListText} />
+                  </VerticalMargin>
+                </Col>
+              )}
+            </MediaQuery>
+          </Row>
+        </VerticalMargin>
+        <VerticalMargin mt={30}>
+          <Row>
+            <Col sm={12} md={{span: 6, offset: 3}}>
+              <FlexboxColAlignCenter>
+                <RouterButtonLink to="signup" primary>
+                    Sign Up
+                </RouterButtonLink>
+              </FlexboxColAlignCenter>
             </Col>
-          </SectionRow>
-          <SectionRow>
-            <Col xs={12}>
-              <RouterButtonLink to="signup" primary>
-                Sign Up
-              </RouterButtonLink>
+          </Row>
+        </VerticalMargin>
+        <VerticalMargin mt={30}>
+          <Row>
+            <Col md={{span: 8, offset: 2}}>
+              <Para>
+                Still not sure if coaching is for you? Check out the
+                resources in our
+                {' '}
+                <RouterLink to="/" primary>blog</RouterLink>
+                {' '}
+or
+                {' '}
+                <RouterLink to="/" primary>contact us</RouterLink>
+.
+              </Para>
             </Col>
-          </SectionRow>
-        </Col>
-      </SectionRow>
+          </Row>
+        </VerticalMargin>
+      </>
     )
   }
 }

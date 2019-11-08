@@ -1,6 +1,6 @@
 import {css} from 'styled-components'
 
-const LINE_HEIGHT_OPEN_SANS = 1.2
+const LINE_HEIGHT_OPEN_SANS = 1
 const LINE_HEIGHT_LATO = 1.5
 
 export const Lato = css`

@@ -8,7 +8,7 @@ interface HeadingProps {
 
 export const H1 = styled.h1`
   ${OpenSansBold};
-  font-size: 36px;
+  font-size: 2.25rem; // 36px
   ${({textAlign}: HeadingProps) => textAlign && `
     text-align: ${textAlign};
   `}
@@ -16,7 +16,7 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
   ${OpenSansBold};
-  font-size: 24px;
+  font-size: 1.5rem; // 24px
   ${({textAlign}: HeadingProps) => textAlign && `
     text-align: ${textAlign};
   `}
@@ -24,7 +24,7 @@ export const H2 = styled.h2`
 
 export const H3 = styled.h3`
   ${OpenSansBold};
-  font-size: 18px;
+  font-size: 1.125rem; // 18px
   ${({textAlign}: HeadingProps) => textAlign && `
     text-align: ${textAlign};
   `}

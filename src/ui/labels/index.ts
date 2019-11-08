@@ -14,9 +14,9 @@ export const Label1 = styled.label`
 
 export const Para = styled.p`
   ${Lato};
-  font-size: 16px;
+  font-size: 1rem; // 16px
   ${({large}: ParaProps) => large && `
-    font-size: 24px;
+    font-size: 1.5rem; // 24px
   `}
   ${({textAlign}: ParaProps) => textAlign && `
     text-align: ${textAlign};

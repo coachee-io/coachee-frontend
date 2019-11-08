@@ -5,7 +5,7 @@ import {Container} from 'react-bootstrap'
 const StyledContainer = styled(Container)`
   height: 100%;
   min-height: calc(100vh - 90px);
-  margin-top: 110px;
+  padding-top: 110px;
 `
 
 interface Props {

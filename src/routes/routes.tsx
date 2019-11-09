@@ -3,6 +3,7 @@ import {Switch, Route, useHistory} from 'react-router-dom'
 
 import Layout from '../components/Layout'
 import HomePage from '../containers/HomePage/HomePage'
+import Error404 from '../components/Error404'
 
 const Mockup = () => {
   const history = useHistory()
@@ -24,7 +25,7 @@ class Routes extends PureComponent {
           <Route path="/signup" component={Mockup} />
           <Route path="/coaches/:category?" component={Mockup} />
           <Route path="/coach/:id" component={Mockup} />
-          <Route path="*" component={Mockup} />
+          <Route path="/*" component={Error404} />
         </Switch>
       </Layout>
     )

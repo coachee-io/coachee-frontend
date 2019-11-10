@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import {Link, LinkProps} from 'react-router-dom'
 
-import colors from '../ui/colors'
-import {LatoBold} from '../ui/fonts'
+import colors from '../../ui/colors'
+import {LatoBold} from '../../ui/fonts'
 
 interface RouterButtonLinkProps extends LinkProps {
   primary?: boolean,

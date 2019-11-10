@@ -3,11 +3,11 @@ import {Container, Col, Row} from 'react-bootstrap'
 import styled from 'styled-components'
 
 
-import colors from '../ui/colors'
-import {maxWidthSize} from '../ui/global/mediaQuery'
+import colors from '../../ui/colors'
+import {maxWidthSize} from '../../ui/global/mediaQuery'
 
 import VerticalMargin from './VerticalMargin'
-import {NoStylesRouterLink} from './RouterLink'
+import {NoStylesRouterLink} from '../Routing/RouterLink'
 
 const StyledFooter = styled.footer`
   width: 100%;

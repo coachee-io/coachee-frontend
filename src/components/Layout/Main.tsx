@@ -1,7 +1,7 @@
 import React, {PureComponent, ReactNode} from 'react'
 import styled from 'styled-components'
 import {Container} from 'react-bootstrap'
-import {minWidthSize} from '../ui/global/mediaQuery'
+import {minWidthSize} from '../../ui/global/mediaQuery'
 
 const StyledContainer = styled(Container)`
   flex: 1 0 auto;

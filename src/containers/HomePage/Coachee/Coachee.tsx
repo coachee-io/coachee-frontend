@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import VerticalMargin from '../../../components/VerticalMargin'
+import VerticalMargin from '../../../components/Layout/VerticalMargin'
 import {DivBackgroundImage} from '../../../components/Image'
 
 import {H1} from '../../../ui/headings'

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import {Image} from './Image'
+import {Image} from '../Image'
 
-import colors from '../ui/colors'
-import {Lato, LatoBold} from '../ui/fonts'
+import colors from '../../ui/colors'
+import {Lato, LatoBold} from '../../ui/fonts'
 
 import AlertCircle from '../ui/images/alert-circle.svg'
 

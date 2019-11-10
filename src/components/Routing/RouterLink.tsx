@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import {Link, LinkProps} from 'react-router-dom'
 
-import colors from '../ui/colors'
+import colors from '../../ui/colors'
 
 interface RouterLinkProps extends LinkProps {
   primary?: boolean,

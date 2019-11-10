@@ -2,13 +2,13 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
 import CheckmarkTextList from '../../../components/CheckmarkTextList'
-import RouterButtonLink from '../../../components/RouterButtonLink'
-import RouterLink from '../../../components/RouterLink'
+import RouterButtonLink from '../../../components/Routing/RouterButtonLink'
+import RouterLink from '../../../components/Routing/RouterLink'
 
-import VerticalMargin from '../../../components/VerticalMargin'
-import MediaQuery from '../../../components/MediaQuery'
+import VerticalMargin from '../../../components/Layout/VerticalMargin'
+import MediaQuery from '../../../components/Layout/MediaQuery'
 
-import {FlexboxColAlignCenter} from '../../../components/Flexbox'
+import {FlexboxColAlignCenter} from '../../../components/Layout/Flexbox'
 
 import {H1} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'

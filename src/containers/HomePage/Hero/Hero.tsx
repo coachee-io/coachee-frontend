@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
 import CheckmarkTextList from '../../../components/CheckmarkTextList'
-import {FlexboxColAlignCenter} from '../../../components/Flexbox'
+import {FlexboxColAlignCenter} from '../../../components/Layout/Flexbox'
 
 import {H1} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'

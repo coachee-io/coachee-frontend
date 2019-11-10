@@ -7,8 +7,8 @@ import {string, object} from 'yup'
 
 import Form, {
   Input, Label, ErrorMessage, ErrorAlertCircle, Button,
-} from '../../../components/Form'
-import {FlexboxColAlignCenter, FlexRowJustifyCenter} from '../../../components/Flexbox'
+} from '../../../components/Form/Form'
+import {FlexboxColAlignCenter, FlexRowJustifyCenter} from '../../../components/Layout/Flexbox'
 import {H2} from '../../../ui/headings'
 
 const schema = object().shape({

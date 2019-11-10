@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {Switch, Route, useHistory} from 'react-router-dom'
 
-import Layout from '../components/Layout'
+import Layout from '../components/Layout/Layout'
 import HomePage from '../containers/HomePage'
 
 import Login from '../containers/Login'

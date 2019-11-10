@@ -4,7 +4,7 @@ import {Row, Col} from 'react-bootstrap'
 import {Cards} from '../../../components/Cards'
 import CategoryCard from '../../../components/CategoryCard'
 
-import VerticalMargin from '../../../components/VerticalMargin'
+import VerticalMargin from '../../../components/Layout/VerticalMargin'
 
 import {H1} from '../../../ui/headings'
 

@@ -4,9 +4,9 @@ import {Row, Col} from 'react-bootstrap'
 import {Para} from '../../ui/labels'
 import Error404ImgPath from '../../ui/images/404.svg'
 
-import RouterButtonLink from '../../components/RouterButtonLink'
-import VerticalMargin from '../../components/VerticalMargin'
-import {FlexboxColAlignCenter} from '../../components/Flexbox'
+import RouterButtonLink from '../../components/Routing/RouterButtonLink'
+import VerticalMargin from '../../components/Layout/VerticalMargin'
+import {FlexboxColAlignCenter} from '../../components/Layout/Flexbox'
 import {Image} from '../../components/Image'
 
 const HEIGHT = 350

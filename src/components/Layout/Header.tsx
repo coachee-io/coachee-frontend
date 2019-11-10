@@ -2,11 +2,11 @@ import React, {PureComponent} from 'react'
 import styled from 'styled-components'
 import {Navbar, Container, Nav} from 'react-bootstrap'
 
-import colors from '../ui/colors'
-import {minWidthSize, maxWidthSize} from '../ui/global/mediaQuery'
+import colors from '../../ui/colors'
+import {minWidthSize, maxWidthSize} from '../../ui/global/mediaQuery'
 
-import RouterButtonLink from './RouterButtonLink'
-import Logo from './Logo'
+import RouterButtonLink from '../Routing/RouterButtonLink'
+import Logo from '../Logo'
 
 interface HeaderProps {
   boxShadow: boolean,

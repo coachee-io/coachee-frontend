@@ -5,7 +5,7 @@ import {Image} from '../Image'
 import colors from '../../ui/colors'
 import {Lato, LatoBold} from '../../ui/fonts'
 
-import AlertCircle from '../ui/images/alert-circle.svg'
+import AlertCircle from '../../ui/images/alert-circle.svg'
 
 interface FormProps {
   maxWidth?: number

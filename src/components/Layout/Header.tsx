@@ -85,12 +85,12 @@ class Header extends PureComponent<{}, State> {
           <Navbar.Collapse>
             <StyledNav>
               <StyledNavItem>
-                <RouterButtonLink to="login" accent>
+                <RouterButtonLink to="/login" accent>
                 Login
                 </RouterButtonLink>
               </StyledNavItem>
               <StyledNavItem>
-                <RouterButtonLink to="signup" primary>
+                <RouterButtonLink to="/signup/coach" primary>
                 Become a Coach
                 </RouterButtonLink>
               </StyledNavItem>

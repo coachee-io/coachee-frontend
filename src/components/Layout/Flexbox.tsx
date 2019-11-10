@@ -9,7 +9,7 @@ export const FlexRowAlignCenter = styled.div`
   align-items: center;
 `
 
-export const FlexboxColAlignCenter = styled.div`
+export const FlexColAlignCenter = styled.div`
   display: ${DISPLAY_FLEX};
   flex-direction: ${DIRECTION_COLUMN};
   align-items: center;

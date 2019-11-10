@@ -6,7 +6,7 @@ import Error404ImgPath from '../../ui/images/404.svg'
 
 import RouterButtonLink from '../../components/Routing/RouterButtonLink'
 import VerticalMargin from '../../components/Layout/VerticalMargin'
-import {FlexboxColAlignCenter} from '../../components/Layout/Flexbox'
+import {FlexColAlignCenter} from '../../components/Layout/Flexbox'
 import {Image} from '../../components/Image'
 
 const HEIGHT = 350
@@ -25,7 +25,7 @@ class Error404 extends PureComponent {
       <>
         <Row>
           <Col xs={12}>
-            <FlexboxColAlignCenter>
+            <FlexColAlignCenter>
               <VerticalMargin mt={30}>
                 <Para textAlign="center">
               Sorry for the inconvenience.
@@ -43,7 +43,7 @@ The page you&apos;re looking for can&apos;t be found.
               <VerticalMargin mt={30}>
                 <Error404Image />
               </VerticalMargin>
-            </FlexboxColAlignCenter>
+            </FlexColAlignCenter>
           </Col>
         </Row>
       </>

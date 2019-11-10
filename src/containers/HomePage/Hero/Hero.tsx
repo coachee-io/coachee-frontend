@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
 import CheckmarkTextList from '../../../components/CheckmarkTextList'
-import {FlexboxColAlignCenter} from '../../../components/Layout/Flexbox'
+import {FlexColAlignCenter} from '../../../components/Layout/Flexbox'
 
 import {H1} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
@@ -34,9 +34,9 @@ class Hero extends PureComponent {
           <CheckmarkTextList list={HeroListText} />
         </Col>
         <Col xs={12} lg={6}>
-          <FlexboxColAlignCenter>
+          <FlexColAlignCenter>
             <HeroImage />
-          </FlexboxColAlignCenter>
+          </FlexColAlignCenter>
         </Col>
       </Row>
     )

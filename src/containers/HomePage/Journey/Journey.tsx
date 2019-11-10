@@ -8,7 +8,7 @@ import RouterLink from '../../../components/Routing/RouterLink'
 import VerticalMargin from '../../../components/Layout/VerticalMargin'
 import MediaQuery from '../../../components/Layout/MediaQuery'
 
-import {FlexboxColAlignCenter} from '../../../components/Layout/Flexbox'
+import {FlexColAlignCenter} from '../../../components/Layout/Flexbox'
 
 import {H1} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
@@ -60,28 +60,30 @@ class Journey extends PureComponent {
         <VerticalMargin mt={30}>
           <Row>
             <Col sm={12} md={{span: 6, offset: 3}}>
-              <FlexboxColAlignCenter>
+              <FlexColAlignCenter>
                 <RouterButtonLink to="signup" primary>
                     Sign Up
                 </RouterButtonLink>
-              </FlexboxColAlignCenter>
+              </FlexColAlignCenter>
             </Col>
           </Row>
         </VerticalMargin>
         <VerticalMargin mt={30}>
           <Row>
-            <Col md={{span: 8, offset: 2}}>
-              <Para>
-                Still not sure if coaching is for you? Check out the
-                resources in our
-                {' '}
-                <RouterLink to="/" primary>blog</RouterLink>
-                {' '}
-or
-                {' '}
-                <RouterLink to="/" primary>contact us</RouterLink>
-.
-              </Para>
+            <Col md={12}>
+              <FlexColAlignCenter>
+                <Para>
+                  Still not sure if coaching is for you? Check out the
+                  resources in our
+                  {' '}
+                  <RouterLink to="/" primary>blog</RouterLink>
+                  {' '}
+  or
+                  {' '}
+                  <RouterLink to="/" primary>contact us</RouterLink>
+  .
+                </Para>
+              </FlexColAlignCenter>
             </Col>
           </Row>
         </VerticalMargin>

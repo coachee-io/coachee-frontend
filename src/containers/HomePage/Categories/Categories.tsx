@@ -1,13 +1,13 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
+import RouterLink from '../../../components/Routing/RouterLink'
 import {Cards} from '../../../components/Cards'
 import CategoryCard from '../../../components/CategoryCard'
-
 import VerticalMargin from '../../../components/Layout/VerticalMargin'
+import {FlexRowJustifyCenter} from '../../../components/Layout/Flexbox'
 
 import {H1} from '../../../ui/headings'
-
 import Health from '../../../ui/images/health-category.png'
 
 const categoryList: any = []
@@ -41,7 +41,13 @@ class Categories extends PureComponent {
             />
           ))}
         </Cards>
-
+        <VerticalMargin mt={30}>
+          <FlexRowJustifyCenter>
+            <RouterLink to="/coaches" primary>
+              Browse all coaches
+            </RouterLink>
+          </FlexRowJustifyCenter>
+        </VerticalMargin>
       </>
     )
   }

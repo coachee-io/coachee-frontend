@@ -8,7 +8,7 @@ import {string, object} from 'yup'
 import Form, {
   Input, Label, ErrorMessage, ErrorAlertCircle, Button,
 } from '../../components/Form/Form'
-import {FlexboxColAlignCenter, FlexRowJustifyCenter} from '../../components/Layout/Flexbox'
+import {FlexColAlignCenter, FlexRowJustifyCenter} from '../../components/Layout/Flexbox'
 import {H2} from '../../ui/headings'
 
 const schema = object().shape({
@@ -37,7 +37,7 @@ class Login extends PureComponent {
 
         <Row>
           <Col xs={12}>
-            <FlexboxColAlignCenter>
+            <FlexColAlignCenter>
               <Formik
                 initialValues={{email: '', password: ''}}
                 onSubmit={this.onSubmit}
@@ -93,7 +93,7 @@ class Login extends PureComponent {
                   </>
                 )}
               </Formik>
-            </FlexboxColAlignCenter>
+            </FlexColAlignCenter>
           </Col>
         </Row>
       </>

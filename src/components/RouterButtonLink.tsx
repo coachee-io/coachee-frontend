@@ -4,12 +4,10 @@ import {Link, LinkProps} from 'react-router-dom'
 import colors from '../ui/colors'
 import {LatoBold} from '../ui/fonts'
 
-
 interface RouterButtonLinkProps extends LinkProps {
   primary?: boolean,
   accent?: boolean,
 }
-
 
 const RouterButtonLink = styled(Link)`
   ${LatoBold};

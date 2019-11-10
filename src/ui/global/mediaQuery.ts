@@ -27,6 +27,14 @@ export const minWidthSize = Object.keys(sizes).reduce((acc: any, label: string) 
   return acc
 }, {})
 
+export const maxWidthSize = Object.keys(sizes).reduce((acc: any, label: string) => {
+  acc[label] = (...args: any[]) => css`
+    @media (max-width: ${sizes[label]}px) {
+      ${css(...(args as [any]))}
+    }
+  `
+  return acc
+}, {})
 
 export interface MediaQueryInterface {
   isMobile: () => boolean,

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import coacheeLogo from '../ui/images/coachee-logo.png'
+import coacheeLogo from '../ui/images/coachee-logo.svg'
 
-const HEIGHT = 67
-const WIDTH = 166
+const HEIGHT = 38
+const WIDTH = 148
 
 const Logo = styled.img.attrs({
   src: coacheeLogo,

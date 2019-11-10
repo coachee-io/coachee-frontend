@@ -4,7 +4,7 @@ const DISPLAY_FLEX = 'flex'
 const DIRECTION_COLUMN = 'column'
 const DIRECTION_ROW = 'row'
 
-export const FlexAlignCenter = styled.div`
+export const FlexRowAlignCenter = styled.div`
   display: ${DISPLAY_FLEX};
   align-items: center;
 `
@@ -15,7 +15,7 @@ export const FlexboxColAlignCenter = styled.div`
   align-items: center;
 `
 
-export const FlexJustifyCenter = styled.div`
+export const FlexRowJustifyCenter = styled.div`
   display: ${DISPLAY_FLEX};
   justify-content: center;
 `

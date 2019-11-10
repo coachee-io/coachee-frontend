@@ -7,9 +7,14 @@ html {
 
 html, 
 body {
-  height: 100%;
-  min-height: 100%;
   font-size: 16px;
   font-family: Lato, sans-serif;
   line-height: 1.5;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
 }

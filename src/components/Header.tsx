@@ -2,34 +2,46 @@ import React, {PureComponent} from 'react'
 import styled from 'styled-components'
 import {Navbar, Container, Nav} from 'react-bootstrap'
 
-
 import colors from '../ui/colors'
+import {minWidthSize, maxWidthSize} from '../ui/global/mediaQuery'
 
 import RouterButtonLink from './RouterButtonLink'
 import Logo from './Logo'
 
 interface HeaderProps {
-  boxShadow: boolean
+  boxShadow: boolean,
+  bg: string
 }
-const StyledHeader = styled(Navbar)`
-  max-height: 90px;
-  width: 100%;
 
-  // Hack this
-  & > .container {
-    ${({bg}: any) => bg && `
-      background-color: ${bg};
-    `}
-  }
-
+const NavigationBar = styled(Navbar)`
+  padding: 1rem;
+  background-color: ${({bg}: HeaderProps) => bg === 'white' && `
+    ${colors.white};
+  `}
   ${({boxShadow}: HeaderProps) => boxShadow && `
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1)
+    box-shadow: 0px 5px 3px -3px rgba(0,0,0, 0.2);
   `}
 `
 
-const FlexRow = styled.div`
+const StyledNav = styled(Nav)`
+  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  ${minWidthSize.tablet`
+    justify-content: flex-end;
+  `}
+  ${maxWidthSize.mobile`
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  `}
+`
+
+const StyledNavItem = styled(Nav.Item)`
+  padding: 0 0.5rem;
+  ${maxWidthSize.mobile`
+    padding: 0.5rem 0;
+  `}
 `
 
 interface State {
@@ -49,7 +61,7 @@ class Header extends PureComponent<{}, State> {
   }
 
   isScrollPositionOver50 = () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 30) {
       this.setState({isScrollPositionOver50: true})
     } else {
       this.setState({isScrollPositionOver50: false})
@@ -59,33 +71,33 @@ class Header extends PureComponent<{}, State> {
   render() {
     const {isScrollPositionOver50} = this.state
     return (
-      <StyledHeader boxShadow={isScrollPositionOver50} fixed="top" expand="sm" bg="white">
+      <NavigationBar
+        boxShadow={isScrollPositionOver50}
+        bg="white"
+        expand="sm"
+        fixed="top"
+      >
         <Container>
           <Navbar.Brand href="/">
             <Logo />
           </Navbar.Brand>
-          <Navbar.Toggle />
-          <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
-            <Nav>
-              <Nav.Link as="div">
-                <FlexRow>
-                  <RouterButtonLink to="signup" accent>
-                    Login
-                  </RouterButtonLink>
-                </FlexRow>
-
-              </Nav.Link>
-              <Nav.Link as="div">
-                <FlexRow>
-                  <RouterButtonLink to="signup" primary>
-                    Become a coach
-                  </RouterButtonLink>
-                </FlexRow>
-              </Nav.Link>
-            </Nav>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse>
+            <StyledNav>
+              <StyledNavItem>
+                <RouterButtonLink to="login" accent>
+                Login
+                </RouterButtonLink>
+              </StyledNavItem>
+              <StyledNavItem>
+                <RouterButtonLink to="signup" primary>
+                Become a Coach
+                </RouterButtonLink>
+              </StyledNavItem>
+            </StyledNav>
           </Navbar.Collapse>
         </Container>
-      </StyledHeader>
+      </NavigationBar>
     )
   }
 }

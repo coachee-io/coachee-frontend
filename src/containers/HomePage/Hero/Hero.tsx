@@ -2,7 +2,6 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
 import CheckmarkTextList from '../../../components/CheckmarkTextList'
-import VerticalMargin from '../../../components/VerticalMargin'
 import {FlexboxColAlignCenter} from '../../../components/Flexbox'
 
 import {H1} from '../../../ui/headings'
@@ -20,28 +19,26 @@ const HeroListText = [
 class Hero extends PureComponent {
   render() {
     return (
-      <VerticalMargin mt={30}>
-        <Row>
-          <Col xs={12} lg={6}>
-            <H1>
+      <Row>
+        <Col xs={12} lg={6}>
+          <H1>
             Achieve your goals,
-            </H1>
-            <H1>
+          </H1>
+          <H1>
             change your life
-            </H1>
-            <Para large>
+          </H1>
+          <Para large>
               Coaching is more than a trend, it&apos;s a powerful resource!
               Some of the results you can achieve with our coaches include:
-            </Para>
-            <CheckmarkTextList list={HeroListText} />
-          </Col>
-          <Col xs={12} lg={6}>
-            <FlexboxColAlignCenter>
-              <HeroImage />
-            </FlexboxColAlignCenter>
-          </Col>
-        </Row>
-      </VerticalMargin>
+          </Para>
+          <CheckmarkTextList list={HeroListText} />
+        </Col>
+        <Col xs={12} lg={6}>
+          <FlexboxColAlignCenter>
+            <HeroImage />
+          </FlexboxColAlignCenter>
+        </Col>
+      </Row>
     )
   }
 }

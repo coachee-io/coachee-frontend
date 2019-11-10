@@ -1,13 +1,13 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import {Para} from '../ui/labels'
-import Error404ImgPath from '../ui/images/404.svg'
+import {Para} from '../../ui/labels'
+import Error404ImgPath from '../../ui/images/404.svg'
 
-import RouterButtonLink from './RouterButtonLink'
-import VerticalMargin from './VerticalMargin'
-import {FlexboxColAlignCenter} from './Flexbox'
-import {Image} from './Image'
+import RouterButtonLink from '../../components/RouterButtonLink'
+import VerticalMargin from '../../components/VerticalMargin'
+import {FlexboxColAlignCenter} from '../../components/Flexbox'
+import {Image} from '../../components/Image'
 
 const HEIGHT = 350
 
@@ -26,13 +26,15 @@ class Error404 extends PureComponent {
         <Row>
           <Col xs={12}>
             <FlexboxColAlignCenter>
-              <Para textAlign="center">
+              <VerticalMargin mt={30}>
+                <Para textAlign="center">
               Sorry for the inconvenience.
-                {' '}
-                <br />
-                {' '}
+                  {' '}
+                  <br />
+                  {' '}
 The page you&apos;re looking for can&apos;t be found.
-              </Para>
+                </Para>
+              </VerticalMargin>
               <VerticalMargin mt={30}>
                 <RouterButtonLink to="/" primary>
                   Back to Home

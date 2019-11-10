@@ -9,7 +9,7 @@ import {
 
 const StyledCard = styled(Card)`
   border-radius: 5px;
-  border: 0.5px solid ${colors.primary};
+  border: 1px solid ${colors.primary};
   background-color: ${colors.white};
   height: 435px;
   width: 330px;

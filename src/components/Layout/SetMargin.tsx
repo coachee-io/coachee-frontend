@@ -6,13 +6,17 @@ const getMargin = (key: string, value: number): string => {
       return `margin-bottom: ${value}px;`
     case 'mt':
       return `margin-top: ${value}px;`
+    case 'mr':
+      return `margin-right: ${value}px;`
+    case 'ml':
+      return `margin-left: ${value}px;`
     default:
       return ''
   }
 }
 
 const getMarginKeys = (props: any): string[] | null => {
-  const keys = Object.keys(props).filter((key) => key === 'mb' || key === 'mt')
+  const keys = Object.keys(props).filter((key) => key)
   return keys
 }
 
@@ -33,11 +37,13 @@ const composeMargins = (props: any): string => {
 
 interface Props {
   mt?: number,
-  mb?: number
+  mb?: number,
+  ml?: number,
+  mr?: number
 }
 
-const VerticalMargin = styled.div`
+const SetMargin = styled.div`
   ${(props: Props) => props && composeMargins(props)}
 `
 
-export default VerticalMargin
+export default SetMargin

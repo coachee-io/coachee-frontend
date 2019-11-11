@@ -19,25 +19,27 @@ class MediaQuery extends PureComponent<Props, State> {
         ...mediaQueryFunctions(window.innerWidth),
       },
     }
+
+    this.resize = throttle(this.resize, 100)
   }
 
-    componentDidMount = () => {
-      window.addEventListener('resize', throttle(this.resize, 100))
-    }
+  componentDidMount = () => {
+    window.addEventListener('resize', this.resize)
+  }
 
-    componentWillUnmount = () => {
-      window.removeEventListener('resize', this.resize)
-    }
+  componentWillUnmount = () => {
+    window.removeEventListener('resize', this.resize)
+  }
 
-    resize = () => {
-      this.setState({media: {...mediaQueryFunctions(window.innerWidth)}})
-    }
+  resize = () => {
+    this.setState({media: {...mediaQueryFunctions(window.innerWidth)}})
+  }
 
-    render() {
-      const {children} = this.props
-      const {media} = this.state
-      return children(media)
-    }
+  render() {
+    const {children} = this.props
+    const {media} = this.state
+    return children(media)
+  }
 }
 
 export default MediaQuery

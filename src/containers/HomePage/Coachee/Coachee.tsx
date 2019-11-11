@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import VerticalMargin from '../../../components/Layout/VerticalMargin'
+import SetMargin from '../../../components/Layout/SetMargin'
 import {DivBackgroundImage} from '../../../components/Image'
 
 import {H1} from '../../../ui/headings'
@@ -15,7 +15,7 @@ import search from '../../../ui/images/search.svg'
 class Coachee extends PureComponent {
   render() {
     return (
-      <VerticalMargin mt={30}>
+      <SetMargin mt={30}>
         <Row>
           <Col xs={12}>
             <Row>
@@ -53,7 +53,7 @@ class Coachee extends PureComponent {
             </Row>
           </Col>
         </Row>
-      </VerticalMargin>
+      </SetMargin>
     )
   }
 }

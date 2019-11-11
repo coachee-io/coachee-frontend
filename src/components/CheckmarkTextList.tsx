@@ -17,8 +17,9 @@ const Icon = styled.img.attrs({
   alt: 'Checkmark',
 })`
   flex-shrink: 0;
-  height: 14px;
-  width: 18px;
+  height: 12px;
+  width: 16px;
+  margin-top: 0.3rem;
   margin-right: 1rem;
 `
 

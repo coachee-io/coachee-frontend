@@ -11,6 +11,16 @@ interface FormProps {
   maxWidth?: number
 }
 
+interface InputProps {
+  error?: boolean | string | undefined | any,
+  type?: string
+}
+
+interface ButtonProps {
+  primary?: boolean,
+  accent?: boolean,
+}
+
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -29,13 +39,11 @@ const Label = styled.label`
   ${Lato};
   padding-top: 0.5rem;
   color: ${colors.black};
+  display: inline-block;
+  float: left;
 `
 
-interface InputProps {
-  error: boolean | '' | undefined
-}
-
-const Input = styled.input`
+const Select = styled.select`
   ${Lato};
   padding: 0.5rem;
   background-color: ${colors.white};
@@ -47,9 +55,29 @@ const Input = styled.input`
   `}
 `
 
+const Input = styled.input`
+  ${Lato};
+  padding: 0.5rem;
+  background-color: ${colors.white};
+  color: ${colors.black};
+  border: none;
+  border-radius: 5px;
+  ${({type}: InputProps) => type === 'checkbox' && `
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    margin-bottom: 0.3rem;
+    border: none !important;
+  `} 
+  ${({error}: InputProps) => error && `
+    border: 1px solid red;
+  `}
+`
+
 const ErrorMessage = styled.span`
   ${Lato};
-  padding: 0.5rem 0;
+  font-size: 12px;
   color: red;
 `
 
@@ -59,13 +87,8 @@ const ErrorAlertCircle = Image.attrs({
   height: 16px;
   width: 16px;
   margin: 0.5rem;
-  color: red;
+  fill: red;
 `
-
-interface ButtonProps {
-  primary?: boolean,
-  accent?: boolean,
-}
 
 const Button = styled.button`
   ${LatoBold};
@@ -100,6 +123,7 @@ const Button = styled.button`
 export {
   Label,
   Input,
+  Select,
   ErrorMessage,
   ErrorAlertCircle,
   Button,

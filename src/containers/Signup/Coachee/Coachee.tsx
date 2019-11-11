@@ -3,11 +3,13 @@ import {Row, Col} from 'react-bootstrap'
 import {
   Formik,
 } from 'formik'
-import {string, object} from 'yup'
+import {
+  string, object, boolean, array,
+} from 'yup'
 
 import Form, {
-  Input, Label, ErrorMessage, ErrorAlertCircle, Button,
-} from '../../../components/Form/Form'
+  Input, Label, ErrorMessage, ErrorAlertCircle, Button, Select,
+} from '../../../components/Form'
 import {FlexColAlignCenter, FlexRowJustifyCenter} from '../../../components/Layout/Flexbox'
 import {H2} from '../../../ui/headings'
 
@@ -25,7 +27,7 @@ const schema = object().shape({
   password: string()
     .trim()
     .required('Please enter a password')
-    .min(8, 'Minimum 8 characters')
+    .min(1, 'Minimum 8 characters')
     .max(16, 'Maximum 16 characters')
     .matches(/[a-zA-Z0-9]/, 'Only letters and numbers'),
   confirmPassword: string()
@@ -33,7 +35,22 @@ const schema = object().shape({
     .test('passwords-match', "Passwords don't match", function (value) {
       return this.parent.password === value
     }),
+  hearAboutUs: string()
+    .notRequired(),
+  terms: array()
+    .required('Please select terms and conditions'),
 })
+
+const options = [
+  {
+    value: '',
+    label: '',
+  },
+  {
+    value: 'Web',
+    label: 'Web',
+  },
+]
 
 
 class SignUpCoachee extends PureComponent {
@@ -50,7 +67,14 @@ class SignUpCoachee extends PureComponent {
             <FlexColAlignCenter>
               <Formik
                 initialValues={{
-                  firstName: '', lastName: '', email: '', password: '', confirmPassword: '',
+                  firstName: '',
+                  lastName: '',
+                  email: '',
+                  password: '',
+                  confirmPassword: '',
+                  aboutUs: '',
+                  terms: [],
+                  promotional: [],
                 }}
                 onSubmit={this.onSubmit}
                 validationSchema={schema}
@@ -67,6 +91,7 @@ class SignUpCoachee extends PureComponent {
                       <Input
                         id="firstName"
                         name="firstName"
+                        type="text"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.firstName}
@@ -83,6 +108,7 @@ class SignUpCoachee extends PureComponent {
                       <Input
                         id="lastName"
                         name="lastName"
+                        type="text"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.lastName}
@@ -98,6 +124,7 @@ class SignUpCoachee extends PureComponent {
                       <Input
                         id="email"
                         name="email"
+                        type="text"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.email}
@@ -140,6 +167,55 @@ class SignUpCoachee extends PureComponent {
                       {errors.confirmPassword && touched.confirmPassword && (
                       <ErrorMessage>
                         {errors.confirmPassword}
+                        {' '}
+                        <ErrorAlertCircle />
+                      </ErrorMessage>
+                      )}
+                      <Label htmlFor="hearAboutUs">How did you hear about us?</Label>
+                      <Select
+                        id="hearAboutUs"
+                        name="aboutUs"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.aboutUs}
+                      >
+                        {options.map((option) => (
+                          <option key={option.label} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </Select>
+                      {errors.aboutUs && touched.aboutUs && (
+                      <ErrorMessage>
+                        {errors.aboutUs}
+                        {' '}
+                        <ErrorAlertCircle />
+                      </ErrorMessage>
+                      )}
+                      <Label htmlFor="promotional">
+                        <Input
+                          id="promotional"
+                          name="promotional"
+                          type="checkbox"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                        />
+                        Receive news and promotional emails
+                      </Label>
+                      <Label htmlFor="terms">
+                        <Input
+                          id="terms"
+                          name="terms"
+                          type="checkbox"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          error={errors.terms && touched.terms}
+                        />
+                        I agree to Terms and Conditions
+                      </Label>
+                      {errors.terms && touched.terms && (
+                      <ErrorMessage>
+                        {errors.terms}
                         {' '}
                         <ErrorAlertCircle />
                       </ErrorMessage>

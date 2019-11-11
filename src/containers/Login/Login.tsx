@@ -7,7 +7,7 @@ import {string, object} from 'yup'
 
 import Form, {
   Input, Label, ErrorMessage, ErrorAlertCircle, Button,
-} from '../../components/Form/Form'
+} from '../../components/Form'
 import {FlexColAlignCenter, FlexRowJustifyCenter} from '../../components/Layout/Flexbox'
 import {H2} from '../../ui/headings'
 

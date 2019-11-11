@@ -2,10 +2,9 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
 import CheckmarkTextList from '../../../components/CheckmarkTextList'
-import RouterButtonLink from '../../../components/Routing/RouterButtonLink'
-import RouterLink from '../../../components/Routing/RouterLink'
+import {RouterLink, RouterButtonLink} from '../../../components/Routing'
 
-import VerticalMargin from '../../../components/Layout/VerticalMargin'
+import SetMargin from '../../../components/Layout/SetMargin'
 import MediaQuery from '../../../components/Layout/MediaQuery'
 
 import {FlexColAlignCenter} from '../../../components/Layout/Flexbox'
@@ -28,7 +27,7 @@ class Journey extends PureComponent {
   render() {
     return (
       <>
-        <VerticalMargin mt={30}>
+        <SetMargin mt={30}>
           <Row>
             <Col xs={12}>
               <H1 textAlign="center">
@@ -36,8 +35,8 @@ class Journey extends PureComponent {
               </H1>
             </Col>
           </Row>
-        </VerticalMargin>
-        <VerticalMargin mt={30}>
+        </SetMargin>
+        <SetMargin mt={30}>
           <Row>
             <MediaQuery>
               {({isDesktop}) => isDesktop() && (
@@ -49,15 +48,15 @@ class Journey extends PureComponent {
             <MediaQuery>
               {({isDesktop}) => (
                 <Col xs={12} md={isDesktop() ? 6 : {span: 8, offset: 2}}>
-                  <VerticalMargin mt={30}>
+                  <SetMargin mt={30}>
                     <CheckmarkTextList list={JourneyListText} />
-                  </VerticalMargin>
+                  </SetMargin>
                 </Col>
               )}
             </MediaQuery>
           </Row>
-        </VerticalMargin>
-        <VerticalMargin mt={30}>
+        </SetMargin>
+        <SetMargin mt={30}>
           <Row>
             <Col sm={12} md={{span: 6, offset: 3}}>
               <FlexColAlignCenter>
@@ -67,8 +66,8 @@ class Journey extends PureComponent {
               </FlexColAlignCenter>
             </Col>
           </Row>
-        </VerticalMargin>
-        <VerticalMargin mt={30}>
+        </SetMargin>
+        <SetMargin mt={30}>
           <Row>
             <Col md={12}>
               <FlexColAlignCenter>
@@ -86,7 +85,7 @@ class Journey extends PureComponent {
               </FlexColAlignCenter>
             </Col>
           </Row>
-        </VerticalMargin>
+        </SetMargin>
       </>
     )
   }

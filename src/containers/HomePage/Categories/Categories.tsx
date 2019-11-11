@@ -1,10 +1,10 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import RouterLink from '../../../components/Routing/RouterLink'
+import {RouterLink} from '../../../components/Routing'
 import {Cards} from '../../../components/Cards'
 import CategoryCard from '../../../components/CategoryCard'
-import VerticalMargin from '../../../components/Layout/VerticalMargin'
+import SetMargin from '../../../components/Layout/SetMargin'
 import {FlexRowJustifyCenter} from '../../../components/Layout/Flexbox'
 
 import {H1} from '../../../ui/headings'
@@ -12,7 +12,7 @@ import Health from '../../../ui/images/health-category.png'
 
 const categoryList: any = []
 
-for (let i: number = 0; i < 10; i += 1) {
+for (let i: number = 0; i < 6; i += 1) {
   categoryList.push({
     imgSrc: Health,
     title: 'Hero',
@@ -24,13 +24,13 @@ class Categories extends PureComponent {
   render() {
     return (
       <>
-        <VerticalMargin mt={30}>
+        <SetMargin mt={30}>
           <Row>
             <Col xs={12}>
               <H1 textAlign="center">How can we help you?</H1>
             </Col>
           </Row>
-        </VerticalMargin>
+        </SetMargin>
         <Cards>
           {categoryList.map((category: any) => (
             <CategoryCard
@@ -41,13 +41,13 @@ class Categories extends PureComponent {
             />
           ))}
         </Cards>
-        <VerticalMargin mt={30}>
+        <SetMargin mt={30}>
           <FlexRowJustifyCenter>
             <RouterLink to="/coaches" primary>
               Browse all coaches
             </RouterLink>
           </FlexRowJustifyCenter>
-        </VerticalMargin>
+        </SetMargin>
       </>
     )
   }

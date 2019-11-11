@@ -4,8 +4,8 @@ import {Row, Col} from 'react-bootstrap'
 import {Para} from '../../ui/labels'
 import Error404ImgPath from '../../ui/images/404.svg'
 
-import RouterButtonLink from '../../components/Routing/RouterButtonLink'
-import VerticalMargin from '../../components/Layout/VerticalMargin'
+import {RouterButtonLink} from '../../components/Routing'
+import SetMargin from '../../components/Layout/SetMargin'
 import {FlexColAlignCenter} from '../../components/Layout/Flexbox'
 import {Image} from '../../components/Image'
 
@@ -26,7 +26,7 @@ class Error404 extends PureComponent {
         <Row>
           <Col xs={12}>
             <FlexColAlignCenter>
-              <VerticalMargin mt={30}>
+              <SetMargin mt={30}>
                 <Para textAlign="center">
               Sorry for the inconvenience.
                   {' '}
@@ -34,15 +34,15 @@ class Error404 extends PureComponent {
                   {' '}
 The page you&apos;re looking for can&apos;t be found.
                 </Para>
-              </VerticalMargin>
-              <VerticalMargin mt={30}>
+              </SetMargin>
+              <SetMargin mt={30}>
                 <RouterButtonLink to="/" primary>
                   Back to Home
                 </RouterButtonLink>
-              </VerticalMargin>
-              <VerticalMargin mt={30}>
+              </SetMargin>
+              <SetMargin mt={30}>
                 <Error404Image />
-              </VerticalMargin>
+              </SetMargin>
             </FlexColAlignCenter>
           </Col>
         </Row>

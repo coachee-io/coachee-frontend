@@ -2,6 +2,8 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
 import CheckmarkTextList from '../../../components/CheckmarkTextList'
+import {RouterButtonLink} from '../../../components/Routing'
+import SetMargin from '../../../components/Layout/SetMargin'
 import {FlexColAlignCenter} from '../../../components/Layout/Flexbox'
 
 import {H1} from '../../../ui/headings'
@@ -32,6 +34,11 @@ class Hero extends PureComponent {
               Some of the results you can achieve with our coaches include:
           </Para>
           <CheckmarkTextList list={HeroListText} />
+          <SetMargin ml={30}>
+            <RouterButtonLink to="/signup" primary>
+            Sign up
+            </RouterButtonLink>
+          </SetMargin>
         </Col>
         <Col xs={12} lg={6}>
           <FlexColAlignCenter>

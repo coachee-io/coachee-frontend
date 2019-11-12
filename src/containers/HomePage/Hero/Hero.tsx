@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import CheckmarkTextList from '../../../components/CheckmarkTextList'
+import CheckmarkList from '../../../components/CheckmarkTextList'
 import {RouterButtonLink} from '../../../components/Routing'
 import SetMargin from '../../../components/Layout/SetMargin'
 import {FlexColAlignCenter} from '../../../components/Layout/Flexbox'
@@ -12,10 +12,18 @@ import {Para} from '../../../ui/labels'
 import HeroImage from './Image'
 
 const HeroListText = [
-  'Improve your relationship with fitness, food and body image',
-  'Gain financial awareness and start saving',
-  'Find Balance in your life no matter the obstacles',
-  'Find out more about who you are and who you want to be!',
+  {
+    text: 'Improve your relationship with fitness, food and body image',
+  },
+  {
+    text: 'Gain financial awareness and start saving',
+  },
+  {
+    text: 'Find Balance in your life no matter the obstacles',
+  },
+  {
+    text: 'Find out more about who you are and who you want to be!',
+  },
 ]
 
 class Hero extends PureComponent {
@@ -30,10 +38,10 @@ class Hero extends PureComponent {
             change your life
           </H1>
           <Para large>
-              Coaching is more than a trend, it&apos;s a powerful resource!
-              Some of the results you can achieve with our coaches include:
+            Coaching is more than a trend, it&apos;s a powerful resource!
+            Some of the results you can achieve with our coaches include:
           </Para>
-          <CheckmarkTextList list={HeroListText} />
+          <CheckmarkList list={HeroListText} />
           <SetMargin ml={30}>
             <RouterButtonLink to="/signup" primary>
             Sign up

@@ -1,7 +1,11 @@
 import React, {PureComponent} from 'react'
 import styled from 'styled-components'
 
+import {getMargin} from './Layout/SetMargin'
+import {FlexCol} from './Layout/Flexbox'
+import {H3} from '../ui/headings'
 import {Para} from '../ui/labels'
+
 
 import Checkmark from '../ui/images/checkmark.svg'
 
@@ -12,6 +16,10 @@ const List = styled.div`
   flex-direction: row;
 `
 
+interface IconProps {
+  mt?: number
+}
+
 const Icon = styled.img.attrs({
   src: Checkmark,
   alt: 'Checkmark',
@@ -19,25 +27,51 @@ const Icon = styled.img.attrs({
   flex-shrink: 0;
   height: 12px;
   width: 16px;
-  margin-top: 0.3rem;
   margin-right: 1rem;
+  vertical-align: middle;
+  ${({mt}: IconProps) => mt && getMargin('mt', mt)}
 `
 
-interface Props {
-  list: string[]
+interface List {
+  text: string,
+  heading?: string
 }
 
-class CheckmarkTextList extends PureComponent<Props> {
+interface Props {
+  list: List[],
+  paraSmall?: boolean,
+  paraLarge?: boolean
+}
+
+class CheckmarkList extends PureComponent<Props> {
   render() {
-    const {list} = this.props
+    const {list, paraSmall, paraLarge} = this.props
     return (
       <>
-        {list.map((text) => (
-          <List key={text}>
-            <Icon />
-            <Para>
-              {text}
-            </Para>
+        {list.map((item) => (
+          <List key={item.text}>
+            {item.heading && (
+              <>
+                <Icon mt={2} />
+                <FlexCol>
+                  <H3>
+                    {item.heading}
+                  </H3>
+                  <Para small={paraSmall} large={paraLarge}>
+                    {item.text}
+                  </Para>
+                </FlexCol>
+              </>
+            )}
+            {!item.heading && (
+              <>
+                <Icon mt={5} />
+                <Para small={paraSmall} large={paraLarge}>
+                  {item.text}
+                </Para>
+              </>
+            )}
+
           </List>
         ))}
       </>
@@ -45,4 +79,4 @@ class CheckmarkTextList extends PureComponent<Props> {
   }
 }
 
-export default CheckmarkTextList
+export default CheckmarkList

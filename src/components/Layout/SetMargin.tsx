@@ -10,13 +10,32 @@ const getMargin = (key: string, value: number): string => {
       return `margin-right: ${value}px;`
     case 'ml':
       return `margin-left: ${value}px;`
+    case 'm-all':
+      return `margin: ${value}px;`
     default:
       return ''
   }
 }
 
+const oneOf = (key: string): boolean => {
+  switch (key) {
+    case 'mb':
+      return true
+    case 'mt':
+      return true
+    case 'mr':
+      return true
+    case 'ml':
+      return true
+    case 'm-all':
+      return true
+    default:
+      return false
+  }
+}
+
 const getMarginKeys = (props: any): string[] | null => {
-  const keys = Object.keys(props).filter((key) => key)
+  const keys = Object.keys(props).filter((key) => oneOf(key))
   return keys
 }
 
@@ -45,5 +64,9 @@ interface Props {
 const SetMargin = styled.div`
   ${(props: Props) => props && composeMargins(props)}
 `
+
+export {
+  getMargin,
+}
 
 export default SetMargin

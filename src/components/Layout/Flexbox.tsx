@@ -19,3 +19,13 @@ export const FlexRowJustifyCenter = styled.div`
   display: ${DISPLAY_FLEX};
   justify-content: center;
 `
+
+export const FlexRow = styled.div`
+  display: ${DISPLAY_FLEX};
+  flex-direction: ${DIRECTION_ROW};
+`
+
+export const FlexCol = styled.div`
+  display: ${DISPLAY_FLEX};
+  flex-direction: ${DIRECTION_COLUMN};
+`

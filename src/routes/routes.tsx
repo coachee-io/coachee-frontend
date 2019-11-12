@@ -5,6 +5,8 @@ import Layout from '../components/Layout/Layout'
 import HomePage from '../containers/HomePage'
 
 import Login from '../containers/Login'
+import ForgotPassword from '../containers/ForgotPassword'
+
 import Checkout from '../containers/Checkout'
 
 import CoachSignup from '../containers/Signup/Coach'
@@ -31,6 +33,7 @@ class Routes extends PureComponent {
           <Route exact path="/" component={HomePage} />
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Mockup} />
+          <Route path="/forgot-password" component={ForgotPassword} />
           <Route exact path="/signup" component={CoacheeSignup} />
           <Route path="/signup/coach" component={CoachSignup} />
           <Route path="/coaches/:category?" component={CoachesCategories} />

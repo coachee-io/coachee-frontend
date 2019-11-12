@@ -2,18 +2,30 @@ import styled from 'styled-components'
 import {Link, LinkProps} from 'react-router-dom'
 
 import colors from '../../ui/colors'
-import {LatoBold} from '../../ui/fonts'
+import {LatoBold, BodyFontSizes, BodyFontSizesProps} from '../../ui/fonts'
 
-interface RouterLinkProps extends LinkProps {
+export interface RouterLinkProps extends LinkProps, BodyFontSizesProps {
   primary?: boolean,
   accent?: boolean,
 }
 
+export interface UnstyledRouterLinkProps extends LinkProps, BodyFontSizesProps {
+  bold?: boolean,
+  underline?: boolean
+}
+
 export const UnstyledRouterLink = styled(Link)`
+  ${BodyFontSizes};
   color: ${colors.black};
   background-color: none;
 
-  padding: 15px;
+  ${({bold}: UnstyledRouterLinkProps) => bold && `
+    font-weight: bold;
+  `}
+
+  ${({underline}: UnstyledRouterLinkProps) => underline && `
+    text-decoration: underline;
+  `}
 
   &:hover {
     background-color: none;
@@ -32,6 +44,7 @@ export const UnstyledRouterLink = styled(Link)`
 `
 
 export const RouterLink = styled(Link)`
+  ${BodyFontSizes};
   text-decoration: underline;
   color: ${colors.black};
   ${({primary}: RouterLinkProps) => primary && `
@@ -52,34 +65,30 @@ export const RouterLink = styled(Link)`
   }
 `
 
-interface RouterButtonLinkProps extends LinkProps {
-  primary?: boolean,
-  accent?: boolean,
-}
 
 export const RouterButtonLink = styled(Link)`
+  ${BodyFontSizes};
   ${LatoBold};
   display: block;
-  font-size: 16px;
   line-height: 45px;
   height: 44px;
   width: 156px;
   border-radius: 5px;
   text-align: center;
-  ${({primary}: RouterButtonLinkProps) => primary && `
+  ${({primary}: RouterLinkProps) => primary && `
     background-color: ${colors.primary};
     color: ${colors.white};
   `}
-  ${({accent}: RouterButtonLinkProps) => accent && `
+  ${({accent}: RouterLinkProps) => accent && `
     background-color: ${colors.accent};
     color: ${colors.black};
   `}
 
   &:hover {
-    ${({primary}: RouterButtonLinkProps) => primary && `
+    ${({primary}: RouterLinkProps) => primary && `
       color: ${colors.white};
     `}
-    ${({accent}: RouterButtonLinkProps) => accent && `
+    ${({accent}: RouterLinkProps) => accent && `
       color: ${colors.black};
     `}
   }

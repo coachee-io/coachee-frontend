@@ -8,26 +8,19 @@ import {string, object} from 'yup'
 import Form, {
   Input, Label, ErrorMessage, ErrorAlertCircle, Button,
 } from '../../components/Form'
-import SetMargin from '../../components/Layout/SetMargin'
-import {UnstyledRouterLink} from '../../components/Routing'
 import {FlexColAlignCenter, FlexRowJustifyCenter} from '../../components/Layout/Flexbox'
 import {H2} from '../../ui/headings'
+import {Para} from '../../ui/labels'
 
 const schema = object().shape({
   email: string()
     .trim()
     .required('Email is required')
     .email(),
-  password: string()
-    .trim()
-    .required('Password is required')
-    .min(8, 'Minimum 8 characters')
-    .max(16, 'Maximum 16 characters')
-    .matches(/[a-zA-Z0-9]/, 'Only letters and numbers'),
 })
 
 
-class Login extends PureComponent {
+class ForgotPassword extends PureComponent {
   onSubmit = (values: any) => {
     // API call here
     console.log(values)
@@ -50,8 +43,11 @@ class Login extends PureComponent {
                   <>
                     <Form onSubmit={handleSubmit} maxWidth={450}>
                       <H2>
-                        Login to your account
+                        Forgot your password?
                       </H2>
+                      <Para>
+                        Enter your email address and we will send you instructions to reset it.
+                      </Para>
                       <Label htmlFor="email">Email:</Label>
                       <Input
                         id="email"
@@ -68,31 +64,9 @@ class Login extends PureComponent {
                           <ErrorAlertCircle />
                         </ErrorMessage>
                       )}
-                      <Label htmlFor="password">Password:</Label>
-                      <Input
-                        id="password"
-                        name="password"
-                        type="password"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.password}
-                        error={errors.password && touched.password}
-                      />
-                      {errors.password && touched.password && (
-                      <ErrorMessage>
-                        {errors.password}
-                        {' '}
-                        <ErrorAlertCircle />
-                      </ErrorMessage>
-                      )}
-                      <SetMargin mt={10}>
-                        <UnstyledRouterLink to="/forgot-password" small bold underline>
-                          Forgotten password?
-                        </UnstyledRouterLink>
-                      </SetMargin>
                       <FlexRowJustifyCenter>
-                        <Button accent type="submit">
-                        Login
+                        <Button primary type="submit">
+                        Forgot password
                         </Button>
                       </FlexRowJustifyCenter>
                     </Form>
@@ -107,4 +81,4 @@ class Login extends PureComponent {
   }
 }
 
-export default Login
+export default ForgotPassword

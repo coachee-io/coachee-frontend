@@ -45,7 +45,8 @@ const StyledNavItem = styled(Nav.Item)`
 `
 
 interface State {
-  isScrollPositionOver50: boolean
+  isScrollPositionOver50: boolean,
+  expanded: boolean,
 }
 
 class Header extends PureComponent<{}, State> {
@@ -53,6 +54,7 @@ class Header extends PureComponent<{}, State> {
     super(props)
     this.state = {
       isScrollPositionOver50: false,
+      expanded: false,
     }
   }
 
@@ -68,10 +70,21 @@ class Header extends PureComponent<{}, State> {
     }
   }
 
+  handleCollapseOnSelect = () => {
+    this.setState(({expanded: false }))
+  }
+
+  handleToggle = () => {
+    this.setState((prevState) => ({expanded: !prevState.expanded}))
+  }
+
   render() {
-    const {isScrollPositionOver50} = this.state
+    const {isScrollPositionOver50, expanded} = this.state
     return (
       <NavigationBar
+        expanded={expanded}
+        collapseOnSelect
+        onToggle={this.handleToggle}
         boxShadow={isScrollPositionOver50}
         bg="white"
         expand="sm"
@@ -82,16 +95,16 @@ class Header extends PureComponent<{}, State> {
             <Logo />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse>
+          <Navbar.Collapse onClick={this.handleCollapseOnSelect}>
             <StyledNav>
               <StyledNavItem>
-                <RouterButtonLink to="/login" accent>
-                Login
+                <RouterButtonLink onClick={this.handleCollapseOnSelect} to="/login" accent>
+                  Login
                 </RouterButtonLink>
               </StyledNavItem>
               <StyledNavItem>
-                <RouterButtonLink to="/signup/coach" primary>
-                Become a Coach
+                <RouterButtonLink onClick={this.handleCollapseOnSelect} to="/signup/coach" primary>
+                  Become a Coach
                 </RouterButtonLink>
               </StyledNavItem>
             </StyledNav>

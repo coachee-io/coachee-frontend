@@ -13,6 +13,9 @@ const StyledFooter = styled.footer`
   width: 100%;
   background-color: ${colors.white};
   flex-shrink: 0;
+  ${maxWidthSize.mobile`
+    padding-bottom: 30px;
+ `}
 `
 
 const List = styled.ul`

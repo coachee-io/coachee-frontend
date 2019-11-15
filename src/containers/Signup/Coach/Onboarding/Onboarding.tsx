@@ -2,14 +2,14 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 import styled from 'styled-components'
 
-import CheckMarkList from '../../../components/CheckmarkTextList'
-import {RouterButtonLink} from '../../../components/Routing'
+import CheckMarkList from '../../../../components/CheckmarkTextList'
+import {RouterButtonLink} from '../../../../components/Routing'
 
-import SetMargin from '../../../components/Layout/SetMargin'
-import {FlexColAlignCenter} from '../../../components/Layout/Flexbox'
+import SetMargin from '../../../../components/Layout/SetMargin'
+import {FlexColAlignCenter} from '../../../../components/Layout/Flexbox'
 
-import {H2} from '../../../ui/headings'
-import {Para} from '../../../ui/labels'
+import {H2} from '../../../../ui/headings'
+import {Para} from '../../../../ui/labels'
 
 const ListWrapper = styled.div`
   width: 100%;

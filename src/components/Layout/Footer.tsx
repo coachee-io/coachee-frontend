@@ -21,7 +21,7 @@ const StyledFooter = styled.footer`
 const List = styled.ul`
   display: flex;
   height: 90px;
-  padding: 30px 0px 0px;
+  padding: 30px;
   list-style: none;
   justify-content: center;
   align-items: center;

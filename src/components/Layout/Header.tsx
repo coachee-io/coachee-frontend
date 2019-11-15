@@ -103,7 +103,7 @@ class Header extends PureComponent<{}, State> {
                 </RouterButtonLink>
               </StyledNavItem>
               <StyledNavItem>
-                <RouterButtonLink onClick={this.handleCollapseOnSelect} to="/signup/coach" primary>
+                <RouterButtonLink onClick={this.handleCollapseOnSelect} to="/become-a-coach" primary>
                   Become a Coach
                 </RouterButtonLink>
               </StyledNavItem>

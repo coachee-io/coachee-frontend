@@ -29,3 +29,7 @@ export const FlexCol = styled.div`
   display: ${DISPLAY_FLEX};
   flex-direction: ${DIRECTION_COLUMN};
 `
+
+export const FlexColAlignEnd = styled(FlexCol)`
+  align-items: flex-end;
+`

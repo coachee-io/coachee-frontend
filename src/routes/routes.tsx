@@ -11,8 +11,8 @@ import Checkout from '../containers/Checkout'
 
 import CoachSignup from '../containers/Signup/Coach'
 import CoacheeSignup from '../containers/Signup/Coachee'
-import CoachesCategories from '../containers/Coaches/Categories'
-import CoachProfile from '../containers/Coaches/Profile'
+import CoachesCategories from '../containers/Coaches'
+import CoachProfile from '../containers/Coach'
 
 import Error404 from '../containers/Error404'
 
@@ -34,8 +34,9 @@ class Routes extends PureComponent {
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Mockup} />
           <Route path="/forgot-password" component={ForgotPassword} />
-          <Route exact path="/signup" component={CoacheeSignup} />
-          <Route path="/signup/coach" component={CoachSignup} />
+          <Route path="/signup" component={CoacheeSignup} />
+          <Route exact path="/become-a-coach" component={CoachSignup} />
+          <Route path="/become-a-coach/register" component={Mockup} />
           <Route path="/coaches/:category?" component={CoachesCategories} />
           <Route path="/coach/:id" component={CoachProfile} />
           <Route path="/checkout" component={Checkout} />

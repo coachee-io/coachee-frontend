@@ -112,7 +112,7 @@ class CoachSignup extends PureComponent {
             <Row>
               <Col xs={12}>
                 <FlexColAlignCenter>
-                  <RouterButtonLink to="/login" primary>
+                  <RouterButtonLink to="/become-a-coach/register" primary>
                     Register
                   </RouterButtonLink>
                 </FlexColAlignCenter>

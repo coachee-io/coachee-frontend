@@ -2,8 +2,9 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
 import {RouterLink} from '../../../components/Routing'
-import {Cards} from '../../../components/Cards'
-import CategoryCard from '../../../components/CategoryCard'
+import {
+  Cards, CategoryCard, CategoryCardImage, CardTitle, CardBody, CardText,
+} from '../../../components/Cards'
 import SetMargin from '../../../components/Layout/SetMargin'
 import {FlexRowJustifyCenter} from '../../../components/Layout/Flexbox'
 
@@ -31,16 +32,23 @@ class Categories extends PureComponent {
             </Col>
           </Row>
         </SetMargin>
-        <Cards>
-          {categoryList.map((category: any) => (
-            <CategoryCard
-              key={`${category.title}-${category.imgSrc}`}
-              imgSrc={category.imgSrc}
-              title={category.title}
-              description={category.description}
-            />
-          ))}
-        </Cards>
+        <FlexRowJustifyCenter>
+          <Cards>
+            {categoryList.map((category: any) => (
+              <CategoryCard key={category.title}>
+                <CategoryCardImage imgSrc={category.imgSrc} />
+                <CardBody>
+                  <CardTitle>
+                    {category.title}
+                  </CardTitle>
+                  <CardText>
+                    {category.description}
+                  </CardText>
+                </CardBody>
+              </CategoryCard>
+            ))}
+          </Cards>
+        </FlexRowJustifyCenter>
         <SetMargin mt={30}>
           <FlexRowJustifyCenter>
             <RouterLink to="/coaches" primary>

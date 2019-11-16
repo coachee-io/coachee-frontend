@@ -5,9 +5,10 @@ import {
 } from 'formik'
 import {string, object} from 'yup'
 
-import Form, {
-  Input, Label, ErrorMessage, ErrorAlertCircle, Button,
+import {
+  Form, StyledLabel, StyledInput, Button, ErrorMessage, ErrorAlertCircle,
 } from '../../components/Form'
+
 import SetMargin from '../../components/Layout/SetMargin'
 import {UnstyledRouterLink} from '../../components/Routing'
 import {FlexColAlignCenter, FlexRowJustifyCenter} from '../../components/Layout/Flexbox'
@@ -52,8 +53,8 @@ class Login extends PureComponent {
                       <H2>
                         Login to your account
                       </H2>
-                      <Label htmlFor="email">Email:</Label>
-                      <Input
+                      <StyledLabel htmlFor="email">Email:</StyledLabel>
+                      <StyledInput
                         id="email"
                         name="email"
                         onChange={handleChange}
@@ -68,8 +69,8 @@ class Login extends PureComponent {
                           <ErrorAlertCircle />
                         </ErrorMessage>
                       )}
-                      <Label htmlFor="password">Password:</Label>
-                      <Input
+                      <StyledLabel htmlFor="password">Password:</StyledLabel>
+                      <StyledInput
                         id="password"
                         name="password"
                         type="password"

@@ -7,9 +7,10 @@ import {
   string, object, boolean, array,
 } from 'yup'
 
-import Form, {
-  Input, Label, ErrorMessage, ErrorAlertCircle, Button, Select,
+import {
+  Form, StyledLabel, StyledInput, StyledSelect, ErrorMessage, ErrorAlertCircle, Button,
 } from '../../../components/Form'
+
 import {FlexColAlignCenter, FlexRowJustifyCenter} from '../../../components/Layout/Flexbox'
 import {H2} from '../../../ui/headings'
 
@@ -87,8 +88,8 @@ class SignUpCoachee extends PureComponent {
                       <H2>
                         Create a new account
                       </H2>
-                      <Label htmlFor="firstName">First name:</Label>
-                      <Input
+                      <StyledLabel htmlFor="firstName">First name:</StyledLabel>
+                      <StyledInput
                         id="firstName"
                         name="firstName"
                         type="text"
@@ -104,8 +105,8 @@ class SignUpCoachee extends PureComponent {
                           <ErrorAlertCircle />
                         </ErrorMessage>
                       )}
-                      <Label htmlFor="lastName">Last name:</Label>
-                      <Input
+                      <StyledLabel htmlFor="lastName">Last name:</StyledLabel>
+                      <StyledInput
                         id="lastName"
                         name="lastName"
                         type="text"
@@ -120,8 +121,8 @@ class SignUpCoachee extends PureComponent {
                           <ErrorAlertCircle />
                         </ErrorMessage>
                       )}
-                      <Label htmlFor="email">Email:</Label>
-                      <Input
+                      <StyledLabel htmlFor="email">Email:</StyledLabel>
+                      <StyledInput
                         id="email"
                         name="email"
                         type="text"
@@ -137,8 +138,8 @@ class SignUpCoachee extends PureComponent {
                           <ErrorAlertCircle />
                         </ErrorMessage>
                       )}
-                      <Label htmlFor="password">Password:</Label>
-                      <Input
+                      <StyledLabel htmlFor="password">Password:</StyledLabel>
+                      <StyledInput
                         id="password"
                         name="password"
                         type="password"
@@ -154,8 +155,8 @@ class SignUpCoachee extends PureComponent {
                         <ErrorAlertCircle />
                       </ErrorMessage>
                       )}
-                      <Label htmlFor="confirmPassword">Confirm Password:</Label>
-                      <Input
+                      <StyledLabel htmlFor="confirmPassword">Confirm Password:</StyledLabel>
+                      <StyledInput
                         id="confirmPassword"
                         name="confirmPassword"
                         type="password"
@@ -171,8 +172,8 @@ class SignUpCoachee extends PureComponent {
                         <ErrorAlertCircle />
                       </ErrorMessage>
                       )}
-                      <Label htmlFor="hearAboutUs">How did you hear about us?</Label>
-                      <Select
+                      <StyledLabel htmlFor="hearAboutUs">How did you hear about us?</StyledLabel>
+                      <StyledSelect
                         id="hearAboutUs"
                         name="aboutUs"
                         onChange={handleChange}
@@ -184,7 +185,7 @@ class SignUpCoachee extends PureComponent {
                             {option.label}
                           </option>
                         ))}
-                      </Select>
+                      </StyledSelect>
                       {errors.aboutUs && touched.aboutUs && (
                       <ErrorMessage>
                         {errors.aboutUs}
@@ -192,8 +193,8 @@ class SignUpCoachee extends PureComponent {
                         <ErrorAlertCircle />
                       </ErrorMessage>
                       )}
-                      <Label htmlFor="promotional">
-                        <Input
+                      <StyledLabel htmlFor="promotional">
+                        <StyledInput
                           id="promotional"
                           name="promotional"
                           type="checkbox"
@@ -201,9 +202,9 @@ class SignUpCoachee extends PureComponent {
                           onBlur={handleBlur}
                         />
                         Receive news and promotional emails
-                      </Label>
-                      <Label htmlFor="terms">
-                        <Input
+                      </StyledLabel>
+                      <StyledLabel htmlFor="terms">
+                        <StyledInput
                           id="terms"
                           name="terms"
                           type="checkbox"
@@ -212,7 +213,7 @@ class SignUpCoachee extends PureComponent {
                           error={errors.terms && touched.terms}
                         />
                         I agree to Terms and Conditions
-                      </Label>
+                      </StyledLabel>
                       {errors.terms && touched.terms && (
                       <ErrorMessage>
                         {errors.terms}

@@ -5,8 +5,8 @@ import {
 } from 'formik'
 import {string, object} from 'yup'
 
-import Form, {
-  Input, Label, ErrorMessage, ErrorAlertCircle, Button,
+import {
+  Form, StyledInput, StyledLabel, ErrorMessage, ErrorAlertCircle, Button,
 } from '../../components/Form'
 import {FlexColAlignCenter, FlexRowJustifyCenter} from '../../components/Layout/Flexbox'
 import {H2} from '../../ui/headings'
@@ -48,8 +48,8 @@ class ForgotPassword extends PureComponent {
                       <Para>
                         Enter your email address and we will send you instructions to reset it.
                       </Para>
-                      <Label htmlFor="email">Email:</Label>
-                      <Input
+                      <StyledLabel htmlFor="email">Email:</StyledLabel>
+                      <StyledInput
                         id="email"
                         name="email"
                         onChange={handleChange}

@@ -32,6 +32,8 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "max-len": ["error", {"code": 140}],
+        "dot-notation":"off",
         "no-unused-vars": 0,
         "import/prefer-default-export": 0,
         "react/display-name": "off",

@@ -87,7 +87,7 @@ class CoachSignup extends PureComponent {
             </Col>
           </Row>
         </SetMargin>
-        <SetMargin mt={30}>
+        <SetMargin mt={45}>
           <Row>
             <Col xs={12}>
               <FlexColAlignCenter>

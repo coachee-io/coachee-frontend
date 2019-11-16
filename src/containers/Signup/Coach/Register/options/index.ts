@@ -1,0 +1,48 @@
+export interface ICoachingCategory {
+  id: string,
+  name: string
+}
+
+export const coachingCategories: ICoachingCategory[] = [
+  {
+    id: 'life', name: 'Life coaching',
+  },
+  {
+    id: 'health', name: 'Health coaching',
+  },
+  {
+    id: 'relationship', name: 'Relationship coaching',
+  },
+  {
+    id: 'feminity', name: 'Feminity coaching',
+  },
+  {
+    id: 'financial', name: 'Financial coaching',
+  },
+]
+
+export const VAT: any = [
+  {
+    id: 'yes',
+    label: 'Yes',
+    value: 'yes',
+  },
+  {
+    id: 'no',
+    label: 'No',
+    value: 'no',
+  },
+]
+
+export const termsAndConditions: any = [
+  {
+    id: 'true',
+    label: 'I accept.',
+    value: 'true',
+  },
+  {
+    id: 'false',
+    label: 'I do not accept.',
+    value: 'false',
+  },
+]

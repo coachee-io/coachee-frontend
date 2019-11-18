@@ -1,10 +1,12 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import CheckmarkList from '../../../components/CheckmarkTextList'
+import CheckmarkList from '../../../components/CheckmarkList'
 import {RouterButtonLink} from '../../../components/Routing'
-import SetMargin from '../../../components/Layout/SetMargin'
+
 import {FlexColAlignCenter} from '../../../components/Layout/Flexbox'
+import SetMargin from '../../../components/Layout/SetMargin'
+import MediaQuery from '../../../components/Layout/MediaQuery'
 
 import {H1} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
@@ -42,17 +44,38 @@ class Hero extends PureComponent {
             Some of the results you can achieve with our coaches include:
           </Para>
           <CheckmarkList list={HeroListText} />
-          <SetMargin ml={30}>
-            <RouterButtonLink to="/signup" primary>
-            Sign up
-            </RouterButtonLink>
-          </SetMargin>
+          <MediaQuery>
+            {({isTablet}: any) => (
+              <>
+                {isTablet() && (
+                <SetMargin ml={30} mt={10}>
+                  <RouterButtonLink to="/signup" primary>
+                    Sign up
+                  </RouterButtonLink>
+                </SetMargin>
+                )}
+                {!isTablet() && (
+                <SetMargin mt={10}>
+                  <FlexColAlignCenter>
+                    <RouterButtonLink to="/signup" primary>
+                    Sign up
+                    </RouterButtonLink>
+                  </FlexColAlignCenter>
+                </SetMargin>
+                )}
+              </>
+            )}
+          </MediaQuery>
         </Col>
-        <Col xs={12} lg={6}>
-          <FlexColAlignCenter>
-            <HeroImage />
-          </FlexColAlignCenter>
-        </Col>
+        <MediaQuery>
+          {({isDesktop}: any) => isDesktop() && (
+            <Col lg={6}>
+              <FlexColAlignCenter>
+                <HeroImage />
+              </FlexColAlignCenter>
+            </Col>
+          )}
+        </MediaQuery>
       </Row>
     )
   }

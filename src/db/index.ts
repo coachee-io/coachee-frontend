@@ -99,7 +99,7 @@ const db = (param?: any): Promise<any> => {
     list = ListOfCoaches
   }
   return new Promise((resolve) => {
-    setTimeout(() => resolve(list), 250)
+    setTimeout(() => resolve(list), 500)
   })
 }
 

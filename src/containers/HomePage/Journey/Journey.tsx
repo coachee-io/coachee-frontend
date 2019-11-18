@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import CheckmarkTextList from '../../../components/CheckmarkTextList'
+import CheckmarkTextList from '../../../components/CheckmarkList'
 import {RouterLink, RouterButtonLink} from '../../../components/Routing'
 
 import SetMargin from '../../../components/Layout/SetMargin'

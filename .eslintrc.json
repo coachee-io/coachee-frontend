@@ -40,6 +40,7 @@
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
         "react/react-in-jsx-scope": "error",
+        "react/no-array-index-key": 0,
         "react/jsx-filename-extension": "off",
         "semi": ["error", "never"],
         "object-curly-spacing": 0

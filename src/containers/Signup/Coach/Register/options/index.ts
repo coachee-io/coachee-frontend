@@ -21,18 +21,6 @@ export const coachingCategories: ICoachingCategory[] = [
   },
 ]
 
-export const VAT: any = [
-  {
-    id: 'yes',
-    label: 'Yes',
-    value: 'yes',
-  },
-  {
-    id: 'no',
-    label: 'No',
-    value: 'no',
-  },
-]
 
 export const termsAndConditions: any = [
   {

@@ -7,7 +7,7 @@ import colors from '../../ui/colors'
 import {maxWidthSize} from '../../ui/global/mediaQuery'
 
 import SetMargin from './SetMargin'
-import {UnstyledRouterLink} from '../Routing'
+import {RegularRouterLink} from '../Routing'
 
 const StyledFooter = styled.footer`
   width: 100%;
@@ -73,9 +73,9 @@ class Footer extends PureComponent {
                 <List>
                   {links.map((link) => (
                     <ListItem key={link.label}>
-                      <UnstyledRouterLink key={link.label} to={link.to}>
+                      <RegularRouterLink key={link.label} to={link.to}>
                         {link.label}
-                      </UnstyledRouterLink>
+                      </RegularRouterLink>
                     </ListItem>
                   ))}
                 </List>

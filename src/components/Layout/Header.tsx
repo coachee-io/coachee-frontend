@@ -5,7 +5,7 @@ import {Navbar, Container, Nav} from 'react-bootstrap'
 import colors from '../../ui/colors'
 import {minWidthSize, maxWidthSize} from '../../ui/global/mediaQuery'
 
-import {RouterButtonLink} from '../Routing'
+import {RouterButtonLink, UnstyledRouterLink} from '../Routing'
 import Logo from '../Logo'
 
 interface HeaderProps {
@@ -91,8 +91,10 @@ class Header extends PureComponent<{}, State> {
         fixed="top"
       >
         <Container>
-          <Navbar.Brand href="/">
-            <Logo />
+          <Navbar.Brand as="div">
+            <UnstyledRouterLink to="/">
+              <Logo />
+            </UnstyledRouterLink>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse onClick={this.handleCollapseOnSelect}>

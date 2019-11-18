@@ -1,22 +1,24 @@
 import React, {PureComponent} from 'react'
 
-import {History} from 'history'
-
 import {RouterButtonLink} from '../../../components/Routing'
-
 import {
   Cards, CardTitle, CardText, CoachCard, CoachCardImage,
 } from '../../../components/Cards'
+import {Pulse} from '../../../components/Skeleton'
 
-import {FlexRowJustifyCenter, FlexColAlignCenter, FlexColAlignEnd} from '../../../components/Layout/Flexbox'
+import {FlexRowJustifyCenter, FlexColAlignCenter} from '../../../components/Layout/Flexbox'
 import SetMargin from '../../../components/Layout/SetMargin'
+import {Para} from '../../../ui/labels'
 
 import mockDb from '../../../db'
 
+import CoachSearchImage from './Image'
 
 interface State {
   coaches: any,
-  isLoading: boolean
+  placeholder: any,
+  isLoading: boolean,
+  error: boolean
 }
 
 interface Props {
@@ -28,65 +30,119 @@ class Categories extends PureComponent<Props, State> {
     super(props)
     this.state = {
       coaches: [],
+      placeholder: [1, 2, 3],
       isLoading: true,
+      error: null,
     }
   }
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
+    await this.setState({isLoading: true})
     this.getCoaches()
   }
 
-  componentDidUpdate = (prevProps: any) => {
+  componentDidUpdate = async (prevProps: any) => {
     const {category} = this.props
-    console.log(category, prevProps)
+    /* eslint-disable react/no-did-update-set-state */
     if (category !== prevProps.category) {
-      this.getCoaches()
+      await this.setState({isLoading: true})
+      this.getNewCoaches()
     }
+    /* eslint-enable react/no-did-update-set-state */
   }
 
   getCoaches = () => {
     const {category} = this.props
-    this.setState({isLoading: true})
-    mockDb(category).then((res) => {
+    return mockDb(category).then((res) => {
       this.setState(({coaches: res, isLoading: false}))
     })
   }
 
-  render() {
-    const {coaches, isLoading} = this.state
+  getNewCoaches = () => {
+    this.getCoaches()
+  }
 
-    if (isLoading) {
-      return <div>Loading...</div>
+
+  render() {
+    const {
+      coaches, placeholder, isLoading, error,
+    } = this.state
+
+    if (error) {
+      return (
+        <div> Something went wrong </div>
+      )
     }
 
-    return (
-      <>
+    if (isLoading) {
+      return (
         <FlexRowJustifyCenter>
           <Cards>
-            {coaches.map((coach: any) => (
-              <CoachCard key={coach.name}>
+            {placeholder.map((item: any) => (
+              <CoachCard key={item} isLoading>
                 <FlexColAlignCenter>
-                  <CoachCardImage imgSrc={coach.photo} />
+                  <Pulse circle width={76} height={76} />
                   <SetMargin mt={15}>
                     <CardTitle textAlign="center">
-                      {coach.name}
+                      <Pulse height={24} />
                     </CardTitle>
                     <CardText textAlign="center">
-                      {coach.expertise}
+                      <Pulse height={16} />
                     </CardText>
                     <CardText textAlign="center">
-                      {coach.price}
+                      <Pulse height={16} />
                     </CardText>
-                    <RouterButtonLink to={coach.url} primary>
-                        See profile
-                    </RouterButtonLink>
+                    <Pulse height={44} width={156} />
                   </SetMargin>
                 </FlexColAlignCenter>
               </CoachCard>
             ))}
           </Cards>
         </FlexRowJustifyCenter>
-      </>
+      )
+    }
+
+    if (coaches.length === 0) {
+      return (
+        <FlexColAlignCenter>
+          <SetMargin mt={30}>
+            <Para textAlign="center">
+              We are currently busy finding the best coaches for this category.
+            </Para>
+          </SetMargin>
+          <SetMargin mt={30}>
+            <CoachSearchImage />
+          </SetMargin>
+        </FlexColAlignCenter>
+      )
+    }
+
+    return (
+      <FlexRowJustifyCenter>
+        <Cards>
+          {coaches.map((coach: any) => (
+            <CoachCard key={coach.name}>
+              <FlexColAlignCenter>
+                <CoachCardImage imgSrc={coach.photo} />
+                <SetMargin mt={15}>
+                  <CardTitle textAlign="center">
+                    {coach.name}
+                  </CardTitle>
+                  <CardText textAlign="center">
+                    {coach.expertise}
+                  </CardText>
+                  <CardText textAlign="center">
+                    {coach.price}
+                  </CardText>
+                  <RouterButtonLink to={coach.url} primary>
+                    See profile
+                  </RouterButtonLink>
+                </SetMargin>
+              </FlexColAlignCenter>
+            </CoachCard>
+          ))}
+        </Cards>
+      </FlexRowJustifyCenter>
     )
   }
 }

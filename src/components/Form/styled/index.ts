@@ -65,7 +65,7 @@ const StyledInput = styled(Field)`
 
 const ErrorMessage = styled.span`
   ${Lato};
-  font-size: 12px;
+  font-size: 14px;
   color: red;
 `
 

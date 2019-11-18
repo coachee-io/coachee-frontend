@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
-import {FieldArray} from 'formik'
-import {StyledLabel, StyledInput} from './styled'
+import {
+  StyledLabel, StyledInput, ErrorMessage, ErrorAlertCircle,
+} from './styled'
 
 interface Props {
   id: string,
@@ -8,13 +9,16 @@ interface Props {
   name: string,
   value: any,
   checked: boolean | string | undefined,
-  onChange: any
+  onChange: any,
+  onBlur?: any,
+  error?: boolean | string | undefined,
+  errorMessage?: string | undefined
 }
 
 class Checkbox extends PureComponent<Props> {
   render() {
     const {
-      id, label, name, value, checked, onChange,
+      id, label, name, value, checked, onChange, error, errorMessage, onBlur,
     } = this.props
     return (
       <>
@@ -26,9 +30,16 @@ class Checkbox extends PureComponent<Props> {
             value={value}
             checked={checked}
             onChange={onChange}
+            onBlur={onBlur}
           />
           {label}
         </StyledLabel>
+        {error && (
+        <ErrorMessage>
+          {errorMessage}
+          <ErrorAlertCircle />
+        </ErrorMessage>
+        )}
       </>
     )
   }

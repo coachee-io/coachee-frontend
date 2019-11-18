@@ -1,15 +1,9 @@
 import styled from 'styled-components'
 
-import colors from '../ui/colors'
-import {H2} from '../ui/headings'
-import {Para} from '../ui/labels'
-import {minWidthSize} from '../ui/global/mediaQuery'
-
-interface CardsProps {
-  isMobile?: boolean,
-  isTablet?: boolean,
-  isDesktop?: boolean
-}
+import colors from '../../ui/colors'
+import {H2} from '../../ui/headings'
+import {Para} from '../../ui/labels'
+import {minWidthSize} from '../../ui/global/mediaQuery'
 
 interface CardImageProps {
   imgSrc?: string
@@ -32,7 +26,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  border: 1px solid ${colors.primary};
+  border: 0.5px solid ${colors.primary};
   background-color: ${colors.white};
   margin-top: 30px;
 `
@@ -62,8 +56,15 @@ export const CategoryCardImage = styled.div`
   `}
 `
 
+interface CoachCardProps {
+  isLoading?: boolean
+}
+
 export const CoachCard = styled(Card)`
   padding: 2rem;
+  ${({isLoading}: CoachCardProps) => isLoading && `
+    border: 0.5px solid #E5E5E5;
+  `}
 `
 
 export const CoachCardImage = styled.div`

@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 import styled from 'styled-components'
 
-import CheckMarkList from '../../../../components/CheckmarkTextList'
+import CheckMarkList from '../../../../components/CheckmarkList'
 import {RouterButtonLink} from '../../../../components/Routing'
 
 import SetMargin from '../../../../components/Layout/SetMargin'
@@ -113,7 +113,7 @@ class CoachSignup extends PureComponent {
               <Col xs={12}>
                 <FlexColAlignCenter>
                   <RouterButtonLink to="/become-a-coach/register" primary>
-                    Register
+                    Register now
                   </RouterButtonLink>
                 </FlexColAlignCenter>
               </Col>

@@ -1,13 +1,13 @@
 import React, {PureComponent} from 'react'
 import styled from 'styled-components'
 
-import {getMargin} from './Layout/SetMargin'
-import {FlexCol} from './Layout/Flexbox'
-import {H3} from '../ui/headings'
-import {Para} from '../ui/labels'
+import {getMargin} from '../Layout/SetMargin'
+import {FlexCol} from '../Layout/Flexbox'
+import {H3} from '../../ui/headings'
+import {Para} from '../../ui/labels'
 
 
-import Checkmark from '../ui/images/checkmark.svg'
+import Checkmark from '../../ui/images/checkmark.svg'
 
 const List = styled.div`
   margin: 0;

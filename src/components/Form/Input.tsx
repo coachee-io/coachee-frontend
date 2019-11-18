@@ -9,17 +9,20 @@ interface Props {
   id: string,
   name: string,
   type: string,
+  helper?: string | undefined,
   error: boolean | string | undefined,
   errorMessage: string | undefined,
   value: any,
   onChange: any,
-  onBlur: any
+  onBlur: any,
+  component?: string | undefined
 }
 
 class Input extends PureComponent<Props> {
   render() {
     const {
-      label, id, name, type, error, errorMessage, value, onChange, onBlur,
+      label, id, name, type, error, errorMessage, value, onChange, onBlur, component,
+      helper,
     } = this.props
     return (
       <>
@@ -32,6 +35,7 @@ class Input extends PureComponent<Props> {
           onBlur={onBlur}
           value={value}
           error={error}
+          component={component}
         />
         {error && (
           <ErrorMessage>

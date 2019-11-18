@@ -10,7 +10,7 @@ import {
 } from '../../components/Form'
 
 import SetMargin from '../../components/Layout/SetMargin'
-import {UnstyledRouterLink} from '../../components/Routing'
+import {RegularRouterLink} from '../../components/Routing'
 import {FlexColAlignCenter, FlexRowJustifyCenter} from '../../components/Layout/Flexbox'
 import {H2} from '../../ui/headings'
 
@@ -37,72 +37,74 @@ class Login extends PureComponent {
   render() {
     return (
       <>
-        <Row>
-          <Col xs={12}>
-            <FlexColAlignCenter>
-              <Formik
-                initialValues={{email: '', password: ''}}
-                onSubmit={this.onSubmit}
-                validationSchema={schema}
-              >
-                {({
-                  values, errors, touched, handleChange, handleBlur, handleSubmit,
-                }) => (
-                  <>
-                    <Form onSubmit={handleSubmit} maxWidth={450}>
-                      <H2>
+        <SetMargin mt={30}>
+          <Row>
+            <Col xs={12}>
+              <FlexColAlignCenter>
+                <Formik
+                  initialValues={{email: '', password: ''}}
+                  onSubmit={this.onSubmit}
+                  validationSchema={schema}
+                >
+                  {({
+                    values, errors, touched, handleChange, handleBlur, handleSubmit,
+                  }) => (
+                    <>
+                      <Form onSubmit={handleSubmit} maxWidth={450}>
+                        <H2>
                         Login to your account
-                      </H2>
-                      <StyledLabel htmlFor="email">Email:</StyledLabel>
-                      <StyledInput
-                        id="email"
-                        name="email"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.email}
-                        error={errors.email && touched.email}
-                      />
-                      {errors.email && touched.email && (
+                        </H2>
+                        <StyledLabel htmlFor="email">Email:</StyledLabel>
+                        <StyledInput
+                          id="email"
+                          name="email"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.email}
+                          error={errors.email && touched.email}
+                        />
+                        {errors.email && touched.email && (
                         <ErrorMessage>
                           {errors.email}
                           {' '}
                           <ErrorAlertCircle />
                         </ErrorMessage>
-                      )}
-                      <StyledLabel htmlFor="password">Password:</StyledLabel>
-                      <StyledInput
-                        id="password"
-                        name="password"
-                        type="password"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.password}
-                        error={errors.password && touched.password}
-                      />
-                      {errors.password && touched.password && (
-                      <ErrorMessage>
-                        {errors.password}
-                        {' '}
-                        <ErrorAlertCircle />
-                      </ErrorMessage>
-                      )}
-                      <SetMargin mt={10}>
-                        <UnstyledRouterLink to="/forgot-password" small bold underline>
+                        )}
+                        <StyledLabel htmlFor="password">Password:</StyledLabel>
+                        <StyledInput
+                          id="password"
+                          name="password"
+                          type="password"
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          value={values.password}
+                          error={errors.password && touched.password}
+                        />
+                        {errors.password && touched.password && (
+                        <ErrorMessage>
+                          {errors.password}
+                          {' '}
+                          <ErrorAlertCircle />
+                        </ErrorMessage>
+                        )}
+                        <SetMargin mt={10}>
+                          <RegularRouterLink to="/forgot-password" small bold underline>
                           Forgotten password?
-                        </UnstyledRouterLink>
-                      </SetMargin>
-                      <FlexRowJustifyCenter>
-                        <Button accent type="submit">
+                          </RegularRouterLink>
+                        </SetMargin>
+                        <FlexRowJustifyCenter>
+                          <Button accent type="submit">
                         Login
-                        </Button>
-                      </FlexRowJustifyCenter>
-                    </Form>
-                  </>
-                )}
-              </Formik>
-            </FlexColAlignCenter>
-          </Col>
-        </Row>
+                          </Button>
+                        </FlexRowJustifyCenter>
+                      </Form>
+                    </>
+                  )}
+                </Formik>
+              </FlexColAlignCenter>
+            </Col>
+          </Row>
+        </SetMargin>
       </>
     )
   }

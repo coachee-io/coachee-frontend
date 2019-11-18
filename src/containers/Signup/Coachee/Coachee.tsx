@@ -1,46 +1,19 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
+
 import {
   Formik,
 } from 'formik'
-import {
-  string, object, boolean, array,
-} from 'yup'
 
 import {
-  Form, StyledLabel, StyledInput, StyledSelect, ErrorMessage, ErrorAlertCircle, Button,
+  Form, Checkbox, StyledLabel, StyledInput, StyledSelect, ErrorMessage, ErrorAlertCircle, Button, Input,
 } from '../../../components/Form'
 
 import {FlexColAlignCenter, FlexRowJustifyCenter} from '../../../components/Layout/Flexbox'
 import {H2} from '../../../ui/headings'
 
-const schema = object().shape({
-  firstName: string()
-    .required('Please enter your first name')
-    .matches(/[a-zA-Z]/, 'Only letters'),
-  lastName: string()
-    .required('Please enter your last name')
-    .matches(/[a-zA-Z]/, 'Only letters'),
-  email: string()
-    .trim()
-    .required('Please enter your email address')
-    .email(),
-  password: string()
-    .trim()
-    .required('Please enter a password')
-    .min(1, 'Minimum 8 characters')
-    .max(16, 'Maximum 16 characters')
-    .matches(/[a-zA-Z0-9]/, 'Only letters and numbers'),
-  confirmPassword: string()
-    .required('Please enter a password')
-    .test('passwords-match', "Passwords don't match", function (value) {
-      return this.parent.password === value
-    }),
-  hearAboutUs: string()
-    .notRequired(),
-  terms: array()
-    .required('Please select terms and conditions'),
-})
+import schema from './validationSchema'
+
 
 const options = [
   {
@@ -74,8 +47,8 @@ class SignUpCoachee extends PureComponent {
                   password: '',
                   confirmPassword: '',
                   aboutUs: '',
-                  terms: [],
-                  promotional: [],
+                  promotional: false,
+                  terms: false,
                 }}
                 onSubmit={this.onSubmit}
                 validationSchema={schema}
@@ -88,8 +61,8 @@ class SignUpCoachee extends PureComponent {
                       <H2>
                         Create a new account
                       </H2>
-                      <StyledLabel htmlFor="firstName">First name:</StyledLabel>
-                      <StyledInput
+                      <Input
+                        label="First name"
                         id="firstName"
                         name="firstName"
                         type="text"
@@ -97,16 +70,10 @@ class SignUpCoachee extends PureComponent {
                         onBlur={handleBlur}
                         value={values.firstName}
                         error={errors.firstName && touched.firstName}
+                        errorMessage={errors.firstName}
                       />
-                      {errors.firstName && touched.firstName && (
-                        <ErrorMessage>
-                          {errors.firstName}
-                          {' '}
-                          <ErrorAlertCircle />
-                        </ErrorMessage>
-                      )}
-                      <StyledLabel htmlFor="lastName">Last name:</StyledLabel>
-                      <StyledInput
+                      <Input
+                        label="Last name"
                         id="lastName"
                         name="lastName"
                         type="text"
@@ -114,15 +81,10 @@ class SignUpCoachee extends PureComponent {
                         onBlur={handleBlur}
                         value={values.lastName}
                         error={errors.lastName && touched.lastName}
+                        errorMessage={errors.lastName}
                       />
-                      {errors.lastName && touched.lastName && (
-                        <ErrorMessage>
-                          {errors.lastName}
-                          <ErrorAlertCircle />
-                        </ErrorMessage>
-                      )}
-                      <StyledLabel htmlFor="email">Email:</StyledLabel>
-                      <StyledInput
+                      <Input
+                        label="Email"
                         id="email"
                         name="email"
                         type="text"
@@ -130,16 +92,10 @@ class SignUpCoachee extends PureComponent {
                         onBlur={handleBlur}
                         value={values.email}
                         error={errors.email && touched.email}
+                        errorMessage={errors.email}
                       />
-                      {errors.email && touched.email && (
-                        <ErrorMessage>
-                          {errors.email}
-                          {' '}
-                          <ErrorAlertCircle />
-                        </ErrorMessage>
-                      )}
-                      <StyledLabel htmlFor="password">Password:</StyledLabel>
-                      <StyledInput
+                      <Input
+                        label="Password"
                         id="password"
                         name="password"
                         type="password"
@@ -147,16 +103,10 @@ class SignUpCoachee extends PureComponent {
                         onBlur={handleBlur}
                         value={values.password}
                         error={errors.password && touched.password}
+                        errorMessage={errors.password}
                       />
-                      {errors.password && touched.password && (
-                      <ErrorMessage>
-                        {errors.password}
-                        {' '}
-                        <ErrorAlertCircle />
-                      </ErrorMessage>
-                      )}
-                      <StyledLabel htmlFor="confirmPassword">Confirm Password:</StyledLabel>
-                      <StyledInput
+                      <Input
+                        label="Confirm password"
                         id="confirmPassword"
                         name="confirmPassword"
                         type="password"
@@ -164,14 +114,8 @@ class SignUpCoachee extends PureComponent {
                         onBlur={handleBlur}
                         value={values.confirmPassword}
                         error={errors.confirmPassword && touched.confirmPassword}
+                        errorMessage={errors.confirmPassword}
                       />
-                      {errors.confirmPassword && touched.confirmPassword && (
-                      <ErrorMessage>
-                        {errors.confirmPassword}
-                        {' '}
-                        <ErrorAlertCircle />
-                      </ErrorMessage>
-                      )}
                       <StyledLabel htmlFor="hearAboutUs">How did you hear about us?</StyledLabel>
                       <StyledSelect
                         id="hearAboutUs"
@@ -193,37 +137,29 @@ class SignUpCoachee extends PureComponent {
                         <ErrorAlertCircle />
                       </ErrorMessage>
                       )}
-                      <StyledLabel htmlFor="promotional">
-                        <StyledInput
-                          id="promotional"
-                          name="promotional"
-                          type="checkbox"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                        />
-                        Receive news and promotional emails
-                      </StyledLabel>
-                      <StyledLabel htmlFor="terms">
-                        <StyledInput
-                          id="terms"
-                          name="terms"
-                          type="checkbox"
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          error={errors.terms && touched.terms}
-                        />
-                        I agree to Terms and Conditions
-                      </StyledLabel>
-                      {errors.terms && touched.terms && (
-                      <ErrorMessage>
-                        {errors.terms}
-                        {' '}
-                        <ErrorAlertCircle />
-                      </ErrorMessage>
-                      )}
+                      <Checkbox
+                        label="Receive news and promotional emails"
+                        id="promotional"
+                        name="promotional"
+                        value={values.promotional}
+                        checked={values.promotional}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                      />
+                      <Checkbox
+                        label="I agree to Terms and Conditions"
+                        id="terms"
+                        name="terms"
+                        value={values.terms}
+                        checked={values.terms}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        error={errors.terms && touched.terms}
+                        errorMessage={errors.terms}
+                      />
                       <FlexRowJustifyCenter>
                         <Button accent type="submit">
-                        SignupCoachee
+                          Sign up
                         </Button>
                       </FlexRowJustifyCenter>
                     </Form>

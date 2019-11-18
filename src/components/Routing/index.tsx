@@ -15,6 +15,29 @@ export interface UnstyledRouterLinkProps extends LinkProps, BodyFontSizesProps {
 }
 
 export const UnstyledRouterLink = styled(Link)`
+  font-size: inherit;
+  color: inherit;
+  background-color: none;
+  &:hover {
+    background-color: none;
+    color: inherit;
+    text-decoration: inherit;
+  }
+  &:focus {
+    background-color: none;
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  &:active {
+    background-color: none;
+    color: inherit;
+    text-decoration: inherit;
+  }
+`
+
+
+export const RegularRouterLink = styled(Link)`
   ${BodyFontSizes};
   color: ${colors.black};
   background-color: none;

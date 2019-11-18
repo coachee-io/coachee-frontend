@@ -32,7 +32,7 @@ class Categories extends PureComponent<Props, State> {
       coaches: [],
       placeholder: [1, 2, 3],
       isLoading: true,
-      error: null,
+      error: false,
     }
   }
 

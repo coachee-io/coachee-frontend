@@ -44,8 +44,9 @@ class Categories extends PureComponent<Props, State> {
   componentDidUpdate = async (prevProps: any) => {
     const {category} = this.props
     /* eslint-disable react/no-did-update-set-state */
+    console.log(category, prevProps.category)
     if (category !== prevProps.category) {
-      await this.setState({isLoading: true})
+      await this.setState({isLoading: true, coaches: []})
       this.getNewCoaches()
     }
     /* eslint-enable react/no-did-update-set-state */
@@ -121,7 +122,7 @@ class Categories extends PureComponent<Props, State> {
       <FlexRowJustifyCenter>
         <Cards>
           {coaches.map((coach: any) => (
-            <CoachCard key={coach.name}>
+            <CoachCard key={Math.random().toString(36)}>
               <FlexColAlignCenter>
                 <CoachCardImage imgSrc={coach.photo} />
                 <SetMargin mt={15}>

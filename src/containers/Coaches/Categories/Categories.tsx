@@ -135,7 +135,7 @@ class Categories extends PureComponent<Props, State> {
                   <CardText textAlign="center">
                     {coach.price}
                   </CardText>
-                  <RouterButtonLink to={coach.url} primary>
+                  <RouterButtonLink to="/coach/1" primary>
                     See profile
                   </RouterButtonLink>
                 </SetMargin>

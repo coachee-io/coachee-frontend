@@ -1,10 +1,10 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
-import styled from 'styled-components'
 
 import {Image} from '../../../components/Image'
 import {RouterButtonLink} from '../../../components/Routing'
 
+import {FlexColCenter} from '../../../components/Layout/Flexbox'
 import SetMargin from '../../../components/Layout/SetMargin'
 
 import {H2, H3} from '../../../ui/headings'
@@ -26,7 +26,6 @@ interface Props {
   availability?: any[],
   reviewsRef: any
 }
-
 
 class Content extends PureComponent<Props> {
   render() {
@@ -62,11 +61,22 @@ class Content extends PureComponent<Props> {
                     <Para>[Credential ID]</Para>
                   </Col>
                   <Col xs={12} sm={3}>
-                    <RouterButtonLink to="/booking" primary>
-                      Book a call
-                    </RouterButtonLink>
+                    <FlexColCenter>
+                      <RouterButtonLink to="/booking" primary>
+                        Book a call
+                      </RouterButtonLink>
+                    </FlexColCenter>
                   </Col>
                 </Row>
+                <SetMargin mt={15}>
+                  <Row>
+                    <Col xs={12}>
+                      <Para>
+                        Programme Description
+                      </Para>
+                    </Col>
+                  </Row>
+                </SetMargin>
               </SetMargin>
             </Col>
           </Row>

@@ -38,6 +38,10 @@ export const FlexColAlignEnd = styled(FlexCol)`
   align-items: flex-end;
 `
 
+export const FlexColJustifyEnd = styled(FlexCol)`
+  justify-content: flex-end;
+`
+
 export const FlexColCenter = styled(FlexCol)`
   align-items: center;
   justify-content: center;

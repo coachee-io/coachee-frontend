@@ -22,7 +22,8 @@ export default object().shape({
     .matches(phoneRegExp, 'Phone number is not valid'),
   expertise: array()
     .of(
-      string().trim().required('Please select one area'),
+      string()
+        .required('Please select one area'),
     )
     .min(1, 'Please select one area')
     .required('Please select one area'),

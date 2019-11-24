@@ -1,5 +1,7 @@
 import React, {PureComponent} from 'react'
 
+import {Para} from '../../ui/labels'
+
 import {
   StyledInput, StyledLabel, ErrorMessage, ErrorAlertCircle,
 } from './styled'
@@ -9,7 +11,7 @@ interface Props {
   id: string,
   name: string,
   type: string,
-  helper?: string | undefined,
+  helperText?: string | undefined,
   error: boolean | string | undefined,
   errorMessage: string | undefined,
   value: any,
@@ -22,11 +24,12 @@ class Input extends PureComponent<Props> {
   render() {
     const {
       label, id, name, type, error, errorMessage, value, onChange, onBlur, component,
-      helper,
+      helperText,
     } = this.props
     return (
       <>
         <StyledLabel htmlFor={id}>{label}</StyledLabel>
+        {helperText && <Para small>{helperText}</Para>}
         <StyledInput
           id={id}
           name={name}

@@ -35,10 +35,10 @@ class Checkbox extends PureComponent<Props> {
           {label}
         </StyledLabel>
         {error && (
-        <ErrorMessage>
-          {errorMessage}
-          <ErrorAlertCircle />
-        </ErrorMessage>
+          <ErrorMessage>
+            {errorMessage}
+            <ErrorAlertCircle />
+          </ErrorMessage>
         )}
       </>
     )

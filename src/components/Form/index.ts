@@ -2,6 +2,7 @@ import Form from './Form'
 import Input from './Input'
 import RadioGroup from './RadioGroup'
 import Checkbox from './Checkbox'
+import CheckboxList from './CheckboxList'
 
 import {
   StyledLabel,
@@ -17,6 +18,7 @@ export {
   Input,
   RadioGroup,
   Checkbox,
+  CheckboxList,
   StyledLabel,
   StyledInput,
   StyledSelect,

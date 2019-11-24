@@ -1,12 +1,12 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 import {
-  Formik, FieldArray,
+  Formik,
 } from 'formik'
 
 
 import {
-  Form, Input, Checkbox, RadioGroup, Button, StyledLabel, ErrorMessage, ErrorAlertCircle,
+  Form, Input, CheckboxList, RadioGroup, Button,
 } from '../../../../components/Form'
 
 import {FlexColAlignCenter, FlexRowJustifyCenter} from '../../../../components/Layout/Flexbox'
@@ -101,45 +101,19 @@ class CoachSignup extends PureComponent {
                           onChange={handleChange}
                           onBlur={handleBlur}
                         />
-                        <StyledLabel>
-                        What are your areas of expertise?
-                        </StyledLabel>
-                        <FieldArray
+                        <CheckboxList
                           name="expertise"
-                          render={(arrayHelpers) => (
-                            <>
-                              {coachingCategories.map((category: ICoachingCategory) => (
-                                <>
-                                  <Checkbox
-                                    id={category.id}
-                                    value={category.id}
-                                    checked={values.expertise.includes(category.id as never)}
-                                    name="expertise"
-                                    label={category.name}
-                                    onChange={(e: any) => {
-                                      if (e.target.checked) {
-                                        arrayHelpers.push(category.id)
-                                      } else {
-                                        const idx = values.expertise.indexOf(category.id as never)
-                                        arrayHelpers.remove(idx)
-                                      }
-                                    }}
-                                  />
-                                </>
-                              ))}
-                            </>
-                          )}
+                          label="What are your areas of expertise?"
+                          helperText="Select all that apply, and please include areas that you have been certified in."
+                          values={values}
+                          list={coachingCategories}
+                          errors={errors}
+                          touched={touched}
                         />
-                        <>
-                          {typeof errors.expertise === 'string' && touched.expertise && (
-                            <ErrorMessage>
-                              {errors.expertise}
-                              <ErrorAlertCircle />
-                            </ErrorMessage>
-                          )}
-                        </>
                         <Input
                           label="What are your coaching certifications?"
+                          helperText="Include all that apply, as well as any other studies you have that you think are relevant.
+                          We will ask for proof of all your certifications via email before you're confirmed as a coach."
                           id="certificates"
                           name="certificates"
                           type="text"
@@ -152,9 +126,12 @@ class CoachSignup extends PureComponent {
                         />
                         <Input
                           label="Tell us about you"
+                          helperText="We will include this at the top of your profile page.
+                          What makes you the best coach out there? We want to know!"
                           id="aboutYou"
                           name="aboutYou"
                           type="text"
+                          component="textarea"
                           value={values.aboutYou}
                           error={errors.aboutYou && touched.aboutYou}
                           errorMessage={errors.aboutYou}
@@ -163,6 +140,10 @@ class CoachSignup extends PureComponent {
                         />
                         <Input
                           label="Tell us more about each of your programmes"
+                          helperText="Include name of programme, number and length of your sessions,
+                          total price of the programme and a description
+                          of what makes you stand out in this field and most of all,
+                          what results your coachees can expect to achieve!"
                           id="programmes"
                           name="programmes"
                           type="text"
@@ -174,8 +155,9 @@ class CoachSignup extends PureComponent {
                           onBlur={handleBlur}
                         />
                         <Input
-                          label="We have intro calls with all our coaches to get to know you, understand your
-                        availability and explain our payments process. When would you be available for a 30 minutes call in the next week?"
+                          label="When would you be available for a 30 minutes call in the next week?"
+                          helperText="We have intro calls with all our coaches to get to know you, understand your
+                          availability and explain our payments process."
                           id="availability"
                           name="availability"
                           type="text"
@@ -187,6 +169,12 @@ class CoachSignup extends PureComponent {
                         />
                         <RadioGroup
                           label="Please read and accept our terms and conditions and privacy policy."
+                          helperText="This includes accepting that you will always offer an intro call
+                            to all your coachees; that you will always let us know via email when a coaching session
+                            is taking place so we can process your payment up to 48 hours after each session; and you accept that coachee.io
+                            will take a 15% fee of the total price of your coaching programme, no other fees.
+                            We will include more details in your
+                            welcome pack after your registration is confirmed."
                           name="termsAndConditions"
                           value={values.termsAndConditions}
                           error={errors.termsAndConditions && touched.termsAndConditions}

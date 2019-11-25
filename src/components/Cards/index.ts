@@ -46,14 +46,10 @@ export const CategoryCard = styled(Card)`
   height: 435px;
 `
 
-export const CategoryCardImage = styled.div`
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 238px;
-  background-image: ${({imgSrc}: CardImageProps) => imgSrc && `
-    url(${imgSrc});
-  `}
+export const CategoryCardImage = styled.img`
+  height: auto;
+  width: 100%;
+  border: none;
 `
 
 interface CoachCardProps {

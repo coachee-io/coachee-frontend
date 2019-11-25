@@ -13,7 +13,6 @@ import {H1} from '../../../ui/headings'
 
 import list from './list'
 
-
 class Categories extends PureComponent {
   render() {
     return (
@@ -30,7 +29,7 @@ class Categories extends PureComponent {
             {list.map((category: any) => (
               <UnstyledRouterLink key={category.title} to={category.url}>
                 <CategoryCard>
-                  <CategoryCardImage imgSrc={category.imgSrc} />
+                  <CategoryCardImage src={category.imgSrc} />
                   <CardBody>
                     <CardTitle>
                       {category.title}

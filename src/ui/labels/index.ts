@@ -6,7 +6,8 @@ import {Lato, BodyFontSizes, BodyFontSizesProps} from '../fonts'
 interface ParaProps extends BodyFontSizesProps {
   large?: boolean,
   small?: boolean,
-  textAlign?: string
+  textAlign?: string,
+  breakAll?: boolean
 }
 
 export const Para = styled.p`
@@ -15,4 +16,6 @@ export const Para = styled.p`
   ${({textAlign}: ParaProps) => textAlign && `
     text-align: ${textAlign};
   `}
+  word-break: break-word;
+  white-space: normal;
 `

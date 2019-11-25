@@ -44,7 +44,6 @@ class Categories extends PureComponent<Props, State> {
   componentDidUpdate = async (prevProps: any) => {
     const {category} = this.props
     /* eslint-disable react/no-did-update-set-state */
-    console.log(category, prevProps.category)
     if (category !== prevProps.category) {
       await this.setState({isLoading: true, coaches: []})
       this.getNewCoaches()

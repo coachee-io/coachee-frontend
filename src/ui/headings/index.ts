@@ -12,6 +12,7 @@ export const H1 = styled.h1`
   ${({textAlign}: HeadingProps) => textAlign && `
     text-align: ${textAlign};
   `}
+  margin-bottom: 1rem;
 `
 
 export const H2 = styled.h2`
@@ -20,6 +21,7 @@ export const H2 = styled.h2`
   ${({textAlign}: HeadingProps) => textAlign && `
     text-align: ${textAlign};
   `}
+  margin-bottom: 1rem;
 `
 
 export const H3 = styled.h3`
@@ -28,4 +30,5 @@ export const H3 = styled.h3`
   ${({textAlign}: HeadingProps) => textAlign && `
     text-align: ${textAlign};
   `}
+  margin-bottom: 1rem;
 `

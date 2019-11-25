@@ -3,32 +3,36 @@ import {Row, Col} from 'react-bootstrap'
 
 import {FlexColAlignCenter} from '../../../components/Layout/Flexbox'
 import SetMargin from '../../../components/Layout/SetMargin'
+import {Pulse} from '../../../components/Skeleton'
 
 import {H2} from '../../../ui/headings'
+
+import {Weekdays} from '../../../enums/Weekdays'
 
 import {Tag} from './styled'
 
 interface Props {
-  expertise?: string[],
-  availability?: any[]
+  tags: string,
+  availability: any[]
 }
 
 
 class Sidebar extends PureComponent<Props> {
   render() {
+    const {tags, availability} = this.props
     return (
       <>
         <SetMargin mt={30}>
           <Row>
             <Col xs={12}>
-              <H2 textAlign="center">
-                  Expertise
-              </H2>
               <FlexColAlignCenter>
-                {Array(5).fill(0).map((el) => (
+                <H2 textAlign="center">
+                  {tags ? 'Expertise' : <Pulse height={24} width={150} />}
+                </H2>
+                {tags && tags.split(',').map((el) => (
                   <SetMargin key={el} mt={10}>
                     <Tag accent>
-                      Holistic Health
+                      {el}
                     </Tag>
                   </SetMargin>
                 ))}
@@ -38,14 +42,14 @@ class Sidebar extends PureComponent<Props> {
           <Row>
             <Col xs={12}>
               <SetMargin mt={30}>
-                <H2 textAlign="center">
-                  Availability
-                </H2>
                 <FlexColAlignCenter>
-                  {Array(5).fill(0).map((el) => (
+                  <H2 textAlign="center">
+                    {availability ? 'Availability' : <Pulse height={24} width={150} />}
+                  </H2>
+                  {availability && availability.map((el) => (
                     <SetMargin key={el} mt={10}>
                       <Tag key={el} primary>
-                        Mon 15-20
+                        {Weekdays[el.day]}
                       </Tag>
                     </SetMargin>
                   ))}

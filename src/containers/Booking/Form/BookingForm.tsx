@@ -1,18 +1,18 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import BookingForm from './Form'
+import Form from '../Stripe'
 
-class Booking extends PureComponent {
+class BookingForm extends PureComponent {
   render() {
     return (
       <Row>
         <Col xs={12}>
-          <BookingForm />
+          <Form />
         </Col>
       </Row>
     )
   }
 }
 
-export default Booking
+export default BookingForm

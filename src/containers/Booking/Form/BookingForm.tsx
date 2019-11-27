@@ -4,11 +4,19 @@ import {Row, Col} from 'react-bootstrap'
 import Form from '../Stripe'
 
 class BookingForm extends PureComponent {
+  handleClick = (stripe: any) => {
+    console.log(stripe)
+  }
+
   render() {
     return (
       <Row>
         <Col xs={12}>
-          <Form />
+          <Form>
+            {(stripe) => (
+              <button type="button" onClick={() => this.handleClick(stripe)}>bla</button>
+            )}
+          </Form>
         </Col>
       </Row>
     )

@@ -1,17 +1,16 @@
-import React, {PureComponent} from 'react'
-import {injectStripe, CardElement} from 'react-stripe-elements'
+import React, {PureComponent, ReactNode} from 'react'
+import {injectStripe, ReactStripeElements} from 'react-stripe-elements'
 
-interface Props {
-  stripe?: any
+interface Props extends ReactStripeElements.InjectedStripeProps {
+  children: (stripe?: ReactStripeElements.StripeProps) => ReactNode
 }
 
 class Form extends PureComponent<Props> {
   render() {
-    const {stripe} = this.props
-    console.log(stripe)
+    const {stripe, children} = this.props
     return (
       <div>
-        Stripe Form
+        {children(stripe)}
       </div>
     )
   }

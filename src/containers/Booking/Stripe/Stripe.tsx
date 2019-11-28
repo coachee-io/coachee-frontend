@@ -4,7 +4,7 @@ import {Row, Col} from 'react-bootstrap'
 
 import {Pulse} from '../../../components/Skeleton'
 
-import StripeScript from './StripeScript'
+import StripeScript from '../../../utils/scripts/stripe'
 import Form from './Form'
 
 interface Props {

@@ -11,7 +11,7 @@ class BookingForm extends PureComponent {
   render() {
     return (
       <Row>
-        <Col xs={12}>
+        <Col xs={12} sm={6}>
           <Form>
             {(stripe) => (
               <button type="button" onClick={() => this.handleClick(stripe)}>bla</button>

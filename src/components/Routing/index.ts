@@ -2,5 +2,5 @@ export {
   RouterButtonLink,
   RouterLink,
   RegularRouterLink,
-  UnstyledRouterLink
-} from "./Links"
+  UnstyledRouterLink,
+} from './Links'

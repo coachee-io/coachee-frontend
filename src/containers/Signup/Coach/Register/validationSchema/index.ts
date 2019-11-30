@@ -35,6 +35,7 @@ export default object().shape({
     .required('This is a required field'),
   availability: string()
     .required('This is a required field'),
+  vat: string(),
   termsAndConditions: string()
     .nullable()
     .required('This is a required field'),

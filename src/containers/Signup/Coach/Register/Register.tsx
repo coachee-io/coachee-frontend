@@ -16,7 +16,7 @@ import SetMargin from '../../../../components/Layout/SetMargin'
 import schema from './validationSchema'
 
 import {
-  termsAndConditions, coachingCategories, ICoachingCategory,
+  termsAndConditions, coachingCategories,
 } from './options'
 
 
@@ -44,6 +44,7 @@ class CoachSignup extends PureComponent {
                     aboutYou: '',
                     programmes: '',
                     availability: '',
+                    vat: '',
                     termsAndConditions: null,
                   }}
                   onSubmit={this.onSubmit}
@@ -55,7 +56,7 @@ class CoachSignup extends PureComponent {
                     <>
                       <Form onSubmit={handleSubmit} maxWidth={650}>
                         <H2>
-                      Become a coach
+                          Become a coach
                         </H2>
                         <Input
                           label="First and last name"
@@ -164,6 +165,17 @@ class CoachSignup extends PureComponent {
                           value={values.availability}
                           error={errors.availability && touched.availability}
                           errorMessage={errors.availability}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                        />
+                        <Input
+                          label="Are you VAT registered? If yes, please give us your VAT number"
+                          id="vat"
+                          name="vat"
+                          type="text"
+                          value={values.vat}
+                          error={errors.vat && touched.vat}
+                          errorMessage={errors.vat}
                           onChange={handleChange}
                           onBlur={handleBlur}
                         />

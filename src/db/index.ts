@@ -1,4 +1,4 @@
-import HealthImg from '../ui/images/health-category.png'
+import HealthImg from '../ui/images/health-category.jpg'
 
 const ListOfCoaches = [
   {

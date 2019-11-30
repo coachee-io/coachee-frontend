@@ -6,7 +6,7 @@ import Sidebar from './Sidebar'
 import Content from './Content'
 
 import SetMargin from '../../components/Layout/SetMargin'
-import HealthImg from '../../ui/images/health-category.png'
+import HealthImg from '../../ui/images/health-category.jpg'
 
 const Coach = {
   firstName: 'Robin',

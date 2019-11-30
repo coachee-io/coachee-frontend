@@ -1,4 +1,9 @@
-import HealthImg from '../../../../ui/images/health-category.png'
+import HealthImg from '../../../../ui/images/health-category.jpg'
+import NutritionImg from '../../../../ui/images/nutrition-category.jpg'
+import LifeImg from '../../../../ui/images/life-category.jpg'
+import FeminityImg from '../../../../ui/images/femininity-category.jpg'
+import FinancialImg from '../../../../ui/images/financial-category.jpg'
+import RelationshipImg from '../../../../ui/images/relationship-category.jpg'
 
 const list: any = [
   {
@@ -11,7 +16,7 @@ const list: any = [
   },
   {
     url: '/coaches/nutrition',
-    imgSrc: HealthImg,
+    imgSrc: NutritionImg,
     title: 'Nutrition',
     description: `Improve your relationship with food by going deeper 
     into the reasons why you feel this way, how it is impacting your 
@@ -19,7 +24,7 @@ const list: any = [
   },
   {
     url: '/coaches/life',
-    imgSrc: HealthImg,
+    imgSrc: LifeImg,
     title: 'Life',
     description: `If you want to improve a specific area of your life or need advice 
       and support to reach your goals and ambitions,
@@ -27,20 +32,20 @@ const list: any = [
   },
   {
     url: '/coaches/feminity',
-    imgSrc: HealthImg,
+    imgSrc: FeminityImg,
     title: 'Feminity',
     description: `If you feel there is a lack of balance in your relationships, 
     your work and your time off, or how you show your sexuality, your coach can help you.`,
   },
   {
     url: '/coaches/finance',
-    imgSrc: HealthImg,
+    imgSrc: FinancialImg,
     title: 'Finance',
     description: 'Improve your relationship with money by understanding how to make better financial choices.',
   },
   {
     url: '/coaches/relationship',
-    imgSrc: HealthImg,
+    imgSrc: RelationshipImg,
     title: 'Relationship',
     description: `If you’re single and looking for love, married and you want to improve your valuable relationship, 
     or divorced and want to start a new chapter in your life, a relationship coach can help you..`,

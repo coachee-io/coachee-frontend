@@ -8,9 +8,11 @@ import {FlexColCenter} from '../../../components/Layout/Flexbox'
 import SetMargin from '../../../components/Layout/SetMargin'
 import {Pulse} from '../../../components/Skeleton'
 
+import Auth from '../../../utils/auth'
+import FeatureFlags from '../../../utils/featureFlags'
+
 import {H2, H3} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
-
 import Rating from '../../../ui/images/star-rating.svg'
 
 const StarRating = Image.attrs({
@@ -72,13 +74,15 @@ class Content extends PureComponent<Props> {
                       <Para>[Issue Date]</Para>
                       <Para>[Credential ID]</Para>
                     </Col>
-                    <Col xs={12} sm={3}>
-                      <FlexColCenter>
-                        <RouterButtonLink to="/booking" primary>
-                        Book a call
-                        </RouterButtonLink>
-                      </FlexColCenter>
-                    </Col>
+                    {Auth.isLoggedIn() && (
+                      <Col xs={12} sm={3}>
+                        <FlexColCenter>
+                          <RouterButtonLink to="/booking" primary>
+                          Book a call
+                          </RouterButtonLink>
+                        </FlexColCenter>
+                      </Col>
+                    )}
                   </Row>
                   <SetMargin mt={15}>
                     <Row>
@@ -101,7 +105,7 @@ class Content extends PureComponent<Props> {
             </Col>
           </Row>
         </SetMargin>
-        {reviews && (
+        {FeatureFlags.isFeatureEnabled('reviewsEnabled') && reviews && (
           <SetMargin mt={30} ref={reviewsRef}>
             <Row>
               <Col xs={12}>

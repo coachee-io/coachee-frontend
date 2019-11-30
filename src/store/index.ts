@@ -5,9 +5,11 @@ import FeatureFlagReducer from './featureFlags/reducer'
 
 const reducer = combineReducers({
   auth: AuthReducer,
-  flags: FeatureFlagReducer,
+  features: FeatureFlagReducer,
 })
 
-export default function configureStore() {
-  return createStore(reducer)
-}
+const configureStore = () => createStore(reducer)
+
+const store = configureStore()
+
+export default store

@@ -17,7 +17,7 @@ const PulseAnimation = css`
   }
 `
 
-export const Pulse = styled.div`
+export const Pulse = styled.span`
   display: flex;
   height: 100%;
   width: 100%;

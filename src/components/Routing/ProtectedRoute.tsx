@@ -1,13 +1,42 @@
-import React, {PureComponent} from 'react'
+import React, {PureComponent, ComponentType} from 'react'
+import {
+  Route, Redirect, RouteProps, RouteComponentProps,
+} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-class ProtectedRoute extends PureComponent {
+interface Props extends RouteProps {
+  isLoggedIn: boolean,
+  flags: {
+    [index:string]: boolean
+  },
+  flag: string,
+  component: ComponentType<RouteComponentProps<any>> | ComponentType<any>
+}
+
+class ProtectedRoute extends PureComponent<Props> {
+  isFeatureEnabled = (): boolean => {
+    const {flags, flag} = this.props
+    return flags[flag]
+  }
+
   render() {
+    const {isLoggedIn, component: Component, ...rest} = this.props
     return (
-      <div>
-        Protected
-      </div>
+      <Route
+        {...rest}
+        render={(props): any => (
+          isLoggedIn || this.isFeatureEnabled()
+            ? <Component {...props} />
+            : <Redirect to={{pathname: '/404', state: {from: props.location}}} />
+        )}
+      />
     )
   }
 }
 
-export default ProtectedRoute
+const mapStateToProps = ({auth, features}: any) => ({
+  isLoggedIn: auth.isLoggedIn,
+  flags: features.flags,
+})
+
+export default connect(mapStateToProps)(ProtectedRoute)

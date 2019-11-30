@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import {Provider} from 'react-redux'
 import {BrowserRouter as Router} from 'react-router-dom'
 
 import ScrollToTop from '../components/Routing/ScrollToTop'
@@ -8,6 +9,8 @@ import purechat from '../utils/scripts/purechat'
 
 import Routes from '../routes'
 
+import store from '../store'
+
 class App extends PureComponent {
   componentDidMount = () => {
     ga()
@@ -16,10 +19,12 @@ class App extends PureComponent {
 
   render() {
     return (
-      <Router>
-        <ScrollToTop />
-        <Routes />
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <ScrollToTop />
+          <Routes />
+        </Router>
+      </Provider>
     )
   }
 }

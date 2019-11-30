@@ -1,5 +1,6 @@
 {
   "flags": {
-    "booking": false
+    "bookingEnabled": false,
+    "reviewsEnabled": false
   }
 }

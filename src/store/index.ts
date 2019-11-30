@@ -1,13 +1,13 @@
-import {createStore, combineReducers} from "redux"
+import {createStore, combineReducers} from 'redux'
 
-import AuthReducer from "./auth/reducer"
-import FeatureFlagReducer from "./featureFlags/reducer"
+import AuthReducer from './auth/reducer'
+import FeatureFlagReducer from './featureFlags/reducer'
 
 const reducer = combineReducers({
   auth: AuthReducer,
-  flags: FeatureFlagReducer
+  flags: FeatureFlagReducer,
 })
 
-export default function configureStore(){
+export default function configureStore() {
   return createStore(reducer)
 }

@@ -2,14 +2,12 @@
  * We will be using a file to manipulate feature flags instead
  * This allows for versatility later on
  */
-import features from "./features.json"
+import features from './features.json'
 
 const initialState = {
-  ...features
+  ...features,
 }
 
-const FeatureFlagReducer = (state = initialState) => {
-  return state
-}
+const FeatureFlagReducer = (state = initialState) => state
 
 export default FeatureFlagReducer

@@ -81,7 +81,7 @@
     "start": "node build/scripts/start.js",
     "build": "node build/scripts/build.js",
     "test": "node build/scripts/test.js",
-    "lint:fix": "npx eslint --fix src/**"
+    "lint:fix": "npx eslint --fix 'src/**'"
   },
   "eslintConfig": {
     "extends": "react-app"

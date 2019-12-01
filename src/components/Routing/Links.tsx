@@ -36,16 +36,16 @@ export const UnstyledRouterLink = styled(Link)`
   }
 `
 
-export const RegularRouterLink = styled(Link)`
+export const RegularRouterLink = styled(Link)<UnstyledRouterLinkProps>`
   ${BodyFontSizes};
   color: ${colors.black};
   background-color: none;
 
-  ${({bold}: UnstyledRouterLinkProps) => bold && `
+  ${({bold}) => bold && `
     font-weight: bold;
   `}
 
-  ${({underline}: UnstyledRouterLinkProps) => underline && `
+  ${({underline}) => underline && `
     text-decoration: underline;
   `}
 
@@ -65,52 +65,53 @@ export const RegularRouterLink = styled(Link)`
   }
 `
 
-export const RouterLink = styled(Link)`
+export const RouterLink = styled(Link)<RouterLinkProps>`
   ${BodyFontSizes};
   text-decoration: underline;
   color: ${colors.black};
-  ${({primary}: RouterLinkProps) => primary && `
+  ${({primary}) => primary && `
     color: ${colors.primary};
   `}
-  ${({accent}: RouterLinkProps) => accent && `
+  ${({accent}) => accent && `
     color: ${colors.accent};
   `}
 
   &:hover {
     color: ${colors.black};
-    ${({primary}: RouterLinkProps) => primary && `
+    ${({primary}) => primary && `
       color: ${colors.primary};
     `}
-    ${({accent}: RouterLinkProps) => accent && `
+    ${({accent}) => accent && `
       color: ${colors.accent};
     `}
   }
 `
 
 
-export const RouterButtonLink = styled(Link)`
+export const RouterButtonLink = styled(Link)<RouterLinkProps>`
   ${BodyFontSizes};
   ${LatoBold};
-  display: block;
-  line-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 44px;
   width: 156px;
   border-radius: 5px;
   text-align: center;
-  ${({primary}: RouterLinkProps) => primary && `
+  ${({primary}) => primary && `
     background-color: ${colors.primary};
     color: ${colors.white};
   `}
-  ${({accent}: RouterLinkProps) => accent && `
+  ${({accent}) => accent && `
     background-color: ${colors.accent};
     color: ${colors.black};
   `}
 
   &:hover {
-    ${({primary}: RouterLinkProps) => primary && `
+    ${({primary}) => primary && `
       color: ${colors.white};
     `}
-    ${({accent}: RouterLinkProps) => accent && `
+    ${({accent}) => accent && `
       color: ${colors.black};
     `}
   }

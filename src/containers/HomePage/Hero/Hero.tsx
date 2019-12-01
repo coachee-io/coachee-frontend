@@ -11,6 +11,8 @@ import MediaQuery from '../../../components/Layout/MediaQuery'
 import {H1} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
 
+import FeatureFlags from '../../../utils/featureFlags'
+
 import HeroImage from './Image'
 
 const HeroListText = [
@@ -44,28 +46,30 @@ class Hero extends PureComponent {
             Some of the results you can achieve with our coaches include:
           </Para>
           <CheckmarkList list={HeroListText} />
-          <MediaQuery>
-            {({isTablet}: any) => (
-              <>
-                {isTablet() && (
-                <SetMargin ml={30} mt={10}>
-                  <RouterButtonLink to="/signup" primary>
-                    Sign up
-                  </RouterButtonLink>
-                </SetMargin>
-                )}
-                {!isTablet() && (
-                <SetMargin mt={10}>
-                  <FlexColAlignCenter>
+          {FeatureFlags.isFeatureEnabled('platformEnabled') && (
+            <MediaQuery>
+              {({isTablet}: any) => (
+                <>
+                  {isTablet() && (
+                  <SetMargin ml={30} mt={10}>
                     <RouterButtonLink to="/signup" primary>
-                    Sign up
+                      Sign up
                     </RouterButtonLink>
-                  </FlexColAlignCenter>
-                </SetMargin>
-                )}
-              </>
-            )}
-          </MediaQuery>
+                  </SetMargin>
+                  )}
+                  {!isTablet() && (
+                  <SetMargin mt={10}>
+                    <FlexColAlignCenter>
+                      <RouterButtonLink to="/signup" primary>
+                      Sign up
+                      </RouterButtonLink>
+                    </FlexColAlignCenter>
+                  </SetMargin>
+                  )}
+                </>
+              )}
+            </MediaQuery>
+          )}
         </Col>
         <MediaQuery>
           {({isDesktop}: any) => isDesktop() && (

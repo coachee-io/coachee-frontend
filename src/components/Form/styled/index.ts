@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {Field} from 'formik'
 
 import colors from '../../../ui/colors'
-import {Lato, LatoBold} from '../../../ui/fonts'
+import {Lato, LatoBold, BodyFontSizes} from '../../../ui/fonts'
 import AlertCircle from '../../../ui/images/alert-circle.svg'
 
 import {Image} from '../../Image'
@@ -25,7 +25,6 @@ const StyledLabel = styled.label`
   padding-top: 0.5rem;
   color: ${colors.black};
   display: inline-block;
-  float: left;
   &::first-letter {
     text-transform: capitalize;
   }
@@ -78,31 +77,31 @@ const ErrorAlertCircle = Image.attrs({
   fill: red;
 `
 
-const Button = styled.button`
+const Button = styled.button<ButtonProps>`
   ${LatoBold};
-  display: block;
-  font-size: 16px;
-  line-height: 45px;
+  ${BodyFontSizes};
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 44px;
   width: 156px;
   margin-top: 2rem;
   border-radius: 5px;
   border-style: none;
-  text-align: center;
-  ${({primary}: ButtonProps) => primary && `
+  ${({primary}) => primary && `
     background-color: ${colors.primary};
     color: ${colors.white};
   `}
-  ${({accent}: ButtonProps) => accent && `
+  ${({accent}) => accent && `
     background-color: ${colors.accent};
     color: ${colors.black};
   `}
 
   &:hover {
-    ${({primary}: ButtonProps) => primary && `
+    ${({primary}) => primary && `
       color: ${colors.white};
     `}
-    ${({accent}: ButtonProps) => accent && `
+    ${({accent}) => accent && `
       color: ${colors.black};
     `}
   }

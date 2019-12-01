@@ -6,8 +6,9 @@ import {RouterLink, RouterButtonLink} from '../../../components/Routing'
 
 import SetMargin from '../../../components/Layout/SetMargin'
 import MediaQuery from '../../../components/Layout/MediaQuery'
-
 import {FlexColAlignCenter} from '../../../components/Layout/Flexbox'
+
+import FeatureFlags from '../../../utils/featureFlags'
 
 import {H1} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
@@ -68,17 +69,19 @@ class Journey extends PureComponent {
             </MediaQuery>
           </Row>
         </SetMargin>
-        <SetMargin mt={30}>
-          <Row>
-            <Col sm={12} md={{span: 6, offset: 3}}>
-              <FlexColAlignCenter>
-                <RouterButtonLink to="signup" primary>
+        {FeatureFlags.isFeatureEnabled('platformEnabled') && (
+          <SetMargin mt={30}>
+            <Row>
+              <Col sm={12} md={{span: 6, offset: 3}}>
+                <FlexColAlignCenter>
+                  <RouterButtonLink to="signup" primary>
                     Sign Up
-                </RouterButtonLink>
-              </FlexColAlignCenter>
-            </Col>
-          </Row>
-        </SetMargin>
+                  </RouterButtonLink>
+                </FlexColAlignCenter>
+              </Col>
+            </Row>
+          </SetMargin>
+        )}
         <SetMargin mt={30}>
           <Row>
             <Col md={12}>

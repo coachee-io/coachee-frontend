@@ -6,6 +6,7 @@ import colors from '../../ui/colors'
 import {minWidthSize, maxWidthSize} from '../../ui/global/mediaQuery'
 
 import {RouterButtonLink, UnstyledRouterLink} from '../Routing'
+import FeatureFlags from '../../utils/featureFlags'
 import Logo from '../Logo'
 
 interface HeaderProps {
@@ -13,12 +14,12 @@ interface HeaderProps {
   bg: string
 }
 
-const NavigationBar = styled(Navbar)`
+const NavigationBar = styled(Navbar)<HeaderProps>`
   padding: 1rem;
-  background-color: ${({bg}: HeaderProps) => bg === 'white' && `
-    ${colors.white};
+  ${({bg}) => bg === 'white' && `
+    background-color: ${colors.white};
   `}
-  ${({boxShadow}: HeaderProps) => boxShadow && `
+  ${({boxShadow}) => boxShadow && `
     box-shadow: 0px 5px 3px -3px rgba(0,0,0, 0.2);
   `}
 `
@@ -99,11 +100,13 @@ class Header extends PureComponent<{}, State> {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse onClick={this.handleCollapseOnSelect}>
             <StyledNav>
+              {FeatureFlags.isFeatureEnabled('platformEnabled') && (
               <StyledNavItem>
                 <RouterButtonLink onClick={this.handleCollapseOnSelect} to="/login" accent>
                   Login
                 </RouterButtonLink>
               </StyledNavItem>
+              )}
               <StyledNavItem>
                 <RouterButtonLink onClick={this.handleCollapseOnSelect} to="/become-a-coach" primary>
                   Become a Coach

@@ -6,9 +6,6 @@ import {RouterLink} from '../../../components/Routing'
 
 import {Pulse} from '../../../components/Skeleton'
 
-import {FlexColAlignCenter, FlexColCenter} from '../../../components/Layout/Flexbox'
-import SetMargin from '../../../components/Layout/SetMargin'
-
 import {H3} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
 
@@ -61,68 +58,58 @@ class Header extends PureComponent<Props> {
     return (
       <Row>
         <Col xs={12} md={3}>
-          <FlexColAlignCenter>
-            {pictureUrl ? <CoachImage src={pictureUrl} /> : <Pulse circle height={170} width={170} />}
-            <SetMargin mt={15}>
-              <H3>
-                {firstName && lastName ? `${firstName} ${lastName}` : <Pulse height={18} width={150} />}
-              </H3>
-            </SetMargin>
-            <Para textAlign="center">
-              {shortDescription || <Pulse height={18} width={150} />}
-            </Para>
-            <Para textAlign="center">
-              {city && country ? `${city}, ${country}` : <Pulse height={18} width={150} />}
-            </Para>
-            <Para textAlign="center">
-              {vatNo ? `VAT No.: ${vatNo}` : <Pulse height={18} width={150} />}
-            </Para>
-            <Para>
-              {averageReviews ? (
-                Array(averageReviews).fill(Math.random(), 0, averageReviews).map((el) => <StarRating key={el} />)
-              ) : <Pulse height={18} width={150} />}
-            </Para>
-            {numberOfReviews ? (
-              <RouterLink to="#reviews" onClick={scrollToReviews} primary>
-                {numberOfReviews}
-                {' '}
+          {pictureUrl ? <CoachImage src={pictureUrl} /> : <Pulse circle height={170} width={170} />}
+          <H3>
+            {firstName && lastName ? `${firstName} ${lastName}` : <Pulse height={18} width={150} />}
+          </H3>
+          <Para textAlign="center">
+            {shortDescription || <Pulse height={18} width={150} />}
+          </Para>
+          <Para textAlign="center">
+            {city && country ? `${city}, ${country}` : <Pulse height={18} width={150} />}
+          </Para>
+          <Para textAlign="center">
+            {vatNo ? `VAT No.: ${vatNo}` : <Pulse height={18} width={150} />}
+          </Para>
+          <Para>
+            {averageReviews ? (
+              Array(averageReviews).fill(Math.random(), 0, averageReviews).map((el) => <StarRating key={el} />)
+            ) : <Pulse height={18} width={150} />}
+          </Para>
+          {numberOfReviews ? (
+            <RouterLink to="#reviews" onClick={scrollToReviews} primary>
+              {numberOfReviews}
+              {' '}
                 Reviews
-              </RouterLink>
-            ) : (
-              <Pulse height={18} width={150} />
-            )}
-
-          </FlexColAlignCenter>
+            </RouterLink>
+          ) : (
+            <Pulse height={18} width={150} />
+          )}
         </Col>
         <Col xs={12} md={9}>
-          <MediaQuery>
-            {(isMobile) => (
-              <SetMargin mt={isMobile ? 30 : 0}>
-                {description ? (
-                  <FlexColCenter>
-                    <Para breakAll>
-                      {description}
-                    </Para>
-                  </FlexColCenter>
-                ) : (
-                  <>
-                    <Para>
-                      <Pulse height={18} />
-                    </Para>
-                    <Para>
-                      <Pulse height={18} width={250} />
-                    </Para>
-                    <Para>
-                      <Pulse height={18} width={250} />
-                    </Para>
-                    <Para>
-                      <Pulse height={18} width={200} />
-                    </Para>
-                  </>
-                )}
-              </SetMargin>
+          {description ? (
+            <>
+              <Para breakAll>
+                {description}
+              </Para>
+            </>
+          ) : (
+            <>
+              <Para>
+                <Pulse height={18} />
+              </Para>
+              <Para>
+                <Pulse height={18} width={250} />
+              </Para>
+              <Para>
+                <Pulse height={18} width={250} />
+              </Para>
+              <Para>
+                <Pulse height={18} width={200} />
+              </Para>
+            </>
+          )}
             )}
-          </MediaQuery>
         </Col>
       </Row>
     )

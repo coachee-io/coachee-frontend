@@ -6,7 +6,6 @@ import styled from 'styled-components'
 import colors from '../../ui/colors'
 import {maxWidthSize} from '../../ui/global/mediaQuery'
 
-import SetMargin from './SetMargin'
 import {RegularRouterLink} from '../Routing'
 
 const StyledFooter = styled.footer`
@@ -69,17 +68,15 @@ class Footer extends PureComponent {
         <Container>
           <Row>
             <Col md={12}>
-              <SetMargin mt={30}>
-                <List>
-                  {links.map((link) => (
-                    <ListItem key={link.label}>
-                      <RegularRouterLink key={link.label} to={link.to}>
-                        {link.label}
-                      </RegularRouterLink>
-                    </ListItem>
-                  ))}
-                </List>
-              </SetMargin>
+              <List>
+                {links.map((link) => (
+                  <ListItem key={link.label}>
+                    <RegularRouterLink key={link.label} to={link.to}>
+                      {link.label}
+                    </RegularRouterLink>
+                  </ListItem>
+                ))}
+              </List>
             </Col>
           </Row>
         </Container>

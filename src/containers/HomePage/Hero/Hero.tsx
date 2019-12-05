@@ -4,8 +4,6 @@ import {Row, Col} from 'react-bootstrap'
 import CheckmarkList from '../../../components/CheckmarkList'
 import {RouterButtonLink} from '../../../components/Routing'
 
-import {FlexColAlignCenter} from '../../../components/Layout/Flexbox'
-import SetMargin from '../../../components/Layout/SetMargin'
 import MediaQuery from '../../../components/Layout/MediaQuery'
 
 import {H1} from '../../../ui/headings'
@@ -51,20 +49,14 @@ class Hero extends PureComponent {
               {({isTablet}: any) => (
                 <>
                   {isTablet() && (
-                  <SetMargin ml={30} mt={10}>
                     <RouterButtonLink to="/signup" primary>
                       Sign up
                     </RouterButtonLink>
-                  </SetMargin>
                   )}
                   {!isTablet() && (
-                  <SetMargin mt={10}>
-                    <FlexColAlignCenter>
-                      <RouterButtonLink to="/signup" primary>
+                  <RouterButtonLink to="/signup" primary>
                       Sign up
-                      </RouterButtonLink>
-                    </FlexColAlignCenter>
-                  </SetMargin>
+                  </RouterButtonLink>
                   )}
                 </>
               )}
@@ -74,9 +66,7 @@ class Hero extends PureComponent {
         <MediaQuery>
           {({isDesktop}: any) => isDesktop() && (
             <Col lg={6}>
-              <FlexColAlignCenter>
-                <HeroImage />
-              </FlexColAlignCenter>
+              <HeroImage />
             </Col>
           )}
         </MediaQuery>

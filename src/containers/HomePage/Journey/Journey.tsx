@@ -4,9 +4,7 @@ import {Row, Col} from 'react-bootstrap'
 import CheckmarkTextList from '../../../components/CheckmarkList'
 import {RouterLink, RouterButtonLink} from '../../../components/Routing'
 
-import SetMargin from '../../../components/Layout/SetMargin'
 import MediaQuery from '../../../components/Layout/MediaQuery'
-import {FlexColAlignCenter} from '../../../components/Layout/Flexbox'
 
 import FeatureFlags from '../../../utils/featureFlags'
 
@@ -40,67 +38,55 @@ class Journey extends PureComponent {
   render() {
     return (
       <>
-        <SetMargin mt={30}>
-          <Row>
-            <Col xs={12}>
-              <H1 textAlign="center">
+        <Row>
+          <Col xs={12}>
+            <H1 textAlign="center">
                 Ready to start your journey?
-              </H1>
+            </H1>
+          </Col>
+        </Row>
+        <Row>
+          <MediaQuery>
+            {({isDesktop}) => isDesktop() && (
+            <Col md={6}>
+              <JourneyImage />
             </Col>
-          </Row>
-        </SetMargin>
-        <SetMargin mt={30}>
-          <Row>
-            <MediaQuery>
-              {({isDesktop}) => isDesktop() && (
-                <Col md={6}>
-                  <JourneyImage />
-                </Col>
-              )}
-            </MediaQuery>
-            <MediaQuery>
-              {({isDesktop}) => (
-                <Col xs={12} md={isDesktop() ? 6 : {span: 8, offset: 2}}>
-                  <SetMargin mt={30}>
-                    <CheckmarkTextList list={JourneyListText} />
-                  </SetMargin>
-                </Col>
-              )}
-            </MediaQuery>
-          </Row>
-        </SetMargin>
-        {FeatureFlags.isFeatureEnabled('platformEnabled') && (
-          <SetMargin mt={30}>
-            <Row>
-              <Col sm={12} md={{span: 6, offset: 3}}>
-                <FlexColAlignCenter>
-                  <RouterButtonLink to="signup" primary>
-                    Sign Up
-                  </RouterButtonLink>
-                </FlexColAlignCenter>
+            )}
+          </MediaQuery>
+          <MediaQuery>
+            {({isDesktop}) => (
+              <Col xs={12} md={isDesktop() ? 6 : {span: 8, offset: 2}}>
+                <CheckmarkTextList list={JourneyListText} />
               </Col>
-            </Row>
-          </SetMargin>
+            )}
+          </MediaQuery>
+        </Row>
+        {FeatureFlags.isFeatureEnabled('platformEnabled') && (
+        <Row>
+          <Col sm={12} md={{span: 6, offset: 3}}>
+            <FlexColAlignCenter>
+              <RouterButtonLink to="signup" primary>
+                    Sign Up
+              </RouterButtonLink>
+            </FlexColAlignCenter>
+          </Col>
+        </Row>
         )}
-        <SetMargin mt={30}>
-          <Row>
-            <Col md={12}>
-              <FlexColAlignCenter>
-                <Para>
+        <Row>
+          <Col md={12}>
+            <Para>
                   Still not sure if coaching is for you? Check out the
                   resources in our
-                  {' '}
-                  <RouterLink to="/" primary>blog</RouterLink>
-                  {' '}
+              {' '}
+              <RouterLink to="/" primary>blog</RouterLink>
+              {' '}
   or
-                  {' '}
-                  <RouterLink to="/" primary>contact us</RouterLink>
+              {' '}
+              <RouterLink to="/" primary>contact us</RouterLink>
   .
-                </Para>
-              </FlexColAlignCenter>
-            </Col>
-          </Row>
-        </SetMargin>
+            </Para>
+          </Col>
+        </Row>
       </>
     )
   }

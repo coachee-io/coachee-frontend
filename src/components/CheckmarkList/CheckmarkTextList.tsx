@@ -1,9 +1,6 @@
 import React, {PureComponent} from 'react'
 import styled from 'styled-components'
 
-import {getMargin} from '../Layout/SetMargin'
-import {FlexCol} from '../Layout/Flexbox'
-
 import {H3} from '../../ui/headings'
 import {Para} from '../../ui/labels'
 import Checkmark from '../../ui/images/checkmark.svg'
@@ -28,7 +25,6 @@ const Icon = styled.img.attrs({
   width: 16px;
   margin-right: 1rem;
   vertical-align: middle;
-  ${({mt}: IconProps) => mt && getMargin('mt', mt)}
 `
 
 interface List {
@@ -52,14 +48,12 @@ class CheckmarkList extends PureComponent<Props> {
             {item.heading && (
               <>
                 <Icon mt={2} />
-                <FlexCol>
-                  <H3>
-                    {item.heading}
-                  </H3>
-                  <Para small={paraSmall} large={paraLarge}>
-                    {item.text}
-                  </Para>
-                </FlexCol>
+                <H3>
+                  {item.heading}
+                </H3>
+                <Para small={paraSmall} large={paraLarge}>
+                  {item.text}
+                </Para>
               </>
             )}
             {!item.heading && (
@@ -70,7 +64,6 @@ class CheckmarkList extends PureComponent<Props> {
                 </Para>
               </>
             )}
-
           </List>
         ))}
       </>

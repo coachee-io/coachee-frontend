@@ -5,9 +5,6 @@ import styled from 'styled-components'
 import CheckMarkList from '../../../../components/CheckmarkList'
 import {RouterButtonLink} from '../../../../components/Routing'
 
-import SetMargin from '../../../../components/Layout/SetMargin'
-import {FlexColAlignCenter} from '../../../../components/Layout/Flexbox'
-
 import {H2} from '../../../../ui/headings'
 import {Para} from '../../../../ui/labels'
 
@@ -39,87 +36,63 @@ class CoachSignup extends PureComponent {
   render() {
     return (
       <>
-        <SetMargin mt={30}>
-          <Row>
-            <Col xs={12}>
-              <FlexColAlignCenter>
-                <H2 textAlign="center">
+        <Row>
+          <Col xs={12}>
+            <H2 textAlign="center">
                  Why work with us?
-                </H2>
-              </FlexColAlignCenter>
-            </Col>
-          </Row>
-        </SetMargin>
-        <SetMargin mt={30}>
-          <Row>
-            <Col xs={12} sm={4}>
-              <FlexColAlignCenter>
-                <H2>
+            </H2>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} sm={4}>
+            <H2>
                   Flexible
-                </H2>
-                <Para textAlign="center">
+            </H2>
+            <Para textAlign="center">
                   We provide a platform to market your programs while you stay on top
                   of availability and pricing.
-                </Para>
-              </FlexColAlignCenter>
-            </Col>
-            <Col xs={12} sm={4}>
-              <FlexColAlignCenter>
-                <H2>
+            </Para>
+          </Col>
+          <Col xs={12} sm={4}>
+            <H2>
                   Simple
-                </H2>
-                <Para textAlign="center">
+            </H2>
+            <Para textAlign="center">
                   We make it simple for any coachee to find you by creating your
                   own profile with clear descriptions.
-                </Para>
-              </FlexColAlignCenter>
-            </Col>
-            <Col xs={12} sm={4}>
-              <FlexColAlignCenter>
-                <H2>
+            </Para>
+          </Col>
+          <Col xs={12} sm={4}>
+            <H2>
                   Secure
-                </H2>
-                <Para textAlign="center">
+            </H2>
+            <Para textAlign="center">
                   Payments will be made up to 72 hours after each completed session.
                   We only get paid if you do.
-                </Para>
-              </FlexColAlignCenter>
-            </Col>
-          </Row>
-        </SetMargin>
-        <SetMargin mt={45}>
-          <Row>
-            <Col xs={12}>
-              <FlexColAlignCenter>
-                <H2 textAlign="center">
+            </Para>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <H2 textAlign="center">
                   Your next client is 4 steps away
-                </H2>
-              </FlexColAlignCenter>
-            </Col>
-          </Row>
-          <SetMargin mt={30}>
-            <Row>
-              <Col xs={12}>
-                <FlexColAlignCenter>
-                  <ListWrapper>
-                    <CheckMarkList list={CoachList} paraSmall />
-                  </ListWrapper>
-                </FlexColAlignCenter>
-              </Col>
-            </Row>
-          </SetMargin>
-          <SetMargin mt={30}>
-            <Row>
-              <Col xs={12}>
-                <FlexColAlignCenter>
-                  <RouterButtonLink to="/become-a-coach/register" primary>
+            </H2>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <ListWrapper>
+              <CheckMarkList list={CoachList} paraSmall />
+            </ListWrapper>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <RouterButtonLink to="/become-a-coach/register" primary>
                     Register now
-                  </RouterButtonLink>
-                </FlexColAlignCenter>
-              </Col>
-            </Row>
-          </SetMargin>
-        </SetMargin>
+            </RouterButtonLink>
+          </Col>
+        </Row>
       </>
     )
   }

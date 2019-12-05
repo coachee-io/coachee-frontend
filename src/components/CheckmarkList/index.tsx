@@ -1,8 +1,6 @@
 import React, {PureComponent} from 'react'
 import styled from 'styled-components'
 
-import {getMargin} from '../Layout/SetMargin'
-import {FlexCol} from '../Layout/Flexbox'
 import {H3} from '../../ui/headings'
 import {Para} from '../../ui/labels'
 
@@ -53,14 +51,12 @@ class CheckmarkList extends PureComponent<Props> {
             {item.heading && (
               <>
                 <Icon mt={2} />
-                <FlexCol>
-                  <H3>
-                    {item.heading}
-                  </H3>
-                  <Para small={paraSmall} large={paraLarge}>
-                    {item.text}
-                  </Para>
-                </FlexCol>
+                <H3>
+                  {item.heading}
+                </H3>
+                <Para small={paraSmall} large={paraLarge}>
+                  {item.text}
+                </Para>
               </>
             )}
             {!item.heading && (

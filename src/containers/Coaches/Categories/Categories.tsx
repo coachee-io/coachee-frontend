@@ -6,8 +6,6 @@ import {
 } from '../../../components/Cards'
 import {Pulse} from '../../../components/Skeleton'
 
-import {FlexRowJustifyCenter, FlexColAlignCenter} from '../../../components/Layout/Flexbox'
-import SetMargin from '../../../components/Layout/SetMargin'
 import {Para} from '../../../ui/labels'
 
 import mockDb from '../../../db'
@@ -76,73 +74,57 @@ class Categories extends PureComponent<Props, State> {
 
     if (isLoading) {
       return (
-        <FlexRowJustifyCenter>
-          <Cards>
-            {placeholder.map((item: any) => (
-              <CoachCard key={item} isLoading>
-                <FlexColAlignCenter>
-                  <Pulse circle width={76} height={76} />
-                  <SetMargin mt={15}>
-                    <CardTitle textAlign="center">
-                      <Pulse height={24} />
-                    </CardTitle>
-                    <CardText textAlign="center">
-                      <Pulse height={16} />
-                    </CardText>
-                    <CardText textAlign="center">
-                      <Pulse height={16} />
-                    </CardText>
-                    <Pulse height={44} width={156} />
-                  </SetMargin>
-                </FlexColAlignCenter>
-              </CoachCard>
-            ))}
-          </Cards>
-        </FlexRowJustifyCenter>
+        <Cards>
+          {placeholder.map((item: any) => (
+            <CoachCard key={item} isLoading>
+              <Pulse circle width={76} height={76} />
+              <CardTitle textAlign="center">
+                <Pulse height={24} />
+              </CardTitle>
+              <CardText textAlign="center">
+                <Pulse height={16} />
+              </CardText>
+              <CardText textAlign="center">
+                <Pulse height={16} />
+              </CardText>
+              <Pulse height={44} width={156} />
+            </CoachCard>
+          ))}
+        </Cards>
       )
     }
 
     if (coaches.length === 0) {
       return (
-        <FlexColAlignCenter>
-          <SetMargin mt={30}>
-            <Para textAlign="center">
+        <>
+          <Para textAlign="center">
               We are currently busy finding the best coaches for this category.
-            </Para>
-          </SetMargin>
-          <SetMargin mt={30}>
-            <CoachSearchImage />
-          </SetMargin>
-        </FlexColAlignCenter>
+          </Para>
+          <CoachSearchImage />
+        </>
       )
     }
 
     return (
-      <FlexRowJustifyCenter>
-        <Cards>
-          {coaches.map((coach: any) => (
-            <CoachCard key={Math.random().toString(36)}>
-              <FlexColAlignCenter>
-                <CoachCardImage imgSrc={coach.photo} />
-                <SetMargin mt={15}>
-                  <CardTitle textAlign="center">
-                    {coach.name}
-                  </CardTitle>
-                  <CardText textAlign="center">
-                    {coach.expertise}
-                  </CardText>
-                  <CardText textAlign="center">
-                    {coach.price}
-                  </CardText>
-                  <RouterButtonLink to="/coach/1" primary>
+      <Cards>
+        {coaches.map((coach: any) => (
+          <CoachCard key={Math.random().toString(36)}>
+            <CoachCardImage imgSrc={coach.photo} />
+            <CardTitle textAlign="center">
+              {coach.name}
+            </CardTitle>
+            <CardText textAlign="center">
+              {coach.expertise}
+            </CardText>
+            <CardText textAlign="center">
+              {coach.price}
+            </CardText>
+            <RouterButtonLink to="/coach/1" primary>
                     See profile
-                  </RouterButtonLink>
-                </SetMargin>
-              </FlexColAlignCenter>
-            </CoachCard>
-          ))}
-        </Cards>
-      </FlexRowJustifyCenter>
+            </RouterButtonLink>
+          </CoachCard>
+        ))}
+      </Cards>
     )
   }
 }

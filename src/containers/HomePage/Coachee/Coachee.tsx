@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import SetMargin from '../../../components/Layout/SetMargin'
 import {DivBackgroundImage} from '../../../components/Image'
 
 import {H1} from '../../../ui/headings'
@@ -15,45 +14,43 @@ import search from '../../../ui/images/search.svg'
 class Coachee extends PureComponent {
   render() {
     return (
-      <SetMargin mt={30}>
-        <Row>
-          <Col xs={12}>
-            <Row>
-              <Col xs={12}>
-                <H1 textAlign="center">
+      <Row>
+        <Col xs={12}>
+          <Row>
+            <Col xs={12}>
+              <H1 textAlign="center">
                   Why Coachee?
-                </H1>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12} md={4}>
-                <DivBackgroundImage bgImage={certificate} />
-                <Para textAlign="center">
+              </H1>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={4}>
+              <DivBackgroundImage bgImage={certificate} />
+              <Para textAlign="center">
               All our coaches are
-                  <strong> certified</strong>
+                <strong> certified</strong>
   , they have hours of training and experience to help YOU reach any goal.
-                </Para>
-              </Col>
-              <Col xs={12} md={4}>
-                <DivBackgroundImage bgImage={conversation} />
-                <Para textAlign="center">
+              </Para>
+            </Col>
+            <Col xs={12} md={4}>
+              <DivBackgroundImage bgImage={conversation} />
+              <Para textAlign="center">
               Coaching
-                  <strong> works </strong>
+                <strong> works </strong>
   . How do we know? Personal experience and talking to coachees!
-                </Para>
-              </Col>
-              <Col xs={12} md={4}>
-                <DivBackgroundImage bgImage={search} />
-                <Para textAlign="center">
+              </Para>
+            </Col>
+            <Col xs={12} md={4}>
+              <DivBackgroundImage bgImage={search} />
+              <Para textAlign="center">
               Check descriptions and prices in one
-                  <strong> simple search </strong>
+                <strong> simple search </strong>
   and leave your review. No more scrolling through social media to find your coach.
-                </Para>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </SetMargin>
+              </Para>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     )
   }
 }

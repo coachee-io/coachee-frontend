@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import {H3} from '../../ui/headings'
 import {Para} from '../../ui/labels'
-import Checkmark from '../../ui/images/checkmark.svg'
+// import Checkmark from '../../ui/images/checkmark.svg'
 
 const List = styled.div`
   margin: 0;
@@ -12,20 +12,20 @@ const List = styled.div`
   flex-direction: row;
 `
 
-interface IconProps {
-  mt?: number
-}
+// interface IconProps {
+//   mt?: number
+// }
 
-const Icon = styled.img.attrs({
-  src: Checkmark,
-  alt: 'Checkmark',
-})`
-  flex-shrink: 0;
-  height: 12px;
-  width: 16px;
-  margin-right: 1rem;
-  vertical-align: middle;
-`
+// const Icon = styled.img.attrs({
+//   src: Checkmark,
+//   alt: 'Checkmark',
+// })`
+//   flex-shrink: 0;
+//   height: 12px;
+//   width: 16px;
+//   margin-right: 1rem;
+//   vertical-align: middle;
+// `
 
 interface List {
   text: string,
@@ -47,7 +47,6 @@ class CheckmarkList extends PureComponent<Props> {
           <List key={item.text}>
             {item.heading && (
               <>
-                <Icon mt={2} />
                 <H3>
                   {item.heading}
                 </H3>
@@ -58,7 +57,6 @@ class CheckmarkList extends PureComponent<Props> {
             )}
             {!item.heading && (
               <>
-                <Icon mt={5} />
                 <Para small={paraSmall} large={paraLarge}>
                   {item.text}
                 </Para>

@@ -2,7 +2,6 @@ import React, {PureComponent } from 'react'
 import {Container, Col, Row} from 'react-bootstrap'
 import styled from 'styled-components'
 
-
 import colors from '../../ui/colors'
 import {maxWidthSize} from '../../ui/global/mediaQuery'
 
@@ -39,26 +38,27 @@ const ListItem = styled.li`
  `}
 `
 
-const links = [{
-  to: '/about-us',
-  label: 'About us',
-},
-{
-  to: '/terms-and-conditions',
-  label: 'Terms and Conditions',
-},
-{
-  to: '/privacy-policy',
-  label: 'Privacy Policy',
-},
-{
-  to: '/faq',
-  label: 'FAQ',
-},
-{
-  to: '/contact-us',
-  label: 'Contact us',
-},
+const links = [
+  {
+    to: '/about-us',
+    label: 'About us',
+  },
+  {
+    to: '/terms-and-conditions',
+    label: 'Terms and Conditions',
+  },
+  {
+    to: '/privacy-policy',
+    label: 'Privacy Policy',
+  },
+  {
+    to: '/faq',
+    label: 'FAQ',
+  },
+  {
+    to: '/contact-us',
+    label: 'Contact us',
+  },
 ]
 
 class Footer extends PureComponent {

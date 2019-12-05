@@ -1,4 +1,4 @@
-export interface Props {
+export interface MarginProps {
   marginTop?: string,
   marginBottom?: string,
   marginLeft?: string,

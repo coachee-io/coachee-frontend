@@ -3,8 +3,7 @@ import styled from 'styled-components'
 
 import {H3} from '../../ui/headings'
 import {Para} from '../../ui/labels'
-
-
+import setMargin, {MarginProps} from '../../ui/global/margin'
 import Checkmark from '../../ui/images/checkmark.svg'
 
 const List = styled.div`
@@ -14,7 +13,7 @@ const List = styled.div`
   flex-direction: row;
 `
 
-interface IconProps {
+interface IconProps extends MarginProps {
   mt?: number
 }
 
@@ -27,7 +26,7 @@ const Icon = styled.img.attrs({
   width: 16px;
   margin-right: 1rem;
   vertical-align: middle;
-  ${({mt}: IconProps) => mt && getMargin('mt', mt)}
+  ${(props: IconProps) => props && setMargin(props)}
 `
 
 interface List {

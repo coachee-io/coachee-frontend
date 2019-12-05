@@ -9,8 +9,6 @@ import {Pulse} from '../../../components/Skeleton'
 import {H3} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
 
-import MediaQuery from '../../../components/Layout/MediaQuery'
-
 import Rating from '../../../ui/images/star-rating.svg'
 
 const CoachImage = Image`

@@ -64,11 +64,9 @@ class Journey extends PureComponent {
         {FeatureFlags.isFeatureEnabled('platformEnabled') && (
         <Row>
           <Col sm={12} md={{span: 6, offset: 3}}>
-            <FlexColAlignCenter>
-              <RouterButtonLink to="signup" primary>
-                    Sign Up
-              </RouterButtonLink>
-            </FlexColAlignCenter>
+            <RouterButtonLink to="signup" primary>
+              Sign Up
+            </RouterButtonLink>
           </Col>
         </Row>
         )}

@@ -5,7 +5,6 @@ import Header from './Header'
 import Sidebar from './Sidebar'
 import Content from './Content'
 
-import SetMargin from '../../components/Layout/SetMargin'
 import HealthImg from '../../ui/images/health-category.jpg'
 
 const Coach = {
@@ -95,41 +94,39 @@ class CoachProfile extends PureComponent<{}, State> {
     const {coach} = this.state
     return (
       <>
-        <SetMargin mt={30}>
-          <Row>
-            <Col xs={12}>
-              <Header
-                scrollToReviews={this.scrollToReviews}
-                firstName={coach.firstName}
-                lastName={coach.lastName}
-                pictureUrl={coach.pictureUrl}
-                city={coach.city}
-                country={coach.country}
-                vatNo={coach.vatNo}
-                description={coach.description}
-                shortDescription={coach.shortDescription}
-                averageReviews={coach.averageReviews}
-                numberOfReviews={coach.numberOfReviews}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} md={3}>
-              <Sidebar
-                tags={coach.tags}
-                availability={coach.availability}
-              />
-            </Col>
-            <Col xs={12} md={9}>
-              <Content
-                certificates={coach.certificates}
-                programmes={coach.programmes}
-                reviews={coach.reviews}
-                reviewsRef={this.reviews}
-              />
-            </Col>
-          </Row>
-        </SetMargin>
+        <Row>
+          <Col xs={12}>
+            <Header
+              scrollToReviews={this.scrollToReviews}
+              firstName={coach.firstName}
+              lastName={coach.lastName}
+              pictureUrl={coach.pictureUrl}
+              city={coach.city}
+              country={coach.country}
+              vatNo={coach.vatNo}
+              description={coach.description}
+              shortDescription={coach.shortDescription}
+              averageReviews={coach.averageReviews}
+              numberOfReviews={coach.numberOfReviews}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} md={3}>
+            <Sidebar
+              tags={coach.tags}
+              availability={coach.availability}
+            />
+          </Col>
+          <Col xs={12} md={9}>
+            <Content
+              certificates={coach.certificates}
+              programmes={coach.programmes}
+              reviews={coach.reviews}
+              reviewsRef={this.reviews}
+            />
+          </Col>
+        </Row>
       </>
     )
   }

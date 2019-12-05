@@ -1,14 +1,17 @@
 import styled from 'styled-components'
 
-interface Props {
-  flexBasis: string,
+import setMargin, {MarginProps} from '../../ui/global/margin'
+
+interface Props extends MarginProps {
+  flexBasis?: string,
   flexDirection?: string,
   flexWrap?: string,
   alignItems?: string,
   justifyContent?: string,
+  width: string
 }
 
-export const Flex = styled.div<Props>`
+const Flex = styled.div<Props>`
   display: flex;
   ${({flexBasis}) => flexBasis && `
     flex-basis: ${flexBasis};
@@ -25,4 +28,7 @@ export const Flex = styled.div<Props>`
   ${({justifyContent}) => justifyContent && `
     justify-content: ${justifyContent};
   `}
+  ${(props) => props && setMargin(props)}
 `
+
+export default Flex

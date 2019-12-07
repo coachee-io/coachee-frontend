@@ -2,6 +2,8 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 import styled from 'styled-components'
 
+import Flex from '../../../../components/Layout/Flexbox'
+
 import CheckMarkList from '../../../../components/CheckmarkList'
 import {RouterButtonLink} from '../../../../components/Routing'
 
@@ -45,52 +47,56 @@ class CoachSignup extends PureComponent {
         </Row>
         <Row>
           <Col xs={12} sm={4}>
-            <H2>
-                  Flexible
+            <H2 textAlign="center">
+              Flexible
             </H2>
             <Para textAlign="center">
-                  We provide a platform to market your programs while you stay on top
-                  of availability and pricing.
+              We provide a platform to market your programs while you stay on top
+              of availability and pricing.
             </Para>
           </Col>
           <Col xs={12} sm={4}>
-            <H2>
-                  Simple
+            <H2 textAlign="center">
+              Simple
             </H2>
             <Para textAlign="center">
-                  We make it simple for any coachee to find you by creating your
-                  own profile with clear descriptions.
+              We make it simple for any coachee to find you by creating your
+              own profile with clear descriptions.
             </Para>
           </Col>
           <Col xs={12} sm={4}>
-            <H2>
-                  Secure
+            <H2 textAlign="center">
+              Secure
             </H2>
             <Para textAlign="center">
-                  Payments will be made up to 72 hours after each completed session.
-                  We only get paid if you do.
+              Payments will be made up to 72 hours after each completed session.
+              We only get paid if you do.
             </Para>
           </Col>
         </Row>
-        <Row>
+        <Flex flexDirection="row" justifyContent="center" marginTop="30px">
           <Col xs={12}>
             <H2 textAlign="center">
-                  Your next client is 4 steps away
+              Your next client is 4 steps away
             </H2>
           </Col>
-        </Row>
+        </Flex>
         <Row>
           <Col xs={12}>
-            <ListWrapper>
-              <CheckMarkList list={CoachList} paraSmall />
-            </ListWrapper>
+            <Flex flexDirection="row" justifyContent="center" marginTop="30px">
+              <ListWrapper>
+                <CheckMarkList list={CoachList} paraSmall />
+              </ListWrapper>
+            </Flex>
           </Col>
         </Row>
         <Row>
           <Col xs={12}>
-            <RouterButtonLink to="/become-a-coach/register" primary>
-                    Register now
-            </RouterButtonLink>
+            <Flex width="100%" flexDirection="row" justifyContent="center" marginTop="30px">
+              <RouterButtonLink to="/become-a-coach/register" primary>
+                Register now
+              </RouterButtonLink>
+            </Flex>
           </Col>
         </Row>
       </>

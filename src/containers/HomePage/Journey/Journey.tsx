@@ -46,7 +46,7 @@ class Journey extends PureComponent {
             </H1>
           </Col>
         </Row>
-        <Row>
+        <Flex flexDirection="row" width="100%" marginTop="30px">
           <MediaQuery>
             {({isDesktop}) => isDesktop() && (
             <Col md={6}>
@@ -57,20 +57,20 @@ class Journey extends PureComponent {
           <MediaQuery>
             {({isDesktop}) => (
               <Col xs={12} md={isDesktop() ? 6 : {span: 8, offset: 2}}>
-                <CheckmarkTextList list={JourneyListText} />
+                <Flex flexDirection="column" width="100%" marginTop={isDesktop() ? '60px' : '0'}>
+                  <CheckmarkTextList list={JourneyListText} />
+                </Flex>
               </Col>
             )}
           </MediaQuery>
-        </Row>
-        {FeatureFlags.isFeatureEnabled('platformEnabled') && (
-        <Row>
+        </Flex>
+        <Flex flexDirection="row" justifyContent="center" width="100%" marginTop="30px">
           <Col sm={12} md={{span: 6, offset: 3}}>
             <RouterButtonLink to="signup" primary>
               Sign Up
             </RouterButtonLink>
           </Col>
-        </Row>
-        )}
+        </Flex>
         <Flex flexDirection="row" width="100%" marginTop="30px">
           <Col md={12}>
             <Para textAlign="center">

@@ -9,6 +9,7 @@ import {
   Form, Checkbox, StyledLabel, StyledSelect, ErrorMessage, ErrorAlertCircle, Button, Input,
 } from '../../../components/Form'
 
+
 import Flex from '../../../components/Layout/Flexbox'
 
 import {H2} from '../../../ui/headings'
@@ -162,9 +163,11 @@ class SignUpCoachee extends PureComponent {
                         error={errors.terms && touched.terms}
                         errorMessage={errors.terms}
                       />
-                      <Button accent type="submit">
+                      <Flex flexDirection="row" justifyContent="center" width="100%">
+                        <Button accent type="submit">
                           Sign up
-                      </Button>
+                        </Button>
+                      </Flex>
                     </Form>
                   </>
                 )}

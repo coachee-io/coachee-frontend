@@ -10,7 +10,7 @@ interface Props extends MarginProps {
   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse' | string,
   alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline' | string,
   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly' | string,
-  width: string
+  width?: string
 }
 
 const Flex = styled.div<Props>`
@@ -26,6 +26,9 @@ const Flex = styled.div<Props>`
   `}
   ${({justifyContent}) => justifyContent && `
     justify-content: ${justifyContent};
+  `}
+  ${({width}) => width && `
+    width: ${width};
   `}
   ${(props) => props && setMargin(props)}
 `

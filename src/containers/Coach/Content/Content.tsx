@@ -95,20 +95,18 @@ class Content extends PureComponent<Props> {
             )}
           </Col>
         </Row>
-        {FeatureFlags.isFeatureEnabled('reviewsEnabled') && reviews && (
-          <div ref={reviewsRef}>
-            <Row>
-              <Col xs={12}>
-                <H2>
-                  {reviews ? 'Reviews' : <Pulse height={24} />}
-                </H2>
-                <StarRating />
-                <H3>[Review Heading]</H3>
-                <Para>[Review Text]</Para>
-              </Col>
-            </Row>
-          </div>
-        )}
+        <div ref={reviewsRef}>
+          <Row>
+            <Col xs={12}>
+              <H2>
+                {reviews ? 'Reviews' : <Pulse height={24} />}
+              </H2>
+              <StarRating />
+              <H3>[Review Heading]</H3>
+              <Para>[Review Text]</Para>
+            </Col>
+          </Row>
+        </div>
       </>
     )
   }

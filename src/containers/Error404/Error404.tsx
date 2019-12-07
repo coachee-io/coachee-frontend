@@ -5,6 +5,8 @@ import {Para} from '../../ui/labels'
 import Error404ImgPath from '../../ui/images/404.svg'
 
 import {RouterButtonLink} from '../../components/Routing'
+
+import Flex from '../../components/Layout/Flexbox'
 import {Image} from '../../components/Image'
 
 const HEIGHT = 350
@@ -30,10 +32,14 @@ class Error404 extends PureComponent {
               {' '}
 The page you&apos;re looking for can&apos;t be found.
             </Para>
-            <RouterButtonLink to="/" primary>
+            <Flex flexDirection="row" justifyContent="center" marginTop="30px">
+              <RouterButtonLink to="/" primary>
                   Back to Home
-            </RouterButtonLink>
-            <Error404Image />
+              </RouterButtonLink>
+            </Flex>
+            <Flex flexDirection="row" justifyContent="center" marginTop="30px">
+              <Error404Image />
+            </Flex>
           </Col>
         </Row>
       </>

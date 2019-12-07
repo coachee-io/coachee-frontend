@@ -9,6 +9,8 @@ import {
   Form, StyledLabel, StyledInput, Button, ErrorMessage, ErrorAlertCircle,
 } from '../../components/Form'
 
+import Flex from '../../components/Layout/Flexbox'
+
 import {RegularRouterLink} from '../../components/Routing'
 import {H2} from '../../ui/headings'
 
@@ -34,9 +36,9 @@ class Login extends PureComponent {
 
   render() {
     return (
-      <>
-        <Row>
-          <Col xs={12}>
+      <Row>
+        <Col xs={12}>
+          <Flex width="100%" flexDirection="row" justifyContent="center" marginTop="30px">
             <Formik
               initialValues={{email: '', password: ''}}
               onSubmit={this.onSubmit}
@@ -93,9 +95,9 @@ class Login extends PureComponent {
                 </>
               )}
             </Formik>
-          </Col>
-        </Row>
-      </>
+          </Flex>
+        </Col>
+      </Row>
     )
   }
 }

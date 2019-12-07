@@ -6,6 +6,8 @@ import {Para} from '../../ui/labels'
 import setMargin, {MarginProps} from '../../ui/global/margin'
 import Checkmark from '../../ui/images/checkmark.svg'
 
+import Flex from '../Layout/Flexbox'
+
 const List = styled.div`
   margin: 0;
   padding: 0;
@@ -50,12 +52,14 @@ class CheckmarkList extends PureComponent<Props> {
             {item.heading && (
               <>
                 <Icon mt={2} />
-                <H3>
-                  {item.heading}
-                </H3>
-                <Para small={paraSmall} large={paraLarge}>
-                  {item.text}
-                </Para>
+                <Flex flexDirection="column">
+                  <H3>
+                    {item.heading}
+                  </H3>
+                  <Para small={paraSmall} large={paraLarge}>
+                    {item.text}
+                  </Para>
+                </Flex>
               </>
             )}
             {!item.heading && (

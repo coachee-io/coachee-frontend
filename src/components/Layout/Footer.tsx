@@ -24,6 +24,7 @@ const List = styled.ul`
   justify-content: center;
   align-items: center;
   ${maxWidthSize.mobile`
+    margin-top: 30px;
     flex-direction: column;
   `}
 `

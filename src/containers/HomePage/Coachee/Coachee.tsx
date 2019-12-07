@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
+import Flex from '../../../components/Layout/Flexbox'
 import {DivBackgroundImage} from '../../../components/Image'
 
 import {H1} from '../../../ui/headings'
@@ -14,12 +15,12 @@ import search from '../../../ui/images/search.svg'
 class Coachee extends PureComponent {
   render() {
     return (
-      <Row>
+      <Flex flexDirection="row" width="100%" marginTop="30px">
         <Col xs={12}>
           <Row>
             <Col xs={12}>
               <H1 textAlign="center">
-                  Why Coachee?
+                Why Coachee?
               </H1>
             </Col>
           </Row>
@@ -50,7 +51,7 @@ class Coachee extends PureComponent {
             </Col>
           </Row>
         </Col>
-      </Row>
+      </Flex>
     )
   }
 }

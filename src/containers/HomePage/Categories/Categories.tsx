@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
 import {RouterLink, UnstyledRouterLink} from '../../../components/Routing'
+import Flex from '../../../components/Layout/Flexbox'
 
 import {
   Cards, CategoryCard, CategoryCardImage, CardTitle, CardBody, CardText,
@@ -14,7 +15,7 @@ import list from './list'
 class Categories extends PureComponent {
   render() {
     return (
-      <>
+      <Flex flexDirection="column" width="100%" marginTop="30px">
         <Row>
           <Col xs={12}>
             <H1 textAlign="center">How can we help you?</H1>
@@ -37,10 +38,12 @@ class Categories extends PureComponent {
             </UnstyledRouterLink>
           ))}
         </Cards>
-        <RouterLink to="/coaches" primary>
-              Browse all coaches
-        </RouterLink>
-      </>
+        <Flex flexDirection="row" justifyContent="center" width="100%" marginTop="30px">
+          <RouterLink to="/coaches" primary>
+            Browse all coaches
+          </RouterLink>
+        </Flex>
+      </Flex>
     )
   }
 }

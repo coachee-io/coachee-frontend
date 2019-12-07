@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
+import Flex from '../../../components/Layout/Flexbox'
 import CheckmarkTextList from '../../../components/CheckmarkList'
 import {RouterLink, RouterButtonLink} from '../../../components/Routing'
 
@@ -37,11 +38,11 @@ const JourneyListText = [
 class Journey extends PureComponent {
   render() {
     return (
-      <>
+      <Flex flexDirection="column" width="100%" marginTop="30px">
         <Row>
           <Col xs={12}>
             <H1 textAlign="center">
-                Ready to start your journey?
+              Ready to start your journey?
             </H1>
           </Col>
         </Row>
@@ -70,9 +71,9 @@ class Journey extends PureComponent {
           </Col>
         </Row>
         )}
-        <Row>
+        <Flex flexDirection="row" width="100%" marginTop="30px">
           <Col md={12}>
-            <Para>
+            <Para textAlign="center">
                   Still not sure if coaching is for you? Check out the
                   resources in our
               {' '}
@@ -84,8 +85,8 @@ class Journey extends PureComponent {
   .
             </Para>
           </Col>
-        </Row>
-      </>
+        </Flex>
+      </Flex>
     )
   }
 }

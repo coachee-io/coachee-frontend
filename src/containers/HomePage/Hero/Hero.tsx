@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
 import CheckmarkList from '../../../components/CheckmarkList'
+import Flex from '../../../components/Layout/Flexbox'
 import {RouterButtonLink} from '../../../components/Routing'
 
 import MediaQuery from '../../../components/Layout/MediaQuery'
@@ -32,44 +33,50 @@ class Hero extends PureComponent {
   render() {
     return (
       <Row>
-        <Col xs={12} lg={6}>
-          <H1>
+        <Col xs={12}>
+          <Flex flexDirection="row" width="100%" marginTop="30px">
+            <Col xs={12} lg={6}>
+              <H1>
             Achieve your goals,
-          </H1>
-          <H1>
+              </H1>
+              <H1>
             change your life
-          </H1>
-          <Para large>
+              </H1>
+              <Para large>
             Coaching is more than a trend, it&apos;s a powerful resource!
             Some of the results you can achieve with our coaches include:
-          </Para>
-          <CheckmarkList list={HeroListText} />
-          {FeatureFlags.isFeatureEnabled('platformEnabled') && (
+              </Para>
+              <CheckmarkList list={HeroListText} />
+              <MediaQuery>
+                {({isTablet}: any) => (
+                  <>
+                    {isTablet() && (
+                    <Flex flexDirection="row" width="100%" marginLeft="30px">
+                      <RouterButtonLink to="/signup" primary>
+                        Sign up
+                      </RouterButtonLink>
+                    </Flex>
+                    )}
+                    {!isTablet() && (
+                    <Flex flexDirection="row" justifyContent="center" width="100%">
+                      <RouterButtonLink to="/signup" primary>
+                        Sign up
+                      </RouterButtonLink>
+                    </Flex>
+                    )}
+                  </>
+                )}
+              </MediaQuery>
+            </Col>
             <MediaQuery>
-              {({isTablet}: any) => (
-                <>
-                  {isTablet() && (
-                    <RouterButtonLink to="/signup" primary>
-                      Sign up
-                    </RouterButtonLink>
-                  )}
-                  {!isTablet() && (
-                  <RouterButtonLink to="/signup" primary>
-                      Sign up
-                  </RouterButtonLink>
-                  )}
-                </>
+              {({isDesktop}: any) => isDesktop() && (
+              <Col lg={6}>
+                <HeroImage />
+              </Col>
               )}
             </MediaQuery>
-          )}
+          </Flex>
         </Col>
-        <MediaQuery>
-          {({isDesktop}: any) => isDesktop() && (
-            <Col lg={6}>
-              <HeroImage />
-            </Col>
-          )}
-        </MediaQuery>
       </Row>
     )
   }

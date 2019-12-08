@@ -1,4 +1,4 @@
-export interface Props {
+export interface PaddingProps {
   paddingTop?: string,
   paddingBottom?: string,
   paddingLeft?: string,

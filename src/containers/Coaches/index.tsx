@@ -3,6 +3,8 @@ import {
   Row, Col,
 } from 'react-bootstrap'
 
+import Flex from '../../components/Layout/Flexbox'
+
 import {H1} from '../../ui/headings'
 import Dropdown from './Dropdown'
 import Categories from './Categories'
@@ -31,10 +33,12 @@ class Coaches extends PureComponent<any, State> {
             </H1>
           </Col>
         </Row>
-        <Dropdown
-          onChange={this.handleCategoryChange}
-          category={category}
-        />
+        <Flex justifyContent="flex-end" width="100%">
+          <Dropdown
+            onChange={this.handleCategoryChange}
+            category={category}
+          />
+        </Flex>
         <Categories category={category} />
       </>
     )

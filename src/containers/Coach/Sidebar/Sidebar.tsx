@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
+import Flex from '../../../components/Layout/Flexbox'
+
 import {Pulse} from '../../../components/Skeleton'
 import {H2} from '../../../ui/headings'
 
@@ -21,28 +23,34 @@ class Sidebar extends PureComponent<Props> {
       <>
         <Row>
           <Col xs={12}>
-            <H2 textAlign="center">
-              {tags ? 'Expertise' : <Pulse height={24} width={150} />}
-            </H2>
-            {tags && tags.split(',').map((el) => (
-              <Tag accent key={el}>
-                {el}
-              </Tag>
-            ))}
+            <Flex flexDirection="column" marginTop="30px" alignItems="center">
+              <H2 textAlign="center">
+                {tags ? 'Expertise' : <Pulse height={24} width={150} />}
+              </H2>
+              {tags && tags.split(',').map((el) => (
+                <Flex key={el} flexDirection="row" marginTop="15px">
+                  <Tag accent>
+                    {el}
+                  </Tag>
+                </Flex>
+              ))}
+            </Flex>
           </Col>
         </Row>
         <Row>
           <Col xs={12}>
-            <H2 textAlign="center">
-              {availability ? 'Availability' : <Pulse height={24} width={150} />}
-            </H2>
-            {availability && availability.map((el) => (
-              <>
-                <Tag key={el} primary>
-                  {Weekdays[el.day]}
-                </Tag>
-              </>
-            ))}
+            <Flex flexDirection="column" marginTop="30px" alignItems="center">
+              <H2 textAlign="center">
+                {availability ? 'Availability' : <Pulse height={24} width={150} />}
+              </H2>
+              {availability && availability.map((el) => (
+                <Flex key={el} flexDirection="row" marginTop="15px">
+                  <Tag primary>
+                    {Weekdays[el.day]}
+                  </Tag>
+                </Flex>
+              ))}
+            </Flex>
           </Col>
         </Row>
       </>

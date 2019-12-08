@@ -1,9 +1,12 @@
 import React, {PureComponent} from 'react'
 
 import {RouterButtonLink} from '../../../components/Routing'
+import Flex from '../../../components/Layout/Flexbox'
+
 import {
-  Cards, CardTitle, CardText, CoachCard, CoachCardImage,
+  CardsGrid, CardTitle, CardText, Card, CardImage, CardBody,
 } from '../../../components/Cards'
+
 import {Pulse} from '../../../components/Skeleton'
 
 import {Para} from '../../../ui/labels'
@@ -74,57 +77,71 @@ class Categories extends PureComponent<Props, State> {
 
     if (isLoading) {
       return (
-        <Cards>
+        <CardsGrid>
           {placeholder.map((item: any) => (
-            <CoachCard key={item} isLoading>
-              <Pulse circle width={76} height={76} />
-              <CardTitle textAlign="center">
-                <Pulse height={24} />
-              </CardTitle>
-              <CardText textAlign="center">
-                <Pulse height={16} />
-              </CardText>
-              <CardText textAlign="center">
-                <Pulse height={16} />
-              </CardText>
-              <Pulse height={44} width={156} />
-            </CoachCard>
+            <Card key={item} width="212px">
+              <CardBody padding="1rem">
+                <Flex flexDirection="column" alignItems="center">
+                  <Pulse circle width={76} height={76} />
+                  <Flex flexDirection="column" alignItems="center" paddingTop="10px">
+                    <CardTitle textAlign="center">
+                      <Pulse height={24} width={156} />
+                    </CardTitle>
+                    <CardText textAlign="center">
+                      <Pulse height={16} width={156} />
+                    </CardText>
+                    <CardText textAlign="center">
+                      <Pulse height={16} width={156} />
+                    </CardText>
+                    <Pulse height={44} width={156} />
+                  </Flex>
+                </Flex>
+              </CardBody>
+            </Card>
           ))}
-        </Cards>
+        </CardsGrid>
       )
     }
 
     if (coaches.length === 0) {
       return (
-        <>
+        <Flex flexDirection="column" alignItems="center" marginTop="15px">
           <Para textAlign="center">
-              We are currently busy finding the best coaches for this category.
+            We are currently busy finding the best coaches for this category.
           </Para>
-          <CoachSearchImage />
-        </>
+          <Flex flexDirection="column" alignItems="center" marginTop="15px">
+            <CoachSearchImage />
+          </Flex>
+        </Flex>
       )
     }
 
     return (
-      <Cards>
+      <CardsGrid>
         {coaches.map((coach: any) => (
-          <CoachCard key={Math.random().toString(36)}>
-            <CoachCardImage imgSrc={coach.photo} />
-            <CardTitle textAlign="center">
-              {coach.name}
-            </CardTitle>
-            <CardText textAlign="center">
-              {coach.expertise}
-            </CardText>
-            <CardText textAlign="center">
-              {coach.price}
-            </CardText>
-            <RouterButtonLink to="/coach/1" primary>
+          <Card key={Math.random().toString(36)} width="212px">
+            <CardBody padding="1rem">
+              <Flex flexDirection="column" alignItems="center">
+                <CardImage src={coach.photo} alt="Coach Profile" width="100px" height="100px" borderRadius="50%" />
+                <Flex flexDirection="column" alignItems="center" marginTop="15px">
+                  <CardTitle textAlign="center">
+                    {coach.name}
+                  </CardTitle>
+                  <CardText textAlign="center">
+                    {coach.expertise}
+                  </CardText>
+                  <CardText textAlign="center">
+                    {coach.price}
+                  </CardText>
+                  <RouterButtonLink to="/coach/1" primary>
                     See profile
-            </RouterButtonLink>
-          </CoachCard>
+                  </RouterButtonLink>
+                </Flex>
+              </Flex>
+            </CardBody>
+          </Card>
         ))}
-      </Cards>
+      </CardsGrid>
     )
   }
 }

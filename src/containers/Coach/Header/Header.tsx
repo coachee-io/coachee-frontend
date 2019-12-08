@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
+import Flex from '../../../components/Layout/Flexbox'
+
 import {Image} from '../../../components/Image'
 import {RouterLink} from '../../../components/Routing'
 
@@ -56,33 +58,37 @@ class Header extends PureComponent<Props> {
     return (
       <Row>
         <Col xs={12} md={3}>
-          {pictureUrl ? <CoachImage src={pictureUrl} /> : <Pulse circle height={170} width={170} />}
-          <H3>
-            {firstName && lastName ? `${firstName} ${lastName}` : <Pulse height={18} width={150} />}
-          </H3>
-          <Para textAlign="center">
-            {shortDescription || <Pulse height={18} width={150} />}
-          </Para>
-          <Para textAlign="center">
-            {city && country ? `${city}, ${country}` : <Pulse height={18} width={150} />}
-          </Para>
-          <Para textAlign="center">
-            {vatNo ? `VAT No.: ${vatNo}` : <Pulse height={18} width={150} />}
-          </Para>
-          <Para>
-            {averageReviews ? (
-              Array(averageReviews).fill(Math.random(), 0, averageReviews).map((el) => <StarRating key={el} />)
-            ) : <Pulse height={18} width={150} />}
-          </Para>
-          {numberOfReviews ? (
-            <RouterLink to="#reviews" onClick={scrollToReviews} primary>
-              {numberOfReviews}
-              {' '}
+          <Flex flexDirection="column" alignItems="center">
+            {pictureUrl ? <CoachImage src={pictureUrl} /> : <Pulse circle height={170} width={170} />}
+            <Flex marginTop="15px">
+              <H3>
+                {firstName && lastName ? `${firstName} ${lastName}` : <Pulse height={18} width={150} />}
+              </H3>
+            </Flex>
+            <Para textAlign="center">
+              {shortDescription || <Pulse height={18} width={150} />}
+            </Para>
+            <Para textAlign="center">
+              {city && country ? `${city}, ${country}` : <Pulse height={18} width={150} />}
+            </Para>
+            <Para textAlign="center">
+              {vatNo ? `VAT No.: ${vatNo}` : <Pulse height={18} width={150} />}
+            </Para>
+            <Para>
+              {averageReviews ? (
+                Array(averageReviews).fill(Math.random(), 0, averageReviews).map((el) => <StarRating key={el} />)
+              ) : <Pulse height={18} width={150} />}
+            </Para>
+            {numberOfReviews ? (
+              <RouterLink to="#reviews" onClick={scrollToReviews} primary>
+                {numberOfReviews}
+                {' '}
                 Reviews
-            </RouterLink>
-          ) : (
-            <Pulse height={18} width={150} />
-          )}
+              </RouterLink>
+            ) : (
+              <Pulse height={18} width={150} />
+            )}
+          </Flex>
         </Col>
         <Col xs={12} md={9}>
           {description ? (
@@ -107,7 +113,6 @@ class Header extends PureComponent<Props> {
               </Para>
             </>
           )}
-            )}
         </Col>
       </Row>
     )

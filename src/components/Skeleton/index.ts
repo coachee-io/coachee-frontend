@@ -17,7 +17,7 @@ const PulseAnimation = css`
   }
 `
 
-export const Pulse = styled.span`
+export const Pulse = styled.span<PulseProps>`
   display: flex;
   height: 100%;
   width: 100%;
@@ -26,9 +26,9 @@ export const Pulse = styled.span`
   animation: pulse 1.2s ease-in-out infinite;
   border-radius: 5px;
   ${PulseAnimation};
-  ${({circle}: PulseProps) => circle && `
+  ${({circle}) => circle && `
     border-radius: 50%;
   `}
-  ${({width}: PulseProps) => width && `width: ${width}px;`}
-  ${({height}: PulseProps) => height && `height: ${height}px;`}
+  ${({width}) => width && `width: ${width}px;`}
+  ${({height}) => height && `height: ${height}px;`}
 `

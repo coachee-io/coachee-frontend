@@ -64,11 +64,13 @@ class Journey extends PureComponent {
             )}
           </MediaQuery>
         </Flex>
-        <Flex flexDirection="row" justifyContent="center" width="100%" marginTop="30px">
+        <Flex flexDirection="row" width="100%" marginTop="30px">
           <Col sm={12} md={{span: 6, offset: 3}}>
-            <RouterButtonLink to="signup" primary>
-              Sign Up
-            </RouterButtonLink>
+            <Flex flexDirection="row" justifyContent="center" width="100%">
+              <RouterButtonLink to="signup" primary>
+                Sign Up
+              </RouterButtonLink>
+            </Flex>
           </Col>
         </Flex>
         <Flex flexDirection="row" width="100%" marginTop="30px">

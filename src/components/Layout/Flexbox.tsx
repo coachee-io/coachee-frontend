@@ -2,10 +2,11 @@ import {Row as BSRow, Col as BSCol} from 'react-bootstrap'
 import styled from 'styled-components'
 
 import setMargin, {MarginProps} from '../../ui/global/margin'
+import setPadding, {PaddingProps} from '../../ui/global/padding'
 import {minWidthSize, maxWidthSize} from '../../ui/global/mediaQuery'
 
 
-interface Props extends MarginProps {
+interface Props extends MarginProps, PaddingProps {
   flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse' | string,
   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse' | string,
   alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline' | string,
@@ -31,6 +32,7 @@ const Flex = styled.div<Props>`
     width: ${width};
   `}
   ${(props) => props && setMargin(props)}
+  ${(props) => props && setPadding(props)}
 `
 
 export const Row = styled(BSRow)``

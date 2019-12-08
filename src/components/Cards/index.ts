@@ -3,74 +3,87 @@ import styled from 'styled-components'
 import colors from '../../ui/colors'
 import {H2} from '../../ui/headings'
 import {Para} from '../../ui/labels'
-import {minWidthSize} from '../../ui/global/mediaQuery'
+import {minWidthSize, maxWidthSize} from '../../ui/global/mediaQuery'
 
-interface CardImageProps {
-  imgSrc?: string
+interface CardsGridProps {
+  gap?: string,
 }
 
-export const Cards = styled.div`
+export const CardsGrid = styled.div<CardsGridProps>`
   display: grid;
-  row-gap: 1rem;
+  width: 100%;
+  gap: 1.5rem;
+  grid-template-columns: repeat(1, 1fr);
+  justify-items: center;
   ${minWidthSize.tablet`
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 3rem;
   `}
   ${minWidthSize.desktop`
     grid-template-columns: repeat(3, 1fr);
   `}
-  
 `
 
-export const Card = styled.div`
+interface CardGridProps {
+  width?: string,
+  height?: string,
+  border?: string,
+  borderRadius?: string
+}
+
+export const Card = styled.div<CardGridProps>`
+  height: 100%;
+  width: 100%;
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   border-radius: 5px;
   border: 0.5px solid ${colors.primary};
   background-color: ${colors.white};
-  margin-top: 30px;
+
+  ${({width}) => width && `
+    width: ${width};
+  `}
+
+  ${({height}) => height && `
+    height: ${height};
+  `}
 `
 
-export const CardBody = styled.div`
-  display: flex;
+interface CardImageProps {
+  src: string,
+  height?: string,
+  width?: string,
+  borderRadius?: string
+}
+
+export const CardImage = styled.img<CardImageProps>`
+  display: block;
+  width: 100%;
+  height: auto;
+
+  ${({width}) => width && `
+    width: ${width};
+  `}
+
+  ${({height}) => height && `
+    height: ${height};
+  `}
+
+  ${({borderRadius}) => borderRadius && `
+    border-radius: ${borderRadius};
+  `}
+`
+
+interface CardBodyProps {
+  padding?: string
+}
+
+export const CardBody = styled.div<CardBodyProps>`
   flex: 1 1 auto;
-  flex-direction: column;
-  padding: 1rem;
+  ${({padding}) => padding && `
+    padding: ${padding};
+  `}
 `
 
 export const CardTitle = styled(H2)``
 export const CardText = styled(Para)``
-
-
-export const CategoryCard = styled(Card)`
-  height: 435px;
-`
-
-export const CategoryCardImage = styled.img`
-  height: auto;
-  width: 100%;
-  border: none;
-`
-
-interface CoachCardProps {
-  isLoading?: boolean
-}
-
-export const CoachCard = styled(Card)`
-  padding: 2rem;
-  ${({isLoading}: CoachCardProps) => isLoading && `
-    border: 0.5px solid #E5E5E5;
-  `}
-`
-
-export const CoachCardImage = styled.div`
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 76px;
-  width: 76px;
-  border-radius: 50%;
-  background-image: ${({imgSrc}: CardImageProps) => imgSrc && `
-    url(${imgSrc});
-  `}
-`

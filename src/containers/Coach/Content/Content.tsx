@@ -75,7 +75,7 @@ class Content extends PureComponent<Props> {
                     {Auth.isLoggedIn() && (
                     <Col xs={12} sm={3}>
                       <RouterButtonLink to="/booking" primary>
-                          Book a call
+                        Book a call
                       </RouterButtonLink>
                     </Col>
                     )}

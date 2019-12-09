@@ -35,7 +35,7 @@ class Routes extends PureComponent {
       <Layout>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <ProtectedRoute path="/login" flag="platformEnabled"  component={Login} />
+          <ProtectedRoute path="/login" flag="platformEnabled" component={Login} />
           <ProtectedRoute path="/logout" flag="platformEnabled" component={Mockup} />
           <ProtectedRoute path="/forgot-password" flag="platformEnabled" component={ForgotPassword} />
           <ProtectedRoute path="/signup" flag="platformEnabled" component={CoacheeSignup} />

@@ -2,7 +2,6 @@ import React, {PureComponent} from 'react'
 import {Switch, Route, useHistory} from 'react-router-dom'
 
 import Layout from '../components/Layout/Layout'
-// import ProtectedRoute from '../components/Routing/ProtectedRoute'
 
 import HomePage from '../containers/HomePage'
 import Login from '../containers/Login'
@@ -19,6 +18,7 @@ import CoachesCategories from '../containers/Coaches'
 
 
 import Error404 from '../containers/Error404'
+import ProtectedRoute from '../components/Routing/ProtectedRoute'
 
 const Mockup = () => {
   const history = useHistory()
@@ -35,15 +35,15 @@ class Routes extends PureComponent {
       <Layout>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/login" component={Login} />
-          <Route path="/logout" component={Mockup} />
-          <Route path="/forgot-password" component={ForgotPassword} />
-          <Route path="/signup" component={CoacheeSignup} />
+          <ProtectedRoute path="/login" flag="platformEnabled"  component={Login} />
+          <ProtectedRoute path="/logout" flag="platformEnabled" component={Mockup} />
+          <ProtectedRoute path="/forgot-password" flag="platformEnabled" component={ForgotPassword} />
+          <ProtectedRoute path="/signup" flag="platformEnabled" component={CoacheeSignup} />
           <Route exact path="/become-a-coach" component={CoachOnboarding} />
           <Route path="/become-a-coach/register" component={CoachRegister} />
           <Route path="/coaches/:category?" component={CoachesCategories} />
           <Route path="/coach/:id" component={CoachProfile} />
-          <Route path="/booking" component={Booking} />
+          <ProtectedRoute path="/booking" flag="bookingEnabled" component={Booking} />
           <Route path="/*" component={Error404} />
         </Switch>
       </Layout>

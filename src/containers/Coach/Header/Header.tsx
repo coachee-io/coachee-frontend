@@ -8,6 +8,8 @@ import {RouterLink} from '../../../components/Routing'
 
 import {Pulse} from '../../../components/Skeleton'
 
+import FeatureFlags from '../../../utils/featureFlags'
+
 import {H3} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
 
@@ -37,7 +39,7 @@ interface Props {
   shortDescription: string,
   averageReviews: number,
   numberOfReviews: number,
-  pictureUrl: string
+  pictureUrl: string | undefined
 }
 
 class Header extends PureComponent<Props> {
@@ -74,19 +76,23 @@ class Header extends PureComponent<Props> {
             <Para textAlign="center">
               {vatNo ? `VAT No.: ${vatNo}` : <Pulse height={18} width={150} />}
             </Para>
-            <Para>
-              {averageReviews ? (
-                Array(averageReviews).fill(Math.random(), 0, averageReviews).map((el) => <StarRating key={el} />)
-              ) : <Pulse height={18} width={150} />}
-            </Para>
-            {numberOfReviews ? (
-              <RouterLink to="#reviews" onClick={scrollToReviews} primary>
-                {numberOfReviews}
-                {' '}
-                Reviews
-              </RouterLink>
-            ) : (
-              <Pulse height={18} width={150} />
+            {FeatureFlags.isFeatureEnabled('reviewsEnabled') && (
+              <>
+                <Para>
+                  {averageReviews ? (
+                    Array(averageReviews).fill(Math.random(), 0, averageReviews).map((el) => <StarRating key={el} />)
+                  ) : <Pulse height={18} width={150} />}
+                </Para>
+                {numberOfReviews ? (
+                  <RouterLink to="#reviews" onClick={scrollToReviews} primary>
+                    {numberOfReviews}
+                    {' '}
+                  Reviews
+                  </RouterLink>
+                ) : (
+                  <Pulse height={18} width={150} />
+                )}
+              </>
             )}
           </Flex>
         </Col>

@@ -11,7 +11,9 @@ import {Pulse} from '../../../components/Skeleton'
 
 import {Para} from '../../../ui/labels'
 
-import mockDb from '../../../db'
+import {CoachesService} from '../../../services/public'
+
+import Photo from '../../../ui/images/coach-photo.jpg'
 
 import CoachSearchImage from './Image'
 
@@ -39,7 +41,7 @@ class Categories extends PureComponent<Props, State> {
 
   componentDidMount = async () => {
     await this.setState({isLoading: true})
-    this.getCoaches()
+    setTimeout(this.getCoaches, 500)
   }
 
   componentDidUpdate = async (prevProps: any) => {
@@ -47,14 +49,17 @@ class Categories extends PureComponent<Props, State> {
     /* eslint-disable react/no-did-update-set-state */
     if (category !== prevProps.category) {
       await this.setState({isLoading: true, coaches: []})
-      this.getNewCoaches()
+      setTimeout(this.getNewCoaches, 500)
     }
     /* eslint-enable react/no-did-update-set-state */
   }
 
   getCoaches = () => {
     const {category} = this.props
-    return mockDb(category).then((res) => {
+    const params = {
+      tag: category,
+    }
+    return CoachesService.getCoaches(params).then((res) => {
       this.setState(({coaches: res, isLoading: false}))
     })
   }
@@ -122,18 +127,18 @@ class Categories extends PureComponent<Props, State> {
           <Card key={Math.random().toString(36)} width="212px">
             <CardBody padding="1rem">
               <Flex flexDirection="column" alignItems="center">
-                <CardImage src={coach.photo} alt="Coach Profile" width="100px" height="100px" borderRadius="50%" />
+                <CardImage src={Photo} alt="Coach Profile" width="100px" height="100px" borderRadius="50%" />
                 <Flex flexDirection="column" alignItems="center" marginTop="15px">
                   <CardTitle textAlign="center">
-                    {coach.name}
+                    {`${coach.firstName} ${coach.lastName}`}
                   </CardTitle>
                   <CardText textAlign="center">
-                    {coach.expertise}
+                    {coach.tags.split(',').slice(0, 3).join(', ')}
                   </CardText>
                   <CardText textAlign="center">
                     {coach.price}
                   </CardText>
-                  <RouterButtonLink to="/coach/1" primary>
+                  <RouterButtonLink to={`/coach/${coach.id}`} primary>
                     See profile
                   </RouterButtonLink>
                 </Flex>

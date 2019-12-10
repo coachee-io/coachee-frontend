@@ -99,22 +99,24 @@ class Content extends PureComponent<Props> {
             </Flex>
           </Col>
         </Row>
-        <div ref={reviewsRef}>
-          <Row>
-            <Col xs={12}>
-              <Flex flexDirection="column" marginTop="30px">
-                <H2>
-                  {reviews ? 'Reviews' : <Pulse height={24} />}
-                </H2>
-                <StarRating />
-                <Flex flexDirection="column" marginTop="15px">
-                  <H3>[Review Heading]</H3>
-                  <Para>[Review Text]</Para>
+        {FeatureFlags.isFeatureEnabled('reviewsEnabled') && (
+          <div ref={reviewsRef}>
+            <Row>
+              <Col xs={12}>
+                <Flex flexDirection="column" marginTop="30px">
+                  <H2>
+                    {reviews ? 'Reviews' : <Pulse height={24} />}
+                  </H2>
+                  <StarRating />
+                  <Flex flexDirection="column" marginTop="15px">
+                    <H3>[Review Heading]</H3>
+                    <Para>[Review Text]</Para>
+                  </Flex>
                 </Flex>
-              </Flex>
-            </Col>
-          </Row>
-        </div>
+              </Col>
+            </Row>
+          </div>
+        )}
       </>
     )
   }

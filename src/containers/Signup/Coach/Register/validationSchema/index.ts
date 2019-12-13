@@ -1,15 +1,21 @@
 import {
-  string, object, array,
+  string, object, array, number,
 } from 'yup'
+
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
-
 export default object().shape({
-  name: string()
+  firstName: string()
     .trim()
     .required('This is a required field'),
-  location: string()
+  lastName: string()
+    .trim()
+    .required('This is a required field'),
+  country: string()
+    .trim()
+    .required('This is a required field'),
+  city: string()
     .trim()
     .required('This is a required field'),
   email: string()
@@ -20,7 +26,7 @@ export default object().shape({
     .trim()
     .required('This is a required field')
     .matches(phoneRegExp, 'Phone number is not valid'),
-  expertise: array()
+  tags: array()
     .of(
       string()
         .required('Please select one area'),
@@ -29,12 +35,13 @@ export default object().shape({
     .required('Please select one area'),
   certificates: string()
     .required('This is a required field'),
-  aboutYou: string()
+  description: string()
     .required('This is a required field'),
   programmes: string()
     .required('This is a required field'),
-  availability: string()
-    .required('This is a required field'),
+  availability: number()
+    .required('This is a required field')
+    .nullable(),
   vat: string(),
   termsAndConditions: string()
     .nullable()

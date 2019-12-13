@@ -5,12 +5,12 @@ import {
 } from 'formik'
 
 import {
-  Form, Input, CheckboxList, RadioGroup, Button,
+  Form, Input, CheckboxList, RadioGroup, Button, DatePicker,
 } from '../../../../components/Form'
-
 import Flex from '../../../../components/Layout/Flexbox'
-
 import {H2} from '../../../../ui/headings'
+
+import {CoachesService} from '../../../../services/public'
 
 import schema from './validationSchema'
 
@@ -18,13 +18,52 @@ import {
   termsAndConditions, coachingCategories,
 } from './options'
 
+interface State {
+  successful: boolean,
+  loading: boolean,
+  error: Error | null
+}
 
-class CoachSignup extends PureComponent {
-  onSubmit = (values: any) => {
-    console.log(values)
+class CoachSignup extends PureComponent<{}, State> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      successful: false,
+      loading: false,
+      error: null,
+    }
+  }
+
+
+  onSubmit = async (values: any) => {
+    const data = {
+      firstName: values.firstName,
+      lastName: values.lastName,
+      introCall: values.availability,
+      email: values.email,
+      phone: values.phone,
+      tags: values.tags.join(','),
+      city: values.city,
+      country: values.country,
+      description: values.description,
+    }
+    await this.setState({loading: true, error: null, successful: false})
+    CoachesService.createCoach(data)
+      .then(() => this.setState({successful: true}))
+      .catch((error) => this.setState({error, loading: false}))
   }
 
   render() {
+    const {loading, successful, error} = this.state
+
+    if (successful) {
+      return (
+        <div>
+          Congratulations, we will be in contact with you shortly.
+        </div>
+      )
+    }
+
     return (
       <>
         <Row>
@@ -32,16 +71,18 @@ class CoachSignup extends PureComponent {
             <Flex width="100%" flexDirection="row" justifyContent="center" marginTop="30px">
               <Formik
                 initialValues={{
-                  name: '',
-                  location: '',
+                  firstName: '',
+                  lastName: '',
+                  city: '',
+                  country: '',
                   email: '',
                   phone: '',
                   aboutUs: '',
-                  expertise: [],
+                  tags: [],
                   certificates: '',
-                  aboutYou: '',
+                  description: '',
                   programmes: '',
-                  availability: '',
+                  availability: null,
                   vat: '',
                   termsAndConditions: null,
                 }}
@@ -57,24 +98,46 @@ class CoachSignup extends PureComponent {
                           Become a coach
                       </H2>
                       <Input
-                        label="First and last name"
-                        id="name"
-                        name="name"
+                        label="First name"
+                        id="firstName"
+                        name="firstName"
                         type="text"
-                        value={values.name}
-                        error={errors.name && touched.name}
-                        errorMessage={errors.name}
+                        value={values.firstName}
+                        error={errors.firstName && touched.firstName}
+                        errorMessage={errors.firstName}
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
                       <Input
-                        label="Location (city and country)"
-                        id="location"
-                        name="location"
+                        label="Last name"
+                        id="lastName"
+                        name="lastName"
                         type="text"
-                        value={values.location}
-                        error={errors.location && touched.location}
-                        errorMessage={errors.location}
+                        value={values.lastName}
+                        error={errors.lastName && touched.lastName}
+                        errorMessage={errors.lastName}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                      />
+                      <Input
+                        label="City"
+                        id="city"
+                        name="city"
+                        type="text"
+                        value={values.city}
+                        error={errors.city && touched.city}
+                        errorMessage={errors.city}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                      />
+                      <Input
+                        label="Country"
+                        id="country"
+                        name="country"
+                        type="text"
+                        value={values.country}
+                        error={errors.country && touched.country}
+                        errorMessage={errors.country}
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
@@ -101,7 +164,7 @@ class CoachSignup extends PureComponent {
                         onBlur={handleBlur}
                       />
                       <CheckboxList
-                        name="expertise"
+                        name="tags"
                         label="What are your areas of expertise?"
                         helperText="Select all that apply, and please include areas that you have been certified in."
                         values={values}
@@ -127,13 +190,13 @@ class CoachSignup extends PureComponent {
                         label="Tell us about you"
                         helperText="We will include this at the top of your profile page.
                           What makes you the best coach out there? We want to know!"
-                        id="aboutYou"
-                        name="aboutYou"
+                        id="description"
+                        name="description"
                         type="text"
                         component="textarea"
-                        value={values.aboutYou}
-                        error={errors.aboutYou && touched.aboutYou}
-                        errorMessage={errors.aboutYou}
+                        value={values.description}
+                        error={errors.description && touched.description}
+                        errorMessage={errors.description}
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
@@ -153,18 +216,11 @@ class CoachSignup extends PureComponent {
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
-                      <Input
+                      <DatePicker
                         label="When would you be available for a 30 minutes call in the next week?"
                         helperText="We have intro calls with all our coaches to get to know you, understand your
                           availability and explain our payments process."
                         id="availability"
-                        name="availability"
-                        type="text"
-                        value={values.availability}
-                        error={errors.availability && touched.availability}
-                        errorMessage={errors.availability}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
                       />
                       <Input
                         label="Are you VAT registered? If yes, please give us your VAT number."
@@ -194,8 +250,8 @@ class CoachSignup extends PureComponent {
                         list={termsAndConditions}
                       />
                       <Flex width="100%" flexDirection="row" justifyContent="center">
-                        <Button accent type="submit">
-                          Sign up
+                        <Button accent type="submit" disabled={loading}>
+                          {loading ? 'Loading...' : 'Sign up'}
                         </Button>
                       </Flex>
                     </Form>

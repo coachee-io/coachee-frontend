@@ -12,7 +12,7 @@ class CoachesAPI {
 
   getCoaches = (params?: Params) => api.get(`${getUrlEnvironmentDomain()}/coaches`, {params})
 
-  createCoach = (data?: {}) => api.post(`${getUrlEnvironmentDomain()}/coaches`, data)
+  createCoach = (data: any) => api.post(`${getUrlEnvironmentDomain()}/coaches`, data)
 }
 
 const service = new CoachesAPI()

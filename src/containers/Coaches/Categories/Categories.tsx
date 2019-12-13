@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react'
 
 import {RouterButtonLink} from '../../../components/Routing'
 import Flex from '../../../components/Layout/Flexbox'
+import Error from '../../../components/Error'
 
 import {
   CardsGrid, CardTitle, CardText, Card, CardImage, CardBody,
@@ -21,7 +22,8 @@ interface State {
   coaches: any,
   placeholder: any,
   isLoading: boolean,
-  error: boolean
+  error?: any,
+  errorStatus?: any,
 }
 
 interface Props {
@@ -35,7 +37,7 @@ class Categories extends PureComponent<Props, State> {
       coaches: [],
       placeholder: [1, 2, 3],
       isLoading: true,
-      error: false,
+      error: null,
     }
   }
 
@@ -59,9 +61,13 @@ class Categories extends PureComponent<Props, State> {
     const params = {
       tag: category,
     }
-    return CoachesService.getCoaches(params).then((res) => {
-      this.setState(({coaches: res, isLoading: false}))
-    })
+    return CoachesService.getCoaches(params)
+      .then((res) => {
+        this.setState(({coaches: res, isLoading: false}))
+      })
+      .catch((err: any) => {
+        this.setState({error: err, errorStatus: err.status})
+      })
   }
 
   getNewCoaches = () => {
@@ -71,13 +77,11 @@ class Categories extends PureComponent<Props, State> {
 
   render() {
     const {
-      coaches, placeholder, isLoading, error,
+      coaches, placeholder, isLoading, error, errorStatus,
     } = this.state
 
     if (error) {
-      return (
-        <div> Something went wrong </div>
-      )
+      return <Error status={errorStatus} />
     }
 
     if (isLoading) {

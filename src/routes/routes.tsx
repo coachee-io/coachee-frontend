@@ -16,8 +16,7 @@ import CoachRegister from '../containers/Signup/Coach/Register'
 import CoacheeSignup from '../containers/Signup/Coachee'
 import CoachesCategories from '../containers/Coaches'
 
-
-import Error404 from '../containers/Error404'
+import Error from '../components/Error'
 import ProtectedRoute from '../components/Routing/ProtectedRoute'
 
 const Mockup = () => {
@@ -44,7 +43,7 @@ class Routes extends PureComponent {
           <Route path="/coaches/:category?" component={CoachesCategories} />
           <Route path="/coach/:id" component={CoachProfile} />
           <ProtectedRoute path="/booking" flag="bookingEnabled" component={Booking} />
-          <Route path="/*" component={Error404} />
+          <Route path="/*" component={Error} />
         </Switch>
       </Layout>
     )

@@ -16,7 +16,7 @@ const List = styled.div`
 `
 
 interface IconProps extends MarginProps {
-  mt?: number
+  marginTop?: string
 }
 
 const Icon = styled.img.attrs({
@@ -51,7 +51,7 @@ class CheckmarkList extends PureComponent<Props> {
           <List key={item.text}>
             {item.heading && (
               <>
-                <Icon mt={2} />
+                <Icon marginTop="6px" />
                 <Flex flexDirection="column">
                   <H3>
                     {item.heading}
@@ -64,7 +64,7 @@ class CheckmarkList extends PureComponent<Props> {
             )}
             {!item.heading && (
               <>
-                <Icon mt={5} />
+                <Icon marginTop="6px" />
                 <Para small={paraSmall} large={paraLarge}>
                   {item.text}
                 </Para>

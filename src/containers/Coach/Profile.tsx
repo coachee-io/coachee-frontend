@@ -3,6 +3,7 @@ import {RouteComponentProps} from 'react-router-dom'
 import {Row, Col} from 'react-bootstrap'
 
 import {CoachesService} from '../../services/public'
+import Error from '../../components/Error'
 
 import Photo from '../../ui/images/coach-photo.jpg'
 
@@ -17,7 +18,9 @@ interface Params {
 interface Props extends RouteComponentProps<Params> {}
 
 interface State {
-  coach: any
+  coach: any,
+  error?: null | any,
+  errorStatus?: string | number | any
 }
 
 class CoachProfile extends PureComponent<Props, State> {
@@ -27,6 +30,8 @@ class CoachProfile extends PureComponent<Props, State> {
     super(props)
     this.state = {
       coach: {},
+      error: null,
+      errorStatus: null,
     }
   }
 
@@ -39,6 +44,9 @@ class CoachProfile extends PureComponent<Props, State> {
     const {id} = params
     return CoachesService.getCoach(id)
       .then((res) => this.setState({coach: res}))
+      .catch((err: any) => {
+        this.setState({error: err, errorStatus: err.status})
+      })
   }
 
   scrollToReviews = () => {
@@ -46,7 +54,12 @@ class CoachProfile extends PureComponent<Props, State> {
   }
 
   render() {
-    const {coach} = this.state
+    const {coach, error, errorStatus} = this.state
+
+    if (error) {
+      return <Error status={errorStatus} />
+    }
+
     return (
       <>
         <Row>

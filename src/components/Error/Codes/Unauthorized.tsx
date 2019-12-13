@@ -1,44 +1,40 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import {Para} from '../../ui/labels'
-import Error404ImgPath from '../../ui/images/404.svg'
+import {Para} from '../../../ui/labels'
+import Error401ImgPath from '../../../ui/images/error-unauthorized.svg'
 
-import {RouterButtonLink} from '../../components/Routing'
+import {RouterButtonLink} from '../../Routing'
 
-import Flex from '../../components/Layout/Flexbox'
-import {Image} from '../../components/Image'
+import Flex from '../../Layout/Flexbox'
+import {Image} from '../../Image'
 
 const HEIGHT = 350
 
-const Error404Image = Image.attrs({
-  src: Error404ImgPath,
+const Error401Image = Image.attrs({
+  src: Error401ImgPath,
 })`
   height: auto;
   max-width: 100%;
   max-height: ${HEIGHT}px;
 `
 
-class Error404 extends PureComponent {
+class NotFound extends PureComponent {
   render() {
     return (
       <>
         <Row>
           <Col xs={12}>
             <Para textAlign="center">
-              Sorry for the inconvenience.
-              {' '}
-              <br />
-              {' '}
-The page you&apos;re looking for can&apos;t be found.
+              Sorry but the page you are looking for doesn&apos;t exist.
             </Para>
             <Flex flexDirection="row" justifyContent="center" marginTop="30px">
               <RouterButtonLink to="/" primary>
-                  Back to Home
+                Back to Home
               </RouterButtonLink>
             </Flex>
             <Flex flexDirection="row" justifyContent="center" marginTop="30px">
-              <Error404Image />
+              <Error401Image />
             </Flex>
           </Col>
         </Row>
@@ -47,4 +43,4 @@ The page you&apos;re looking for can&apos;t be found.
   }
 }
 
-export default Error404
+export default NotFound

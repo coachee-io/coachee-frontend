@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 
 import {RouterButtonLink} from '../../../components/Routing'
 import Flex from '../../../components/Layout/Flexbox'
-import Error from '../../../components/Error'
+import Loading from '../../../components/Loading'
 
 import {
   CardsGrid, CardTitle, CardText, Card, CardImage, CardBody,
@@ -50,7 +50,7 @@ class Categories extends PureComponent<Props, State> {
     const {category} = this.props
     /* eslint-disable react/no-did-update-set-state */
     if (category !== prevProps.category) {
-      await this.setState({isLoading: true, coaches: []})
+      await this.setState({isLoading: true, coaches: [], error: null})
       setTimeout(this.getNewCoaches, 500)
     }
     /* eslint-enable react/no-did-update-set-state */
@@ -66,7 +66,11 @@ class Categories extends PureComponent<Props, State> {
         this.setState(({coaches: res, isLoading: false}))
       })
       .catch((err: any) => {
-        this.setState({error: err, errorStatus: err.status})
+        if (err && err.response && err.response.status) {
+          this.setState({error: err, errorStatus: err.response.status})
+        } else {
+          this.setState({error: err})
+        }
       })
   }
 
@@ -80,77 +84,77 @@ class Categories extends PureComponent<Props, State> {
       coaches, placeholder, isLoading, error, errorStatus,
     } = this.state
 
-    if (error) {
-      return <Error status={errorStatus} />
-    }
-
-    if (isLoading) {
-      return (
-        <CardsGrid>
-          {placeholder.map((item: any) => (
-            <Card key={item} width="212px">
-              <CardBody padding="1rem">
-                <Flex flexDirection="column" alignItems="center">
-                  <Pulse circle width={76} height={76} />
-                  <Flex flexDirection="column" alignItems="center" paddingTop="10px">
-                    <CardTitle textAlign="center">
-                      <Pulse height={24} width={156} />
-                    </CardTitle>
-                    <CardText textAlign="center">
-                      <Pulse height={16} width={156} />
-                    </CardText>
-                    <CardText textAlign="center">
-                      <Pulse height={16} width={156} />
-                    </CardText>
-                    <Pulse height={44} width={156} />
-                  </Flex>
-                </Flex>
-              </CardBody>
-            </Card>
-          ))}
-        </CardsGrid>
-      )
-    }
-
-    if (coaches.length === 0) {
-      return (
-        <Flex flexDirection="column" alignItems="center" marginTop="15px">
-          <Para textAlign="center">
-            We are currently busy finding the best coaches for this category.
-          </Para>
-          <Flex flexDirection="column" alignItems="center" marginTop="15px">
-            <CoachSearchImage />
-          </Flex>
-        </Flex>
-      )
-    }
-
-    return (
+    const loader = (
       <CardsGrid>
-        {coaches.map((coach: any) => (
-          <Card key={Math.random().toString(36)} width="212px">
+        {placeholder.map((item: any) => (
+          <Card key={item} width="212px">
             <CardBody padding="1rem">
               <Flex flexDirection="column" alignItems="center">
-                <CardImage src={Photo} alt="Coach Profile" width="100px" height="100px" borderRadius="50%" />
-                <Flex flexDirection="column" alignItems="center" marginTop="15px">
+                <Pulse circle width={76} height={76} />
+                <Flex flexDirection="column" alignItems="center" paddingTop="10px">
                   <CardTitle textAlign="center">
-                    {`${coach.firstName} ${coach.lastName}`}
+                    <Pulse height={24} width={156} />
                   </CardTitle>
                   <CardText textAlign="center">
-                    {coach.tags.split(',').slice(0, 3).join(', ')}
+                    <Pulse height={16} width={156} />
                   </CardText>
                   <CardText textAlign="center">
-                    {coach.price}
+                    <Pulse height={16} width={156} />
                   </CardText>
-                  <RouterButtonLink to={`/coach/${coach.id}`} primary>
-                    See profile
-                  </RouterButtonLink>
+                  <Pulse height={44} width={156} />
                 </Flex>
               </Flex>
             </CardBody>
           </Card>
         ))}
       </CardsGrid>
+    )
+
+    return (
+      <Loading
+        loading={isLoading}
+        error={error}
+        errorStatus={errorStatus}
+        LComponent={loader}
+      >
+        {coaches.length === 0 && (
+          <Flex flexDirection="column" alignItems="center" marginTop="15px">
+            <Para textAlign="center">
+            We are currently busy finding the best coaches for this category.
+            </Para>
+            <Flex flexDirection="column" alignItems="center" marginTop="15px">
+              <CoachSearchImage />
+            </Flex>
+          </Flex>
+        )}
+        {coaches.length > 0 && (
+        <CardsGrid>
+          {coaches.map((coach: any) => (
+            <Card key={Math.random().toString(36)} width="212px">
+              <CardBody padding="1rem">
+                <Flex flexDirection="column" alignItems="center">
+                  <CardImage src={Photo} alt="Coach Profile" width="100px" height="100px" borderRadius="50%" />
+                  <Flex flexDirection="column" alignItems="center" marginTop="15px">
+                    <CardTitle textAlign="center">
+                      {`${coach.firstName} ${coach.lastName}`}
+                    </CardTitle>
+                    <CardText textAlign="center">
+                      {coach.tags.split(',').slice(0, 3).join(', ')}
+                    </CardText>
+                    <CardText textAlign="center">
+                      {coach.price}
+                    </CardText>
+                    <RouterButtonLink to={`/coach/${coach.id}`} primary>
+                        See profile
+                    </RouterButtonLink>
+                  </Flex>
+                </Flex>
+              </CardBody>
+            </Card>
+          ))}
+        </CardsGrid>
+        )}
+      </Loading>
     )
   }
 }

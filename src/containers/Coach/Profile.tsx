@@ -3,7 +3,7 @@ import {RouteComponentProps} from 'react-router-dom'
 import {Row, Col} from 'react-bootstrap'
 
 import {CoachesService} from '../../services/public'
-import Error from '../../components/Error'
+import Loading from '../../components/Loading'
 
 import Photo from '../../ui/images/coach-photo.jpg'
 
@@ -45,7 +45,11 @@ class CoachProfile extends PureComponent<Props, State> {
     return CoachesService.getCoach(id)
       .then((res) => this.setState({coach: res}))
       .catch((err: any) => {
-        this.setState({error: err, errorStatus: err.status})
+        if (err && err.response && err.response.status) {
+          this.setState({error: err, errorStatus: err.response.status})
+        } else {
+          this.setState({error: err})
+        }
       })
   }
 
@@ -56,12 +60,8 @@ class CoachProfile extends PureComponent<Props, State> {
   render() {
     const {coach, error, errorStatus} = this.state
 
-    if (error) {
-      return <Error status={errorStatus} />
-    }
-
     return (
-      <>
+      <Loading error={error} errorStatus={errorStatus}>
         <Row>
           <Col xs={12}>
             <Header
@@ -95,7 +95,7 @@ class CoachProfile extends PureComponent<Props, State> {
             />
           </Col>
         </Row>
-      </>
+      </Loading>
     )
   }
 }

@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 
 import {RouterButtonLink} from '../../../components/Routing'
 import Flex from '../../../components/Layout/Flexbox'
-import Loading from '../../../components/Loading'
+import Error from '../../../components/Error'
 
 import {
   CardsGrid, CardTitle, CardText, Card, CardImage, CardBody,
@@ -84,77 +84,77 @@ class Categories extends PureComponent<Props, State> {
       coaches, placeholder, isLoading, error, errorStatus,
     } = this.state
 
-    const loader = (
-      <CardsGrid>
-        {placeholder.map((item: any) => (
-          <Card key={item} width="212px">
-            <CardBody padding="1rem">
-              <Flex flexDirection="column" alignItems="center">
-                <Pulse circle width={76} height={76} />
-                <Flex flexDirection="column" alignItems="center" paddingTop="10px">
-                  <CardTitle textAlign="center">
-                    <Pulse height={24} width={156} />
-                  </CardTitle>
-                  <CardText textAlign="center">
-                    <Pulse height={16} width={156} />
-                  </CardText>
-                  <CardText textAlign="center">
-                    <Pulse height={16} width={156} />
-                  </CardText>
-                  <Pulse height={44} width={156} />
-                </Flex>
-              </Flex>
-            </CardBody>
-          </Card>
-        ))}
-      </CardsGrid>
-    )
+    if (error) {
+      return <Error status={errorStatus} />
+    }
 
-    return (
-      <Loading
-        loading={isLoading}
-        error={error}
-        errorStatus={errorStatus}
-        LComponent={loader}
-      >
-        {coaches.length === 0 && (
-          <Flex flexDirection="column" alignItems="center" marginTop="15px">
-            <Para textAlign="center">
-            We are currently busy finding the best coaches for this category.
-            </Para>
-            <Flex flexDirection="column" alignItems="center" marginTop="15px">
-              <CoachSearchImage />
-            </Flex>
-          </Flex>
-        )}
-        {coaches.length > 0 && (
+    if (isLoading) {
+      return (
         <CardsGrid>
-          {coaches.map((coach: any) => (
-            <Card key={Math.random().toString(36)} width="212px">
+          {placeholder.map((item: any) => (
+            <Card key={item} width="212px" skeleton>
               <CardBody padding="1rem">
                 <Flex flexDirection="column" alignItems="center">
-                  <CardImage src={Photo} alt="Coach Profile" width="100px" height="100px" borderRadius="50%" />
-                  <Flex flexDirection="column" alignItems="center" marginTop="15px">
+                  <Pulse circle width={76} height={76} />
+                  <Flex flexDirection="column" alignItems="center" paddingTop="10px">
                     <CardTitle textAlign="center">
-                      {`${coach.firstName} ${coach.lastName}`}
+                      <Pulse height={24} width={156} />
                     </CardTitle>
                     <CardText textAlign="center">
-                      {coach.tags.split(',').slice(0, 3).join(', ')}
+                      <Pulse height={16} width={156} />
                     </CardText>
                     <CardText textAlign="center">
-                      {coach.price}
+                      <Pulse height={16} width={156} />
                     </CardText>
-                    <RouterButtonLink to={`/coach/${coach.id}`} primary>
-                        See profile
-                    </RouterButtonLink>
+                    <Pulse height={44} width={156} />
                   </Flex>
                 </Flex>
               </CardBody>
             </Card>
           ))}
         </CardsGrid>
-        )}
-      </Loading>
+      )
+    }
+
+    if (coaches.length === 0) {
+      return (
+        <Flex flexDirection="column" alignItems="center" marginTop="15px">
+          <Para textAlign="center">
+            We are currently busy finding the best coaches for this category.
+          </Para>
+          <Flex flexDirection="column" alignItems="center" marginTop="15px">
+            <CoachSearchImage />
+          </Flex>
+        </Flex>
+      )
+    }
+
+    return (
+      <CardsGrid>
+        {coaches.map((coach: any) => (
+          <Card key={Math.random().toString(36)} width="212px">
+            <CardBody padding="1rem">
+              <Flex flexDirection="column" alignItems="center">
+                <CardImage src={Photo} alt="Coach Profile" width="100px" height="100px" borderRadius="50%" />
+                <Flex flexDirection="column" alignItems="center" marginTop="15px">
+                  <CardTitle textAlign="center">
+                    {`${coach.firstName} ${coach.lastName}`}
+                  </CardTitle>
+                  <CardText textAlign="center">
+                    {coach.tags.split(',').slice(0, 3).join(', ')}
+                  </CardText>
+                  <CardText textAlign="center">
+                    {coach.price}
+                  </CardText>
+                  <RouterButtonLink to={`/coach/${coach.id}`} primary>
+                        See profile
+                  </RouterButtonLink>
+                </Flex>
+              </Flex>
+            </CardBody>
+          </Card>
+        ))}
+      </CardsGrid>
     )
   }
 }

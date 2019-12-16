@@ -27,7 +27,8 @@ interface CardGridProps {
   width?: string,
   height?: string,
   border?: string,
-  borderRadius?: string
+  borderRadius?: string,
+  skeleton?: boolean
 }
 
 export const Card = styled.div<CardGridProps>`
@@ -46,6 +47,10 @@ export const Card = styled.div<CardGridProps>`
 
   ${({height}) => height && `
     height: ${height};
+  `}
+
+  ${({skeleton}) => skeleton && `
+    border: 1px solid #EBEBEB;
   `}
 `
 

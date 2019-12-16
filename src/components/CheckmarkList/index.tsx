@@ -39,38 +39,69 @@ interface List {
 interface Props {
   list: List[],
   paraSmall?: boolean,
-  paraLarge?: boolean
+  paraLarge?: boolean,
+  withCheckmark?: boolean
 }
 
 class CheckmarkList extends PureComponent<Props> {
   render() {
-    const {list, paraSmall, paraLarge} = this.props
+    const {
+      list, paraSmall, paraLarge, withCheckmark,
+    } = this.props
+
+    if (withCheckmark) {
+      return (
+        <>
+          {list.map((item) => (
+            <List key={item.text}>
+              {item.heading && (
+                <>
+                  <Icon marginTop="6px" />
+                  <Flex flexDirection="column">
+                    <H3>
+                      {item.heading}
+                    </H3>
+                    <Para small={paraSmall} large={paraLarge}>
+                      {item.text}
+                    </Para>
+                  </Flex>
+                </>
+              )}
+              {!item.heading && (
+                <>
+                  <Icon marginTop="6px" />
+                  <Para small={paraSmall} large={paraLarge}>
+                    {item.text}
+                  </Para>
+                </>
+              )}
+            </List>
+          ))}
+        </>
+      )
+    }
+
     return (
       <>
         {list.map((item) => (
           <List key={item.text}>
             {item.heading && (
               <>
-                <Icon marginTop="6px" />
-                <Flex flexDirection="column">
-                  <H3>
-                    {item.heading}
-                  </H3>
-                  <Para small={paraSmall} large={paraLarge}>
-                    {item.text}
-                  </Para>
-                </Flex>
-              </>
-            )}
-            {!item.heading && (
-              <>
-                <Icon marginTop="6px" />
+                <H3>
+                  {item.heading}
+                </H3>
                 <Para small={paraSmall} large={paraLarge}>
                   {item.text}
                 </Para>
               </>
             )}
-
+            {!item.heading && (
+              <>
+                <Para small={paraSmall} large={paraLarge}>
+                  {item.text}
+                </Para>
+              </>
+            )}
           </List>
         ))}
       </>

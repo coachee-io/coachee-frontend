@@ -46,7 +46,7 @@ class Hero extends PureComponent {
                 Coaching is more than a trend, it&apos;s a powerful resource!
                 Some of the results you can achieve with our coaches include:
               </Para>
-              <CheckmarkList list={HeroListText} />
+              <CheckmarkList list={HeroListText} withCheckmark />
               {FeatureFlags.isFeatureEnabled('platformEnabled') && (
                 <MediaQuery>
                   {({isTablet}: any) => (

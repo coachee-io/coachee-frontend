@@ -85,7 +85,7 @@ class CoachSignup extends PureComponent {
           <Col xs={12}>
             <Flex flexDirection="row" justifyContent="center" marginTop="30px">
               <ListWrapper>
-                <CheckMarkList list={CoachList} paraSmall />
+                <CheckMarkList list={CoachList} paraSmall withCheckmark />
               </ListWrapper>
             </Flex>
           </Col>

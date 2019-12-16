@@ -58,7 +58,7 @@ class Journey extends PureComponent {
             {({isDesktop}) => (
               <Col xs={12} md={isDesktop() ? 6 : {span: 8, offset: 2}}>
                 <Flex flexDirection="column" width="100%" marginTop={isDesktop() ? '60px' : '0'}>
-                  <CheckmarkTextList list={JourneyListText} />
+                  <CheckmarkTextList list={JourneyListText} withCheckmark />
                 </Flex>
               </Col>
             )}

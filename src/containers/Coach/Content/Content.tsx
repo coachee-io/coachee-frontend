@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, {PureComponent, Fragment} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
 import Flex from '../../../components/Layout/Flexbox'
@@ -22,8 +22,8 @@ const StarRating = Image.attrs({
 `
 
 interface Props {
-  certificates?: any[],
-  programmes?: any[],
+  certifications?: any[],
+  programs?: any[],
   reviews?: any[],
   reviewsRef: any
 }
@@ -31,7 +31,7 @@ interface Props {
 class Content extends PureComponent<Props> {
   render() {
     const {
-      reviewsRef, certificates, programmes, reviews,
+      reviewsRef, certifications, programs, reviews,
     } = this.props
     return (
       <>
@@ -39,16 +39,18 @@ class Content extends PureComponent<Props> {
           <Col xs={12}>
             <Flex flexDirection="column" marginTop="30px">
               <H2>
-                {certificates ? 'Certifications' : <Pulse height={24} />}
+                {certifications ? 'Certifications' : <Pulse height={24} />}
               </H2>
-              {certificates && certificates.map((el) => (
-                <>
+              {certifications && certifications.map((el, id) => (
+                <Fragment key={`${el}-${id}`}>
                   <H3>{el.title}</H3>
-                  <Para>{el.date}</Para>
+                  <Para>
+                    {`${el.month}/${el.year}`}
+                  </Para>
                   <Para>{el.institution}</Para>
-                </>
+                </Fragment>
               ))}
-              {!certificates && (
+              {!certifications && (
                 <>
                   <H3><Pulse height={18} /></H3>
                   <Para><Pulse height={16} width={300} /></Para>
@@ -62,15 +64,20 @@ class Content extends PureComponent<Props> {
           <Col xs={12}>
             <Flex flexDirection="column" marginTop="30px">
               <H2>
-                {certificates ? 'Programmes' : <Pulse height={24} />}
+                {programs ? 'Programmes' : <Pulse height={24} />}
               </H2>
-              {programmes && programmes.map((el) => (
-                <>
+              {programs && programs.map((el, id) => (
+                <Fragment key={`${el}-${id}`}>
                   <Row>
                     <Col xs={12} sm={9}>
-                      <H3>[Certification Heading]</H3>
-                      <Para>[Issue Date]</Para>
-                      <Para>[Credential ID]</Para>
+                      <H3>{el.name}</H3>
+                      <Para>
+                        {`${el.sessions} sessions of ${el.duration} minutes`}
+                      </Para>
+                      <Para>
+£
+                        {el.totalPrice}
+                      </Para>
                     </Col>
                     {Auth.isLoggedIn() && (
                     <Col xs={12} sm={3}>
@@ -83,13 +90,13 @@ class Content extends PureComponent<Props> {
                   <Row>
                     <Col xs={12}>
                       <Para>
-                          Programme Description
+                        {el.description}
                       </Para>
                     </Col>
                   </Row>
-                </>
+                </Fragment>
               ))}
-              {!programmes && (
+              {!programs && (
                 <>
                   <H3><Pulse height={18} /></H3>
                   <Para><Pulse height={16} width={300} /></Para>

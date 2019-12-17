@@ -37,7 +37,7 @@ const DatePickerWithFormik = ({
     return null
   }
 
-  const date = dateToMoment(form.values.availability)
+  const date = dateToMoment(form.values[id])
   return (
     <>
       <div style={{display: 'inline-block', position: 'relative'}}>
@@ -54,6 +54,7 @@ const DatePickerWithFormik = ({
           id={id}
           small
           showClearDate
+          displayFormat="DD/MM/YYYY"
         />
         {/* eslint-enable react/destructuring-assignment */}
       </div>

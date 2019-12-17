@@ -27,8 +27,8 @@ class Sidebar extends PureComponent<Props> {
               <H2 textAlign="center">
                 {tags ? 'Expertise' : <Pulse height={24} width={150} />}
               </H2>
-              {tags && tags.split(',').map((el) => (
-                <Flex key={el} flexDirection="row" marginTop="15px">
+              {tags && tags.split(',').map((el, id) => (
+                <Flex key={`${el}-${id}`} flexDirection="row" marginTop="15px">
                   <Tag accent>
                     {el}
                   </Tag>
@@ -43,10 +43,10 @@ class Sidebar extends PureComponent<Props> {
               <H2 textAlign="center">
                 {availability ? 'Availability' : <Pulse height={24} width={150} />}
               </H2>
-              {availability && availability.map((el) => (
-                <Flex key={el} flexDirection="row" marginTop="15px">
+              {availability && availability.map((el, id) => (
+                <Flex key={`${el}-${id}`} flexDirection="row" marginTop="15px">
                   <Tag primary>
-                    {Weekdays[el.day]}
+                    {`${Weekdays[el.weekDay]} ${el.start}-${el.end}` }
                   </Tag>
                 </Flex>
               ))}

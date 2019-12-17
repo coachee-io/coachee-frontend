@@ -92,8 +92,8 @@ class CoachProfile extends PureComponent<Props, State> {
           </Col>
           <Col xs={12} md={9}>
             <Content
-              certificates={coach.certificates}
-              programmes={coach.programmes}
+              certifications={coach.certifications}
+              programs={coach.programs}
               reviews={coach.reviews}
               reviewsRef={this.reviews}
             />

@@ -33,13 +33,13 @@ export default object().shape({
     )
     .min(1, 'Please select one area')
     .required('Please select one area'),
-  certificates: string()
+  textCertifications: string()
     .required('This is a required field'),
   description: string()
     .required('This is a required field'),
-  programmes: string()
+  textPrograms: string()
     .required('This is a required field'),
-  availability: number()
+  introCall: number()
     .required('This is a required field')
     .nullable(),
   vat: string(),

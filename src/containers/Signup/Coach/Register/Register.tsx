@@ -8,6 +8,8 @@ import {
   Form, Input, CheckboxList, RadioGroup, Button, DatePicker,
 } from '../../../../components/Form'
 import Flex from '../../../../components/Layout/Flexbox'
+import Confirmation from '../../../../components/Confirmation'
+
 import {H2} from '../../../../ui/headings'
 
 import {CoachesService} from '../../../../services/public'
@@ -57,11 +59,7 @@ class CoachSignup extends PureComponent<{}, State> {
     const {loading, successful, error} = this.state
 
     if (successful) {
-      return (
-        <div>
-          Congratulations, we will be in contact with you shortly.
-        </div>
-      )
+      return <Confirmation />
     }
 
     return (
@@ -79,10 +77,10 @@ class CoachSignup extends PureComponent<{}, State> {
                   phone: '',
                   aboutUs: '',
                   tags: [],
-                  certificates: '',
+                  textCertifications: '',
                   description: '',
-                  programmes: '',
-                  availability: null,
+                  textPrograms: '',
+                  introCall: null,
                   vat: '',
                   termsAndConditions: null,
                 }}
@@ -95,7 +93,7 @@ class CoachSignup extends PureComponent<{}, State> {
                   <>
                     <Form onSubmit={handleSubmit} maxWidth={650}>
                       <H2>
-                          Become a coach
+                        Become a coach
                       </H2>
                       <Input
                         label="First name"
@@ -176,13 +174,13 @@ class CoachSignup extends PureComponent<{}, State> {
                         label="What are your coaching certifications?"
                         helperText="Include all that apply, as well as any other studies you have that you think are relevant.
                           We will ask for proof of all your certifications via email before you're confirmed as a coach."
-                        id="certificates"
-                        name="certificates"
+                        id="textCertifications"
+                        name="textCertifications"
                         type="text"
                         component="textarea"
-                        value={values.certificates}
-                        error={errors.certificates && touched.certificates}
-                        errorMessage={errors.certificates}
+                        value={values.textCertifications}
+                        error={errors.textCertifications && touched.textCertifications}
+                        errorMessage={errors.textCertifications}
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
@@ -206,13 +204,13 @@ class CoachSignup extends PureComponent<{}, State> {
                           total price of the programme and a description
                           of what makes you stand out in this field and most of all,
                           what results your coachees can expect to achieve!"
-                        id="programmes"
-                        name="programmes"
+                        id="textPrograms"
+                        name="textPrograms"
                         type="text"
                         component="textarea"
-                        value={values.programmes}
-                        error={errors.programmes && touched.programmes}
-                        errorMessage={errors.programmes}
+                        value={values.textPrograms}
+                        error={errors.textPrograms && touched.textPrograms}
+                        errorMessage={errors.textPrograms}
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
@@ -220,7 +218,7 @@ class CoachSignup extends PureComponent<{}, State> {
                         label="When would you be available for a 30 minutes call in the next week?"
                         helperText="We have intro calls with all our coaches to get to know you, understand your
                           availability and explain our payments process."
-                        id="availability"
+                        id="introCall"
                       />
                       <Input
                         label="Are you VAT registered? If yes, please give us your VAT number."

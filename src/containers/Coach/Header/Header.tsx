@@ -67,15 +67,15 @@ class Header extends PureComponent<Props> {
                 {firstName && lastName ? `${firstName} ${lastName}` : <Pulse height={18} width={150} />}
               </H3>
             </Flex>
-            <Para textAlign="center">
+            {/* <Para textAlign="center">
               {shortDescription || <Pulse height={18} width={150} />}
-            </Para>
+            </Para> */}
             <Para textAlign="center">
               {city && country ? `${city}, ${country}` : <Pulse height={18} width={150} />}
             </Para>
-            <Para textAlign="center">
+            {/* <Para textAlign="center">
               {vatNo ? `VAT No.: ${vatNo}` : <Pulse height={18} width={150} />}
-            </Para>
+            </Para> */}
             {FeatureFlags.isFeatureEnabled('reviewsEnabled') && (
               <>
                 <Para>
@@ -85,9 +85,7 @@ class Header extends PureComponent<Props> {
                 </Para>
                 {numberOfReviews ? (
                   <RouterLink to="#reviews" onClick={scrollToReviews} primary>
-                    {numberOfReviews}
-                    {' '}
-                  Reviews
+                    {`${numberOfReviews} Reviews`}
                   </RouterLink>
                 ) : (
                   <Pulse height={18} width={150} />

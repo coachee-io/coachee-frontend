@@ -12,8 +12,33 @@ import TurnOffCookies from './TurnOffCookies'
 import UpdatePolicy from './UpdatePolicy'
 
 
-import {list} from './urls'
+const links = [
+  {
+    url: '#web-cookies',
+    text: 'What are web cookies?',
+  },
+  {
+    url: '#use-of-cookies',
+    text: 'Why do we use cookies?',
+  },
+  {
+    url: '#types-of-cookies',
+    text: 'What type of cookies do we use?',
+  },
+  {
+    url: '#cookie-acceptance',
+    text: 'Website cookie acceptance',
+  },
+  {
+    url: '#turn-off-cookies',
+    text: 'Turning off cookies',
+  },
+  {
+    url: '#updating-cookie-policy',
+    text: 'Updating our Cookie Policy',
+  },
 
+]
 
 class PrivacyPolicy extends PureComponent {
   render() {
@@ -21,7 +46,7 @@ class PrivacyPolicy extends PureComponent {
       <Row>
         <Col xs={4}>
           <SideNav
-            list={list}
+            list={links}
             ordered
           />
         </Col>

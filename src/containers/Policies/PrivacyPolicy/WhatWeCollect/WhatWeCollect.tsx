@@ -79,7 +79,7 @@ class WhatWeCollect extends PureComponent {
           This helps us to provide you with a good experience when you use the Website and also allows us to improve our Website.
           For detailed information on the cookies we use and the purposes for which we use them, see our
           {' '}
-          <RouterLink to="/cookie-policy">
+          <RouterLink to="/cookie-policy" primary>
               cookie policy
           </RouterLink>
 .

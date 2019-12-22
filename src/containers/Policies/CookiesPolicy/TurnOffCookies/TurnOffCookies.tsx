@@ -52,7 +52,7 @@ class TurnOffCookies extends PureComponent {
           </Anchor>
         </Para>
         <Para>
-          <Anchor href="http://www.opera.com/o/ie-simple" primary>
+          <Anchor href="https://www.opera.com/o/ie-simple" primary>
             Opera
           </Anchor>
         </Para>
@@ -63,7 +63,7 @@ class TurnOffCookies extends PureComponent {
         </Para>
         <Para>
           {/* eslint-disable */}
-          <Anchor href="http://www.samsung.com/uk/support/mobile-devices/what-are-cookies-and-how-do-i-enable-or-disable-them-on-my-samsung-galaxy-device/" primary>
+          <Anchor href="https://www.samsung.com/uk/support/mobile-devices/what-are-cookies-and-how-do-i-enable-or-disable-them-on-my-samsung-galaxy-device/" primary>
             Samsung
           </Anchor>
           {/* eslint-enable */}

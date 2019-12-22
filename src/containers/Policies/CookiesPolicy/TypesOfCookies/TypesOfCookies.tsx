@@ -59,7 +59,8 @@ class TypesOfCookies extends PureComponent {
           We do not set these cookies ourselves and so cannot control when and
           how they are set on your computer or other device.
           You may be able to express certain preferences about online behavioural advertising on this website:
-          <Anchor href="www.youronlinechoices.eu" primary>www.youronlinechoices.eu</Anchor>
+          {' '}
+          <Anchor href="https://www.youronlinechoices.eu" primary>www.youronlinechoices.eu</Anchor>
 .
         </Para>
         <Para>

@@ -21,7 +21,7 @@ class ContentHeader extends PureComponent {
            &quot;us&quot;, &quot;our&quot;).
             Our website is
           {' '}
-          <Anchor href="https//:www.coachee.io" primary noUnderline>https//:www.coachee.io</Anchor>
+          <Anchor href="https//:www.coachee.io" primary noUnderline>www.coachee.io</Anchor>
           {' '}
 (the &quot;Website&quot;) and all associated sub-domains.
         </Para>

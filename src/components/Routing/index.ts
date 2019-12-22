@@ -3,4 +3,5 @@ export {
   RouterLink,
   RegularRouterLink,
   UnstyledRouterLink,
+  Anchor,
 } from './Links'

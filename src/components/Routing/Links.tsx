@@ -7,12 +7,44 @@ import {LatoBold, BodyFontSizes, BodyFontSizesProps} from '../../ui/fonts'
 export interface RouterLinkProps extends LinkProps, BodyFontSizesProps {
   primary?: boolean,
   accent?: boolean,
+  noUnderline?: boolean
 }
 
 export interface UnstyledRouterLinkProps extends LinkProps, BodyFontSizesProps {
   bold?: boolean,
   underline?: boolean
 }
+
+export interface AnchorProps extends BodyFontSizesProps{
+  primary?: boolean,
+  accent?: boolean,
+  noUnderline?: boolean
+}
+
+export const Anchor = styled.a<AnchorProps>`
+  ${BodyFontSizes};
+  text-decoration: underline;
+  color: ${colors.black};
+  ${({primary}) => primary && `
+    color: ${colors.primary};
+  `}
+  ${({accent}) => accent && `
+    color: ${colors.accent};
+  `}
+
+  &:hover {
+    color: ${colors.black};
+    ${({primary}) => primary && `
+      color: ${colors.primary};
+    `}
+    ${({accent}) => accent && `
+      color: ${colors.accent};
+    `}
+  }
+  ${({noUnderline}) => noUnderline && `
+    text-decoration: none;
+  `}
+`
 
 export const UnstyledRouterLink = styled(Link)`
   font-size: inherit;
@@ -85,6 +117,9 @@ export const RouterLink = styled(Link)<RouterLinkProps>`
       color: ${colors.accent};
     `}
   }
+  ${({noUnderline}) => noUnderline && `
+    text-decoration: none;
+  `}
 `
 
 

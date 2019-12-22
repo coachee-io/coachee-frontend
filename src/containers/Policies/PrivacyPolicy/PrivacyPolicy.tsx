@@ -107,14 +107,14 @@ class PrivacyPolicy extends PureComponent {
   render() {
     return (
       <Row>
-        <Col xs={4}>
+        <Col xs={12} lg={4}>
           <SideNav
             list={list}
-            ordered
             onClick={this.scrollTo}
+            ordered
           />
         </Col>
-        <Col xs={8}>
+        <Col xs={12} lg={8}>
           <ContentHeader />
           {list.map((el: any, index) => {
             const {Component} = el

@@ -8,9 +8,9 @@ import Login from '../containers/Login'
 import ForgotPassword from '../containers/ForgotPassword'
 
 import TermsAndConditions from '../containers/TermsAndConditions'
-import PrivacyPolicy from '../containers/PrivacyPolicy'
-import CookiesPolicy from '../containers/CookiesPolicy'
-import UsePolicy from '../containers/UsePolicy'
+import PrivacyPolicy from '../containers/Policies/PrivacyPolicy'
+import CookiesPolicy from '../containers/Policies/CookiesPolicy'
+import FairUsePolicy from '../containers/Policies/FairUsePolicy'
 
 import Booking from '../containers/Booking'
 
@@ -46,7 +46,7 @@ class Routes extends PureComponent {
           <Route path="/terms-and-conditions" component={TermsAndConditions} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/cookie-policy" component={CookiesPolicy} />
-          <Route path="/use-policy" component={UsePolicy} />
+          <Route path="/fair-use-policy" component={FairUsePolicy} />
           <Route exact path="/become-a-coach" component={CoachOnboarding} />
           <Route path="/become-a-coach/register" component={CoachRegister} />
           <Route path="/coaches/:category?" component={CoachesCategories} />

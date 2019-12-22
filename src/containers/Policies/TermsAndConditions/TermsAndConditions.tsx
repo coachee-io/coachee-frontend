@@ -84,20 +84,20 @@ class TermsAndConditions extends PureComponent {
           />
         </Col>
         <Col xs={8}>
-            <ContentHeader />
-            <AboutUs />
-            <PlatformUsage />
-            <PlatformChanges />
-            <PlatformAvailability />
-            <AccountAccess />
-            <CoachingProgrammes />
-            <CancellationRights />
-            <PlatformContent />
-            <OnlineSecurity />
-            <OurResponsibility />
-            <IfThingsGoWrong />
-            <PersonalData />
-            <LastButNotLeast />
+          <ContentHeader />
+          <AboutUs />
+          <PlatformUsage />
+          <PlatformChanges />
+          <PlatformAvailability />
+          <AccountAccess />
+          <CoachingProgrammes />
+          <CancellationRights />
+          <PlatformContent />
+          <OnlineSecurity />
+          <OurResponsibility />
+          <IfThingsGoWrong />
+          <PersonalData />
+          <LastButNotLeast />
         </Col>
       </Row>
     )

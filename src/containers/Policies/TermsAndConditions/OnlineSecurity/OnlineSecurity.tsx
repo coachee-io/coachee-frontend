@@ -7,16 +7,16 @@ class OnlineSecurity extends PureComponent {
   render() {
     return (
       <>
-<H3 id="online-security">
+        <H3 id="online-security">
               9. Online security
-            </H3>
-            <Para>
+        </H3>
+        <Para>
               9.1. We put a lot of effort in keeping our Platform secure.
               However, despite all these efforts, we cannot guarantee that our Platform will be absolutely secure,
               free from bugs or viruses,
               so you should use your own virus protection software.
-            </Para>
-            <Para>
+        </Para>
+        <Para>
               9.2. We expect our coachees and coaches to respect the security of our Platform and
               so you must not misuse our Platform by knowingly introducing viruses,
               Trojans or other material that is malicious or technologically harmful.
@@ -26,7 +26,7 @@ class OnlineSecurity extends PureComponent {
               we may need to report any such breach to the relevant law enforcement authorities including
               by disclosing your identity to them.
               In the event of such a breach, your right to use our online portal will cease immediately.
-            </Para>
+        </Para>
       </>
     )
   }

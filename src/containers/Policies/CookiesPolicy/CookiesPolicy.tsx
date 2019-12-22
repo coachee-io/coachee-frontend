@@ -12,56 +12,80 @@ import TurnOffCookies from './TurnOffCookies'
 import UpdatePolicy from './UpdatePolicy'
 
 
-const links = [
+const list = [
   {
+    id: 'web-cookies',
     url: '#web-cookies',
     text: 'What are web cookies?',
+    Component: WebCookies,
   },
   {
+    id: 'use-of-cookies',
     url: '#use-of-cookies',
     text: 'Why do we use cookies?',
+    Component: UseOfCookies,
   },
   {
+    id: 'types-of-cookies',
     url: '#types-of-cookies',
     text: 'What type of cookies do we use?',
+    Component: TypesOfCookies,
   },
   {
+    id: 'cookie-acceptance',
     url: '#cookie-acceptance',
     text: 'Website cookie acceptance',
+    Component: CookieAcceptance,
   },
   {
+    id: 'turn-off-cookies',
     url: '#turn-off-cookies',
     text: 'Turning off cookies',
+    Component: TurnOffCookies,
   },
   {
+    id: 'updating-cookie-policy',
     url: '#updating-cookie-policy',
     text: 'Updating our Cookie Policy',
+    Component: UpdatePolicy,
   },
-
 ]
 
-class PrivacyPolicy extends PureComponent {
+class CookiesPolicy extends PureComponent {
+  private nodes: any = list.reduce((acc, value) => {
+    acc[value.id] = React.createRef()
+    return acc
+  }, {} as any)
+
+  scrollTo = (e: any, id: string) => {
+    e.preventDefault()
+    window.scroll({behavior: 'smooth', top: this.nodes[id].current.offsetTop - 15, left: 0})
+  }
+
   render() {
     return (
       <Row>
         <Col xs={4}>
           <SideNav
-            list={links}
+            list={list}
             ordered
+            onClick={this.scrollTo}
           />
         </Col>
         <Col xs={8}>
           <ContentHeader />
-          <WebCookies />
-          <UseOfCookies />
-          <TypesOfCookies />
-          <CookieAcceptance />
-          <TurnOffCookies />
-          <UpdatePolicy />
+          {list.map((el: any, index) => {
+            const {Component} = el
+            return (
+              <div key={`${el.url}-${index}`} ref={this.nodes[el.id]}>
+                <Component />
+              </div>
+            )
+          })}
         </Col>
       </Row>
     )
   }
 }
 
-export default PrivacyPolicy
+export default CookiesPolicy

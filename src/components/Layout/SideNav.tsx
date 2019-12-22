@@ -12,19 +12,25 @@ const Nav = styled.nav`
 interface Props {
   list: any[],
   ordered?: boolean,
+  onClick: any
 }
 
 
 class SideNav extends PureComponent<Props> {
   render() {
-    const {ordered, list} = this.props
+    const {
+      ordered,
+      list,
+      onClick,
+    } = this.props
+
     if (ordered) {
       return (
         <Nav>
           <OL listStyle="none" noPadding>
             {list.map((item, index) => (
-              <LI key={`${item.url}-${index}`}>
-                <Anchor href={`${item.url}`} primary noUnderline>
+              <LI key={`${item.id}-${index}`}>
+                <Anchor href={`${item.url}`} onClick={(e) => onClick(e, item.id)} primary noUnderline>
                   {`${index + 1}. ${item.text}`}
                 </Anchor>
               </LI>
@@ -38,8 +44,8 @@ class SideNav extends PureComponent<Props> {
       <Nav>
         <UL listStyle="none" noPadding>
           {list.map((item, index) => (
-            <LI key={`${item.url}-${index}`}>
-              <Anchor href={`${item.url}`} primary noUnderline>
+            <LI key={`${item.id}-${index}`}>
+              <Anchor href={`${item.url}`} onClick={(e) => onClick(e, item.id)} primary noUnderline>
                 {`${index + 1}. ${item.text}`}
               </Anchor>
             </LI>

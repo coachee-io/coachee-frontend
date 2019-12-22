@@ -70,6 +70,16 @@ const links = [
 
 
 class PrivacyPolicy extends PureComponent {
+  // private nodes = list.reduce((acc, value) => {
+  //   acc[value.id] = React.createRef()
+  //   return acc
+  // }, {} as any)
+
+  // scrollTo = (e: any, id: string) => {
+  //   e.preventDefault()
+  //   window.scroll({behavior: 'smooth', top: this.nodes[id].current.offsetTop - 15, left: 0})
+  // }
+
   render() {
     return (
       <Row>
@@ -77,6 +87,7 @@ class PrivacyPolicy extends PureComponent {
           <SideNav
             list={links}
             ordered
+            onClick
           />
         </Col>
         <Col xs={8}>

@@ -6,11 +6,16 @@ import {Para} from '../../../../ui/labels'
 import {H3} from '../../../../ui/headings'
 import {UL, LI} from '../../../../ui/list'
 
-class PlatformUsage extends PureComponent {
+interface Props {
+  ref: any
+}
+
+class PlatformUsage extends PureComponent<Props> {
   render() {
+    const {ref} = this.props
     return (
       <>
-        <H3 id="platform-use">
+        <H3 id="platform-use" ref={ref}>
               2. By using our platform you accept these terms
         </H3>
         <Para>

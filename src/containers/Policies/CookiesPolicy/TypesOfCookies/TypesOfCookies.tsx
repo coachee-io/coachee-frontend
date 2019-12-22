@@ -13,39 +13,37 @@ class TypesOfCookies extends PureComponent {
         <H3 id="types-of-cookies">
             3. What type of cookies do we use?
         </H3>
-        <Para>
-          <OL>
-            <LI>
-              <Para>
+        <OL>
+          <LI>
+            <Para>
                 Strictly necessary cookies. These are cookies that are required for the operation of our Website.
                 They include, for example, cookies that enable you to log into secure areas of our Website.
-              </Para>
-            </LI>
-            <LI>
-              <Para>
+            </Para>
+          </LI>
+          <LI>
+            <Para>
                   Analytical/performance cookies. They allow us to recognise and count the number of visitors
                   and to see how visitors move around our Website when they are using it.
                   This helps us to improve the way our Website works, for example, by
                   ensuring that users are finding what they are looking for easily.
-              </Para>
-            </LI>
-            <LI>
-              <Para>
+            </Para>
+          </LI>
+          <LI>
+            <Para>
                   Functionality cookies. These are used to recognise you when you return to our Website.
                   This enables us to personalise our content for you, greet you by name and remember your preferences.
-              </Para>
-            </LI>
-            <LI>
-              <Para>
+            </Para>
+          </LI>
+          <LI>
+            <Para>
                 Targeting cookies. These cookies record your visit to our Website,
                 the pages you have visited and the links you have followed.
                 We will use this information to make our Website and the advertising (our own and that of our partners)
                 displayed on it more relevant to your interests.
                 We may also share this information (in an anonymised form) with third parties for this purpose.
-              </Para>
-            </LI>
-          </OL>
-        </Para>
+            </Para>
+          </LI>
+        </OL>
         <Para>
           Some of the advertising that is displayed on our Website is provided by third party advertisers and
           advertising networks.

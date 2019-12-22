@@ -7,7 +7,7 @@ import HomePage from '../containers/HomePage'
 import Login from '../containers/Login'
 import ForgotPassword from '../containers/ForgotPassword'
 
-import TermsAndConditions from '../containers/TermsAndConditions'
+import TermsAndConditions from '../containers/Policies/TermsAndConditions'
 import PrivacyPolicy from '../containers/Policies/PrivacyPolicy'
 import CookiesPolicy from '../containers/Policies/CookiesPolicy'
 import FairUsePolicy from '../containers/Policies/FairUsePolicy'

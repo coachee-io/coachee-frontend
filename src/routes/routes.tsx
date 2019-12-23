@@ -7,6 +7,8 @@ import HomePage from '../containers/HomePage'
 import Login from '../containers/Login'
 import ForgotPassword from '../containers/ForgotPassword'
 
+import AboutUs from '../containers/AboutUs'
+
 import TermsAndConditions from '../containers/Policies/TermsAndConditions'
 import PrivacyPolicy from '../containers/Policies/PrivacyPolicy'
 import CookiesPolicy from '../containers/Policies/CookiesPolicy'
@@ -47,6 +49,7 @@ class Routes extends PureComponent {
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/cookie-policy" component={CookiesPolicy} />
           <Route path="/fair-use-policy" component={FairUsePolicy} />
+          <Route path="/about-us" component={AboutUs} />
           <Route exact path="/become-a-coach" component={CoachOnboarding} />
           <Route path="/become-a-coach/register" component={CoachRegister} />
           <Route path="/coaches/:category?" component={CoachesCategories} />

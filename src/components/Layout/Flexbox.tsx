@@ -11,7 +11,8 @@ interface Props extends MarginProps, PaddingProps {
   flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse' | string,
   alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline' | string,
   justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly' | string,
-  width?: string
+  width?: string,
+  height?: string
 }
 
 const Flex = styled.div<Props>`
@@ -30,6 +31,9 @@ const Flex = styled.div<Props>`
   `}
   ${({width}) => width && `
     width: ${width};
+  `}
+  ${({height}) => height && `
+    height: ${height};
   `}
   ${(props) => props && setMargin(props)}
   ${(props) => props && setPadding(props)}

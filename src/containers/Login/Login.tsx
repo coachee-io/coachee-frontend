@@ -50,7 +50,7 @@ class Login extends PureComponent {
                 <>
                   <Form onSubmit={handleSubmit} maxWidth={450}>
                     <H2>
-                        Login to your account
+                      Login to your account
                     </H2>
                     <StyledLabel htmlFor="email">Email:</StyledLabel>
                     <StyledInput

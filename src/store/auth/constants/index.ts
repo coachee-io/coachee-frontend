@@ -1,0 +1,5 @@
+export const AUTH = {
+  LOADING: 'LOADING',
+  SUCCESSFUL: 'SUCCESSFUL',
+  ERROR: 'ERROR',
+}

@@ -5,7 +5,7 @@ import {
 } from 'formik'
 
 import {
-  Form, Input, CheckboxList, RadioGroup, Button, DatePicker,
+  Form, Input, CheckboxList, RadioGroup, SubmitButton, DatePicker,
 } from '../../../../components/Form'
 import Flex from '../../../../components/Layout/Flexbox'
 import Confirmation from '../../../../components/Confirmation'
@@ -22,7 +22,7 @@ import {
 
 interface State {
   successful: boolean,
-  loading: boolean,
+  isLoading: boolean,
   error: Error | null
 }
 
@@ -31,7 +31,7 @@ class CoachSignup extends PureComponent<{}, State> {
     super(props)
     this.state = {
       successful: false,
-      loading: false,
+      isLoading: false,
       error: null,
     }
   }
@@ -51,14 +51,14 @@ class CoachSignup extends PureComponent<{}, State> {
       textCertifications: values.textCertifications,
       textPrograms: values.textPrograms,
     }
-    await this.setState({loading: true, error: null, successful: false})
+    await this.setState({isLoading: true, error: null, successful: false})
     CoachesService.createCoach(data)
       .then(() => this.setState({successful: true}))
-      .catch((error) => this.setState({error, loading: false}))
+      .catch((error) => this.setState({error, isLoading: false}))
   }
 
   render() {
-    const {loading, successful, error} = this.state
+    const {isLoading, successful, error} = this.state
 
     if (successful) {
       return <Confirmation />
@@ -250,9 +250,13 @@ class CoachSignup extends PureComponent<{}, State> {
                         list={termsAndConditions}
                       />
                       <Flex width="100%" flexDirection="row" justifyContent="center">
-                        <Button accent type="submit" disabled={loading}>
-                          {loading ? 'Loading...' : 'Sign up'}
-                        </Button>
+                        <SubmitButton
+                          isLoading={isLoading}
+                          error={error}
+                          accent
+                          loadingText="Creating account..."
+                          defaultText="Sign up"
+                        />
                       </Flex>
                     </Form>
                   </>

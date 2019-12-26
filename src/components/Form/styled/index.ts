@@ -14,7 +14,7 @@ interface InputProps {
   type?: string
 }
 
-interface ButtonProps {
+export interface ButtonProps {
   primary?: boolean,
   accent?: boolean,
 }
@@ -85,7 +85,6 @@ const Button = styled.button<ButtonProps>`
   justify-content: center;
   height: 44px;
   width: 156px;
-  margin-top: 2rem;
   border-radius: 5px;
   border-style: none;
   ${({primary}) => primary && `

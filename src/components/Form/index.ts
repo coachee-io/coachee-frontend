@@ -4,6 +4,7 @@ import RadioGroup from './RadioGroup'
 import Checkbox from './Checkbox'
 import CheckboxList from './CheckboxList'
 import DatePicker from './DatePicker'
+import SubmitButton from './SubmitButton'
 
 import {
   StyledLabel,
@@ -27,4 +28,5 @@ export {
   ErrorMessage,
   Button,
   DatePicker,
+  SubmitButton,
 }

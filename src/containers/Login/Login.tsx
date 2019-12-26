@@ -9,7 +9,7 @@ import {
 import {string, object} from 'yup'
 
 import {
-  Form, StyledLabel, StyledInput, Button, ErrorMessage, ErrorAlertCircle,
+  Form, StyledLabel, StyledInput, SubmitButton, ErrorMessage, ErrorAlertCircle,
 } from '../../components/Form'
 
 import Flex from '../../components/Layout/Flexbox'
@@ -18,7 +18,6 @@ import {RegularRouterLink} from '../../components/Routing'
 import {H2} from '../../ui/headings'
 
 import {loginCoachee} from '../../store/auth/actions'
-
 
 const schema = object().shape({
   email: string()
@@ -49,7 +48,6 @@ class Login extends PureComponent<Props> {
 
   render() {
     const {isLoading, error} = this.props
-    console.log(error)
     return (
       <Row>
         <Col xs={12}>
@@ -103,12 +101,13 @@ class Login extends PureComponent<Props> {
                     <RegularRouterLink to="/forgot-password" small bold underline>
                       Forgotten password?
                     </RegularRouterLink>
-                    {error && error.message && (
-                      <span>{error.message}</span>
-                    )}
-                    <Button accent type="submit">
-                      {isLoading ? 'Loading...' : 'Login'}
-                    </Button>
+                    <SubmitButton
+                      isLoading={isLoading}
+                      error={error}
+                      accent
+                      loadingText="Loading..."
+                      defaultText="Login"
+                    />
                   </Form>
                 </>
               )}

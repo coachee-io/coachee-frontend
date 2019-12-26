@@ -5,14 +5,16 @@ import {
   Formik,
 } from 'formik'
 
+import Confirmation from '../../../components/Confirmation'
+
 import {
-  Form, Checkbox, StyledLabel, StyledSelect, ErrorMessage, ErrorAlertCircle, Button, Input,
+  Form, Checkbox, StyledLabel, StyledSelect, ErrorMessage, ErrorAlertCircle, SubmitButton, Input,
 } from '../../../components/Form'
-
-
 import Flex from '../../../components/Layout/Flexbox'
 
 import {H2} from '../../../ui/headings'
+
+import {CoacheesService} from '../../../services/public'
 
 import schema from './validationSchema'
 
@@ -28,14 +30,44 @@ const options = [
   },
 ]
 
+interface State {
+  successful: boolean,
+  isLoading: boolean,
+  error: Error | null
+}
 
-class SignUpCoachee extends PureComponent {
-  onSubmit = (values: any) => {
-    // API call here
-    console.log(values)
+class SignUpCoachee extends PureComponent<{}, State> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      successful: false,
+      isLoading: false,
+      error: null,
+    }
+  }
+
+
+  onSubmit = async (values: any) => {
+    const data = {
+      email: values.email,
+      firstName: values.firstName,
+      lastName: values.lastName,
+      birthDate: values.birthDate,
+      password: values.password,
+    }
+    await this.setState({isLoading: true, error: null, successful: false})
+    CoacheesService.createCoachee(data)
+      .then(() => this.setState({successful: true}))
+      .catch((error) => this.setState({error, isLoading: false}))
   }
 
   render() {
+    const {isLoading, successful, error} = this.state
+
+    if (successful) {
+      return <Confirmation />
+    }
+
     return (
       <>
         <Row>
@@ -163,10 +195,14 @@ class SignUpCoachee extends PureComponent {
                         error={errors.terms && touched.terms}
                         errorMessage={errors.terms}
                       />
-                      <Flex flexDirection="row" justifyContent="center" width="100%">
-                        <Button accent type="submit">
-                          Sign up
-                        </Button>
+                      <Flex width="100%" flexDirection="row" justifyContent="center">
+                        <SubmitButton
+                          isLoading={isLoading}
+                          error={error}
+                          accent
+                          loadingText="Creating account..."
+                          defaultText="Sign up"
+                        />
                       </Flex>
                     </Form>
                   </>

@@ -5,6 +5,7 @@ import Layout from '../components/Layout/Layout'
 
 import HomePage from '../containers/HomePage'
 import Login from '../containers/Login'
+import Logout from '../containers/Logout'
 import ForgotPassword from '../containers/ForgotPassword'
 
 import AboutUs from '../containers/AboutUs'
@@ -26,15 +27,6 @@ import CoachesCategories from '../containers/Coaches'
 import Error from '../components/Error'
 import ProtectedRoute from '../components/Routing/ProtectedRoute'
 
-const Mockup = () => {
-  const history = useHistory()
-  return (
-    <div>
-      {history.location.pathname}
-    </div>
-  )
-}
-
 class Routes extends PureComponent {
   render() {
     return (
@@ -42,7 +34,7 @@ class Routes extends PureComponent {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <ProtectedRoute path="/login" flag="platformEnabled" component={Login} />
-          <ProtectedRoute path="/logout" flag="platformEnabled" component={Mockup} />
+          <ProtectedRoute path="/logout" flag="platformEnabled" component={Logout} />
           <ProtectedRoute path="/forgot-password" flag="platformEnabled" component={ForgotPassword} />
           <ProtectedRoute path="/signup" flag="platformEnabled" component={CoacheeSignup} />
           <Route path="/terms-and-conditions" component={TermsAndConditions} />

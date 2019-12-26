@@ -7,7 +7,7 @@ import {RouterButtonLink} from '../../../components/Routing'
 
 import {Pulse} from '../../../components/Skeleton'
 
-import Auth from '../../../utils/auth'
+import Auth from '../../../utils/tokens'
 import FeatureFlags from '../../../utils/featureFlags'
 
 import {H2, H3} from '../../../ui/headings'

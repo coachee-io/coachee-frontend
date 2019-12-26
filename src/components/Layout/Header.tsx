@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react'
+import {connect} from 'react-redux'
 import styled from 'styled-components'
 import {Navbar, Container, Nav} from 'react-bootstrap'
 
@@ -6,7 +7,6 @@ import colors from '../../ui/colors'
 import {minWidthSize, maxWidthSize} from '../../ui/global/mediaQuery'
 
 import {RouterButtonLink, UnstyledRouterLink} from '../Routing'
-import FeatureFlags from '../../utils/featureFlags'
 import Logo from '../Logo'
 
 interface HeaderProps {
@@ -50,7 +50,11 @@ interface State {
   expanded: boolean,
 }
 
-class Header extends PureComponent<{}, State> {
+interface Props {
+  isLoggedIn: boolean
+}
+
+class Header extends PureComponent<Props, State> {
   constructor(props: any) {
     super(props)
     this.state = {
@@ -80,6 +84,7 @@ class Header extends PureComponent<{}, State> {
   }
 
   render() {
+    const {isLoggedIn} = this.props
     const {isScrollPositionOver50, expanded} = this.state
     return (
       <NavigationBar
@@ -100,10 +105,17 @@ class Header extends PureComponent<{}, State> {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse onClick={this.handleCollapseOnSelect}>
             <StyledNav>
-              {FeatureFlags.isFeatureEnabled('platformEnabled') && (
+              {!isLoggedIn && (
               <StyledNavItem>
                 <RouterButtonLink onClick={this.handleCollapseOnSelect} to="/login" accent>
-                Login
+                  Login
+                </RouterButtonLink>
+              </StyledNavItem>
+              )}
+              {isLoggedIn && (
+              <StyledNavItem>
+                <RouterButtonLink onClick={this.handleCollapseOnSelect} to="/logout" accent>
+                  Logout
                 </RouterButtonLink>
               </StyledNavItem>
               )}
@@ -120,4 +132,8 @@ class Header extends PureComponent<{}, State> {
   }
 }
 
-export default Header
+const mapStateToProps = ({auth}: any) => ({
+  isLoggedIn: auth.isLoggedIn,
+})
+
+export default connect(mapStateToProps)(Header)

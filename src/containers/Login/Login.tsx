@@ -1,4 +1,7 @@
 import React, {PureComponent} from 'react'
+import {History} from 'history'
+import {RouteComponentProps} from 'react-router-dom'
+import {connect} from 'react-redux'
 import {Row, Col} from 'react-bootstrap'
 import {
   Formik,
@@ -14,6 +17,9 @@ import Flex from '../../components/Layout/Flexbox'
 import {RegularRouterLink} from '../../components/Routing'
 import {H2} from '../../ui/headings'
 
+import {loginCoachee} from '../../store/auth/actions'
+
+
 const schema = object().shape({
   email: string()
     .trim()
@@ -27,14 +33,23 @@ const schema = object().shape({
     .matches(/[a-zA-Z0-9]/, 'Only letters and numbers'),
 })
 
+interface Props extends RouteComponentProps {
+  login: (email: string, password: string, history: History) => Promise<any>,
+  isLoading: boolean,
+  error: any | null
+}
 
-class Login extends PureComponent {
-  onSubmit = (values: any) => {
-    // API call here
-    console.log(values)
+
+class Login extends PureComponent<Props> {
+  onSubmit = async (values: {email: string, password: string}) => {
+    const {login, history} = this.props
+    const {email, password} = values
+    login(email, password, history)
   }
 
   render() {
+    const {isLoading, error} = this.props
+    console.log(error)
     return (
       <Row>
         <Col xs={12}>
@@ -86,10 +101,13 @@ class Login extends PureComponent {
                     </ErrorMessage>
                     )}
                     <RegularRouterLink to="/forgot-password" small bold underline>
-                          Forgotten password?
+                      Forgotten password?
                     </RegularRouterLink>
+                    {error && error.message && (
+                      <span>{error.message}</span>
+                    )}
                     <Button accent type="submit">
-                        Login
+                      {isLoading ? 'Loading...' : 'Login'}
                     </Button>
                   </Form>
                 </>
@@ -102,4 +120,13 @@ class Login extends PureComponent {
   }
 }
 
-export default Login
+const mapStateToProps = ({auth}: any) => ({
+  isLoading: auth.isLoading,
+  error: auth.error,
+})
+
+const mapDispatchToProps = {
+  login: loginCoachee,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

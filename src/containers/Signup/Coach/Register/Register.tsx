@@ -41,13 +41,15 @@ class CoachSignup extends PureComponent<{}, State> {
     const data = {
       firstName: values.firstName,
       lastName: values.lastName,
-      introCall: values.availability,
+      introCall: values.introCall,
       email: values.email,
       phone: values.phone,
       tags: values.tags.join(','),
       city: values.city,
       country: values.country,
       description: values.description,
+      textCertifications: values.textCertifications,
+      textPrograms: values.textPrograms,
     }
     await this.setState({loading: true, error: null, successful: false})
     CoachesService.createCoach(data)

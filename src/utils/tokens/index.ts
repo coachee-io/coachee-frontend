@@ -1,34 +1,11 @@
-class LocalStorage {
-  getItem = (name: string) => localStorage.getItem(name)
+class TokenStorage {
+  getToken = (): string | null => localStorage.getItem('accessToken')
 
-  setItem = (name: string, data: {}) => {
+  setToken = (token: string) => localStorage.setItem('accessToken', token)
 
-  }
+  removeToken = () => localStorage.removeItem('accessToken')
 
-  removeItem = (name: string) => {
-    localStorage.removeItem(name)
-  }
-
-  isValidToken = () => {
-    const token = this.parsethis.getToken('auth')
-    if (!token) {
-      return false
-    }
-
-    if (token.expiry > new Date().getSeconds()) {
-      return false
-    }
-
-    return true
-  }
-
-  parseItem = (item: string) => {
-    if (item) {
-      return JSON.parse(item)
-    }
-
-    return null
-  }
+  isLoggedIn = () => !!this.getToken()
 }
 
-export default new LocalStorage()
+export default new TokenStorage()

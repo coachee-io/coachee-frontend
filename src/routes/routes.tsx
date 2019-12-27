@@ -33,10 +33,11 @@ class Routes extends PureComponent {
       <Layout>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <ProtectedRoute path="/login" flag="platformEnabled" component={Login} />
-          <ProtectedRoute path="/logout" flag="platformEnabled" component={Logout} />
-          <ProtectedRoute path="/forgot-password" flag="platformEnabled" component={ForgotPassword} />
-          <ProtectedRoute path="/signup" flag="platformEnabled" component={CoacheeSignup} />
+          <ProtectedRoute path="/login" component={Login} />
+          <ProtectedRoute path="/logout" component={Logout} />
+          <ProtectedRoute path="/forgot-password" component={ForgotPassword} />
+          <ProtectedRoute path="/signup" component={CoacheeSignup} />
+          <ProtectedRoute path="/booking" component={Booking} />
           <Route path="/terms-and-conditions" component={TermsAndConditions} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/cookie-policy" component={CookiesPolicy} />
@@ -46,7 +47,6 @@ class Routes extends PureComponent {
           <Route path="/become-a-coach/register" component={CoachRegister} />
           <Route path="/coaches/:category?" component={CoachesCategories} />
           <Route path="/coach/:id" component={CoachProfile} />
-          <ProtectedRoute path="/booking" flag="bookingEnabled" component={Booking} />
           <Route path="/*" component={Error} />
         </Switch>
       </Layout>

@@ -39,7 +39,15 @@ const Flex = styled.div<Props>`
   ${(props) => props && setPadding(props)}
 `
 
-export const Row = styled(BSRow)``
+
+interface BSProps {
+  marginTop?: string,
+  marginBottom?: string
+}
+
+export const Row = styled(BSRow)<BSProps>`
+  ${(props) => props && setMargin(props)}
+`
 export const Col = styled(BSCol)``
 
 export default Flex

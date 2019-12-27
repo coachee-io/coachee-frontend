@@ -77,7 +77,10 @@ interface Props {
 class DatePicker extends PureComponent<Props> {
   render() {
     return (
-      <Field component={DatePickerWithFormik} {...this.props} />
+      <Field
+        component={DatePickerWithFormik}
+        {...this.props}
+      />
     )
   }
 }

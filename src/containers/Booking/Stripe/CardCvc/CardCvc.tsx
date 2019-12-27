@@ -21,7 +21,7 @@ class CardCvc extends PureComponent {
         </Row>
         <Row>
           <Col xs={12}>
-            <ElementWrapper error={false}>
+            <ElementWrapper error>
               <CardCvcElement style={style} />
             </ElementWrapper>
           </Col>

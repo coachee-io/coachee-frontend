@@ -6,17 +6,20 @@ import {connect} from 'react-redux'
 
 interface Props extends RouteProps {
   isLoggedIn: boolean,
-  flags: {
+  flags?: {
     [index:string]: boolean
   },
-  flag: string,
+  flag?: string,
   component: ComponentType<RouteComponentProps<any>> | ComponentType<any>
 }
 
 class ProtectedRoute extends PureComponent<Props> {
   isFeatureEnabled = (): boolean => {
     const {flags, flag} = this.props
-    return flags[flag]
+    if (flags && flag) {
+      return flags[flag]
+    }
+    return true
   }
 
   render() {

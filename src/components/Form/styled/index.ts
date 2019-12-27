@@ -8,7 +8,6 @@ import AlertCircle from '../../../ui/images/alert-circle.svg'
 
 import {Image} from '../../Image'
 
-
 interface InputProps {
   error?: boolean | string | undefined | any,
   type?: string
@@ -17,6 +16,8 @@ interface InputProps {
 export interface ButtonProps {
   primary?: boolean,
   accent?: boolean,
+  width?: string,
+  selected?: boolean
 }
 
 
@@ -87,13 +88,22 @@ const Button = styled.button<ButtonProps>`
   width: 156px;
   border-radius: 5px;
   border-style: none;
+  color: ${colors.black};
+  ${({width}) => width && `
+    width: ${width};
+  `}
+
   ${({primary}) => primary && `
     background-color: ${colors.primary};
     color: ${colors.white};
   `}
+  
   ${({accent}) => accent && `
     background-color: ${colors.accent};
-    color: ${colors.black};
+  `}
+
+  ${({selected}) => selected && `
+    background-color: ${colors.accent};
   `}
 
   &:hover {
@@ -104,6 +114,8 @@ const Button = styled.button<ButtonProps>`
       color: ${colors.black};
     `}
   }
+
+
 `
 
 export {

@@ -2,9 +2,8 @@ import React, {PureComponent, ReactNode} from 'react'
 import {StripeProvider, Elements, ReactStripeElements} from 'react-stripe-elements'
 import {Row, Col} from 'react-bootstrap'
 
-import {Pulse} from '../../../components/Skeleton'
-
-import StripeScript from '../../../utils/scripts/stripe'
+import StripeScript from '../../utils/scripts/stripe'
+import {Pulse} from '../Skeleton'
 import Form from './Form'
 
 interface Props {

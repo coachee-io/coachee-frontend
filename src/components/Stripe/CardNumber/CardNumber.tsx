@@ -1,28 +1,28 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 import {
-  CardCvcElement,
+  CardNumberElement,
 } from 'react-stripe-elements'
 
-import {StyledLabel} from '../../../../components/Form/styled'
+import {StyledLabel} from '../../Form/styled'
 
 import {style, ElementWrapper} from '../styled'
 
-class CardCvc extends PureComponent {
+class CardNumber extends PureComponent {
   render() {
     return (
       <>
         <Row>
           <Col xs={12}>
-            <StyledLabel htmlFor="stripeCardExpiry">
-              CVC
+            <StyledLabel htmlFor="stripeCardNumber">
+              Card number
             </StyledLabel>
           </Col>
         </Row>
         <Row>
           <Col xs={12}>
             <ElementWrapper error>
-              <CardCvcElement style={style} />
+              <CardNumberElement id="stripeCardNumber" style={style} />
             </ElementWrapper>
           </Col>
         </Row>
@@ -31,4 +31,4 @@ class CardCvc extends PureComponent {
   }
 }
 
-export default CardCvc
+export default CardNumber

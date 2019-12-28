@@ -1,31 +1,26 @@
 import React, {PureComponent} from 'react'
 import moment, {Moment} from 'moment'
-import {ReactStripeElements} from 'react-stripe-elements'
+
 import {DayPickerSingleDateController} from 'react-dates'
 import {Col} from 'react-bootstrap'
 
 import Flex, {Row} from '../../components/Layout/Flexbox'
-
-import {Pulse} from '../../components/Skeleton'
 import {Weekdays} from '../../enums/Weekdays'
-
-import {SubmitButton} from '../../components/Form'
-import {Button} from '../../components/Form/styled'
 
 import {H2} from '../../ui/headings'
 import {Para} from '../../ui/labels'
 
-import StripeForm from './Stripe'
+import BookingForm from './BookingForm'
+
 
 interface State {
   step: 1 | 2 | 3 | number,
-  isLoading: boolean,
-  error: any | null,
-  stripeApiKey?: string,
-  stripeClientSecret?: string,
-  selectedDate: Moment | null
+  date: Moment | null,
+  day: number | null,
+  selectedDate: any,
+  time: string | number | null | any
   focusedDate: boolean,
-  selectedTime: string | number | null | any
+  availabilityWeekDayMap: {} | null
 }
 
 
@@ -34,32 +29,36 @@ class Booking extends PureComponent<{}, State> {
     super(props)
     this.state = {
       step: 1,
-      isLoading: false,
-      error: null,
-      stripeApiKey: 'pk_test_12345',
-      stripeClientSecret: '',
+      date: null,
       selectedDate: null,
+      day: null,
       focusedDate: false,
-      selectedTime: null,
+      time: null,
+      availabilityWeekDayMap: null,
     }
   }
 
   componentDidMount = () => {
     /**
-     * Make API call to the BE,
-     * Send the access token and the program ID,
-     * get apiKey and clientSecret,
-     * set this component state and pass it down to the stripe form the api key
+     * Build hashmap based on the coach availability
+     * {
+     *  Mon: [],
+     *
+     * }
      */
+    const availability = [
+      {weekDay: 1, start: 10, end: 12},
+      // {weekDay: 3, start: 14, end: 15},
+      // {weekDay: 5, start: 17, end: 20},
+    ]
+    this.setState({availabilityWeekDayMap: this.createDateHashMap(availability)})
   }
 
-  onSubmit = (stripe?: ReactStripeElements.StripeProps) => {
-    const {stripeClientSecret} = this.state
-    console.log(stripe)
-  }
 
   handleDateChange = (date: Moment | null) => {
-    this.setState({selectedDate: date})
+    console.log(date)
+    const day = date ? moment(date).day() : null
+    this.setState({date, day})
   }
 
   handleFocusChange = (focused: boolean | null) => {
@@ -67,18 +66,65 @@ class Booking extends PureComponent<{}, State> {
   }
 
   handleTimeChange = (value: any) => {
+    const {availabilityWeekDayMap, day} = this.state
+    console.log(availabilityWeekDayMap, day)
     console.log(value)
   }
 
   getDayOfTheWeek = (day: number) => {
     const weekDay = Weekdays[day]
-
     console.log(weekDay)
+  }
+
+  handleStepChange = () => {
+
+  }
+
+  getAvailableDays = () => {
+
+  }
+
+  createDateHashMap = (availability: any[]): {} => {
+    const hashmap: {
+      [index:string]: any[]
+    } = {}
+    availability.forEach((day: any) => {
+      const {weekDay, start, end} = day
+      hashmap[Weekdays[weekDay]] = this.createTimeRanges(start, end)
+    })
+    console.log(hashmap)
+    return hashmap
+  }
+
+  createTimeRanges = (start: number, end: number): any[] => {
+    const timeRanges: any[] = []
+    for (let i = start; i < end; i += 1) {
+      let newStart = i
+      while (parseInt(newStart.toString(), 10) < end) {
+        const time: any = {}
+        let minutes = null
+        time.start = newStart
+        time.end = newStart + 0.50
+        time.hours = newStart
+
+        if (start < time.end && time.end < start + 1) {
+          minutes = 30
+        } else {
+          minutes = 0
+        }
+        time.minutes = minutes
+        timeRanges.push(time)
+
+        newStart += 0.50
+        console.log('Here?')
+      }
+    }
+    return timeRanges
   }
 
   render() {
     const {
-      isLoading, error, stripeApiKey, step, selectedDate, selectedTime, focusedDate,
+      step, selectedDate, time, date, focusedDate,
     } = this.state
 
     if (step === 1) {
@@ -95,7 +141,7 @@ class Booking extends PureComponent<{}, State> {
             <Col xs={12}>
               <Flex flexDirection="column" alignItems="center" marginTop="30px">
                 <DayPickerSingleDateController
-                  date={selectedDate}
+                  date={date}
                   focused={focusedDate}
                   onDateChange={this.handleDateChange}
                   enableOutsideDays
@@ -141,59 +187,9 @@ class Booking extends PureComponent<{}, State> {
               </Para>
             </Col>
             <Col xs={12} md={6}>
-              {!stripeApiKey && (
-                <>
-                  <Row>
-                    <Col xs={12}>
-                      <Pulse height={36} />
-                    </Col>
-                  </Row>
-                  <Row marginTop="30px">
-                    <Col xs={12}>
-                      <Pulse height={36} />
-                    </Col>
-                  </Row>
-                  <Row marginTop="30px">
-                    <Col xs={12} md={6}>
-                      <Pulse height={36} />
-                    </Col>
-                    <Col xs={12} md={6}>
-                      <Pulse height={36} />
-                    </Col>
-                  </Row>
-                  <Row marginTop="30px">
-                    <Col xs={12} md={6} />
-                    <Col xs={12} md={6}>
-                      <Pulse height={36} />
-                    </Col>
-                  </Row>
-                </>
-              )}
-              {stripeApiKey && (
-                <>
-                  <H2 textAlign="center">
-                  Enter your card details:
-                  </H2>
-                  <StripeForm stripeApiKey={stripeApiKey}>
-                    {(stripe) => (
-                      <Row>
-                        <Col xs={12} md={6} />
-                        <Col xs={12} md={6}>
-                          <SubmitButton
-                            onClick={() => this.onSubmit(stripe)}
-                            isLoading={isLoading}
-                            error={error}
-                            accent
-                            loadingText="Adding your card"
-                            defaultText="Confirm"
-                            width="100%"
-                          />
-                        </Col>
-                      </Row>
-                    )}
-                  </StripeForm>
-                </>
-              )}
+              <BookingForm
+                selectedDate={selectedDate}
+              />
             </Col>
           </Row>
         </Flex>

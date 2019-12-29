@@ -100,34 +100,21 @@ class Booking extends PureComponent<{}, State> {
   }
 
   createTimeRanges = (start: number, end: number): any[] => {
-    const timeRange: any[] = []
-
-    /**
-     * This is a brute forced solution that:
-     * completely avoids doing complex reassignments to the variables during a while loop
-     * by using stric
-     **/
-
-    timeRange.push(start)
-    for (let i = start + 0.50; i < end; i += 0.50) {
-      timeRange.push(i)
-    }
-
     const timeRanges: any[] = []
 
-    for (let i = 0; i < timeRange.length; i += 1) {
+    for (let i = start; i < end; i += 0.50) {
       const time: any = {}
 
-      if (Number.isInteger(timeRange[i])) {
-        time.hours = timeRange[i]
+      if (Number.isInteger(i)) {
+        time.hours = i
         time.minutes = 0
-        time.start = timeRange[i]
-        time.end = timeRange[i] + 0.50
+        time.start = i
+        time.end = i + 0.50
       } else {
-        time.hours = parseInt(timeRange[i].toFixed(2), 10)
+        time.hours = parseInt(i.toFixed(2), 10)
         time.minutes = 30
-        time.start = timeRange[i]
-        time.end = timeRange[i] + 0.50
+        time.start = i
+        time.end = i + 0.50
       }
       timeRanges.push(time)
     }

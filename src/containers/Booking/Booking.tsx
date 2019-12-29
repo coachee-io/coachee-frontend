@@ -48,8 +48,8 @@ class Booking extends PureComponent<{}, State> {
      */
     const availability = [
       {weekDay: 1, start: 10, end: 12},
-      // {weekDay: 3, start: 14, end: 15},
-      // {weekDay: 5, start: 17, end: 20},
+      {weekDay: 3, start: 14, end: 15},
+      {weekDay: 5, start: 17, end: 20},
     ]
     this.setState({availabilityWeekDayMap: this.createDateHashMap(availability)})
   }
@@ -80,6 +80,10 @@ class Booking extends PureComponent<{}, State> {
 
   }
 
+  getFirstAvailableDay = () => {
+
+  }
+
   getAvailableDays = () => {
 
   }
@@ -92,33 +96,42 @@ class Booking extends PureComponent<{}, State> {
       const {weekDay, start, end} = day
       hashmap[Weekdays[weekDay]] = this.createTimeRanges(start, end)
     })
-    console.log(hashmap)
     return hashmap
   }
 
   createTimeRanges = (start: number, end: number): any[] => {
-    const timeRanges: any[] = []
-    for (let i = start; i < end; i += 1) {
-      let newStart = i
-      while (parseInt(newStart.toString(), 10) < end) {
-        const time: any = {}
-        let minutes = null
-        time.start = newStart
-        time.end = newStart + 0.50
-        time.hours = newStart
+    const timeRange: any[] = []
 
-        if (start < time.end && time.end < start + 1) {
-          minutes = 30
-        } else {
-          minutes = 0
-        }
-        time.minutes = minutes
-        timeRanges.push(time)
+    /**
+     * This is a brute forced solution that:
+     * completely avoids doing complex reassignments to the variables during a while loop
+     * by using stric
+     **/
 
-        newStart += 0.50
-        console.log('Here?')
-      }
+    timeRange.push(start)
+    for (let i = start + 0.50; i < end; i += 0.50) {
+      timeRange.push(i)
     }
+
+    const timeRanges: any[] = []
+
+    for (let i = 0; i < timeRange.length; i += 1) {
+      const time: any = {}
+
+      if (Number.isInteger(timeRange[i])) {
+        time.hours = timeRange[i]
+        time.minutes = 0
+        time.start = timeRange[i]
+        time.end = timeRange[i] + 0.50
+      } else {
+        time.hours = parseInt(timeRange[i].toFixed(2), 10)
+        time.minutes = 30
+        time.start = timeRange[i]
+        time.end = timeRange[i] + 0.50
+      }
+      timeRanges.push(time)
+    }
+
     return timeRanges
   }
 

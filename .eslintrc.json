@@ -41,6 +41,7 @@
         "arrow-body-style": [2, "as-needed"],
         "react/jsx-props-no-spreading": 0,
         "import/prefer-default-export": 0,
+        "import/extensions": ["off", "never"],
         "react/display-name": "off",
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",

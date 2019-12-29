@@ -6,7 +6,7 @@ interface FormProps {
   maxWidth?: number
 }
 
-const StyledForm = styled(Form)`
+const StyledForm = styled(Form)<FormProps>`
   display: flex;
   flex-direction: column;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
@@ -15,7 +15,7 @@ const StyledForm = styled(Form)`
   background-color: #f7f7f7;
   color: ${colors.black};
   width: 100%;
-  max-width: ${({maxWidth}: FormProps) => maxWidth && `
+  max-width: ${({maxWidth}) => maxWidth && `
     ${maxWidth}px;
   `}
 `

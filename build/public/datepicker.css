@@ -295,6 +295,7 @@
   cursor: default
 }
 .CalendarDay__default {
+  border: 1px solid transparent;
   color: #fff;
   background: #7379E2;
 }

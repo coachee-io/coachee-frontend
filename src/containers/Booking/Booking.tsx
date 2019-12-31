@@ -6,18 +6,18 @@ import {DayPickerSingleDateController} from 'react-dates'
 import {Col} from 'react-bootstrap'
 
 import Flex, {Row} from '../../components/Layout/Flexbox'
-import {Button} from '../../components/Form/styled'
 
 import {H2} from '../../ui/headings'
 import {Para} from '../../ui/labels'
 
 import BookingForm from './BookingForm'
+import TimeSelect from './TimeSelect'
 
 import {
   createDateHashMap,
   getFirstAvailableDay,
   getAllAvailableDays,
-  getDayOfTheWeek,
+  createDateFromHoursAndMinutes,
 } from './helpers'
 
 interface Props extends RouteComponentProps {}
@@ -26,11 +26,10 @@ interface State {
   step: 1 | 2 | 3 | number,
   date: Moment | null,
   weekDay: number | null,
-  selectedDate: any,
+  selectedDate: string | null,
   time: string | number | null | any
   focusedDate: boolean,
   availabilityWeekDayMap: any | {} | null,
-  firstAvailableDay: number | null,
   allAvailableDays: number[] |null
 }
 
@@ -46,7 +45,6 @@ class Booking extends PureComponent<Props, State> {
       focusedDate: false,
       time: null,
       availabilityWeekDayMap: null,
-      firstAvailableDay: null,
       allAvailableDays: null,
     }
   }
@@ -60,24 +58,25 @@ class Booking extends PureComponent<Props, State> {
       date: moment().day(firstAvailableDay),
       availabilityWeekDayMap: hashMap,
       weekDay: firstAvailableDay,
-      firstAvailableDay,
       allAvailableDays: getAllAvailableDays(hashMap),
     })
   }
 
   handleDateChange = (date: Moment | null) => {
     const weekDay = date ? moment(date).day() : null
-    this.setState({date, weekDay})
+    this.setState({
+      date, weekDay, time: null, selectedDate: null,
+    })
   }
 
   handleFocusChange = (focused: boolean | null) => {
     this.setState({focusedDate: !!focused})
   }
 
-  handleTimeChange = (value: any) => {
-    const {availabilityWeekDayMap, weekDay} = this.state
-    // console.log(availabilityWeekDayMap, day)
-    // console.log(value)
+  handleTimeChange = (time: any) => {
+    const {date} = this.state
+    const selectedDate = createDateFromHoursAndMinutes(date, time.hours, time.minutes)
+    this.setState({time, selectedDate})
   }
 
   handleStepChange = () => {
@@ -93,12 +92,9 @@ class Booking extends PureComponent<Props, State> {
       date,
       weekDay,
       focusedDate,
-      firstAvailableDay,
       availabilityWeekDayMap,
       allAvailableDays,
     } = this.state
-
-    console.log(availabilityWeekDayMap)
 
     if (step === 1) {
       return (
@@ -134,11 +130,12 @@ class Booking extends PureComponent<Props, State> {
             </Col>
           </Row>
           <Row marginTop="30px">
-            {availabilityWeekDayMap && availabilityWeekDayMap[getDayOfTheWeek(weekDay)].map((day: any) => (
-              <Button key={`${getDayOfTheWeek(weekDay)}-${day.hour}`} primary={!time} accent={time}>
-                {`${day.hour}`}
-              </Button>
-            ))}
+            <TimeSelect
+              time={time}
+              weekDay={weekDay}
+              availabilityMap={availabilityWeekDayMap}
+              onClick={this.handleTimeChange}
+            />
           </Row>
         </>
       )

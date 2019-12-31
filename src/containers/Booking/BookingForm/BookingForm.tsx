@@ -32,7 +32,7 @@ class BookingForm extends PureComponent<Props, State> {
   }
 
   componentDidMount = () => {
-    console.log(this.props)
+    // console.log(this.props)
     /**
      * Pass final date in time 1590129312398 uint64
      * Access token and programe ID to the BE

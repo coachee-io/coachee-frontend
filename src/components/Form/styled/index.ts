@@ -88,6 +88,7 @@ const Button = styled.button<ButtonProps>`
   width: 156px;
   border-radius: 5px;
   border-style: none;
+  outline:none;
   color: ${colors.black};
   ${({width}) => width && `
     width: ${width};
@@ -104,18 +105,19 @@ const Button = styled.button<ButtonProps>`
 
   ${({selected}) => selected && `
     background-color: ${colors.accent};
+    color: ${colors.black};
   `}
 
-  &:hover {
-    ${({primary}) => primary && `
-      color: ${colors.white};
-    `}
-    ${({accent}) => accent && `
+  ${({width}) => width && `
+    width: ${width};
+  `}
+
+  &:focus {
+    ${({primary, accent}) => (primary || accent) && `
       color: ${colors.black};
+      outline: none;
     `}
   }
-
-
 `
 
 export {

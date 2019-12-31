@@ -1,3 +1,4 @@
+import moment, {Moment} from 'moment'
 import {Weekdays} from '../../../enums/Weekdays'
 
 export function createDateHashMap(availability: any[]): {} | null{
@@ -54,12 +55,21 @@ export function createDateHashMap(availability: any[]): {} | null{
   return hashmap
 }
 
+/**
+* By default react-dates will block today
+* If the first day of the week is today
+* We need to get the next following day
+* */
 export function getFirstAvailableDay(weekDayMap: {} | null): any {
   if (!weekDayMap) {
     return 0
   }
-  const key: any = Object.keys(weekDayMap)[0]
-  return Weekdays[key]
+  const keys: any = Object.keys(weekDayMap)
+  let firstAvailableDay: any = Weekdays[keys[0]]
+  if (moment().day() === firstAvailableDay) {
+    firstAvailableDay = Weekdays[keys[1]]
+  }
+  return firstAvailableDay
 }
 
 export function getAllAvailableDays(weekDayMap: {} | null): any {
@@ -71,4 +81,16 @@ export function getAllAvailableDays(weekDayMap: {} | null): any {
 
 export function getDayOfTheWeek(day: any): any {
   return Weekdays[day]
+}
+
+export function createDateFromHoursAndMinutes(date: Moment | null, hour: number, minute: number): string | null{
+  if (!date) {
+    return null
+  }
+
+  return date.set({
+    hour,
+    minute,
+    second: 0,
+  }).format('X')
 }

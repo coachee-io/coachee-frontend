@@ -3,7 +3,6 @@ import moment, {Moment} from 'moment'
 import {Field, FieldProps} from 'formik'
 import {SingleDatePicker} from 'react-dates'
 import 'react-dates/initialize'
-import 'react-dates/lib/css/_datepicker.css'
 
 import {
   StyledLabel, ErrorMessage, ErrorAlertCircle,

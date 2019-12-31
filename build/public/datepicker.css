@@ -626,7 +626,11 @@
 }
 .DayPicker_weekHeader_li {
   display: inline-block;
-  text-align: center
+  text-align: center;
+}
+.DayPicker_weekHeader_li > small {
+  font-weight: bold;
+  font-size: 14px;
 }
 .DayPicker_transitionContainer {
   position: relative;

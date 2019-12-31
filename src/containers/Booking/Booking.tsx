@@ -125,6 +125,7 @@ class Booking extends PureComponent<Props, State> {
                   onFocusChange={({focused}: {focused: boolean | null}) => this.handleFocusChange(focused)}
                   numberOfMonths={1}
                   hideKeyboardShortcutsPanel
+                  noBorder
                 />
               </Flex>
             </Col>

@@ -1,64 +1,73 @@
 import React, {PureComponent} from 'react'
+import {RouteComponentProps} from 'react-router-dom'
 import moment, {Moment} from 'moment'
 
 import {DayPickerSingleDateController} from 'react-dates'
 import {Col} from 'react-bootstrap'
 
 import Flex, {Row} from '../../components/Layout/Flexbox'
-import {Weekdays} from '../../enums/Weekdays'
+import {Button} from '../../components/Form/styled'
 
 import {H2} from '../../ui/headings'
 import {Para} from '../../ui/labels'
 
 import BookingForm from './BookingForm'
 
+import {
+  createDateHashMap,
+  getFirstAvailableDay,
+  getAllAvailableDays,
+  getDayOfTheWeek,
+} from './helpers'
+
+interface Props extends RouteComponentProps {}
 
 interface State {
   step: 1 | 2 | 3 | number,
   date: Moment | null,
-  day: number | null,
+  weekDay: number | null,
   selectedDate: any,
   time: string | number | null | any
   focusedDate: boolean,
-  availabilityWeekDayMap: {} | null
+  availabilityWeekDayMap: any | {} | null,
+  firstAvailableDay: number | null,
+  allAvailableDays: number[] |null
 }
 
 
-class Booking extends PureComponent<{}, State> {
+class Booking extends PureComponent<Props, State> {
   constructor(props: any) {
     super(props)
     this.state = {
       step: 1,
       date: null,
       selectedDate: null,
-      day: null,
+      weekDay: null,
       focusedDate: false,
       time: null,
       availabilityWeekDayMap: null,
+      firstAvailableDay: null,
+      allAvailableDays: null,
     }
   }
 
   componentDidMount = () => {
-    /**
-     * Build hashmap based on the coach availability
-     * {
-     *  Mon: [],
-     *
-     * }
-     */
-    const availability = [
-      {weekDay: 1, start: 10, end: 12},
-      {weekDay: 3, start: 14, end: 15},
-      {weekDay: 5, start: 17, end: 20},
-    ]
-    this.setState({availabilityWeekDayMap: this.createDateHashMap(availability)})
+    const {location} = this.props
+    const {coachAvailability} = location.state
+    const hashMap = createDateHashMap(coachAvailability)
+    const firstAvailableDay = getFirstAvailableDay(hashMap)
+    this.setState({
+      date: moment().day(firstAvailableDay),
+      availabilityWeekDayMap: hashMap,
+      weekDay: firstAvailableDay,
+      firstAvailableDay,
+      allAvailableDays: getAllAvailableDays(hashMap),
+    })
   }
 
-
   handleDateChange = (date: Moment | null) => {
-    console.log(date)
-    const day = date ? moment(date).day() : null
-    this.setState({date, day})
+    const weekDay = date ? moment(date).day() : null
+    this.setState({date, weekDay})
   }
 
   handleFocusChange = (focused: boolean | null) => {
@@ -66,66 +75,30 @@ class Booking extends PureComponent<{}, State> {
   }
 
   handleTimeChange = (value: any) => {
-    const {availabilityWeekDayMap, day} = this.state
-    console.log(availabilityWeekDayMap, day)
-    console.log(value)
-  }
-
-  getDayOfTheWeek = (day: number) => {
-    const weekDay = Weekdays[day]
-    console.log(weekDay)
+    const {availabilityWeekDayMap, weekDay} = this.state
+    // console.log(availabilityWeekDayMap, day)
+    // console.log(value)
   }
 
   handleStepChange = () => {
 
   }
 
-  getFirstAvailableDay = () => {
-
-  }
-
-  getAvailableDays = () => {
-
-  }
-
-  createDateHashMap = (availability: any[]): {} => {
-    const hashmap: {
-      [index:string]: any[]
-    } = {}
-    availability.forEach((day: any) => {
-      const {weekDay, start, end} = day
-      hashmap[Weekdays[weekDay]] = this.createTimeRanges(start, end)
-    })
-    return hashmap
-  }
-
-  createTimeRanges = (start: number, end: number): any[] => {
-    const timeRanges: any[] = []
-
-    for (let i = start; i < end; i += 0.50) {
-      const time: any = {}
-
-      if (Number.isInteger(i)) {
-        time.hours = i
-        time.minutes = 0
-        time.start = i
-        time.end = i + 0.50
-      } else {
-        time.hours = parseInt(i.toFixed(2), 10)
-        time.minutes = 30
-        time.start = i
-        time.end = i + 0.50
-      }
-      timeRanges.push(time)
-    }
-
-    return timeRanges
-  }
 
   render() {
     const {
-      step, selectedDate, time, date, focusedDate,
+      step,
+      selectedDate,
+      time,
+      date,
+      weekDay,
+      focusedDate,
+      firstAvailableDay,
+      availabilityWeekDayMap,
+      allAvailableDays,
     } = this.state
+
+    console.log(availabilityWeekDayMap)
 
     if (step === 1) {
       return (
@@ -146,7 +119,10 @@ class Booking extends PureComponent<{}, State> {
                   onDateChange={this.handleDateChange}
                   enableOutsideDays
                   isDayBlocked={(day) => {
-                    const found = [1, 3, 5].find((availableDay) => moment(day).day() === availableDay)
+                    if (!allAvailableDays) {
+                      return false
+                    }
+                    const found = allAvailableDays.find((availableDay) => moment(day).day() === availableDay)
                     return !found
                   }}
                   isOutsideRange={(day) => moment().diff(day) > 0}
@@ -157,7 +133,13 @@ class Booking extends PureComponent<{}, State> {
               </Flex>
             </Col>
           </Row>
-          <Row />
+          <Row marginTop="30px">
+            {availabilityWeekDayMap && availabilityWeekDayMap[getDayOfTheWeek(weekDay)].map((day: any) => (
+              <Button key={`${getDayOfTheWeek(weekDay)}-${day.hour}`} primary={!time} accent={time}>
+                {`${day.hour}`}
+              </Button>
+            ))}
+          </Row>
         </>
       )
     }

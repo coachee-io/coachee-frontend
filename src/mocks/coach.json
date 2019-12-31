@@ -1,0 +1,74 @@
+{
+  "availability": [
+    {
+      "end": 20,
+      "id": "bla",
+      "start": 17,
+      "weekDay": 5
+    },
+    {
+      "end": 16,
+      "id": "bla2",
+      "start": 12,
+      "weekDay": 4
+    },
+    {
+      "end": 20,
+      "id": "bla",
+      "start": 17,
+      "weekDay": 3
+    },
+    {
+      "end": 16,
+      "id": "bla2",
+      "start": 12,
+      "weekDay": 3
+    }
+  ],
+  "certifications": [
+    {
+      "description": "Tirei o curso na Amadora",
+      "id": "Recusandae nisi occaecati.",
+      "institution": "Non dolor dolorum.",
+      "month": 6,
+      "title": "Amadora LX Gang",
+      "year": 1999
+    },
+    {
+      "description": "Tirei o curso na Amadora",
+      "id": "Recusandae nisi occaecati.",
+      "institution": "Non dolor dolorum.",
+      "month": 6,
+      "title": "Amadora LX Gang 2",
+      "year": 2005
+    }
+  ],
+  "city": "London",
+  "country": "United Kingdom",
+  "description": "Saepe consequuntur hic.",
+  "firstName": "Filipe",
+  "id": 4914901711827382000,
+  "lastName": "Costa",
+  "pictureURL": "",
+  "programs": [
+    {
+      "description": "You will become amazing after 10 days!",
+      "duration": 2,
+      "id": "lkjasjhdjahsd098187301823098",
+      "name": "Amazing in 10 days",
+      "sessions": 10,
+      "taxPercent": 10,
+      "totalPrice": 1000
+    },
+    {
+      "description": "You will become super amazing after 5 days!",
+      "duration": 2,
+      "id": "7891273891273jhaqwhjejahsdjkahsdqwe",
+      "name": "Amazing in 5 days",
+      "sessions": 5,
+      "taxPercent": 10,
+      "totalPrice": 500
+    }
+  ],
+  "tags": "relationship, love, life"
+}

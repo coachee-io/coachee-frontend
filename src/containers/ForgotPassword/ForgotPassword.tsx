@@ -25,7 +25,7 @@ const schema = object().shape({
 class ForgotPassword extends PureComponent {
   onSubmit = (values: any) => {
     // API call here
-    console.log(values)
+    // console.log(values)
   }
 
   render() {

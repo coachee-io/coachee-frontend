@@ -15,7 +15,6 @@ interface Props {
   availability: any[]
 }
 
-
 class Sidebar extends PureComponent<Props> {
   render() {
     const {tags, availability} = this.props

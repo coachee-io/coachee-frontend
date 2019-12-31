@@ -21,7 +21,7 @@ const schema = object().shape({
     .matches(/[a-zA-Z0-9]/, 'Only letters and numbers'),
   confirmPassword: string()
     .required('This is a required field')
-    .test('passwords-match', "Passwords don't match", function (value) {
+    .test('passwords-match', "Passwords don't match", function passwordMatch(value) {
       return this.parent.password === value
     }),
   hearAboutUs: string()

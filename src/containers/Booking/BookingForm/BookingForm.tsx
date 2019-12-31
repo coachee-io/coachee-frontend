@@ -32,18 +32,19 @@ class BookingForm extends PureComponent<Props, State> {
   }
 
   componentDidMount = () => {
+    console.log(this.props)
     /**
      * Pass final date in time 1590129312398 uint64
      * Access token and programe ID to the BE
      * get stripeApiKey and stripeClientSecret
      */
     const {selectedDate} = this.props
-    console.log(selectedDate)
+    // console.log(selectedDate)
   }
 
   onSubmit = (stripe?: ReactStripeElements.StripeProps) => {
     const {stripeClientSecret} = this.state
-    console.log(stripe)
+    // console.log(stripe)
   }
 
   render() {

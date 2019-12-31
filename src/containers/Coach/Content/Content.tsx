@@ -24,6 +24,7 @@ const StarRating = Image.attrs({
 interface Props {
   certifications?: any[],
   programs?: any[],
+  availability?: any[],
   reviews?: any[],
   reviewsRef: any
 }
@@ -31,7 +32,7 @@ interface Props {
 class Content extends PureComponent<Props> {
   render() {
     const {
-      reviewsRef, certifications, programs, reviews,
+      reviewsRef, certifications, programs, reviews, availability,
     } = this.props
     return (
       <>
@@ -81,7 +82,16 @@ class Content extends PureComponent<Props> {
                     </Col>
                     {Auth.isLoggedIn() && (
                     <Col xs={12} sm={3}>
-                      <RouterButtonLink to="/booking" primary>
+                      <RouterButtonLink
+                        to={{
+                          pathname: `/booking/${id}`,
+                          state: {
+                            programId: id,
+                            coachAvailability: availability,
+                          },
+                        }}
+                        primary
+                      >
                         Book a call
                       </RouterButtonLink>
                     </Col>

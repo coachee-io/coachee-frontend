@@ -7,9 +7,33 @@ import Error from '../../components/Error'
 
 import Photo from '../../ui/images/coach-photo.jpg'
 
+import CoachMock from '../../mocks/coach.json'
+
 import Header from './Header'
 import Sidebar from './Sidebar'
 import Content from './Content'
+
+const sortCertificationsByMostRecent = (certifications: any[]): any[] => {
+  if (!certifications || certifications.length === 0) {
+    return []
+  }
+
+  return [...certifications].sort((a, b) => b.year - a.year)
+}
+
+const sortAvailability = (availability: any[]): any[] => {
+  if (!availability || availability.length === 0) {
+    return []
+  }
+
+  const sortByHour = (arr: any[]): any[] => arr.sort((a, b) => a.start - b.start)
+
+  const sortByWeekDay = (arr: any[]): any[] => arr.sort((a, b) => a.weekDay - b.weekDay)
+
+  // Make a copy of the array and mutate by sorting it
+  const sortedAvailability = [...availability]
+  return sortByWeekDay(sortByHour(sortedAvailability))
+}
 
 interface Params {
   id: any
@@ -42,16 +66,24 @@ class CoachProfile extends PureComponent<Props, State> {
   getCoach = () => {
     const {match: {params}} = this.props
     const {id} = params
-    return CoachesService.getCoach(id)
-      .then((res) => this.setState({coach: res}))
-      .catch((err: any) => {
-        if (err && err.response && err.response.status) {
-          this.setState({error: err, errorStatus: err.response.status})
-        } else {
-          this.setState({error: err})
-        }
-      })
+
+    const coach = {
+      ...CoachMock,
+      availability: sortAvailability(CoachMock.availability),
+      certifications: sortCertificationsByMostRecent(CoachMock.certifications),
+    }
+    this.setState({coach})
+    // return CoachesService.getCoach(id)
+    //   .then((res) => this.setState({coach: res}))
+    //   .catch((err: any) => {
+    //     if (err && err.response && err.response.status) {
+    //       this.setState({error: err, errorStatus: err.response.status})
+    //     } else {
+    //       this.setState({error: err})
+    //     }
+    //   })
   }
+
 
   scrollToReviews = () => {
     this.reviews.current.scrollIntoView({behavior: 'smooth'})
@@ -94,6 +126,7 @@ class CoachProfile extends PureComponent<Props, State> {
             <Content
               certifications={coach.certifications}
               programs={coach.programs}
+              availability={coach.availability}
               reviews={coach.reviews}
               reviewsRef={this.reviews}
             />

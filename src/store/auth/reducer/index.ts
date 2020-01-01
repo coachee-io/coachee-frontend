@@ -1,4 +1,5 @@
 import Auth from '../../../utils/tokens'
+import LocalStorage from '../../../utils/localStorage'
 import {AUTH} from '../constants'
 
 interface State {
@@ -12,7 +13,7 @@ const getDefaultState = (): State => ({
   isLoggedIn: Auth.isLoggedIn(),
   isLoading: false,
   error: null,
-  user: null,
+  user: LocalStorage.get('user'),
 })
 
 const AuthReducer = (state = getDefaultState(), action: any) => {
@@ -21,6 +22,7 @@ const AuthReducer = (state = getDefaultState(), action: any) => {
       return {...state, isLoading: true, error: null}
     case AUTH.LOGIN_SUCCESSFUL:
       Auth.setToken(action.payload.token)
+      LocalStorage.set('user', action.payload.user)
       return {
         ...state, isLoggedIn: Auth.isLoggedIn(), isLoading: false, user: action.payload.user,
       }
@@ -28,6 +30,7 @@ const AuthReducer = (state = getDefaultState(), action: any) => {
       return {...state, isLoading: false, error: action.payload}
     case AUTH.LOGOUT:
       Auth.removeToken()
+      LocalStorage.remove('user')
       return {
         isLoggedIn: Auth.isLoggedIn(), isLoading: false, user: null, error: null,
       }

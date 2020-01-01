@@ -84,12 +84,6 @@ class Booking extends PureComponent<Props, State> {
     this.setState((prevState) => ({step: prevState.step + 1}))
   }
 
-  getProgramId = () => {
-    const {location} = this.props
-    const {programId} = location.state
-    return programId
-  }
-
 
   render() {
     const {
@@ -102,6 +96,9 @@ class Booking extends PureComponent<Props, State> {
       availabilityWeekDayMap,
       allAvailableDays,
     } = this.state
+
+    const {location} = this.props
+    const {coach, program} = location.state
 
     if (step === 1) {
       return (
@@ -148,7 +145,7 @@ class Booking extends PureComponent<Props, State> {
           <Row marginTop="30px">
             <Col xs={12}>
               <Flex flexDirection="row" justifyContent="center">
-                <Button onClick={this.handleStepChange} primary disabled>
+                <Button onClick={this.handleStepChange} primary disabled={!date || !selectedDate}>
                   Next
                 </Button>
               </Flex>
@@ -169,22 +166,25 @@ class Booking extends PureComponent<Props, State> {
                 Your free intro call:
             </Para>
             <Para>
-                [Coach Name] will be in touch to confirm your booking
+              {`${coach.firstName} ${coach.lastName}`}
+              {' '}
+              will be in touch to confirm your booking
             </Para>
             <Para>
-                [ProgrammeName]
+              {program.name}
             </Para>
             <Para>
-                [x sessions, y mins]
+              {`${program.sessions} sessions, ${program.duration} minutes`}
             </Para>
             <Para>
-                £[price]
+              {`£${program.totalPrice}`}
             </Para>
           </Col>
           <Col xs={12} md={6}>
             <BookingForm
-              selectedDate={selectedDate}
-              programId={this.getProgramId()}
+              introCall={selectedDate}
+              coachId={coach.id}
+              programId={program.id}
             />
           </Col>
         </Row>

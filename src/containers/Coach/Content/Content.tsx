@@ -22,6 +22,7 @@ const StarRating = Image.attrs({
 `
 
 interface Props {
+  coach: any,
   certifications?: any[],
   programs?: any[],
   availability?: any[],
@@ -32,7 +33,12 @@ interface Props {
 class Content extends PureComponent<Props> {
   render() {
     const {
-      reviewsRef, certifications, programs, reviews, availability,
+      reviewsRef,
+      certifications,
+      programs,
+      reviews,
+      availability,
+      coach,
     } = this.props
     return (
       <>
@@ -67,26 +73,27 @@ class Content extends PureComponent<Props> {
               <H2>
                 {programs ? 'Programmes' : <Pulse height={24} />}
               </H2>
-              {programs && programs.map((el, id) => (
-                <Fragment key={`${el}-${id}`}>
+              {programs && programs.map((program, index) => (
+                <Fragment key={`$${program.id}-${index}`}>
                   <Row>
                     <Col xs={12} sm={9}>
-                      <H3>{el.name}</H3>
+                      <H3>{program.name}</H3>
                       <Para>
-                        {`${el.sessions} sessions of ${el.duration} minutes`}
+                        {`${program.sessions} sessions of ${program.duration} minutes`}
                       </Para>
                       <Para>
 £
-                        {el.totalPrice}
+                        {program.totalPrice}
                       </Para>
                     </Col>
                     {Auth.isLoggedIn() && (
                     <Col xs={12} sm={3}>
                       <RouterButtonLink
                         to={{
-                          pathname: `/booking/${id}`,
+                          pathname: `/booking/${program.id}`,
                           state: {
-                            programId: id,
+                            coach,
+                            program,
                             coachAvailability: availability,
                           },
                         }}
@@ -100,7 +107,7 @@ class Content extends PureComponent<Props> {
                   <Row>
                     <Col xs={12}>
                       <Para>
-                        {el.description}
+                        {program.description}
                       </Para>
                     </Col>
                   </Row>

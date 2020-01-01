@@ -7,6 +7,8 @@ import {Pulse} from '../../../components/Skeleton'
 import {SubmitButton} from '../../../components/Form'
 import StripeForm from '../../../components/Stripe'
 
+import {BookingService} from '../../../services/public'
+
 import {H2} from '../../../ui/headings'
 
 interface State {
@@ -17,15 +19,16 @@ interface State {
 }
 
 interface Props {
-  selectedDate: any,
-  programId: any
+  coachId: string | number | any,
+  introCall: string | number | any,
+  programId: string | number | any
 }
 
 class BookingForm extends PureComponent<Props, State> {
   constructor(props: Props) {
     super(props)
     this.state = {
-      stripeApiKey: 'pk_test_12345',
+      stripeApiKey: '',
       stripeClientSecret: '',
       isLoading: false,
       error: null,
@@ -33,14 +36,15 @@ class BookingForm extends PureComponent<Props, State> {
   }
 
   componentDidMount = () => {
-    // console.log(this.props)
-    /**
-     * Pass final date in time 1590129312398 uint64
-     * Access token and programe ID to the BE
-     * get stripeApiKey and stripeClientSecret
-     */
-    const {selectedDate} = this.props
-    // console.log(selectedDate)
+    this.setState({isLoading: true})
+    const {introCall, coachId, programId} = this.props
+    BookingService.setupBooking({coachId, programId, introCall})
+      .then(({data}) => {
+        this.setState({stripeApiKey: data.publishingKey, stripeClientSecret: data.clientSecret})
+      })
+      .catch((error) => {
+        this.setState({isLoading: false, error})
+      })
   }
 
   onSubmit = (stripe?: ReactStripeElements.StripeProps) => {
@@ -52,6 +56,11 @@ class BookingForm extends PureComponent<Props, State> {
     const {
       isLoading, error, stripeApiKey, stripeClientSecret,
     } = this.state
+
+    if (error) {
+      return <div>{error.message}</div>
+    }
+
     return (
       <>
         {!stripeApiKey && (
@@ -85,7 +94,7 @@ class BookingForm extends PureComponent<Props, State> {
         {stripeApiKey && (
           <>
             <H2 textAlign="center">
-                Enter your card details:
+              Enter your card details:
             </H2>
             <StripeForm stripeApiKey={stripeApiKey}>
               {(stripe) => (

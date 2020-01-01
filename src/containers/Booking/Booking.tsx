@@ -3,15 +3,15 @@ import {RouteComponentProps} from 'react-router-dom'
 import moment, {Moment} from 'moment'
 
 import {DayPickerSingleDateController} from 'react-dates'
-import {Col} from 'react-bootstrap'
 
-import Flex, {Row} from '../../components/Layout/Flexbox'
+import Flex, {Row, Col} from '../../components/Layout/Flexbox'
 
 import {H2} from '../../ui/headings'
 import {Para} from '../../ui/labels'
 
 import BookingForm from './BookingForm'
 import TimeSelect from './TimeSelect'
+import Success from './Success'
 
 import {
   createDateHashMap,
@@ -19,6 +19,7 @@ import {
   getAllAvailableDays,
   createDateFromHoursAndMinutes,
 } from './helpers'
+import {Button} from '../../components/Form'
 
 interface Props extends RouteComponentProps {}
 
@@ -80,7 +81,13 @@ class Booking extends PureComponent<Props, State> {
   }
 
   handleStepChange = () => {
+    this.setState((prevState) => ({step: prevState.step + 1}))
+  }
 
+  getProgramId = () => {
+    const {location} = this.props
+    const {programId} = location.state
+    return programId
   }
 
 
@@ -138,48 +145,54 @@ class Booking extends PureComponent<Props, State> {
               onClick={this.handleTimeChange}
             />
           </Row>
+          <Row marginTop="30px">
+            <Col xs={12}>
+              <Flex flexDirection="row" justifyContent="center">
+                <Button onClick={this.handleStepChange} primary disabled>
+                  Next
+                </Button>
+              </Flex>
+            </Col>
+          </Row>
         </>
       )
     }
 
     if (step === 2) {
       return (
-        <Flex flexDirection="column" marginTop="30px" width="100%">
-          <Row>
-            <Col xs={12} md={6}>
-              <H2 textAlign="center">
+        <Row marginTop="30px">
+          <Col xs={12} md={6}>
+            <H2 textAlign="center">
                 Review your details
-              </H2>
-              <Para>
+            </H2>
+            <Para>
                 Your free intro call:
-              </Para>
-              <Para>
+            </Para>
+            <Para>
                 [Coach Name] will be in touch to confirm your booking
-              </Para>
-              <Para>
+            </Para>
+            <Para>
                 [ProgrammeName]
-              </Para>
-              <Para>
+            </Para>
+            <Para>
                 [x sessions, y mins]
-              </Para>
-              <Para>
+            </Para>
+            <Para>
                 £[price]
-              </Para>
-            </Col>
-            <Col xs={12} md={6}>
-              <BookingForm
-                selectedDate={selectedDate}
-              />
-            </Col>
-          </Row>
-        </Flex>
+            </Para>
+          </Col>
+          <Col xs={12} md={6}>
+            <BookingForm
+              selectedDate={selectedDate}
+              programId={this.getProgramId()}
+            />
+          </Col>
+        </Row>
       )
     }
 
     return (
-      <div>
-        Success
-      </div>
+      <Success />
     )
   }
 }

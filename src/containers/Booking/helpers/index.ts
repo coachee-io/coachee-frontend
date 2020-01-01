@@ -57,19 +57,20 @@ export function createDateHashMap(availability: any[]): {} | null{
 
 /**
 * By default react-dates will block today
-* If the first day of the week is today
-* We need to get the next following day
+* If the first day of the week is in the past (today - 1)
+* We need to get the next following today + 1
 * */
-export function getFirstAvailableDay(weekDayMap: {} | null): any {
+export function getFirstAvailableDay(weekDayMap: {} | null): string | number | any {
   if (!weekDayMap) {
     return 0
   }
+
   const keys: any = Object.keys(weekDayMap)
-  let firstAvailableDay: any = Weekdays[keys[0]]
-  if (moment().day() === firstAvailableDay) {
-    firstAvailableDay = Weekdays[keys[1]]
-  }
-  return firstAvailableDay
+  const key: any = keys.find((objKey: any) => moment().day() === Weekdays[objKey])
+  const day: any = Weekdays[key]
+  const weekDay: any = Weekdays[day + 1]
+
+  return Weekdays[weekDay]
 }
 
 export function getAllAvailableDays(weekDayMap: {} | null): any {

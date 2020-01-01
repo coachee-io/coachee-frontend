@@ -310,12 +310,12 @@
   color: inherit
 }
 .CalendarDay__outside {
-  border: 1px solid #7379E2;
-  background: #7379E2;
-  color: #fff;
+  border: 1px solid transparent;
+  background: #fff;
+  color: #484848;
 }
 .CalendarDay__outside:hover {
-  border: 1px solid #C9E265;
+  border: 1px solid transparent;
 }
 .CalendarDay__blocked_minimum_nights {
   background: #fff;
@@ -370,7 +370,7 @@
 .CalendarDay__blocked_calendar:hover {
   background: #cacccd;
   border: 1px solid #cacccd;
-  color: #82888a
+  color: #000;
 }
 .CalendarDay__blocked_out_of_range,
 .CalendarDay__blocked_out_of_range:active,

@@ -17,7 +17,8 @@ interface State {
 }
 
 interface Props {
-  selectedDate: any
+  selectedDate: any,
+  programId: any
 }
 
 class BookingForm extends PureComponent<Props, State> {

@@ -17,7 +17,8 @@ export interface ButtonProps {
   primary?: boolean,
   accent?: boolean,
   width?: string,
-  selected?: boolean
+  selected?: boolean,
+  disabled?: boolean
 }
 
 
@@ -108,13 +109,17 @@ const Button = styled.button<ButtonProps>`
     color: ${colors.black};
   `}
 
+  ${({disabled}) => disabled && `
+    background-color: #cacccd;
+    color: ${colors.black};
+  `}
+
   ${({width}) => width && `
     width: ${width};
   `}
 
   &:focus {
-    ${({primary, accent}) => (primary || accent) && `
-      color: ${colors.black};
+    ${({selected}) => selected && `
       outline: none;
     `}
   }

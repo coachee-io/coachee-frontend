@@ -6,6 +6,8 @@ import {DayPickerSingleDateController} from 'react-dates'
 
 import Flex, {Row, Col} from '../../components/Layout/Flexbox'
 
+import Error from '../../components/Error'
+
 import {H2} from '../../ui/headings'
 import {Para} from '../../ui/labels'
 
@@ -31,7 +33,8 @@ interface State {
   time: string | number | null | any
   focusedDate: boolean,
   availabilityWeekDayMap: any | {} | null,
-  allAvailableDays: number[] |null
+  allAvailableDays: number[] |null,
+  error: boolean
 }
 
 
@@ -47,20 +50,24 @@ class Booking extends PureComponent<Props, State> {
       time: null,
       availabilityWeekDayMap: null,
       allAvailableDays: null,
+      error: false,
     }
   }
 
   componentDidMount = () => {
-    const {location} = this.props
-    const {coachAvailability} = location.state
+    const coachAvailability = this.getCoachAvailability()
     const hashMap = createDateHashMap(coachAvailability)
     const firstAvailableDay = getFirstAvailableDay(hashMap)
-    this.setState({
-      date: moment().day(firstAvailableDay),
-      availabilityWeekDayMap: hashMap,
-      weekDay: firstAvailableDay,
-      allAvailableDays: getAllAvailableDays(hashMap),
-    })
+    if (!!hashMap && !!firstAvailableDay) {
+      this.setState({
+        date: moment().day(firstAvailableDay),
+        availabilityWeekDayMap: hashMap,
+        weekDay: firstAvailableDay,
+        allAvailableDays: getAllAvailableDays(hashMap),
+      })
+    } else {
+      this.setState({error: true})
+    }
   }
 
   handleDateChange = (date: Moment | null) => {
@@ -84,6 +91,44 @@ class Booking extends PureComponent<Props, State> {
     this.setState((prevState) => ({step: prevState.step + 1}))
   }
 
+  getCoachAvailability = (): any | null => {
+    const {location} = this.props
+    if (!location.state) {
+      return null
+    }
+    const {coachAvailability} = location.state
+
+    if (coachAvailability) {
+      return coachAvailability
+    }
+    return null
+  }
+
+  getCoach = (): any | null => {
+    const {location} = this.props
+    if (!location.state) {
+      return null
+    }
+    const {coach} = location.state
+
+    if (coach) {
+      return coach
+    }
+    return null
+  }
+
+  getProgram = (): any | null => {
+    const {location} = this.props
+    if (!location.state) {
+      return null
+    }
+    const {program} = location.state
+    if (program) {
+      return program
+    }
+    return null
+  }
+
 
   render() {
     const {
@@ -95,10 +140,15 @@ class Booking extends PureComponent<Props, State> {
       focusedDate,
       availabilityWeekDayMap,
       allAvailableDays,
+      error,
     } = this.state
 
-    const {location} = this.props
-    const {coach, program} = location.state
+    const coach = this.getCoach()
+    const program = this.getProgram()
+
+    if (error) {
+      return <Error />
+    }
 
     if (step === 1) {
       return (
@@ -185,6 +235,7 @@ class Booking extends PureComponent<Props, State> {
               introCall={selectedDate}
               coachId={coach.id}
               programId={program.id}
+              onStepChange={this.handleStepChange}
             />
           </Col>
         </Row>

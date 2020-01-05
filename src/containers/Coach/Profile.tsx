@@ -60,28 +60,29 @@ class CoachProfile extends PureComponent<Props, State> {
   }
 
   componentDidMount = () => {
-    setTimeout(this.getCoach, 500)
+    this.getCoach()
   }
 
   getCoach = () => {
     const {match: {params}} = this.props
     const {id} = params
 
-    const coach = {
-      ...CoachMock,
-      availability: sortAvailability(CoachMock.availability),
-      certifications: sortCertificationsByMostRecent(CoachMock.certifications),
-    }
-    this.setState({coach})
-    // return CoachesService.getCoach(id)
-    //   .then((res) => this.setState({coach: res}))
-    //   .catch((err: any) => {
-    //     if (err && err.response && err.response.status) {
-    //       this.setState({error: err, errorStatus: err.response.status})
-    //     } else {
-    //       this.setState({error: err})
-    //     }
-    //   })
+    return CoachesService.getCoach(id)
+      .then((res: any) => {
+        const coach = {
+          ...res,
+          certifications: sortCertificationsByMostRecent(res.certifications),
+          availability: sortAvailability(res.availability),
+        }
+        this.setState({coach})
+      })
+      .catch((err: any) => {
+        if (err && err.response && err.response.status) {
+          this.setState({error: err, errorStatus: err.response.status})
+        } else {
+          this.setState({error: err})
+        }
+      })
   }
 
 

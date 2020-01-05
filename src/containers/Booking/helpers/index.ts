@@ -66,7 +66,10 @@ export function getFirstAvailableDay(weekDayMap: {} | null): string | number | a
   }
 
   const keys: any = Object.keys(weekDayMap)
-  const key: any = keys.find((objKey: any) => moment().day() === Weekdays[objKey])
+  const key: any = keys.find((objKey: any) => moment().day().toString() === Weekdays[objKey])
+  if (!key) {
+    return Weekdays[keys[0]]
+  }
   const day: any = Weekdays[key]
   const weekDay: any = Weekdays[day + 1]
 

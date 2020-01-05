@@ -14,14 +14,16 @@ import {H2} from '../../../ui/headings'
 interface State {
   stripeApiKey?: string,
   stripeClientSecret?: string,
+  stripeError: Error | null,
   isLoading: boolean,
-  error: any | null,
+  error: Error | null,
 }
 
 interface Props {
   coachId: string | number | any,
   introCall: string | number | any,
-  programId: string | number | any
+  programId: string | number | any,
+  onStepChange: () => void
 }
 
 class BookingForm extends PureComponent<Props, State> {
@@ -31,6 +33,7 @@ class BookingForm extends PureComponent<Props, State> {
       stripeApiKey: '',
       stripeClientSecret: '',
       isLoading: false,
+      stripeError: null,
       error: null,
     }
   }
@@ -49,12 +52,25 @@ class BookingForm extends PureComponent<Props, State> {
 
   onSubmit = (stripe?: ReactStripeElements.StripeProps) => {
     const {stripeClientSecret} = this.state
-    // console.log(stripe)
+    const {onStepChange} = this.props
+    if (stripe && stripeClientSecret) {
+      stripe.confirmCardSetup(stripeClientSecret)
+        .then(({error}) => {
+          if (error) {
+            throw new Error(error.message)
+          } else {
+            onStepChange()
+          }
+        })
+        .catch((stripeError) => {
+          this.setState({isLoading: false, stripeError})
+        })
+    }
   }
 
   render() {
     const {
-      isLoading, error, stripeApiKey, stripeClientSecret,
+      isLoading, error, stripeApiKey, stripeError,
     } = this.state
 
     if (error) {
@@ -104,7 +120,7 @@ class BookingForm extends PureComponent<Props, State> {
                     <SubmitButton
                       onClick={() => this.onSubmit(stripe)}
                       isLoading={isLoading}
-                      error={error}
+                      error={stripeError}
                       accent
                       loadingText="Adding your card"
                       defaultText="Confirm"

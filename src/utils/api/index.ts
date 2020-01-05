@@ -1,5 +1,7 @@
 import axios, {AxiosRequestConfig, AxiosResponse} from 'axios'
 
+axios.defaults.headers.post['Content-Type'] = null
+
 class API {
   get(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
     return axios.get(url, config)

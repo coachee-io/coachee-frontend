@@ -8,11 +8,11 @@ interface Params {
 }
 
 class CoachesAPI {
-  getCoach = (id: number) => api.get(`${getUrlEnvironmentDomain()}/coaches/${id}`)
+  getCoach = (id: number): any => api.get(`${getUrlEnvironmentDomain()}/coaches/${id}`)
 
-  getCoaches = (params?: Params) => api.get(`${getUrlEnvironmentDomain()}/coaches`, {params})
+  getCoaches = (params?: Params): any => api.get(`${getUrlEnvironmentDomain()}/coaches`, {params})
 
-  createCoach = (data: any) => api.post(`${getUrlEnvironmentDomain()}/coaches`, data)
+  createCoach = (data: any): any => api.post(`${getUrlEnvironmentDomain()}/coaches`, data)
 }
 
 const service = new CoachesAPI()

@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, {PureComponent, ChangeEvent, FocusEvent} from 'react'
 
 import {Para} from '../../ui/labels'
 
@@ -15,8 +15,8 @@ interface Props {
   error: boolean | string | undefined,
   errorMessage: string | undefined,
   value: any,
-  onChange: any,
-  onBlur: any,
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void,
+  onBlur: (e: FocusEvent<HTMLInputElement>) => void,
   component?: string | undefined
 }
 
@@ -24,7 +24,7 @@ class Input extends PureComponent<Props> {
   render() {
     const {
       label, id, name, type, error, errorMessage, value, onChange, onBlur, component,
-      helperText,
+      helperText, ...rest
     } = this.props
     return (
       <>
@@ -39,6 +39,7 @@ class Input extends PureComponent<Props> {
           value={value}
           error={error}
           component={component}
+          {...rest}
         />
         {error && (
           <ErrorMessage>

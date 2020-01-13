@@ -1535,6 +1535,11 @@
   resolved "https://registry.yarnpkg.com/@types/stripe-v3/-/stripe-v3-3.1.13.tgz#07efbf750fd647d2fc99cfecb080e820a3e93772"
   integrity sha512-XUz/0HawiUlaqJOJd9mrvwfwMJFNqussK5eTf+mFQKvGVzlWIdqceI8a9OM4MRt/n+DoLYEsU6HjifQDJR05bw==
 
+"@types/stripe-v3@^3.1.14":
+  version "3.1.14"
+  resolved "https://registry.yarnpkg.com/@types/stripe-v3/-/stripe-v3-3.1.14.tgz#5eefbec24754d23f6a039e8fb5c7ea0253007836"
+  integrity sha512-2hT1xOiS4312NsrT1dYuAM7qvoMcegS12wcQ78e7hdRrzetM4d91QJn6IYWP5qWP5v4Rc4acDfoIR9cbhpSgMA==
+
 "@types/styled-components@^4.4.1":
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.4.1.tgz#bc40cf5ce0708032f4b148b04ab3c470d3e74026"

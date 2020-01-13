@@ -11,21 +11,24 @@ const StyledFooter = styled.footer`
   width: 100%;
   background-color: ${colors.white};
   flex-shrink: 0;
+  margin-top: 30px;
   ${maxWidthSize.mobile`
-    padding-bottom: 30px;
+    padding: 30px 0;
  `}
+  box-shadow: 0 5px 3px 5px rgba(0,0,0,0.2);
 `
 
 const List = styled.ul`
   display: flex;
-  height: 90px;
-  padding: 30px;
+  height: 80px;
+  padding: 0;
   list-style: none;
   justify-content: center;
   align-items: center;
   ${maxWidthSize.mobile`
-    margin-top: 30px;
+    padding: 30px;
     flex-direction: column;
+    align-items: flex-start;
   `}
 `
 

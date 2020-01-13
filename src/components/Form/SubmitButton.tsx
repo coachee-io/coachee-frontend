@@ -7,6 +7,7 @@ import Flex from '../Layout/Flexbox'
 
 interface Props extends ButtonProps {
   isLoading: boolean,
+  disabled?: boolean,
   error: any | null,
   defaultText: string,
   loadingText?: string,
@@ -18,7 +19,7 @@ class SubmitButton extends PureComponent<Props> {
   render() {
     const {
       isLoading, error, loadingText, defaultText, onClick, primary, accent, width,
-
+      disabled,
     } = this.props
     return (
       <Flex flexDirection="column" marginTop="30px">
@@ -29,12 +30,12 @@ class SubmitButton extends PureComponent<Props> {
         </ErrorMessage>
         )}
         {onClick && (
-          <Button primary={primary} accent={accent} type="submit" onClick={onClick} width={width}>
+          <Button disabled={disabled} primary={primary} accent={accent} type="submit" onClick={onClick} width={width}>
             {isLoading ? loadingText : defaultText}
           </Button>
         )}
         {!onClick && (
-          <Button primary={primary} accent={accent} type="submit" width={width}>
+          <Button disabled={disabled} primary={primary} accent={accent} type="submit" width={width}>
             {isLoading ? loadingText : defaultText}
           </Button>
         )}

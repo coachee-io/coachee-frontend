@@ -64,6 +64,13 @@ const StyledInput = styled(Field)`
   `}
 `
 
+const StyledHiddenInput = styled.input`
+  margin-bottom: 0;
+  ${({error}: InputProps) => error && `
+    border: 1px solid red;
+  `}
+`
+
 const ErrorMessage = styled.span`
   ${Lato};
   font-size: 14px;
@@ -128,6 +135,7 @@ const Button = styled.button<ButtonProps>`
 export {
   StyledLabel,
   StyledInput,
+  StyledHiddenInput,
   StyledSelect,
   ErrorMessage,
   ErrorAlertCircle,

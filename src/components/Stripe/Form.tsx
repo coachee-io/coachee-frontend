@@ -9,10 +9,18 @@ import CardExpiry from './CardExpiry'
 import CardCvc from './CardCvc'
 
 interface Props extends ReactStripeElements.InjectedStripeProps {
-  children: (stripe?: ReactStripeElements.StripeProps) => ReactNode
+  children: (
+    stripe: ReactStripeElements.InjectedStripeProps,
+    getElement?: (type: ReactStripeElements.TokenType) => ReactStripeElements.HTMLStripeElement | null
+    ) => ReactNode
 }
 
 class Form extends PureComponent<Props> {
+  getElement = (elementName: ReactStripeElements.TokenType) => {
+    const {elements} = this.props
+    return elements?.getElement(elementName)
+  }
+
   render() {
     const {stripe, children} = this.props
     return (
@@ -30,7 +38,7 @@ class Form extends PureComponent<Props> {
             <CardCvc />
           </Col>
         </Row>
-        {children(stripe)}
+        {children(stripe, this.getElement)}
       </>
     )
   }

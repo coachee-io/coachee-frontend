@@ -11,12 +11,15 @@ import {BookingService} from '../../../services/public'
 
 import {H2} from '../../../ui/headings'
 
+import PostalCode from './PostalCode'
+
 interface State {
   stripeApiKey?: string,
   stripeClientSecret?: string,
   stripeError: Error | null,
   isLoading: boolean,
   error: Error | null,
+  postalCode: string | undefined
 }
 
 interface Props {
@@ -35,31 +38,49 @@ class BookingForm extends PureComponent<Props, State> {
       isLoading: false,
       stripeError: null,
       error: null,
+      postalCode: '',
     }
   }
 
   componentDidMount = () => {
-    this.setState({isLoading: true})
     const {introCall, coachId, programId} = this.props
     BookingService.setupBooking({coachId, programId, introCall})
-      .then(({data}) => {
-        this.setState({stripeApiKey: data.publishingKey, stripeClientSecret: data.clientSecret})
+      .then(({publishingKey, clientSecret}) => {
+        this.setState({stripeApiKey: publishingKey, stripeClientSecret: clientSecret})
       })
       .catch((error) => {
         this.setState({isLoading: false, error})
       })
   }
 
-  onSubmit = (stripe?: ReactStripeElements.StripeProps) => {
-    const {stripeClientSecret} = this.state
+  handlePostalCodeChange = (value: string | undefined) => {
+    this.setState({postalCode: value})
+  }
+
+  onSubmit = (
+    stripe: ReactStripeElements.StripeProps | null,
+    getElement: (type: ReactStripeElements.TokenType) => ReactStripeElements.HTMLStripeElement | null,
+  ): void => {
+    const {stripeClientSecret, postalCode} = this.state
     const {onStepChange} = this.props
-    if (stripe && stripeClientSecret) {
-      stripe.confirmCardSetup(stripeClientSecret)
-        .then(({error}) => {
-          if (error) {
-            throw new Error(error.message)
-          } else {
+    const cardElement = getElement('cardNumber')
+    if (stripe && cardElement && stripeClientSecret) {
+      this.setState({isLoading: true})
+      stripe.confirmCardPayment(stripeClientSecret, {
+        payment_method: {
+          card: cardElement,
+          billing_details: {
+            address: {
+              postal_code: postalCode,
+            },
+          },
+        },
+      })
+        .then(({paymentIntent, error}) => {
+          if (paymentIntent) {
             onStepChange()
+          } else if (error) {
+            throw new Error(error.message)
           }
         })
         .catch((stripeError) => {
@@ -70,7 +91,7 @@ class BookingForm extends PureComponent<Props, State> {
 
   render() {
     const {
-      isLoading, error, stripeApiKey, stripeError,
+      isLoading, error, stripeApiKey, stripeError, postalCode,
     } = this.state
 
     if (error) {
@@ -113,21 +134,33 @@ class BookingForm extends PureComponent<Props, State> {
               Enter your card details:
             </H2>
             <StripeForm stripeApiKey={stripeApiKey}>
-              {(stripe) => (
-                <Row>
-                  <Col xs={12} md={6} />
-                  <Col xs={12} md={6}>
-                    <SubmitButton
-                      onClick={() => this.onSubmit(stripe)}
-                      isLoading={isLoading}
-                      error={stripeError}
-                      accent
-                      loadingText="Adding your card"
-                      defaultText="Confirm"
-                      width="100%"
-                    />
-                  </Col>
-                </Row>
+              {(stripe, getElement) => (
+                <>
+                  <Row>
+                    <Col xs={12} md={6}>
+                      <PostalCode
+                        onChange={this.handlePostalCodeChange}
+                        value={postalCode}
+                      />
+                    </Col>
+                    <Col xs={12} md={6} />
+                  </Row>
+                  <Row>
+                    <Col xs={12} md={6} />
+                    <Col xs={12} md={6}>
+                      <SubmitButton
+                        onClick={() => this.onSubmit(stripe, getElement)}
+                        isLoading={isLoading}
+                        disabled={isLoading || !postalCode}
+                        error={stripeError}
+                        primary
+                        loadingText="Confirming..."
+                        defaultText="Confirm"
+                        width="100%"
+                      />
+                    </Col>
+                  </Row>
+                </>
               )}
             </StripeForm>
           </>

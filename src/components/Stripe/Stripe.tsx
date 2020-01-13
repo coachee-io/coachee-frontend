@@ -1,14 +1,18 @@
 import React, {PureComponent, ReactNode} from 'react'
-import {StripeProvider, Elements, ReactStripeElements} from 'react-stripe-elements'
+import {StripeProvider, ReactStripeElements, Elements} from 'react-stripe-elements'
 import {Row, Col} from 'react-bootstrap'
 
 import StripeScript from '../../utils/scripts/stripe'
 import {Pulse} from '../Skeleton'
+
 import Form from './Form'
 
 interface Props {
   stripeApiKey?: string,
-  children: (stripe?: ReactStripeElements.StripeProps) => ReactNode
+  children: (
+    stripe?: ReactStripeElements.InjectedStripeProps,
+    getElement?: (type: ReactStripeElements.TokenType) => ReactStripeElements.HTMLStripeElement | null)
+    => ReactNode
 }
 
 interface State {
@@ -35,15 +39,15 @@ class Stripe extends PureComponent<Props, State> {
     const {isScriptReady} = this.state
     return (
       <>
-        {!isScriptReady && (
+        {!isScriptReady && !stripeApiKey && (
           <Row>
             <Col xs={12}>
               <Pulse height={24} />
             </Col>
           </Row>
         )}
-        {isScriptReady && (
-          <StripeProvider apiKey={stripeApiKey || 'pk_test_12345'}>
+        {isScriptReady && stripeApiKey && children && (
+          <StripeProvider apiKey={stripeApiKey}>
             <Elements>
               <Form>
                 {children}

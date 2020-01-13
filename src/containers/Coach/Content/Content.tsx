@@ -99,7 +99,7 @@ class Content extends PureComponent<Props> {
                         }}
                         primary
                       >
-                        Book a call
+                        Book a Call
                       </RouterButtonLink>
                     </Col>
                     )}

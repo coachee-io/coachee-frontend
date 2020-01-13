@@ -5,6 +5,7 @@ import Checkbox from './Checkbox'
 import CheckboxList from './CheckboxList'
 import DatePicker from './DatePicker'
 import SubmitButton from './SubmitButton'
+import Hidden from './Hidden'
 
 import {
   StyledLabel,
@@ -18,6 +19,7 @@ import {
 export {
   Form,
   Input,
+  Hidden,
   RadioGroup,
   Checkbox,
   CheckboxList,

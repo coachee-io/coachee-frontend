@@ -1,5 +1,5 @@
 import {
-  string, object, boolean, array,
+  string, object, boolean,
 } from 'yup'
 
 const schema = object().shape({

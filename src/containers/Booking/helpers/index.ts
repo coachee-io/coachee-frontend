@@ -87,14 +87,14 @@ export function getDayOfTheWeek(day: any): any {
   return Weekdays[day]
 }
 
-export function createDateFromHoursAndMinutes(date: Moment | null, hour: number, minute: number): string | null{
+export function createDateFromHoursAndMinutes(date: Moment | null, hour: number, minute: number): number | null{
   if (!date) {
     return null
   }
 
-  return date.set({
+  return parseInt(date.set({
     hour,
     minute,
     second: 0,
-  }).format('X')
+  }).format('X'), 10)
 }

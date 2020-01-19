@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, {PureComponent, ReactNode} from 'react'
 
 import {Para} from '../../ui/labels'
 
@@ -17,7 +17,7 @@ interface List {
 
 interface Props {
   label: string,
-  helperText?: string | undefined,
+  helperText?: ReactNode,
   name: string,
   list: List[],
   error: boolean | string | undefined,

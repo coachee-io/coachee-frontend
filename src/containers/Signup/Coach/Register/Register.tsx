@@ -235,12 +235,28 @@ class CoachSignup extends PureComponent<{}, State> {
                       />
                       <RadioGroup
                         label="Please read and accept our terms and conditions and privacy policy."
-                        helperText="This includes accepting that you will always offer an intro call
+                        helperText={(
+                          <span>
+This includes accepting that you will
+                            always offer an
+                            {' '}
+                            <strong>intro call</strong>
+                            {' '}
                             to all your coachees; that you will always let us know via email when a coaching session
-                            is taking place so we can process your payment up to 48 hours after each session; and you accept that coachee.io
-                            will take a 15% fee of the total price of your coaching programme, no other fees.
+                            is taking place so we can process your payment up to
+                            {' '}
+                            <strong>48 hours</strong>
+                            {' '}
+after each session; and you accept that coachee.io
+                will take a
+                            {' '}
+                            <strong>15% fee</strong>
+                            {' '}
+of the total price of your coaching programme, no other fees.
                             We will include more details in your
-                            welcome pack after your registration is confirmed."
+                            welcome pack after your registration is confirmed.
+                          </span>
+)}
                         name="termsAndConditions"
                         value={values.termsAndConditions}
                         error={errors.termsAndConditions && touched.termsAndConditions}

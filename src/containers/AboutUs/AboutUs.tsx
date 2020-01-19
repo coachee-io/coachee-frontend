@@ -33,11 +33,18 @@ class AboutUs extends PureComponent {
                 </Para>
                 <Para>
                 So let’s start with the latter: yes, we’re serious about what we do and we strive
-                to provide absolutely top notch customer service - if you’re not happy, neither are we!
+                to provide absolutely
+                  {' '}
+                  <strong>top notch customer service</strong>
+                  {' '}
+- if you’re not happy, neither are we!
                 </Para>
                 <Para>
                 Our aim is to make it easier and more reliable for anyone in the UK to
-                find their perfect coach - the one that really listens,
+                  {' '}
+                  <strong>find their perfect coach</strong>
+                  {' '}
+- the one that really listens,
                 is kind but also always ready to deliver a strong message when needed, is passionate about always learning more about their
                 field of expertise and works tirelessly to ensure their coachees achieve the best results they possibly can.
                 </Para>
@@ -58,13 +65,20 @@ class AboutUs extends PureComponent {
               To ensure we’re able to do this, we have high criteria that we measure our coaches against:
                 </Para>
                 <Para>
-              They need to be certified, and a weekend coaching course doesn’t count;
+              They need to be
+                  {' '}
+                  <strong>certified</strong>
+, and a weekend coaching course doesn’t count;
               They need to provide coaching programs of at least
                   {' '}
                   <strong>4 weeks</strong>
                   {' '}
 to ensure maximum impact and results;
-              We meet with all our coaches before approving them on the website.
+              We meet with all our coaches before
+                  {' '}
+                  <strong>approving</strong>
+                  {' '}
+them on the website.
                 </Para>
                 <Para>
                 We’re also a registered UK company (number:
@@ -112,7 +126,9 @@ came to me while I was a coachee
                 coachee.io
                 </Anchor>
                 {' '}
-                was launched and I’m so happy about its success. I found coaching one of the most valuable investments
+                was launched and I’m so happy about its success. I found coaching one of the
+                {' '}
+                <strong>most valuable investments</strong>
                 I have ever made - and I know you will too.
               </Para>
               <Para>

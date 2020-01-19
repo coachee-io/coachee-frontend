@@ -59,10 +59,6 @@ const links = [
     to: '/faq',
     label: 'FAQ',
   },
-  {
-    to: '/contact-us',
-    label: 'Contact us',
-  },
 ]
 
 class Footer extends PureComponent {

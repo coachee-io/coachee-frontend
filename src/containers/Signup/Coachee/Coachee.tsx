@@ -25,8 +25,32 @@ const options = [
     label: '',
   },
   {
-    value: 'Web',
-    label: 'Web',
+    value: 'Google search',
+    label: 'Google search',
+  },
+  {
+    value: 'Instagram post by another page',
+    label: 'Instagram post by another page',
+  },
+  {
+    value: 'Instagram post by coachee.io',
+    label: 'Instagram post by coachee.io',
+  },
+  {
+    value: 'Instagram ad',
+    label: 'Instagram ad',
+  },
+  {
+    value: 'Facebook ad',
+    label: 'Facebook ad',
+  },
+  {
+    value: 'Someone I know mentioned it',
+    label: 'Someone I know mentioned it',
+  },
+  {
+    value: 'Other',
+    label: 'Other',
   },
 ]
 

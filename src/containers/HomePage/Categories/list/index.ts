@@ -31,9 +31,9 @@ const list: any = [
      your life coach will support you by tapping into your strengths and potential.`,
   },
   {
-    url: '/coaches/feminity',
+    url: '/coaches/femininity',
     imgSrc: FeminityImg,
-    title: 'Feminity',
+    title: 'Femininity',
     description: `If you feel there is a lack of balance in your relationships, 
     your work and your time off, or how you show your sexuality, your coach can help you.`,
   },

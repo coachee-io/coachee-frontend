@@ -1,1 +1,1 @@
-export {default} from './PlatformUse'
+export {default} from './IfThingsGoWrong'

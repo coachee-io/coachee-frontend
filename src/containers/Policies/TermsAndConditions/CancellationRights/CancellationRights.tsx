@@ -8,10 +8,10 @@ class CancellationRights extends PureComponent {
     return (
       <>
         <H3 id="cancellation-rights">
-          7. Cancellation rights
+          8. Cancellation rights
         </H3>
         <Para>
-          7.1. We will not charge you until 12 hours after your intro call,
+          8.1. We will not charge you until 12 hours after your intro call,
           and you have until this time to let us know you would like to cancel your booking if you change your mind.
           Refunds will not be accepted after this time.
         </Para>

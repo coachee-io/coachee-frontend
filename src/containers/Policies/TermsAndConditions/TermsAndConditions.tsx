@@ -7,6 +7,7 @@ import ContentHeader from './ContentHeader'
 import AboutUs from './AboutUs'
 import PlatformUsage from './PlatformUsage'
 import PlatformChanges from './PlatformChanges'
+import Payments from './Payments'
 import PlatformAvailability from './PlatformAvailability'
 import AccountAccess from './AccountAccess'
 import CoachingProgrammes from './CoachingProgrammes'
@@ -36,6 +37,12 @@ const list = [
     url: '#platform-changes',
     text: 'We may make changes',
     Component: PlatformChanges,
+  },
+  {
+    id: 'payments',
+    url: '#payments',
+    text: 'How our payments work',
+    Component: Payments,
   },
   {
     id: 'platform-availability',

@@ -15,6 +15,7 @@ class ContentHeader extends PureComponent {
         </Para>
         <Para>
           <Anchor href="https://www.coachee.io" primary>Coachee.io</Anchor>
+          {' '}
             brings together coaches and coachees under one single Platform.
             Coaches have their own profiles and programs available, with full autonomy over the prices they charge,
             the hours they work and when they are available and whether they accept or decline a client (coachee).
@@ -27,6 +28,7 @@ class ContentHeader extends PureComponent {
   but we will take a 15% fee of the total cost of your booking, only after the program has been accepted and
   paid by the coachee (client) after the intro call. This is clearly indicated across the Platform.
   Our Platform is available via our Website at
+          {' '}
           <Anchor href="https://www.coachee.io" primary>www.coachee.io</Anchor>
         </Para>
       </>

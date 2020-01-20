@@ -7,6 +7,7 @@ import HomePage from '../containers/HomePage'
 import Login from '../containers/Login'
 import Logout from '../containers/Logout'
 import ForgotPassword from '../containers/ForgotPassword'
+import ConfirmPassword from '../containers/ConfirmPassword'
 
 import AboutUs from '../containers/AboutUs'
 
@@ -37,6 +38,7 @@ class Routes extends PureComponent {
           <ProtectedRoute path="/login" component={Login} />
           <ProtectedRoute path="/logout" component={Logout} />
           <ProtectedRoute path="/forgot-password" component={ForgotPassword} />
+          <ProtectedRoute path="/confirm-password/:id" component={ConfirmPassword} />
           <ProtectedRoute path="/signup" component={CoacheeSignup} />
           <ProtectedRoute path="/booking" component={Booking} />
           <Route path="/terms-and-conditions" component={TermsAndConditions} />

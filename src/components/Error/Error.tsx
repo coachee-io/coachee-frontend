@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, {PureComponent, ReactNode} from 'react'
 
 import NotFound from './Codes/NotFound'
 import ServiceUnavailable from './Codes/ServiceUnavailable'
@@ -6,12 +6,13 @@ import Unauthorized from './Codes/Unauthorized'
 import Generic from './Codes/Generic'
 
 interface Props {
-  status?: number
+  status?: number,
+  message?: ReactNode
 }
 
 class Error extends PureComponent<Props> {
   render() {
-    const {status} = this.props
+    const {status, message} = this.props
 
     if (status && status === 401) {
       return <Unauthorized />
@@ -25,7 +26,7 @@ class Error extends PureComponent<Props> {
       return <ServiceUnavailable />
     }
 
-    return <Generic />
+    return <Generic message={message} />
   }
 }
 

@@ -4,6 +4,7 @@ interface PulseProps {
   circle?: boolean,
   width?: number,
   height?: number,
+  marginTop?: number
 }
 
 const PulseAnimation = css`
@@ -31,4 +32,5 @@ export const Pulse = styled.span<PulseProps>`
   `}
   ${({width}) => width && `width: ${width}px;`}
   ${({height}) => height && `height: ${height}px;`}
+  ${({marginTop}) => marginTop && `margin-top: ${marginTop}px`};
 `

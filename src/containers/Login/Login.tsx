@@ -8,6 +8,8 @@ import {
 } from 'formik'
 import {string, object} from 'yup'
 
+import Alert from '../../components/Alert'
+
 import {
   Form, StyledLabel, StyledInput, SubmitButton, ErrorMessage, ErrorAlertCircle,
 } from '../../components/Form'
@@ -32,14 +34,34 @@ const schema = object().shape({
     .matches(/[a-zA-Z0-9]/, 'Only letters and numbers'),
 })
 
-interface Props extends RouteComponentProps {
-  login: (email: string, password: string, history: History) => Promise<any>,
-  isLoading: boolean,
-  error: any | null
+interface LocationState {
+  showLoginMessageAfterConfirmPasswordPage?: boolean
 }
 
+interface Props extends RouteComponentProps<{}, {}, LocationState> {
+  login: (email: string, password: string, history: History) => Promise<any>,
+  isLoading: boolean,
+  error: Error | null
+}
 
-class Login extends PureComponent<Props> {
+interface State {
+  showLoginMessage?: boolean
+}
+
+class Login extends PureComponent<Props, State> {
+  constructor(props: Props) {
+    super(props)
+    this.state = {
+      showLoginMessage: false,
+    }
+  }
+
+  componentDidMount = () => {
+    const {location} = this.props
+    const showLoginMessage = location?.state?.showLoginMessageAfterConfirmPasswordPage
+    this.setState({showLoginMessage})
+  }
+
   onSubmit = async (values: {email: string, password: string}) => {
     const {login, history} = this.props
     const {email, password} = values
@@ -48,10 +70,13 @@ class Login extends PureComponent<Props> {
 
   render() {
     const {isLoading, error} = this.props
+    const {showLoginMessage} = this.state
+
     return (
       <Row>
         <Col xs={12}>
-          <Flex width="100%" flexDirection="row" justifyContent="center" marginTop="30px">
+          <Flex width="100%" flexDirection="column" alignItems="center" marginTop="30px">
+            {showLoginMessage && <Alert show={showLoginMessage} />}
             <Formik
               initialValues={{email: '', password: ''}}
               onSubmit={this.onSubmit}

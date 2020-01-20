@@ -18,17 +18,23 @@ const HighFiveImage = Image.attrs({
   max-height: ${HEIGHT}px;
 `
 
-class Confirmation extends PureComponent {
+interface Props {
+  heading: string,
+  text: string
+}
+
+class Confirmation extends PureComponent<Props> {
   render() {
+    const {heading, text} = this.props
     return (
       <>
         <Row>
           <Col xs={12}>
             <H2 textAlign="center">
-              Congratulations for taking this step!
+              {heading}
             </H2>
             <Para textAlign="center">
-              We will be in touch soon to confirm your details!
+              {text}
             </Para>
             <Flex flexDirection="row" justifyContent="center" marginTop="30px">
               <HighFiveImage />

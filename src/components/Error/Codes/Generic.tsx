@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, {PureComponent, ReactNode} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
 import {Para} from '../../../ui/labels'
@@ -19,16 +19,28 @@ const ErrorWarningImage = Image.attrs({
   max-height: ${HEIGHT}px;
 `
 
-class GenericError extends PureComponent {
+interface Props {
+  message?: ReactNode
+}
+
+class GenericError extends PureComponent<Props> {
   render() {
+    const {message} = this.props
+
+    const text = message ?? (
+      <>
+      Sorry, something went wrong.
+        <br />
+      Try again later.
+      </>
+    )
+
     return (
       <>
         <Row>
           <Col xs={12}>
             <Para textAlign="center">
-              Sorry, something went wrong.
-              <br />
-              Try again later.
+              {text}
             </Para>
             <Flex flexDirection="row" justifyContent="center" marginTop="30px">
               <RouterButtonLink to="/" primary>

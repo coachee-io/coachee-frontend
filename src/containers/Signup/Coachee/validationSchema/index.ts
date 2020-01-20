@@ -16,7 +16,7 @@ const schema = object().shape({
   password: string()
     .trim()
     .required('This is a required field')
-    .min(1, 'Minimum 8 characters')
+    .min(8, 'Minimum 8 characters')
     .max(16, 'Maximum 16 characters')
     .matches(/[a-zA-Z0-9]/, 'Only letters and numbers'),
   confirmPassword: string()

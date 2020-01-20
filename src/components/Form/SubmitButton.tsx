@@ -8,7 +8,7 @@ import Flex from '../Layout/Flexbox'
 interface Props extends ButtonProps {
   isLoading: boolean,
   disabled?: boolean,
-  error: any | null,
+  error?: Error | null,
   defaultText: string,
   loadingText?: string,
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
@@ -35,7 +35,7 @@ class SubmitButton extends PureComponent<Props> {
           </Button>
         )}
         {!onClick && (
-          <Button disabled={disabled} primary={primary} accent={accent} type="submit" width={width}>
+          <Button disabled={disabled} primary={primary} accent={accent} width={width}>
             {isLoading ? loadingText : defaultText}
           </Button>
         )}

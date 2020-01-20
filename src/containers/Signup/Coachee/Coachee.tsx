@@ -89,7 +89,12 @@ class SignUpCoachee extends PureComponent<{}, State> {
     const {isLoading, successful, error} = this.state
 
     if (successful) {
-      return <Confirmation />
+      return (
+        <Confirmation
+          heading="Congratulations for taking this step!"
+          text="We will be in touch soon to confirm your details!"
+        />
+      )
     }
 
     return (

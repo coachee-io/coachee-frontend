@@ -20,13 +20,15 @@ import {
   termsAndConditions, coachingCategories,
 } from './options'
 
+interface Props {}
+
 interface State {
   successful: boolean,
   isLoading: boolean,
   error: Error | null
 }
 
-class CoachSignup extends PureComponent<{}, State> {
+class CoachSignup extends PureComponent<Props, State> {
   constructor(props: any) {
     super(props)
     this.state = {
@@ -35,7 +37,6 @@ class CoachSignup extends PureComponent<{}, State> {
       error: null,
     }
   }
-
 
   onSubmit = async (values: any) => {
     const data = {
@@ -54,14 +55,19 @@ class CoachSignup extends PureComponent<{}, State> {
     await this.setState({isLoading: true, error: null, successful: false})
     CoachesService.createCoach(data)
       .then(() => this.setState({successful: true}))
-      .catch((error) => this.setState({error, isLoading: false}))
+      .catch((error: Error) => this.setState({error, isLoading: false}))
   }
 
   render() {
     const {isLoading, successful, error} = this.state
 
     if (successful) {
-      return <Confirmation />
+      return (
+        <Confirmation
+          heading="Congratulations for taking this step!"
+          text="We will be in touch soon to confirm your details!"
+        />
+      )
     }
 
     return (

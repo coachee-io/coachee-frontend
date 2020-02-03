@@ -44,6 +44,7 @@ class CoachSignup extends PureComponent<Props, State> {
       lastName: values.lastName,
       introCall: values.introCall,
       email: values.email,
+      password: values.password,
       phone: values.phone,
       tags: values.tags.join(','),
       city: values.city,
@@ -82,6 +83,8 @@ class CoachSignup extends PureComponent<Props, State> {
                   city: '',
                   country: '',
                   email: '',
+                  password: '',
+                  confirmPassword: '',
                   phone: '',
                   aboutUs: '',
                   tags: [],
@@ -157,6 +160,28 @@ class CoachSignup extends PureComponent<Props, State> {
                         errorMessage={errors.email}
                         onChange={handleChange}
                         onBlur={handleBlur}
+                      />
+                      <Input
+                        label="Password"
+                        id="password"
+                        name="password"
+                        type="password"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.password}
+                        error={errors.password && touched.password}
+                        errorMessage={errors.password}
+                      />
+                      <Input
+                        label="Confirm password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        type="password"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.confirmPassword}
+                        error={errors.confirmPassword && touched.confirmPassword}
+                        errorMessage={errors.confirmPassword}
                       />
                       <Input
                         label="Phone number"

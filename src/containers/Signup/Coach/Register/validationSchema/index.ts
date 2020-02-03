@@ -22,6 +22,17 @@ export default object().shape({
     .trim()
     .required('This is a required field')
     .email('Email address is invalid'),
+  password: string()
+    .trim()
+    .required('This is a required field')
+    .min(8, 'Minimum 8 characters')
+    .max(16, 'Maximum 16 characters')
+    .matches(/[a-zA-Z0-9]/, 'Only letters and numbers'),
+  confirmPassword: string()
+    .required('This is a required field')
+    .test('passwords-match', "Passwords don't match", function passwordMatch(value) {
+      return this.parent.password === value
+    }),
   phone: string()
     .trim()
     .required('This is a required field')

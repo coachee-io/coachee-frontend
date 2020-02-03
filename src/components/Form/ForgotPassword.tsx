@@ -7,15 +7,13 @@ import {string, object} from 'yup'
 
 import {
   Form, Input, SubmitButton,
-} from '../../components/Form'
+} from '.'
 
-import Flex from '../../components/Layout/Flexbox'
-import Confirmation from '../../components/Confirmation'
+import Flex from '../Layout/Flexbox'
+import Confirmation from '../Confirmation'
 
 import {H2} from '../../ui/headings'
 import {Para} from '../../ui/labels'
-
-import PlatformAPI from '../../services/public/platform'
 
 const schema = object().shape({
   email: string()
@@ -24,37 +22,18 @@ const schema = object().shape({
     .email(),
 })
 
-interface Props {}
-
-interface State {
+interface Props {
   isLoading: boolean,
   isSuccessful: boolean,
-  error: Error | null
+  error: Error | null,
+  onSubmit: (values: any) => void
 }
 
-class ForgotPassword extends PureComponent<Props, State> {
-  constructor(props: Props) {
-    super(props)
-    this.state = {
-      isLoading: false,
-      isSuccessful: false,
-      error: null,
-    }
-  }
-
-  onSubmit = (values: any) => {
-    const {email} = values
-    PlatformAPI.forgotPassword(email)
-      .then(() => {
-        this.setState({isSuccessful: true})
-      })
-      .catch((error) => {
-        this.setState({error})
-      })
-  }
-
+class ForgotPassword extends PureComponent<Props> {
   render() {
-    const {isLoading, isSuccessful, error} = this.state
+    const {
+      isLoading, isSuccessful, error, onSubmit,
+    } = this.props
 
     if (isSuccessful) {
       return (
@@ -74,7 +53,7 @@ class ForgotPassword extends PureComponent<Props, State> {
             <Flex width="100%" flexDirection="row" justifyContent="center" marginTop="30px">
               <Formik
                 initialValues={{email: '', password: ''}}
-                onSubmit={this.onSubmit}
+                onSubmit={(values: any) => onSubmit(values)}
                 validationSchema={schema}
               >
                 {({

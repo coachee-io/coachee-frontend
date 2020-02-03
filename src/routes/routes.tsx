@@ -1,13 +1,15 @@
 import React, {PureComponent} from 'react'
-import {Switch, Route, useHistory} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 
 import Layout from '../components/Layout/Layout'
 
 import HomePage from '../containers/HomePage'
 import Login from '../containers/Login'
 import Logout from '../containers/Logout'
-import ForgotPassword from '../containers/ForgotPassword'
-import ConfirmPassword from '../containers/ConfirmPassword'
+import CoachForgotPassword from '../containers/ForgotPassword/Coaches'
+import CoacheeForgotPassword from '../containers/ForgotPassword/Coachees'
+import CoachConfirmPassword from '../containers/ConfirmPassword/Coaches'
+import CoacheeConfirmPassword from '../containers/ConfirmPassword/Coachees'
 
 import AboutUs from '../containers/AboutUs'
 
@@ -35,22 +37,24 @@ class Routes extends PureComponent {
       <Layout>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <ProtectedRoute path="/login" component={Login} />
-          <ProtectedRoute path="/logout" component={Logout} />
-          <ProtectedRoute path="/forgot-password" component={ForgotPassword} />
-          <ProtectedRoute path="/confirm-password/:id" component={ConfirmPassword} />
-          <ProtectedRoute path="/signup" component={CoacheeSignup} />
           <ProtectedRoute path="/booking" component={Booking} />
-          <Route path="/terms-and-conditions" component={TermsAndConditions} />
-          <Route path="/privacy-policy" component={PrivacyPolicy} />
-          <Route path="/cookie-policy" component={CookiesPolicy} />
-          <Route path="/fair-use-policy" component={FairUsePolicy} />
-          <Route path="/faq" component={FAQ} />
+          <ProtectedRoute path="/logout" component={Logout} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={CoacheeSignup} />
+          <Route path="/forgot-password" component={CoacheeForgotPassword} />
+          <Route path="/confirm-password/:id" component={CoacheeConfirmPassword} />
+          <Route path="/coaches/forgot-password" component={CoachForgotPassword} />
+          <Route path="/coaches/confirm-password/:id" component={CoachConfirmPassword} />
           <Route path="/about-us" component={AboutUs} />
           <Route exact path="/become-a-coach" component={CoachOnboarding} />
           <Route path="/become-a-coach/register" component={CoachRegister} />
           <Route path="/coaches/:category?" component={CoachesCategories} />
           <Route path="/coach/:id" component={CoachProfile} />
+          <Route path="/terms-and-conditions" component={TermsAndConditions} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/cookie-policy" component={CookiesPolicy} />
+          <Route path="/fair-use-policy" component={FairUsePolicy} />
+          <Route path="/faq" component={FAQ} />
           <Route path="/*" component={Error} />
         </Switch>
       </Layout>

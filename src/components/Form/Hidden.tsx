@@ -7,7 +7,7 @@ import {
 interface Props {
   id: string,
   name: string,
-  error: boolean | string | undefined,
+  error: boolean | string | undefined | any,
   errorMessage: string | undefined,
   value?: string | number | undefined
 }

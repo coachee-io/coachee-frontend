@@ -2,11 +2,18 @@ import api from '../../../utils/api'
 import {getUrlEnvironmentDomain} from '../../../utils/getUrlEnv'
 
 class PlatformAPI {
-  forgotPassword = (email: string) => api.post(`${getUrlEnvironmentDomain()}/recovery`, {email})
+  coachForgotPassword = (email: string) => api.post(`${getUrlEnvironmentDomain()}/recovery/coaches`, {email})
 
-  verifyForgotPasswordToken = (token: string) => api.get(`${getUrlEnvironmentDomain()}/recovery/${token}`)
+  coachVerifyForgotPasswordToken = (token: string) => api.get(`${getUrlEnvironmentDomain()}/recovery/coaches/${token}`)
 
-  recoverForgotPassword = (password: string, token: string) => api.post(`${getUrlEnvironmentDomain()}/recovery/${token}`, {password})
+  coachRecoverForgotPassword = (password: string, token: string) => api.post(`
+    ${getUrlEnvironmentDomain()}/recovery/coaches/${token}`, {password})
+
+  coacheeForgotPassword = (email: string) => api.post(`${getUrlEnvironmentDomain()}/recovery`, {email})
+
+  coacheeVerifyForgotPasswordToken = (token: string) => api.get(`${getUrlEnvironmentDomain()}/recovery/${token}`)
+
+  coacheeRecoverForgotPassword = (password: string, token: string) => api.post(`${getUrlEnvironmentDomain()}/recovery/${token}`, {password})
 }
 
 const service = new PlatformAPI()

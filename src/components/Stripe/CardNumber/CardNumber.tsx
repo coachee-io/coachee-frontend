@@ -11,11 +11,8 @@ import {StyledLabel, Hidden} from '../../Form'
 
 import {style, ElementWrapper} from '../styled'
 
-// const schema = number()
-//   .required("This field is required")
-
 interface State {
-  errorMsg?: string | undefined,
+  errorMsg?: string | undefined | any,
   isComplete: boolean,
   hiddenValue?: number
 }

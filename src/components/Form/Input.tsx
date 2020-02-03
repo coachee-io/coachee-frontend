@@ -1,4 +1,5 @@
 import React, {PureComponent, ChangeEvent, FocusEvent} from 'react'
+import {FormikTouched, FormikErrors} from 'formik'
 
 import {Para} from '../../ui/labels'
 
@@ -12,9 +13,9 @@ interface Props {
   name: string,
   type: string,
   helperText?: string | undefined,
-  error: boolean | string | undefined,
-  errorMessage: string | undefined,
-  value: any,
+  error: boolean | FormikErrors<any> | FormikTouched<any> | FormikTouched<any>[] | any,
+  errorMessage: string | string[] | FormikErrors<any> | FormikErrors<any>[] | any,
+  value: string | number | boolean | any,
   onChange: (e: ChangeEvent<HTMLInputElement>) => void,
   onBlur: (e: FocusEvent<HTMLInputElement>) => void,
   component?: string | undefined

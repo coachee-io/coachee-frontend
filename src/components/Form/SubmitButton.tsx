@@ -8,7 +8,7 @@ import Flex from '../Layout/Flexbox'
 interface Props extends ButtonProps {
   isLoading: boolean,
   disabled?: boolean,
-  error?: Error | null,
+  error?: Error | null | any,
   defaultText: string,
   loadingText?: string,
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void

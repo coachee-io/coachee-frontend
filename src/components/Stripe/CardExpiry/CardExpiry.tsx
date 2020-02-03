@@ -11,7 +11,7 @@ import {StyledLabel, Hidden} from '../../Form'
 import {style, ElementWrapper} from '../styled'
 
 interface State {
-  errorMsg?: string,
+  errorMsg?: string | any,
   isComplete: boolean,
   hiddenValue?: number
 }

@@ -10,6 +10,13 @@ import {RouterButtonLink} from '../../../../components/Routing'
 import {H2} from '../../../../ui/headings'
 import {Para} from '../../../../ui/labels'
 
+import {
+  WatchCoachImage,
+  DocumentCoachImage,
+  SecurityLockImage,
+} from './images'
+
+
 const ListWrapper = styled.div`
   width: 100%;
   max-width: 410px;
@@ -41,37 +48,46 @@ class CoachSignup extends PureComponent {
         <Row>
           <Col xs={12}>
             <H2 textAlign="center">
-                 Why work with us?
+              Why work with us?
             </H2>
           </Col>
         </Row>
         <Row>
           <Col xs={12} sm={4}>
-            <H2 textAlign="center">
-              Flexible
-            </H2>
-            <Para textAlign="center">
-              We provide a platform to market your programs while you stay on top
-              of availability and pricing.
-            </Para>
+            <Flex flexDirection="column" alignItems="center">
+              <WatchCoachImage />
+              <H2 textAlign="center">
+                Flexible
+              </H2>
+              <Para textAlign="center">
+                We provide a platform to market your programs while you stay on top
+                of availability and pricing.
+              </Para>
+            </Flex>
           </Col>
           <Col xs={12} sm={4}>
-            <H2 textAlign="center">
-              Simple
-            </H2>
-            <Para textAlign="center">
-              We make it simple for any coachee to find you by creating your
-              own profile with clear descriptions.
-            </Para>
+            <Flex flexDirection="column" alignItems="center">
+              <DocumentCoachImage />
+              <H2 textAlign="center">
+                Simple
+              </H2>
+              <Para textAlign="center">
+                We make it simple for any coachee to find you by creating your
+                own profile with clear descriptions.
+              </Para>
+            </Flex>
           </Col>
           <Col xs={12} sm={4}>
-            <H2 textAlign="center">
-              Secure
-            </H2>
-            <Para textAlign="center">
-              Payments will be made up to 72 hours after each completed session.
-              We only get paid if you do.
-            </Para>
+            <Flex flexDirection="column" alignItems="center">
+              <SecurityLockImage />
+              <H2 textAlign="center">
+                Secure
+              </H2>
+              <Para textAlign="center">
+                Payments will be made up to 72 hours after each completed session.
+                We only get paid if you do.
+              </Para>
+            </Flex>
           </Col>
         </Row>
         <Flex flexDirection="row" justifyContent="center" marginTop="30px">

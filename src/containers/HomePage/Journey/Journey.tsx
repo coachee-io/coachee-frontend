@@ -78,15 +78,15 @@ class Journey extends PureComponent {
         <Flex flexDirection="row" width="100%" marginTop="30px">
           <Col md={12}>
             <Para textAlign="center">
-                  Still not sure if coaching is for you? Check out the
-                  resources in our
+              Still not sure if coaching is for you? Check out the
+              resources in our
               {' '}
               <RouterLink to="/" primary>blog</RouterLink>
               {' '}
-  or
+              or
               {' '}
               <RouterLink to="/" primary>contact us</RouterLink>
-  .
+              .
             </Para>
           </Col>
         </Flex>

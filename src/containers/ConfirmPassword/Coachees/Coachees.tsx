@@ -41,7 +41,7 @@ class CoacheesConfirmPassword extends PureComponent<Props, State> {
   }
 
 
-  onSubmit = async (values: any) => {
+  onSubmit = async (values: {password: string}) => {
     const {match, history} = this.props
     const {params} = match
     const {password} = values

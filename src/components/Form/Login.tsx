@@ -3,10 +3,11 @@ import {string, object} from 'yup'
 import {Row, Col} from 'react-bootstrap'
 import {
   Formik,
+  Form,
 } from 'formik'
 
 import {
-  Form, StyledLabel, StyledInput, SubmitButton, ErrorMessage, ErrorAlertCircle,
+  StyledLabel, StyledInput, SubmitButton, ErrorMessage, ErrorAlertCircle,
 } from '.'
 
 import Flex from '../Layout/Flexbox'
@@ -47,17 +48,17 @@ class Login extends PureComponent<Props> {
     return (
       <Row>
         <Col xs={12}>
-          <Flex width="100%" flexDirection="column" alignItems="center" marginTop="30px">
-            <Formik
-              initialValues={{email: '', password: ''}}
-              onSubmit={onSubmit}
-              validationSchema={schema}
-            >
-              {({
-                values, errors, touched, handleChange, handleBlur, handleSubmit,
-              }) => (
-                <>
-                  <Form onSubmit={handleSubmit} maxWidth={450}>
+          <Formik
+            initialValues={{email: '', password: ''}}
+            onSubmit={onSubmit}
+            validationSchema={schema}
+          >
+            {({
+              values, errors, touched, handleChange, handleBlur, handleSubmit,
+            }) => (
+              <>
+                <Form onSubmit={handleSubmit}>
+                  <Flex width="100%" flexDirection="column" marginTop="30px">
                     <StyledLabel htmlFor="email">Email:</StyledLabel>
                     <StyledInput
                       id="email"
@@ -68,11 +69,11 @@ class Login extends PureComponent<Props> {
                       error={errors.email && touched.email}
                     />
                     {errors.email && touched.email && (
-                    <ErrorMessage>
-                      {errors.email}
-                      {' '}
-                      <ErrorAlertCircle />
-                    </ErrorMessage>
+                      <ErrorMessage>
+                        {errors.email}
+                        {' '}
+                        <ErrorAlertCircle />
+                      </ErrorMessage>
                     )}
                     <StyledLabel htmlFor="password">Password:</StyledLabel>
                     <StyledInput
@@ -85,11 +86,11 @@ class Login extends PureComponent<Props> {
                       error={errors.password && touched.password}
                     />
                     {errors.password && touched.password && (
-                    <ErrorMessage>
-                      {errors.password}
-                      {' '}
-                      <ErrorAlertCircle />
-                    </ErrorMessage>
+                      <ErrorMessage>
+                        {errors.password}
+                        {' '}
+                        <ErrorAlertCircle />
+                      </ErrorMessage>
                     )}
                     <RegularRouterLink to={forgottenPasswordURL} small bold underline>
                       Forgotten password?
@@ -102,11 +103,11 @@ class Login extends PureComponent<Props> {
                       loadingText="Loading..."
                       defaultText={submitButtonText}
                     />
-                  </Form>
-                </>
-              )}
-            </Formik>
-          </Flex>
+                  </Flex>
+                </Form>
+              </>
+            )}
+          </Formik>
         </Col>
       </Row>
     )

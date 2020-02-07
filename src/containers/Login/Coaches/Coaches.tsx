@@ -2,6 +2,8 @@ import React, {PureComponent} from 'react'
 
 import LoginForm from '../../../components/Form/Login'
 
+import PlatformAPI from '../../../services/public/platform'
+
 interface Props {}
 
 interface State {
@@ -18,8 +20,16 @@ class CoachesLogin extends PureComponent<Props, State> {
     }
   }
 
-  onSubmit = async (values: {email: string, password: string}) => {
-
+  onSubmit = (values: {email: string, password: string}) => {
+    const {email, password} = values
+    this.setState({isLoading: true})
+    PlatformAPI.coachLogin(email, password)
+      .then(({data}) => {
+        window.location.href = data.url
+      })
+      .catch((err) => {
+        this.setState({isLoading: false, error: err})
+      })
   }
 
   render() {

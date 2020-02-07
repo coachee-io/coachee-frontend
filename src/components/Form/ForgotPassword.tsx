@@ -2,11 +2,12 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 import {
   Formik,
+  Form,
 } from 'formik'
 import {string, object} from 'yup'
 
 import {
-  Form, Input, SubmitButton,
+  FormCard, Input, SubmitButton,
 } from '.'
 
 import Flex from '../Layout/Flexbox'
@@ -59,8 +60,8 @@ class ForgotPassword extends PureComponent<Props> {
                 {({
                   values, errors, touched, handleChange, handleBlur, handleSubmit,
                 }) => (
-                  <>
-                    <Form onSubmit={handleSubmit} maxWidth={450}>
+                  <Form onSubmit={handleSubmit}>
+                    <FormCard maxWidth={450}>
                       <H2>
                         Forgot your password?
                       </H2>
@@ -78,17 +79,15 @@ class ForgotPassword extends PureComponent<Props> {
                         error={errors.email && touched.email}
                         errorMessage={errors.email}
                       />
-                      <Flex width="100%" flexDirection="row" marginTop="15px">
-                        <SubmitButton
-                          isLoading={isLoading}
-                          error={error}
-                          accent
-                          loadingText="Loading..."
-                          defaultText="Login"
-                        />
-                      </Flex>
-                    </Form>
-                  </>
+                      <SubmitButton
+                        isLoading={isLoading}
+                        error={error}
+                        accent
+                        loadingText="Loading..."
+                        defaultText="Reset Passsword"
+                      />
+                    </FormCard>
+                  </Form>
                 )}
               </Formik>
             </Flex>

@@ -21,7 +21,7 @@ class CoachesForgotPassword extends PureComponent<Props, State> {
     }
   }
 
-  onSubmit = (values: any) => {
+  onSubmit = (values: {email: string}) => {
     const {email} = values
     PlatformAPI.coachForgotPassword(email)
       .then(() => {

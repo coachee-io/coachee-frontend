@@ -22,7 +22,7 @@ class SubmitButton extends PureComponent<Props> {
       disabled,
     } = this.props
     return (
-      <Flex flexDirection="column" marginTop="30px">
+      <Flex flexDirection="column" marginTop="15px">
         {error && (
         <ErrorMessage>
           <ErrorAlertCircle />

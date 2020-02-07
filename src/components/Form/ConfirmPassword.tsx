@@ -2,13 +2,14 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 import {
   Formik,
+  Form,
 } from 'formik'
 import {string, object} from 'yup'
 
 import {H2} from '../../ui/headings'
 
 import {
-  Form, Input, SubmitButton,
+  FormCard, Input, SubmitButton,
 } from '.'
 
 import Flex from '../Layout/Flexbox'
@@ -69,8 +70,8 @@ class ConfirmPassword extends PureComponent<Props> {
                 {({
                   values, errors, touched, handleChange, handleBlur, handleSubmit,
                 }) => (
-                  <>
-                    <Form onSubmit={handleSubmit} maxWidth={450}>
+                  <Form onSubmit={handleSubmit}>
+                    <FormCard maxWidth={450}>
                       <H2>
                         {isLoadingAPI
                           ? <Pulse height={44} />
@@ -106,18 +107,16 @@ class ConfirmPassword extends PureComponent<Props> {
                         )}
                       {isLoadingAPI
                         ? <Pulse height={44} marginTop={15} /> : (
-                          <Flex width="100%" flexDirection="row" marginTop="15px">
-                            <SubmitButton
-                              isLoading={isSubmiting}
-                              error={error}
-                              accent
-                              loadingText="Loading..."
-                              defaultText="Create password"
-                            />
-                          </Flex>
+                          <SubmitButton
+                            isLoading={isSubmiting}
+                            error={error}
+                            accent
+                            loadingText="Loading..."
+                            defaultText="Create password"
+                          />
                         )}
-                    </Form>
-                  </>
+                    </FormCard>
+                  </Form>
                 )}
               </Formik>
             </Flex>

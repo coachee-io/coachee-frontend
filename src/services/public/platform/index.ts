@@ -2,6 +2,8 @@ import api from '../../../utils/api'
 import {getUrlEnvironmentDomain} from '../../../utils/getUrlEnv'
 
 class PlatformAPI {
+  coachLogin = (email: string, password: string) => api.post(`${getUrlEnvironmentDomain()}/coaches/login`, {email, password})
+
   coachForgotPassword = (email: string) => api.post(`${getUrlEnvironmentDomain()}/recovery/coaches`, {email})
 
   coachVerifyForgotPasswordToken = (token: string) => api.get(`${getUrlEnvironmentDomain()}/recovery/coaches/${token}`)

@@ -1,4 +1,5 @@
 import Form from './Form'
+import FormCard from './Card'
 import Input from './Input'
 import RadioGroup from './RadioGroup'
 import Checkbox from './Checkbox'
@@ -31,4 +32,5 @@ export {
   Button,
   DatePicker,
   SubmitButton,
+  FormCard,
 }

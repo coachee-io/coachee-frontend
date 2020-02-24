@@ -1,6 +1,4 @@
-import axios, {AxiosRequestConfig, AxiosPromise} from 'axios'
-
-axios.defaults.headers.post['Content-Type'] = null
+import axios, {AxiosRequestConfig, AxiosResponse} from 'axios'
 
 class API {
   get(url: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {

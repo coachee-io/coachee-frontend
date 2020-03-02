@@ -3,11 +3,9 @@ import {RouteComponentProps} from 'react-router-dom'
 import {Row, Col} from 'react-bootstrap'
 
 import {CoachesService} from '../../services/public'
-import Error from '../../components/Error'
+import ErrorMessage from '../../components/ErrorMessage'
 
 import Photo from '../../ui/images/coach-photo.jpg'
-
-import CoachMock from '../../mocks/coach.json'
 
 import Header from './Header'
 import Sidebar from './Sidebar'
@@ -36,7 +34,7 @@ const sortAvailability = (availability: any[]): any[] => {
 }
 
 interface Params {
-  id: any
+  id: any // At the moment we are using the ID from the DB instead of an UUID
 }
 
 interface Props extends RouteComponentProps<Params> {}
@@ -94,7 +92,7 @@ class CoachProfile extends PureComponent<Props, State> {
     const {coach, error, errorStatus} = this.state
 
     if (error) {
-      return <Error status={errorStatus} />
+      return <ErrorMessage status={errorStatus} />
     }
 
     return (

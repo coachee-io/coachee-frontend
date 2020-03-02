@@ -59,7 +59,7 @@ class BookingForm extends PureComponent<Props, State> {
 
   onSubmit = (
     stripe: ReactStripeElements.StripeProps | null,
-    getElement: (type: ReactStripeElements.TokenType) => ReactStripeElements.HTMLStripeElement | null,
+    getElement: (type: ReactStripeElements.TokenType) => ReactStripeElements.HTMLStripeElement | null | undefined,
   ): void => {
     const {stripeClientSecret, postalCode} = this.state
     const {onStepChange} = this.props

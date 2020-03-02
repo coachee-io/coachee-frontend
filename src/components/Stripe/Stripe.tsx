@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, {PureComponent, ReactNode} from 'react'
 import {StripeProvider, ReactStripeElements, Elements} from 'react-stripe-elements'
 import {Row, Col} from 'react-bootstrap'
@@ -10,9 +11,9 @@ import Form from './Form'
 interface Props {
   stripeApiKey?: string,
   children: (
-    stripe?: ReactStripeElements.InjectedStripeProps,
-    getElement?: (type: ReactStripeElements.TokenType) => ReactStripeElements.HTMLStripeElement | null)
-    => ReactNode
+    stripe: ReactStripeElements.StripeProps | null,
+    getElement: (type: ReactStripeElements.TokenType) => ReactStripeElements.HTMLStripeElement | null | undefined
+    ) => ReactNode
 }
 
 interface State {

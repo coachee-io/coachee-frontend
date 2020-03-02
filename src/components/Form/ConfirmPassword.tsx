@@ -14,7 +14,7 @@ import {
 
 import Flex from '../Layout/Flexbox'
 import {Pulse} from '../Skeleton'
-import Error from '../Error'
+import ErrorMessage from '../ErrorMessage'
 
 const schema = object().shape({
   password: string()
@@ -33,7 +33,7 @@ const schema = object().shape({
 interface Props {
   isLoadingAPI: boolean,
   isSubmiting: boolean,
-  loadingError: Error | null
+  loadingError: Error | null,
   error: Error | null,
   onSubmit: (values: any) => void
 }
@@ -46,7 +46,7 @@ class ConfirmPassword extends PureComponent<Props> {
 
     if (loadingError) {
       return (
-        <Error message={(
+        <ErrorMessage message={(
           <>
             Sorry, but your link has expired.
             <br />

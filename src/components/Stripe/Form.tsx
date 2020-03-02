@@ -10,13 +10,13 @@ import CardCvc from './CardCvc'
 
 interface Props extends ReactStripeElements.InjectedStripeProps {
   children: (
-    stripe: ReactStripeElements.InjectedStripeProps,
-    getElement?: (type: ReactStripeElements.TokenType) => ReactStripeElements.HTMLStripeElement | null
+    stripe: ReactStripeElements.StripeProps | null,
+    getElement: (type: ReactStripeElements.TokenType) => ReactStripeElements.HTMLStripeElement | null | undefined
     ) => ReactNode
 }
 
 class Form extends PureComponent<Props> {
-  getElement = (elementName: ReactStripeElements.TokenType) => {
+  getElement = (elementName: ReactStripeElements.TokenType): ReactStripeElements.HTMLStripeElement | null | undefined => {
     const {elements} = this.props
     return elements?.getElement(elementName)
   }

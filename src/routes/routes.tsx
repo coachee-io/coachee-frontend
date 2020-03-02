@@ -28,7 +28,7 @@ import CoachRegister from '../containers/Signup/Coach/Register'
 import CoacheeSignup from '../containers/Signup/Coachee'
 import CoachesCategories from '../containers/Coaches'
 
-import Error from '../components/Error'
+import ErrorMessage from '../components/ErrorMessage'
 import ProtectedRoute from '../components/Routing/ProtectedRoute'
 
 class Routes extends PureComponent {
@@ -55,7 +55,7 @@ class Routes extends PureComponent {
           <Route path="/cookie-policy" component={CookiesPolicy} />
           <Route path="/fair-use-policy" component={FairUsePolicy} />
           <Route path="/faq" component={FAQ} />
-          <Route path="/*" component={Error} />
+          <Route path="/*" component={ErrorMessage} />
         </Switch>
       </Layout>
     )

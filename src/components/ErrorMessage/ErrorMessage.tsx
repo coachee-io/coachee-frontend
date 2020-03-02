@@ -10,7 +10,7 @@ interface Props {
   message?: ReactNode
 }
 
-class Error extends PureComponent<Props> {
+class ErrorMessage extends PureComponent<Props> {
   render() {
     const {status, message} = this.props
 
@@ -30,4 +30,4 @@ class Error extends PureComponent<Props> {
   }
 }
 
-export default Error
+export default ErrorMessage

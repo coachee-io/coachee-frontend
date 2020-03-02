@@ -12,7 +12,7 @@ import {
 
 import Flex from '../../components/Layout/Flexbox'
 import {Pulse} from '../../components/Skeleton'
-import Error from '../../components/Error'
+import ErrorMessage from '../../components/ErrorMessage'
 
 import {H2} from '../../ui/headings'
 
@@ -60,7 +60,7 @@ class ConfirmPassword extends PureComponent<Props, State> {
     const {match} = this.props
     const {params} = match
     this.setState({isLoadingAPI: true})
-    PlatformAPI.verifyForgotPasswordToken(params.id)
+    PlatformAPI.coachVerifyForgotPasswordToken(params.id)
       .then(() => { this.setState({isLoadingAPI: false}) })
       .catch((loadingError: Error) => {
         this.setState({loadingError})
@@ -74,7 +74,7 @@ class ConfirmPassword extends PureComponent<Props, State> {
     const {password} = values
 
     await this.setState({isSubmiting: true, error: null})
-    PlatformAPI.recoverForgotPassword(password, params.id)
+    PlatformAPI.coachRecoverForgotPassword(password, params.id)
       .then(() => {
         history.push('/login', {showLoginMessageAfterConfirmPasswordPage: true})
       })
@@ -88,7 +88,7 @@ class ConfirmPassword extends PureComponent<Props, State> {
 
     if (loadingError) {
       return (
-        <Error message={(
+        <ErrorMessage message={(
           <>
             Sorry, but your link has expired.
             <br />

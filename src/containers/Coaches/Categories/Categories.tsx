@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 
 import {RouterButtonLink} from '../../../components/Routing'
 import Flex from '../../../components/Layout/Flexbox'
-import Error from '../../../components/Error'
+import Error from '../../../components/ErrorMessage'
 
 import {
   CardsGrid, CardTitle, CardText, Card, CardImage, CardBody,
@@ -62,7 +62,7 @@ class Categories extends PureComponent<Props, State> {
       tag: category,
     }
     return CoachesService.getCoaches(params)
-      .then((res) => {
+      .then((res: any) => {
         this.setState(({coaches: res, isLoading: false}))
       })
       .catch((err: any) => {
@@ -147,7 +147,7 @@ class Categories extends PureComponent<Props, State> {
                     {coach.price}
                   </CardText>
                   <RouterButtonLink to={`/coach/${coach.id}`} primary>
-                        See profile
+                    See profile
                   </RouterButtonLink>
                 </Flex>
               </Flex>

@@ -6,7 +6,7 @@ import {DayPickerSingleDateController} from 'react-dates'
 
 import Flex, {Row, Col} from '../../components/Layout/Flexbox'
 
-import Error from '../../components/Error'
+import ErrorMessage from '../../components/ErrorMessage'
 
 import {H2} from '../../ui/headings'
 import {Para} from '../../ui/labels'
@@ -23,13 +23,19 @@ import {
 } from './helpers'
 import {Button} from '../../components/Form'
 
-interface Props extends RouteComponentProps {}
+interface LocationState {
+  coach: string,
+  coachAvailability: string | any,
+  program: string | any
+}
+
+interface Props extends RouteComponentProps<{}, {}, LocationState> {}
 
 interface State {
   step: 1 | 2 | 3 | number,
   date: Moment | null,
   weekDay: number | null,
-  selectedDate: string | null,
+  selectedDate: number | string | null | any,
   time: string | number | null | any
   focusedDate: boolean,
   availabilityWeekDayMap: any | {} | null,
@@ -147,7 +153,7 @@ class Booking extends PureComponent<Props, State> {
     const program = this.getProgram()
 
     if (error) {
-      return <Error />
+      return <ErrorMessage />
     }
 
     if (step === 1) {
@@ -210,10 +216,10 @@ class Booking extends PureComponent<Props, State> {
         <Row marginTop="30px">
           <Col xs={12} md={6}>
             <H2 textAlign="center">
-                Review your details
+              Review your details
             </H2>
             <Para>
-                Your free intro call:
+              Your free intro call:
             </Para>
             <Para>
               {`${coach.firstName} ${coach.lastName}`}

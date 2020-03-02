@@ -1,1 +1,1 @@
-npx now secrets add REACT_APP_API_URL value
+npx now secrets add api_url value

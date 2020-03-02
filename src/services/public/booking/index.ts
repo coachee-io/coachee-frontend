@@ -1,25 +1,19 @@
-import {AxiosPromise} from 'axios'
 import api from '../../../utils/api'
 import Auth from '../../../utils/tokens'
 import {getUrlEnvironmentDomain} from '../../../utils/getUrlEnv'
 
-interface Response {
-  clientSecret: string,
-  publishingKey: string
-}
+import {
+  BookingRequest,
+  BookingResponse,
+} from './types'
 
-interface Request {
-  coachId: string | number | any,
-  programId: string | number | any,
-  introCall: string | number | any
-}
 
 class BookingAPI {
-  setupBooking = (data: Request) => {
+  setupBooking = (data: BookingRequest) => {
     const headers = {
       Authorization: `Bearer ${Auth.getToken()}`,
     }
-    return api.post<Response>(`${getUrlEnvironmentDomain()}/orders`, data, {headers})
+    return api.post<BookingResponse>(`${getUrlEnvironmentDomain()}/orders`, data, {headers})
       .then((res) => res.data)
   }
 }

@@ -25,7 +25,7 @@ class InformationOffice extends PureComponent {
             https://www.gov.uk/data-protection/the-data-protection-act
           </Anchor>
           {' '}
-.
+          .
         </Para>
       </>
     )

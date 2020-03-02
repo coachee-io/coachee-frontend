@@ -29,9 +29,9 @@ class GenericError extends PureComponent<Props> {
 
     const text = message ?? (
       <>
-      Sorry, something went wrong.
+        Sorry, something went wrong.
         <br />
-      Try again later.
+        Try again later.
       </>
     )
 

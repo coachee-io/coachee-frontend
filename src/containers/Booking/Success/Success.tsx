@@ -25,14 +25,14 @@ class Success extends PureComponent {
         <Row marginTop="30px">
           <Col xs={12}>
             <H2 textAlign="center">
-            Congratulations for taking this step!
+              Congratulations for taking this step!
             </H2>
           </Col>
         </Row>
         <Row marginTop="30px">
           <Col xs={12}>
             <Para textAlign="center">
-            A confirmation email is on the way and your coach will be in touch soon to confirm your booking!
+              A confirmation email is on the way and your coach will be in touch soon to confirm your booking!
             </Para>
           </Col>
         </Row>

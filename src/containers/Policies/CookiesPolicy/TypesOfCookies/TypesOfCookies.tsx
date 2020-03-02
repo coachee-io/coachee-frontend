@@ -11,36 +11,36 @@ class TypesOfCookies extends PureComponent {
     return (
       <>
         <H3 id="types-of-cookies">
-            3. What type of cookies do we use?
+          3. What type of cookies do we use?
         </H3>
         <OL>
           <LI>
             <Para>
-                Strictly necessary cookies. These are cookies that are required for the operation of our Website.
-                They include, for example, cookies that enable you to log into secure areas of our Website.
+              Strictly necessary cookies. These are cookies that are required for the operation of our Website.
+              They include, for example, cookies that enable you to log into secure areas of our Website.
             </Para>
           </LI>
           <LI>
             <Para>
-                  Analytical/performance cookies. They allow us to recognise and count the number of visitors
-                  and to see how visitors move around our Website when they are using it.
-                  This helps us to improve the way our Website works, for example, by
-                  ensuring that users are finding what they are looking for easily.
+              Analytical/performance cookies. They allow us to recognise and count the number of visitors
+              and to see how visitors move around our Website when they are using it.
+              This helps us to improve the way our Website works, for example, by
+              ensuring that users are finding what they are looking for easily.
             </Para>
           </LI>
           <LI>
             <Para>
-                  Functionality cookies. These are used to recognise you when you return to our Website.
-                  This enables us to personalise our content for you, greet you by name and remember your preferences.
+              Functionality cookies. These are used to recognise you when you return to our Website.
+              This enables us to personalise our content for you, greet you by name and remember your preferences.
             </Para>
           </LI>
           <LI>
             <Para>
-                Targeting cookies. These cookies record your visit to our Website,
-                the pages you have visited and the links you have followed.
-                We will use this information to make our Website and the advertising (our own and that of our partners)
-                displayed on it more relevant to your interests.
-                We may also share this information (in an anonymised form) with third parties for this purpose.
+              Targeting cookies. These cookies record your visit to our Website,
+              the pages you have visited and the links you have followed.
+              We will use this information to make our Website and the advertising (our own and that of our partners)
+              displayed on it more relevant to your interests.
+              We may also share this information (in an anonymised form) with third parties for this purpose.
             </Para>
           </LI>
         </OL>
@@ -59,7 +59,7 @@ class TypesOfCookies extends PureComponent {
           You may be able to express certain preferences about online behavioural advertising on this website:
           {' '}
           <Anchor href="https://www.youronlinechoices.eu" primary>www.youronlinechoices.eu</Anchor>
-.
+          .
         </Para>
         <Para>
           Please note that third parties (including, for example, providers of external services like web traffic analysis services)

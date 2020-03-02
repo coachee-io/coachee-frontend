@@ -1,9 +1,15 @@
 import api from '../../../utils/api'
 import {getUrlEnvironmentDomain} from '../../../utils/getUrlEnv'
 
+import {
+  CreateCoacheeRequest,
+  CreateCoacheeResponse,
+} from './types'
+
 class CoacheesAPI {
-  createCoachee = (data: any) => api.post(`${getUrlEnvironmentDomain()}/clients`, data)
-    .then((res: any) => res.data)
+  createCoachee = (data: CreateCoacheeRequest) => api
+    .post<CreateCoacheeResponse>(`${getUrlEnvironmentDomain()}/clients`, data)
+    .then((res) => res.data)
 }
 
 const service = new CoacheesAPI()

@@ -9,25 +9,25 @@ class ContentHeader extends PureComponent {
     return (
       <>
         <Para>
-            (Last updated on the 1st of January 2020)
+          (Last updated on the 1st of January 2020)
         </Para>
         <Para>
           This privacy policy sets out the privacy practices for
           {' '}
           <strong>COACHEE.IO Ltd</strong>
-,
+          ,
           a company registered in England and Wales under company number 12314526.
-           Our registered office address is International House, 64 Nile Street, London, England, N1 7SR (&quot;we&quot;,
-           &quot;us&quot;, &quot;our&quot;).
-            Our website is
+          Our registered office address is International House, 64 Nile Street, London, England, N1 7SR (&quot;we&quot;,
+          &quot;us&quot;, &quot;our&quot;).
+          Our website is
           {' '}
           <Anchor href="https//:www.coachee.io" primary noUnderline>www.coachee.io</Anchor>
           {' '}
-(the &quot;Website&quot;) and all associated sub-domains.
+          (the &quot;Website&quot;) and all associated sub-domains.
         </Para>
         <Para>
           In order to provide our services to you and to promote our business, we will need to collect and
-process certain personal information about you.
+          process certain personal information about you.
         </Para>
         <Para>
           We are committed to protecting the privacy and security of your personal information,

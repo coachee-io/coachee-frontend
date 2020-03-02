@@ -29,7 +29,7 @@ class Coaches extends PureComponent<any, State> {
         <Row>
           <Col xs={12}>
             <H1 textAlign="center">
-            Our Coaches
+              Our Coaches
             </H1>
           </Col>
         </Row>

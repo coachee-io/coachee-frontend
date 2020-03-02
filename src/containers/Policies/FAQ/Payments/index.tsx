@@ -22,10 +22,10 @@ class Payments extends PureComponent {
           {' '}
           <strong>12 hours</strong>
           {' '}
-after your intro call.
+          after your intro call.
         </Para>
         <Para bold>
-         Why is the payment blocked before my intro call?
+          Why is the payment blocked before my intro call?
         </Para>
         <Para>
           We need to ensure that your coach will receive their payment if the
@@ -40,7 +40,7 @@ after your intro call.
           any other type of payment to use
           {' '}
           <Anchor href="www.coachee.io" primary>coachee.io</Anchor>
-.
+          .
           You will need to pay for your selected coaching programme, and
           this amount will be used to pay your coach for their sessions,
           and a small % will be kept by us as payment for the usage of the platform.

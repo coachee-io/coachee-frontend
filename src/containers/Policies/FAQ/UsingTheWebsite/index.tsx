@@ -13,7 +13,7 @@ class UsingTheWebsite extends PureComponent {
           Using the Website
         </H3>
         <Para bold>
-         When will I receive the contact details for my coach?
+          When will I receive the contact details for my coach?
         </Para>
         <Para>
           We will provide you with the contact details for your coach right
@@ -80,11 +80,11 @@ class UsingTheWebsite extends PureComponent {
           {' '}
           <strong>admin@coachee.io</strong>
           {' '}
-to request that we delete any and all the data we have on you.
+          to request that we delete any and all the data we have on you.
           You can find more about this in our
           {' '}
           <RouterLink to="/privacy-policy" primary>Privacy Policy</RouterLink>
-.
+          .
         </Para>
       </>
     )

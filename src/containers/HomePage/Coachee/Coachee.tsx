@@ -28,25 +28,25 @@ class Coachee extends PureComponent {
             <Col xs={12} md={4}>
               <DivBackgroundImage bgImage={certificate} />
               <Para textAlign="center">
-              All our coaches are
+                All our coaches are
                 <strong> certified</strong>
-  , they have hours of training and experience to help YOU reach any goal.
+                , they have hours of training and experience to help YOU reach any goal.
               </Para>
             </Col>
             <Col xs={12} md={4}>
               <DivBackgroundImage bgImage={conversation} />
               <Para textAlign="center">
-              Coaching
+                Coaching
                 <strong> works </strong>
-  . How do we know? Personal experience and talking to coachees!
+                . How do we know? Personal experience and talking to coachees!
               </Para>
             </Col>
             <Col xs={12} md={4}>
               <DivBackgroundImage bgImage={search} />
               <Para textAlign="center">
-              Check descriptions and prices in one
+                Check descriptions and prices in one
                 <strong> simple search </strong>
-  and leave your review. No more scrolling through social media to find your coach.
+                and leave your review. No more scrolling through social media to find your coach.
               </Para>
             </Col>
           </Row>

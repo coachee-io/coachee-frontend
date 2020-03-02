@@ -32,7 +32,7 @@ class WebCookies extends PureComponent {
           You can find out more about cookies at
           {' '}
           <Anchor href="www.allaboutcookies.org" primary>www.allaboutcookies.org</Anchor>
-.
+          .
         </Para>
       </>
     )

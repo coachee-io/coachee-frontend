@@ -19,34 +19,35 @@ class AboutUs extends PureComponent {
             <Col xs={12} md={6}>
               <Flex flexDirection="column" justifyContent="center">
                 <H3>
-                Hi there!
+                  Hi there!
                 </H3>
                 <Para>
-                If you’ve clicked on the About Us link on
+                  If you’ve clicked on the About Us link on
                   {' '}
                   <Anchor href="www.coachee.io" primary>
-                coachee.io
+                    coachee.io
                   </Anchor>
                   {' '}
-, you’re probably either curious about who is managing this platform,
-                you want to check whether we’re legit - or both!
+                  , you’re probably either curious about who is managing this platform,
+                  you want to check whether we’re legit - or both!
                 </Para>
                 <Para>
-                So let’s start with the latter: yes, we’re serious about what we do and we strive
-                to provide absolutely
+                  So let’s start with the latter: yes, we’re serious about what we do and we strive
+                  to provide absolutely
                   {' '}
                   <strong>top notch customer service</strong>
                   {' '}
-- if you’re not happy, neither are we!
+                  - if you’re not happy, neither are we!
                 </Para>
                 <Para>
-                Our aim is to make it easier and more reliable for anyone in the UK to
+                  Our aim is to make it easier and more reliable for anyone in the UK to
                   {' '}
                   <strong>find their perfect coach</strong>
                   {' '}
-- the one that really listens,
-                is kind but also always ready to deliver a strong message when needed, is passionate about always learning more about their
-                field of expertise and works tirelessly to ensure their coachees achieve the best results they possibly can.
+                  - the one that really listens,
+                  is kind but also always ready to deliver a strong message when needed,
+                  is passionate about always learning more about their
+                  field of expertise and works tirelessly to ensure their coachees achieve the best results they possibly can.
                 </Para>
               </Flex>
             </Col>
@@ -62,29 +63,29 @@ class AboutUs extends PureComponent {
             <Col xs={12} md={6}>
               <Flex flexDirection="column" justifyContent="center" height="100%">
                 <Para>
-              To ensure we’re able to do this, we have high criteria that we measure our coaches against:
+                  To ensure we’re able to do this, we have high criteria that we measure our coaches against:
                 </Para>
                 <Para>
-              They need to be
+                  They need to be
                   {' '}
                   <strong>certified</strong>
-, and a weekend coaching course doesn’t count;
-              They need to provide coaching programs of at least
+                  , and a weekend coaching course doesn’t count;
+                  They need to provide coaching programs of at least
                   {' '}
                   <strong>4 weeks</strong>
                   {' '}
-to ensure maximum impact and results;
-              We meet with all our coaches before
+                  to ensure maximum impact and results;
+                  We meet with all our coaches before
                   {' '}
                   <strong>approving</strong>
                   {' '}
-them on the website.
+                  them on the website.
                 </Para>
                 <Para>
-                We’re also a registered UK company (number:
+                  We’re also a registered UK company (number:
                   {' '}
                   <strong>12314526</strong>
-).
+                  ).
                 </Para>
               </Flex>
             </Col>
@@ -106,13 +107,13 @@ them on the website.
                 My name is
                 {' '}
                 <strong>Elisabete</strong>
-, and the idea for
+                , and the idea for
                 {' '}
                 <Anchor href="www.coachee.io" primary>
-                coachee.io
+                  coachee.io
                 </Anchor>
                 {' '}
-came to me while I was a coachee
+                came to me while I was a coachee
                 in a program much like the ones you’ll find throughout the website!
               </Para>
               <Para>
@@ -123,7 +124,7 @@ came to me while I was a coachee
                 Fast forward many months of getting a great team together to support me and build the website,
                 {' '}
                 <Anchor href="www.coachee.io" primary>
-                coachee.io
+                  coachee.io
                 </Anchor>
                 {' '}
                 was launched and I’m so happy about its success. I found coaching one of the
@@ -132,10 +133,10 @@ came to me while I was a coachee
                 I have ever made - and I know you will too.
               </Para>
               <Para>
-              To learn more about us, follow our
+                To learn more about us, follow our
                 {' '}
                 <Anchor href="www.coachee.io" primary>Instagram</Anchor>
-.
+                .
               </Para>
             </Col>
             <Col xs={12} md={6}>

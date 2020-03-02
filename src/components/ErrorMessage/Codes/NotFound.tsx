@@ -30,7 +30,7 @@ class NotFound extends PureComponent {
               {' '}
               <br />
               {' '}
-The page you&apos;re looking for can&apos;t be found.
+              The page you&apos;re looking for can&apos;t be found.
             </Para>
             <Flex flexDirection="row" justifyContent="center" marginTop="30px">
               <RouterButtonLink to="/" primary>

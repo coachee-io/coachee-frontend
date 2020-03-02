@@ -23,9 +23,9 @@ class TurnOffCookies extends PureComponent {
         <Para>
           You may opt-out of Google’s analytics cookies by visiting Google’s opt-out page -
           <Anchor href="https://tools.google.com/dlpage/gaoptout" primary>
-          https://tools.google.com/dlpage/gaoptout
+            https://tools.google.com/dlpage/gaoptout
           </Anchor>
-.
+          .
           {' '}
         </Para>
         <Para>

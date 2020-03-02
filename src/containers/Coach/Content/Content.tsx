@@ -82,7 +82,7 @@ class Content extends PureComponent<Props> {
                         {`${program.sessions} sessions of ${program.duration} minutes`}
                       </Para>
                       <Para>
-£
+                        £
                         {program.totalPrice}
                       </Para>
                     </Col>

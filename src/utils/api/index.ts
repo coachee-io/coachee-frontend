@@ -1,24 +1,20 @@
 import axios, {AxiosRequestConfig, AxiosPromise} from 'axios'
 
 class API {
-  get<R = any>(url: string, config?: AxiosRequestConfig): AxiosPromise<R> {
+  get<T = any>(url: string, config?: AxiosRequestConfig): AxiosPromise<T> {
     return axios.get(url, config)
-      .then((res) => res.data)
   }
 
-  post<R = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<R> {
+  post<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T> {
     return axios.post(url, data, config)
-      .then((res) => res.data)
   }
 
-  put<R = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<R> {
-    return axios.post(url, data, config)
-      .then((res) => res.data)
+  put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T> {
+    return axios.put(url, data, config)
   }
 
-  patch<R = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<R> {
-    return axios.post(url, data, config)
-      .then((res) => res.data)
+  patch<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T> {
+    return axios.patch(url, data, config)
   }
 }
 

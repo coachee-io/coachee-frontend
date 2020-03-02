@@ -9,15 +9,15 @@ class ContentStandard extends PureComponent {
     return (
       <>
         <H3 id="content-standards">
-            7. Content standards
+          7. Content standards
         </H3>
         <Para>
-            7.1. The Content Standards set out below apply to any and all material which you upload to our Platform,
-            and to any interactive services made available on our Platform. You should comply with them to the letter,
-            but also treat them as guidance as to what we may consider as appropriate or inappropriate.
+          7.1. The Content Standards set out below apply to any and all material which you upload to our Platform,
+          and to any interactive services made available on our Platform. You should comply with them to the letter,
+          but also treat them as guidance as to what we may consider as appropriate or inappropriate.
         </Para>
         <Para>
-            7.2. Please ensure that all content submitted by you is:
+          7.2. Please ensure that all content submitted by you is:
         </Para>
         <UL>
           <LI>
@@ -107,7 +107,7 @@ class ContentStandard extends PureComponent {
           </LI>
           <LI>
             <Para>
-                give the impression that it emanates from us, if this is not the case;
+              give the impression that it emanates from us, if this is not the case;
             </Para>
           </LI>
           <LI>

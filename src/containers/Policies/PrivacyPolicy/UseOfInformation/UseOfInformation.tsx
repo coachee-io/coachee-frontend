@@ -23,7 +23,7 @@ class UseOfInformation extends PureComponent {
           </LI>
           <LI>
             <Para>
-          to provide you with support in using our Website;
+              to provide you with support in using our Website;
             </Para>
           </LI>
           <LI>

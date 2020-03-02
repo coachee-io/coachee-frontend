@@ -268,7 +268,7 @@ class CoachSignup extends PureComponent<Props, State> {
                         label="Please read and accept our terms and conditions and privacy policy."
                         helperText={(
                           <span>
-This includes accepting that you will
+                            This includes accepting that you will
                             always offer an
                             {' '}
                             <strong>intro call</strong>
@@ -278,12 +278,12 @@ This includes accepting that you will
                             {' '}
                             <strong>48 hours</strong>
                             {' '}
-after each session; and you accept that coachee.io
-                will take a
+                            after each session; and you accept that coachee.io
+                            will take a
                             {' '}
                             <strong>15% fee</strong>
                             {' '}
-of the total price of your coaching programme, no other fees.
+                            of the total price of your coaching programme, no other fees.
                             We will include more details in your
                             welcome pack after your registration is confirmed.
                           </span>

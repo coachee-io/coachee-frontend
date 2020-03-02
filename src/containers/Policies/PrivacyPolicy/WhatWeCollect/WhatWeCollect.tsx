@@ -11,7 +11,7 @@ class WhatWeCollect extends PureComponent {
     return (
       <>
         <H3 id="information">
-            2. What information we collect
+          2. What information we collect
         </H3>
         <Para>
           In addition to the information provided to us by you, we will collect
@@ -80,9 +80,9 @@ class WhatWeCollect extends PureComponent {
           For detailed information on the cookies we use and the purposes for which we use them, see our
           {' '}
           <RouterLink to="/cookie-policy" primary>
-              cookie policy
+            cookie policy
           </RouterLink>
-.
+          .
         </Para>
       </>
     )

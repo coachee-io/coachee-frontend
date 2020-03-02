@@ -72,7 +72,7 @@ class DisclosureOfInformation extends PureComponent {
         <UL>
           <LI>
             <Para>
-            Email us on admin@coachee.io
+              Email us on admin@coachee.io
             </Para>
           </LI>
           <LI>

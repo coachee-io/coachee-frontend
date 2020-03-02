@@ -59,7 +59,7 @@ class HowWeSelectCoaches extends PureComponent {
           {' '}
           <Anchor href="www.coachee.io" primary>coachee.io</Anchor>
           {' '}
-by following this
+          by following this
           {' '}
           <RouterLink to="/signup" primary>
             link

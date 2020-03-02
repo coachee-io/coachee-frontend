@@ -1,1 +1,0 @@
-npx now secrets add api_url value

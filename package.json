@@ -93,7 +93,6 @@
   "scripts": {
     "start": "node build/scripts/start.js",
     "build": "node build/scripts/build.js",
-    "now-build": "bash bin/build.sh && yarn build",
     "test": "node build/scripts/test.js",
     "lint:fix": "npx eslint --fix 'src/**'"
   },

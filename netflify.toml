@@ -1,0 +1,11 @@
+# Builds the app
+[build]
+  base = "."
+  publish = "build/public/"
+  command = "yarn build"
+
+# When using a SPA we want the internal routing to route to the same index.html file
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

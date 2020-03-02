@@ -9,7 +9,7 @@ export interface CreateCoachRequest {
   phone: string,
   tags: string,
   vat: string,
-  textAvailability: string,
+  textAvailability?: string,
   textCertifications: string,
   textPrograms: string,
   password: string

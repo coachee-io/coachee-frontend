@@ -24,8 +24,8 @@ class CoachesLogin extends PureComponent<Props, State> {
     const {email, password} = values
     this.setState({isLoading: true})
     PlatformAPI.coachLogin(email, password)
-      .then(({data}) => {
-        window.location.href = data.url
+      .then(({url}) => {
+        window.location.href = url
       })
       .catch((err) => {
         this.setState({isLoading: false, error: err})

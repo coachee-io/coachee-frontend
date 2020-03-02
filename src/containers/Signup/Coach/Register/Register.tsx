@@ -48,6 +48,7 @@ class CoachSignup extends PureComponent<Props, State> {
       phone: values.phone,
       tags: values.tags.join(','),
       city: values.city,
+      vat: values.vat,
       country: values.country,
       description: values.description,
       textCertifications: values.textCertifications,

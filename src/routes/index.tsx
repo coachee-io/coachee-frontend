@@ -24,6 +24,7 @@ import Booking from '../containers/Booking'
 import CoachProfile from '../containers/Coach'
 import CoachOnboarding from '../containers/Signup/Coach/Onboarding'
 import CoachRegister from '../containers/Signup/Coach/Register'
+import CoachStripeRedirect from '../containers/Signup/Coach/Stripe'
 
 import CoacheeSignup from '../containers/Signup/Coachee'
 import CoachesCategories from '../containers/Coaches'
@@ -48,6 +49,7 @@ class Routes extends PureComponent {
           <Route path="/about-us" component={AboutUs} />
           <Route exact path="/become-a-coach" component={CoachOnboarding} />
           <Route path="/become-a-coach/register" component={CoachRegister} />
+          <Route path="/coaches/:id/stripe-redirect" component={CoachStripeRedirect} />
           <Route path="/coaches/:category?" component={CoachesCategories} />
           <Route path="/coach/:id" component={CoachProfile} />
           <Route path="/terms-and-conditions" component={TermsAndConditions} />
@@ -55,7 +57,7 @@ class Routes extends PureComponent {
           <Route path="/cookie-policy" component={CookiesPolicy} />
           <Route path="/fair-use-policy" component={FairUsePolicy} />
           <Route path="/faq" component={FAQ} />
-          <Route path="/*" component={ErrorMessage} />
+          <Route path="/*" component={() => <ErrorMessage status={404} />} />
         </Switch>
       </Layout>
     )

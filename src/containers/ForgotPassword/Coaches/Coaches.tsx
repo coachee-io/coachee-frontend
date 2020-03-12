@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 
-import PlatformAPI from '../../../services/public/platform'
+import {PlatformService} from '../../../services/public'
 import ForgotPassword from '../../../components/Form/ForgotPassword'
 
 interface Props {}
@@ -23,7 +23,7 @@ class CoachesForgotPassword extends PureComponent<Props, State> {
 
   onSubmit = (values: {email: string}) => {
     const {email} = values
-    PlatformAPI.coachForgotPassword(email)
+    PlatformService.coachForgotPassword(email)
       .then(() => {
         this.setState({isSuccessful: true})
       })

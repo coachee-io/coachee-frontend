@@ -1,10 +1,10 @@
-import {AxiosPromise} from 'axios'
 import api from '../../../utils/api'
 import {getUrlEnvironmentDomain} from '../../../utils/getUrlEnv'
 
 import {
   Params,
   CreateCoachRequest,
+  CreateExpressCoachRequest,
   GetCoachRequest,
 } from './types'
 
@@ -19,6 +19,10 @@ class CoachesAPI {
 
   createCoach = (data: CreateCoachRequest) => api
     .post(`${getUrlEnvironmentDomain()}/coaches`, data)
+    .then((res) => res.data)
+
+  createStripeExpressCoach = (id: string, data: CreateExpressCoachRequest) => api
+    .post(`${getUrlEnvironmentDomain()}/coaches/${id}/stripe`, data)
     .then((res) => res.data)
 }
 

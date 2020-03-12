@@ -57,7 +57,7 @@ class CoachSignup extends PureComponent<Props, State> {
     await this.setState({isLoading: true, error: null, successful: false})
     CoachesService.createCoach(data)
       .then(() => this.setState({successful: true}))
-      .catch((error: Error) => this.setState({error, isLoading: false}))
+      .catch((error) => this.setState({error, isLoading: false}))
   }
 
   render() {

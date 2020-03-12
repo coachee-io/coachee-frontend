@@ -34,7 +34,7 @@ const sortAvailability = (availability: any[]): any[] => {
 }
 
 interface Params {
-  id: any // At the moment we are using the ID from the DB instead of an UUID
+  id: string | any
 }
 
 interface Props extends RouteComponentProps<Params> {}
@@ -66,7 +66,7 @@ class CoachProfile extends PureComponent<Props, State> {
     const {id} = params
 
     return CoachesService.getCoach(id)
-      .then((res: any) => {
+      .then((res) => {
         const coach = {
           ...res,
           certifications: sortCertificationsByMostRecent(res.certifications),
@@ -74,7 +74,7 @@ class CoachProfile extends PureComponent<Props, State> {
         }
         this.setState({coach})
       })
-      .catch((err: any) => {
+      .catch((err) => {
         if (err && err.response && err.response.status) {
           this.setState({error: err, errorStatus: err.response.status})
         } else {

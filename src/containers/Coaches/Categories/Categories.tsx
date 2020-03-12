@@ -62,10 +62,10 @@ class Categories extends PureComponent<Props, State> {
       tag: category,
     }
     return CoachesService.getCoaches(params)
-      .then((res: any) => {
+      .then((res) => {
         this.setState(({coaches: res, isLoading: false}))
       })
-      .catch((err: any) => {
+      .catch((err) => {
         if (err && err.response && err.response.status) {
           this.setState({error: err, errorStatus: err.response.status})
         } else {

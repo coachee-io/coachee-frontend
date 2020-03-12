@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 
 import LoginForm from '../../../components/Form/Login'
 
-import PlatformAPI from '../../../services/public/platform'
+import {PlatformService} from '../../../services/public'
 
 interface Props {}
 
@@ -23,7 +23,7 @@ class CoachesLogin extends PureComponent<Props, State> {
   onSubmit = (values: {email: string, password: string}) => {
     const {email, password} = values
     this.setState({isLoading: true})
-    PlatformAPI.coachLogin(email, password)
+    PlatformService.coachLogin(email, password)
       .then(({url}) => {
         window.location.href = url
       })

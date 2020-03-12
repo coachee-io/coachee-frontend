@@ -16,7 +16,7 @@ import ErrorMessage from '../../components/ErrorMessage'
 
 import {H2} from '../../ui/headings'
 
-import PlatformAPI from '../../services/public/platform'
+import {PlatformService} from '../../services/public'
 
 const schema = object().shape({
   password: string()
@@ -60,7 +60,7 @@ class ConfirmPassword extends PureComponent<Props, State> {
     const {match} = this.props
     const {params} = match
     this.setState({isLoadingAPI: true})
-    PlatformAPI.coachVerifyForgotPasswordToken(params.id)
+    PlatformService.coachVerifyForgotPasswordToken(params.id)
       .then(() => { this.setState({isLoadingAPI: false}) })
       .catch((loadingError: Error) => {
         this.setState({loadingError})
@@ -74,11 +74,11 @@ class ConfirmPassword extends PureComponent<Props, State> {
     const {password} = values
 
     await this.setState({isSubmiting: true, error: null})
-    PlatformAPI.coachRecoverForgotPassword(password, params.id)
+    PlatformService.coachRecoverForgotPassword(password, params.id)
       .then(() => {
         history.push('/login', {showLoginMessageAfterConfirmPasswordPage: true})
       })
-      .catch((error: Error) => { this.setState({error}) })
+      .catch((error) => { this.setState({error}) })
   }
 
   render() {

@@ -3,7 +3,7 @@ import {RouteComponentProps} from 'react-router-dom'
 
 import ConfirmPassword from '../../../components/Form/ConfirmPassword'
 
-import PlatformAPI from '../../../services/public/platform'
+import {PlatformService} from '../../../services/public'
 
 interface Params {
   id: string
@@ -33,7 +33,7 @@ class CoachesConfirmPassword extends PureComponent<Props, State> {
     const {match} = this.props
     const {params} = match
     this.setState({isLoadingAPI: true})
-    PlatformAPI.coachVerifyForgotPasswordToken(params.id)
+    PlatformService.coachVerifyForgotPasswordToken(params.id)
       .then(() => { this.setState({isLoadingAPI: false}) })
       .catch((loadingError: Error) => {
         this.setState({loadingError})
@@ -47,11 +47,11 @@ class CoachesConfirmPassword extends PureComponent<Props, State> {
     const {password} = values
 
     await this.setState({isSubmiting: true, error: null})
-    PlatformAPI.coachRecoverForgotPassword(password, params.id)
+    PlatformService.coachRecoverForgotPassword(password, params.id)
       .then(() => {
         history.push('/login', {showLoginMessageAfterConfirmPasswordPage: true})
       })
-      .catch((error: Error) => { this.setState({error}) })
+      .catch((error) => { this.setState({error}) })
   }
 
   render() {

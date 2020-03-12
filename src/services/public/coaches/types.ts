@@ -15,6 +15,10 @@ export interface CreateCoachRequest {
   password: string
 }
 
+export interface CreateExpressCoachRequest {
+  authorizationCode: string
+}
+
 export interface GetCoachRequest {
   id: string,
   firstName: string,
@@ -25,8 +29,10 @@ export interface GetCoachRequest {
   country: string,
   pictureUrl: string,
   certifications: GetCoachProgramRequest[],
-  programs: GetCoachCertificateRequest[]
+  programs: GetCoachCertificateRequest[],
+  availability: GetCoachAvailabilityRequest[]
 }
+
 
 interface GetCoachProgramRequest {
   id: string,
@@ -44,6 +50,13 @@ interface GetCoachCertificateRequest {
   description: string,
   totalPrice: number,
   taxPercent: number
+}
+
+interface GetCoachAvailabilityRequest {
+  id: string,
+  start: number,
+  end: number,
+  weekDay: number
 }
 
 export interface Params {

@@ -1,5 +1,5 @@
 /**
- * getUrlForEnvironment for either production or staging
+ * getUrlForEnvironment for either production or staging in order to avoid using and commiting .env files
  */
 export const getUrlEnvironmentDomain = (): string | undefined => {
   // Production env

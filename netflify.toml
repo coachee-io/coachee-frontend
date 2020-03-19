@@ -1,6 +1,6 @@
 # Builds the app
 [build]
-  base = "."
+  base = "./"
   publish = "build/build/"
   command = "yarn build"
 

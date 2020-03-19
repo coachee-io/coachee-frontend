@@ -1,7 +1,7 @@
 # Builds the app
 [build]
   base = "./"
-  publish = "/build/build"
+  publish = "public/"
   command = "yarn build"
 
 # Production context: all deploys from the Production branch set in your site's

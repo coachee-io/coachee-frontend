@@ -1,14 +1,15 @@
+# Builds the app
+[build]
+  command = "yarn build"
+  publish = "public/"
+
 # Production context: all deploys from the Production branch set in your site's
 # deploy contexts will inherit these settings.
-[context.production] 
-  command = "echo 'Production environment'"
 [context.production.environment]
   REACT_APP_CONTEXT_ENV = "production"
 
 # Deploy Preview context: all deploys generated from a pull/merge request will
 # inherit these settings.
-[context.develop] 
-  command = "echo 'Staging environment'"
 [context.develop.environment] 
   REACT_APP_CONTEXT_ENV = "staging"
 

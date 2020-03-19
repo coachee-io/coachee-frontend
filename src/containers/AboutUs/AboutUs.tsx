@@ -24,7 +24,7 @@ class AboutUs extends PureComponent {
                 <Para>
                   If you’ve clicked on the About Us link on
                   {' '}
-                  <Anchor href="www.coachee.io" primary>
+                  <Anchor href="https://www.coachee.io" primary>
                     coachee.io
                   </Anchor>
                   {' '}
@@ -109,7 +109,7 @@ class AboutUs extends PureComponent {
                 <strong>Elisabete</strong>
                 , and the idea for
                 {' '}
-                <Anchor href="www.coachee.io" primary>
+                <Anchor href="https://www.coachee.io" primary>
                   coachee.io
                 </Anchor>
                 {' '}
@@ -123,7 +123,7 @@ class AboutUs extends PureComponent {
               <Para>
                 Fast forward many months of getting a great team together to support me and build the website,
                 {' '}
-                <Anchor href="www.coachee.io" primary>
+                <Anchor href="https://www.coachee.io" primary>
                   coachee.io
                 </Anchor>
                 {' '}
@@ -135,7 +135,7 @@ class AboutUs extends PureComponent {
               <Para>
                 To learn more about us, follow our
                 {' '}
-                <Anchor href="www.coachee.io" primary>Instagram</Anchor>
+                <Anchor href="https://www.coachee.io" primary>Instagram</Anchor>
                 .
               </Para>
             </Col>

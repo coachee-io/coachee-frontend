@@ -1,5 +1,5 @@
 import {
-  string, object, boolean,
+  string, number, object, boolean,
 } from 'yup'
 
 const schema = object().shape({
@@ -9,6 +9,8 @@ const schema = object().shape({
   lastName: string()
     .required('This is a required field')
     .matches(/[a-zA-Z]/, 'Only letters'),
+  birthDate: number()
+    .required('This is a required field'),
   email: string()
     .trim()
     .required('This is a required field')

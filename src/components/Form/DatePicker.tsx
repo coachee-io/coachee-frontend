@@ -25,7 +25,7 @@ const DatePickerWithFormik = ({
   const [focusedInput, setFocusedInput] = useState(false)
 
   const handleChange = (value: Moment | null) => {
-    const date = value ? parseInt(moment(value).format('x'), 10) : null
+    const date = value ? parseInt(moment(value).format('X'), 10) : null
     form.setFieldValue(id, date)
   }
 
@@ -68,6 +68,7 @@ const DatePickerWithFormik = ({
 }
 
 interface Props {
+  name: string,
   label: string,
   id: string,
   helperText?: string | undefined,

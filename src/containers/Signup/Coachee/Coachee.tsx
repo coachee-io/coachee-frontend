@@ -9,6 +9,7 @@ import Confirmation from '../../../components/Confirmation'
 
 import {
   Form, Checkbox, StyledLabel, StyledSelect, ErrorMessage, ErrorAlertCircle, SubmitButton, Input,
+  DatePicker,
 } from '../../../components/Form'
 import Flex from '../../../components/Layout/Flexbox'
 
@@ -17,7 +18,6 @@ import {H2} from '../../../ui/headings'
 import {CoacheesService} from '../../../services/public'
 
 import schema from './validationSchema'
-
 
 const options = [
   {
@@ -110,6 +110,7 @@ class SignUpCoachee extends PureComponent<{}, State> {
                 initialValues={{
                   firstName: '',
                   lastName: '',
+                  birthDate: null,
                   email: '',
                   password: '',
                   confirmPassword: '',
@@ -149,6 +150,11 @@ class SignUpCoachee extends PureComponent<{}, State> {
                         value={values.lastName}
                         error={errors.lastName && touched.lastName}
                         errorMessage={errors.lastName}
+                      />
+                      <DatePicker
+                        label="Birthday"
+                        id="birthDate"
+                        name="birthDate"
                       />
                       <Input
                         label="Email"

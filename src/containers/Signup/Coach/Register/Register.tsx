@@ -253,6 +253,7 @@ class CoachSignup extends PureComponent<Props, State> {
                         helperText="We have intro calls with all our coaches to get to know you, understand your
                           availability and explain our payments process."
                         id="introCall"
+                        name="introCall"
                       />
                       <Input
                         label="Are you VAT registered? If yes, please give us your VAT number."

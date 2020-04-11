@@ -4,19 +4,23 @@ import {Field, FieldProps} from 'formik'
 import {SingleDatePicker} from 'react-dates'
 import 'react-dates/initialize'
 
+import {Para} from '../../../ui/labels'
+
 import {
   StyledLabel, ErrorMessage, ErrorAlertCircle,
-} from './styled'
+} from '../styled'
 
-import {Para} from '../../ui/labels'
+import CustomSelect from './CustomSelect'
 
 interface DatePickerWithFormikProps extends FieldProps {
+  renderMonthElement?: boolean,
   label: string,
   id: string,
   helperText?: string | undefined,
 }
 
 const DatePickerWithFormik = ({
+  renderMonthElement,
   form,
   helperText,
   id,
@@ -25,7 +29,7 @@ const DatePickerWithFormik = ({
   const [focusedInput, setFocusedInput] = useState(false)
 
   const handleChange = (value: Moment | null) => {
-    const date = value ? parseInt(moment(value).format('X'), 10) : null
+    const date = value ? parseInt(moment(value).format('x'), 10) : null
     form.setFieldValue(id, date)
   }
 
@@ -39,27 +43,45 @@ const DatePickerWithFormik = ({
   const date = dateToMoment(form.values[id])
   return (
     <>
-      <div style={{display: 'inline-block', position: 'relative'}}>
+      <div>
         <StyledLabel htmlFor={id}>{label}</StyledLabel>
         {helperText && <Para small>{helperText}</Para>}
         {/* eslint-disable react/destructuring-assignment */}
-        <SingleDatePicker
-          date={date}
-          showDefaultInputIcon
-          onDateChange={handleChange}
-          focused={focusedInput}
-          onFocusChange={({focused}: any) => setFocusedInput(focused)}
-          numberOfMonths={1}
-          id={id}
-          small
-          showClearDate
-          displayFormat="DD/MM/YYYY"
-        />
+        {renderMonthElement && (
+          <SingleDatePicker
+            date={date}
+            showDefaultInputIcon
+            onDateChange={handleChange}
+            focused={focusedInput}
+            onFocusChange={({focused}: any) => setFocusedInput(focused)}
+            numberOfMonths={1}
+            isOutsideRange={() => false}
+            renderMonthElement={(props) => <CustomSelect {...props} />}
+            id={id}
+            small
+            showClearDate
+            displayFormat="DD/MM/YYYY"
+          />
+        )}
+        {!renderMonthElement && (
+          <SingleDatePicker
+            date={date}
+            showDefaultInputIcon
+            onDateChange={handleChange}
+            focused={focusedInput}
+            onFocusChange={({focused}: any) => setFocusedInput(focused)}
+            numberOfMonths={1}
+            id={id}
+            small
+            showClearDate
+            displayFormat="DD/MM/YYYY"
+          />
+        )}
         {/* eslint-enable react/destructuring-assignment */}
       </div>
-      {form.errors.availability && (
+      {form.errors[id] && (
       <ErrorMessage>
-        {form.errors.availability}
+        {form.errors[id]}
         <ErrorAlertCircle />
       </ErrorMessage>
       )}
@@ -68,6 +90,7 @@ const DatePickerWithFormik = ({
 }
 
 interface Props {
+  renderMonthElement?: boolean,
   name: string,
   label: string,
   id: string,

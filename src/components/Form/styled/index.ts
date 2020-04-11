@@ -26,7 +26,7 @@ const StyledLabel = styled.label`
   ${Lato};
   padding-top: 0.5rem;
   color: ${colors.black};
-  display: inline-block;
+  display: block;
   &::first-letter {
     text-transform: capitalize;
   }

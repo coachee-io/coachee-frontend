@@ -10,7 +10,8 @@ const schema = object().shape({
     .required('This is a required field')
     .matches(/[a-zA-Z]/, 'Only letters'),
   birthDate: number()
-    .required('This is a required field'),
+    .required('This is a required field')
+    .nullable(),
   email: string()
     .trim()
     .required('This is a required field')

@@ -19,6 +19,9 @@ export const coachingCategories: ICoachingCategory[] = [
   {
     id: 'financial', name: 'Financial coaching',
   },
+  {
+    id: 'nutrition', name: 'Nutrition coaching',
+  },
 ]
 
 

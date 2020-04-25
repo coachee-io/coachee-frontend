@@ -9,10 +9,12 @@ import {Pulse} from '../../../components/Skeleton'
 
 import Auth from '../../../utils/tokens'
 import FeatureFlags from '../../../utils/featureFlags'
+import {formatNumber} from '../../../utils/formatNumber'
 
 import {H2, H3} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
 import Rating from '../../../ui/images/star-rating.svg'
+
 
 const StarRating = Image.attrs({
   src: Rating,
@@ -83,7 +85,7 @@ class Content extends PureComponent<Props> {
                       </Para>
                       <Para>
                         £
-                        {program.totalPrice}
+                        {formatNumber(program.totalPrice)}
                       </Para>
                     </Col>
                     {Auth.isLoggedIn() && (

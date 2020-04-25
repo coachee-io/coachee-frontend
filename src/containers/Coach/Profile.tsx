@@ -103,7 +103,7 @@ class CoachProfile extends PureComponent<Props, State> {
               scrollToReviews={this.scrollToReviews}
               firstName={coach.firstName}
               lastName={coach.lastName}
-              pictureUrl={coach.pictureURL === '' ? Photo : undefined}
+              pictureUrl={coach.pictureURL}
               city={coach.city}
               country={coach.country}
               vatNo={coach.vatNo}

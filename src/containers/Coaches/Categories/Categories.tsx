@@ -14,8 +14,6 @@ import {Para} from '../../../ui/labels'
 
 import {CoachesService} from '../../../services/public'
 
-import Photo from '../../../ui/images/coach-photo.jpg'
-
 import CoachSearchImage from './Image'
 
 interface State {
@@ -135,7 +133,7 @@ class Categories extends PureComponent<Props, State> {
           <Card key={Math.random().toString(36)} width="212px">
             <CardBody padding="1rem">
               <Flex flexDirection="column" alignItems="center">
-                <CardImage src={Photo} alt="Coach Profile" width="100px" height="100px" borderRadius="50%" />
+                <CardImage src={coach.pictureURL} alt="Coach Profile" width="100px" height="100px" borderRadius="50%" />
                 <Flex flexDirection="column" alignItems="center" marginTop="15px">
                   <CardTitle textAlign="center">
                     {`${coach.firstName} ${coach.lastName}`}

@@ -16,6 +16,7 @@ import Flex from '../../../components/Layout/Flexbox'
 import {H2} from '../../../ui/headings'
 
 import {CoacheesService} from '../../../services/public'
+import {parseDateToSeconds} from '../../../utils/parseDate/parseDate'
 
 import schema from './validationSchema'
 
@@ -76,7 +77,7 @@ class SignUpCoachee extends PureComponent<{}, State> {
       email: values.email,
       firstName: values.firstName,
       lastName: values.lastName,
-      birthDate: values.birthDate,
+      birthDate: parseDateToSeconds(values.birthDate),
       password: values.password,
     }
     await this.setState({isLoading: true, error: null, successful: false})
@@ -155,6 +156,7 @@ class SignUpCoachee extends PureComponent<{}, State> {
                         label="Birthday"
                         id="birthDate"
                         name="birthDate"
+                        renderMonthElement
                       />
                       <Input
                         label="Email"

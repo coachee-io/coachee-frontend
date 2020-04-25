@@ -13,6 +13,7 @@ import Confirmation from '../../../../components/Confirmation'
 import {H2} from '../../../../ui/headings'
 
 import {CoachesService} from '../../../../services/public'
+import {parseDateToSeconds} from '../../../../utils/parseDate/parseDate'
 
 import schema from './validationSchema'
 
@@ -42,7 +43,7 @@ class CoachSignup extends PureComponent<Props, State> {
     const data = {
       firstName: values.firstName,
       lastName: values.lastName,
-      introCall: values.introCall,
+      introCall: parseDateToSeconds(values.introCall),
       email: values.email,
       password: values.password,
       phone: values.phone,

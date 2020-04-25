@@ -37,6 +37,7 @@
         "max-len": ["error", {"code": 140}],
         "dot-notation":"off",
         "no-unused-vars": 0,
+        "no-plusplus": 0,
         "class-methods-use-this": 0,
         "arrow-body-style": [2, "as-needed"],
         "react/jsx-props-no-spreading": 0,

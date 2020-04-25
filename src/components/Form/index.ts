@@ -4,7 +4,7 @@ import Input from './Input'
 import RadioGroup from './RadioGroup'
 import Checkbox from './Checkbox'
 import CheckboxList from './CheckboxList'
-import DatePicker from './DatePicker'
+import DatePicker from './DatePicker/DatePicker'
 import SubmitButton from './SubmitButton'
 import Hidden from './Hidden'
 

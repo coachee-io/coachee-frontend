@@ -45,7 +45,7 @@ class Sidebar extends PureComponent<Props> {
               {availability && availability.map((el, id) => (
                 <Flex key={`${el}-${id}`} flexDirection="row" marginTop="15px">
                   <Tag primary>
-                    {`${Weekdays[el.weekDay]} ${el.start}-${el.end}` }
+                    {`${Weekdays[el.weekDay]} ${el.dateLabel}` }
                   </Tag>
                 </Flex>
               ))}

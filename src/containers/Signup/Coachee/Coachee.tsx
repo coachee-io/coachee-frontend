@@ -95,6 +95,7 @@ class SignUpCoachee extends PureComponent<{}, State> {
         <Confirmation
           heading="You are ready to go!"
           text="Your registration was successful and you are now all set to find your perfect coach."
+          type="redirect"
           buttonComponent={(
             <RouterButtonLink to="/coaches" primary>
               Browse all coaches

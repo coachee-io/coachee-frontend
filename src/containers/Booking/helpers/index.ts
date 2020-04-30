@@ -8,10 +8,10 @@ export function createDateHashMap(availability: any[]): {} | null{
 
   const timeToString = (start: number, end: number) => {
     if (Number.isInteger(end)) {
-      return `${parseInt(start.toFixed(2), 10)}.30-${end.toFixed(2)}`
+      return `${parseInt(start.toFixed(2), 10)}:30-${end.toFixed(2)}`
     }
 
-    return `${start.toFixed(2)}-${start}.30`
+    return `${start.toFixed(2)}-${start}:30`
   }
 
   const createTimeRanges = (start: number, end: number): any[] => {

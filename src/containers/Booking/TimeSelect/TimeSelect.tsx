@@ -21,7 +21,7 @@ const Grid = styled.div`
 `
 
 interface Props {
-  time: any
+  time: any,
   onClick: any,
   availabilityMap: any | null,
   weekDay: any
@@ -36,9 +36,9 @@ class TimeSelect extends PureComponent<Props> {
       <Col xs={12}>
         <Flex flexDirection="row" justifyContent="center">
           <Grid>
-            {availabilityMap && availabilityMap[getDayOfTheWeek(weekDay)].map((day: any) => (
+            {availabilityMap && availabilityMap[getDayOfTheWeek(weekDay)].map((day: any, i: number) => (
               <Button
-                key={`${getDayOfTheWeek(weekDay)}-${day.hour}`}
+                key={`${getDayOfTheWeek(weekDay)}-${day.hour}-${i}`}
                 onClick={() => onClick(day)}
                 primary
                 selected={time ? time.hour === day.hour : false}

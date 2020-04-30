@@ -6,8 +6,6 @@ import Flex from '../../../components/Layout/Flexbox'
 import {Pulse} from '../../../components/Skeleton'
 import {H2} from '../../../ui/headings'
 
-import {Weekdays} from '../../../enums/Weekdays'
-
 import {Tag} from './styled'
 
 interface Props {
@@ -45,7 +43,7 @@ class Sidebar extends PureComponent<Props> {
               {availability && availability.map((el, id) => (
                 <Flex key={`${el}-${id}`} flexDirection="row" marginTop="15px">
                   <Tag primary>
-                    {`${Weekdays[el.weekDay]} ${el.dateLabel}` }
+                    {`${el.dateLabel}` }
                   </Tag>
                 </Flex>
               ))}

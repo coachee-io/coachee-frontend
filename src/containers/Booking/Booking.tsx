@@ -220,6 +220,8 @@ class Booking extends PureComponent<Props, State> {
             </H2>
             <Para>
               Your free intro call:
+              {' '}
+              {moment(selectedDate).format('DD/MM/YYYY')}
             </Para>
             <Para>
               {`${coach.firstName} ${coach.lastName}`}

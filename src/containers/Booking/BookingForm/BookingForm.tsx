@@ -4,11 +4,10 @@ import {ReactStripeElements} from 'react-stripe-elements'
 import {Row, Col} from '../../../components/Layout/Flexbox'
 import {Pulse} from '../../../components/Skeleton'
 
-import {SubmitButton} from '../../../components/Form'
+import {SubmitButton, ErrorMessage, ErrorAlertCircle} from '../../../components/Form'
 import StripeForm from '../../../components/Stripe'
 
 import {BookingService} from '../../../services/public'
-import {parseDateToSeconds} from '../../../utils/parseDate/parseDate'
 
 import {H2} from '../../../ui/headings'
 
@@ -96,7 +95,12 @@ class BookingForm extends PureComponent<Props, State> {
     } = this.state
 
     if (error) {
-      return <div>{error.message}</div>
+      return (
+        <ErrorMessage>
+          <ErrorAlertCircle />
+          {error.message}
+        </ErrorMessage>
+      )
     }
 
     return (

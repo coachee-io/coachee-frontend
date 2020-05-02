@@ -24,10 +24,10 @@ class SubmitButton extends PureComponent<Props> {
     return (
       <Flex flexDirection="column" marginTop="15px">
         {error && (
-        <ErrorMessage>
-          <ErrorAlertCircle />
-          {error.message}
-        </ErrorMessage>
+          <ErrorMessage>
+            <ErrorAlertCircle />
+            {error.message}
+          </ErrorMessage>
         )}
         {onClick && (
           <Button disabled={disabled} primary={primary} accent={accent} type="submit" onClick={onClick} width={width}>

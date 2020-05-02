@@ -3,11 +3,11 @@ import {ReactStripeElements} from 'react-stripe-elements'
 
 import {Row, Col} from '../../../components/Layout/Flexbox'
 import {Pulse} from '../../../components/Skeleton'
-
 import {SubmitButton, ErrorMessage, ErrorAlertCircle} from '../../../components/Form'
 import StripeForm from '../../../components/Stripe'
 
 import {BookingService} from '../../../services/public'
+import {parseDateToSeconds} from '../../../utils/parseDate/parseDate'
 
 import {H2} from '../../../ui/headings'
 
@@ -44,7 +44,7 @@ class BookingForm extends PureComponent<Props, State> {
 
   componentDidMount = () => {
     const {introCall, coachId, programId} = this.props
-    BookingService.setupBooking({coachId, programId, introCall: parseInt(introCall, 10)})
+    BookingService.setupBooking({coachId, programId, introCall: parseDateToSeconds(introCall)})
       .then(({publishingKey, clientSecret}) => {
         this.setState({stripeApiKey: publishingKey, stripeClientSecret: clientSecret})
       })

@@ -96,5 +96,5 @@ export function createDateFromHoursAndMinutes(date: Moment | null, hour: number,
     hour,
     minute,
     second: 0,
-  }).format('X'), 10)
+  }).format('x'), 10)
 }

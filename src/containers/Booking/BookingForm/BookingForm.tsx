@@ -45,7 +45,7 @@ class BookingForm extends PureComponent<Props, State> {
 
   componentDidMount = () => {
     const {introCall, coachId, programId} = this.props
-    BookingService.setupBooking({coachId, programId, introCall: parseDateToSeconds(introCall)})
+    BookingService.setupBooking({coachId, programId, introCall: parseInt(introCall, 10)})
       .then(({publishingKey, clientSecret}) => {
         this.setState({stripeApiKey: publishingKey, stripeClientSecret: clientSecret})
       })

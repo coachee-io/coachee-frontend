@@ -84,8 +84,7 @@ class Content extends PureComponent<Props> {
                         {`${program.sessions} sessions of ${program.duration} minutes`}
                       </Para>
                       <Para>
-                        £
-                        {formatNumber(program.totalPrice)}
+                        {`£${formatNumber(program.totalPrice)}`}
                       </Para>
                     </Col>
                     {Auth.isLoggedIn() && (

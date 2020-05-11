@@ -5,11 +5,12 @@ import moment, {Moment} from 'moment'
 import {DayPickerSingleDateController} from 'react-dates'
 
 import Flex, {Row, Col} from '../../components/Layout/Flexbox'
-
+import {Button} from '../../components/Form'
 import ErrorMessage from '../../components/ErrorMessage'
 
 import {H2} from '../../ui/headings'
 import {Para} from '../../ui/labels'
+import {formatNumber} from '../../utils/formatNumber'
 
 import BookingForm from './BookingForm'
 import TimeSelect from './TimeSelect'
@@ -21,7 +22,6 @@ import {
   getAllAvailableDays,
   createDateFromHoursAndMinutes,
 } from './helpers'
-import {Button} from '../../components/Form'
 
 interface LocationState {
   coach: string,
@@ -235,7 +235,7 @@ class Booking extends PureComponent<Props, State> {
               {`${program.sessions} sessions, ${program.duration} minutes`}
             </Para>
             <Para>
-              {`£${program.totalPrice}`}
+              {`£${formatNumber(program.totalPrice)}`}
             </Para>
           </Col>
           <Col xs={12} md={6}>

@@ -142,8 +142,11 @@ class Booking extends PureComponent<Props, State> {
     if (!allAvailableDays) {
       return false
     }
-    const found = allAvailableDays.some((availableDay) => moment(day).day() === availableDay)
-    return !found
+    const found = allAvailableDays.find((availableDay) => moment(day).day() === availableDay)
+    if (!Number.isNaN(found)) {
+      return false
+    }
+    return true
   }
 
 

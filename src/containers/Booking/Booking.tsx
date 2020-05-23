@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import {RouteComponentProps} from 'react-router-dom'
 import moment, {Moment} from 'moment'
 
@@ -44,7 +44,7 @@ interface State {
 }
 
 
-class Booking extends Component<Props, State> {
+class Booking extends PureComponent<Props, State> {
   constructor(props: any) {
     super(props)
     this.state = {

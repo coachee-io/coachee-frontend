@@ -64,7 +64,7 @@ class Booking extends PureComponent<Props, State> {
     const coachAvailability = this.getCoachAvailability()
     const hashMap = createDateHashMap(coachAvailability)
     const firstAvailableDay = getFirstAvailableDay(hashMap)
-    if (!!hashMap && !!firstAvailableDay) {
+    if (!hashMap) {
       this.setState({
         date: moment().day(firstAvailableDay),
         availabilityWeekDayMap: hashMap,
@@ -72,7 +72,6 @@ class Booking extends PureComponent<Props, State> {
         allAvailableDays: getAllAvailableDays(hashMap),
       })
     } else {
-      console.error('Error: ', {hashMap, firstAvailableDay})
       this.setState({error: true})
     }
   }

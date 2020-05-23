@@ -130,12 +130,13 @@ class AboutUs extends PureComponent {
                 was launched and I’m so happy about its success. I found coaching one of the
                 {' '}
                 <strong>most valuable investments</strong>
+                {' '}
                 I have ever made - and I know you will too.
               </Para>
               <Para>
                 To learn more about us, follow our
                 {' '}
-                <Anchor href="https://www.coachee.io" primary>Instagram</Anchor>
+                <Anchor href="https://www.instagram.com/coachee.io/" primary>Instagram</Anchor>
                 .
               </Para>
             </Col>

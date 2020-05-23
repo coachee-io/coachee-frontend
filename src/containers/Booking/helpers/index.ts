@@ -98,3 +98,17 @@ export function createDateFromHoursAndMinutes(date: Moment | null, hour: number,
     second: 0,
   }).format('x'), 10)
 }
+
+export const isDayBlocked = (date: any, availableDays: number[] | null) => {
+  if (!availableDays) {
+    return false
+  }
+
+  const found = availableDays.some((availableDay: number) => moment(date).day() === availableDay)
+
+  if (found) {
+    return false
+  }
+
+  return true
+}

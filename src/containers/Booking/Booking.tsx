@@ -21,6 +21,7 @@ import {
   getFirstAvailableDay,
   getAllAvailableDays,
   createDateFromHoursAndMinutes,
+  isDayBlocked,
 } from './helpers'
 
 interface LocationState {
@@ -137,19 +138,6 @@ class Booking extends PureComponent<Props, State> {
     return null
   }
 
-  isDayBlocked = (day: string): boolean => {
-    const {allAvailableDays} = this.state
-    if (!allAvailableDays) {
-      return false
-    }
-    const found = allAvailableDays.find((availableDay) => moment(day).day() === availableDay)
-    if (!Number.isNaN(found)) {
-      return false
-    }
-    return true
-  }
-
-
   render() {
     const {
       step,
@@ -159,6 +147,7 @@ class Booking extends PureComponent<Props, State> {
       weekDay,
       focusedDate,
       availabilityWeekDayMap,
+      allAvailableDays,
       error,
     } = this.state
 
@@ -187,7 +176,7 @@ class Booking extends PureComponent<Props, State> {
                   focused={focusedDate}
                   onDateChange={this.handleDateChange}
                   enableOutsideDays
-                  isDayBlocked={this.isDayBlocked}
+                  isDayBlocked={(day) => isDayBlocked(day, allAvailableDays)}
                   isOutsideRange={(day) => moment().diff(day) > 0}
                   onFocusChange={({focused}: {focused: boolean | null}) => this.handleFocusChange(focused)}
                   numberOfMonths={1}

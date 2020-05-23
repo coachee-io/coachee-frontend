@@ -1,6 +1,7 @@
 import React, {PureComponent, Fragment} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
+import MediaQuery from '../../../components/Layout/MediaQuery'
 import Flex from '../../../components/Layout/Flexbox'
 import {Image} from '../../../components/Image'
 import {RouterButtonLink} from '../../../components/Routing'
@@ -33,6 +34,24 @@ interface Props {
 }
 
 class Content extends PureComponent<Props> {
+  handleRedirect = (program: any) => {
+    const {availability, coach} = this.props
+    if (Auth.isLoggedIn()) {
+      return {
+        pathname: `/booking/${program.id}`,
+        state: {
+          coach,
+          program,
+          coachAvailability: availability,
+        },
+      }
+    }
+
+    return {
+      pathname: '/login',
+    }
+  }
+
   render() {
     const {
       reviewsRef,
@@ -88,21 +107,18 @@ class Content extends PureComponent<Props> {
                       </Para>
                     </Col>
                     {Auth.isLoggedIn() && (
-                    <Col xs={12} sm={3}>
-                      <RouterButtonLink
-                        to={{
-                          pathname: `/booking/${program.id}`,
-                          state: {
-                            coach,
-                            program,
-                            coachAvailability: availability,
-                          },
-                        }}
-                        primary
-                      >
-                        Book a Call
-                      </RouterButtonLink>
-                    </Col>
+                    <MediaQuery>
+                      {({isTablet}) => isTablet() && (
+                      <Col xs={12} sm={3}>
+                        <RouterButtonLink
+                          to={() => this.handleRedirect(program)}
+                          primary
+                        >
+                          Book a Call
+                        </RouterButtonLink>
+                      </Col>
+                      )}
+                    </MediaQuery>
                     )}
                   </Row>
                   <Row>
@@ -112,6 +128,22 @@ class Content extends PureComponent<Props> {
                       </Para>
                     </Col>
                   </Row>
+                  {Auth.isLoggedIn() && (
+                    <MediaQuery>
+                      {({isMobile}) => isMobile() && (
+                      <Flex flexDirection="row" marginTop="30px">
+                        <Col xs={12}>
+                          <RouterButtonLink
+                            to={() => this.handleRedirect(program)}
+                            primary
+                          >
+                            Book a Call
+                          </RouterButtonLink>
+                        </Col>
+                      </Flex>
+                      )}
+                    </MediaQuery>
+                  )}
                 </Fragment>
               ))}
               {!programs && (

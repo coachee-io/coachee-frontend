@@ -225,24 +225,35 @@ class Booking extends PureComponent<Props, State> {
             <H2 textAlign="center">
               Review your details
             </H2>
+            <Para bold>
+              Your intro call date and time needs to be confirmed first by
+              {' '}
+              {`${coach.firstName} ${coach.lastName}`}
+              , who will be in touch.
+            </Para>
             <Para>
-              Your free intro call:
+              <b>Your free intro call:</b>
               {' '}
               {moment(selectedDate).format('DD/MM/YYYY')}
             </Para>
             <Para>
-              {`${coach.firstName} ${coach.lastName}`}
-              {' '}
-              will be in touch to confirm your booking
-            </Para>
-            <Para>
+              <b>Programme:</b>
               {program.name}
             </Para>
             <Para>
+              <b>Sessions:</b>
               {`${program.sessions} sessions, ${program.duration} minutes`}
             </Para>
             <Para>
+              <b>Price:</b>
+              {' '}
               {`£${formatNumber(program.totalPrice)}`}
+            </Para>
+            <Para small>
+              Upon booking, your card will not be charged.
+              We will charge the full price of the programme 12 hours after your intro call,
+              {' '}
+              unless you tell us that you do not wish to proceed.
             </Para>
           </Col>
           <Col xs={12} md={6}>

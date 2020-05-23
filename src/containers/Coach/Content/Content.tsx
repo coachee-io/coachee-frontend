@@ -58,8 +58,6 @@ class Content extends PureComponent<Props> {
       certifications,
       programs,
       reviews,
-      availability,
-      coach,
     } = this.props
     return (
       <>
@@ -73,6 +71,8 @@ class Content extends PureComponent<Props> {
                 <Fragment key={`${el}-${id}`}>
                   <H3>{el.title}</H3>
                   <Para>
+                    <b>Since:</b>
+                    {' '}
                     {`${el.month}/${el.year}`}
                   </Para>
                   <Para>{el.institution}</Para>

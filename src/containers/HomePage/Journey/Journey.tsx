@@ -16,7 +16,7 @@ import JourneyImage from './Image'
 
 const JourneyListText = [
   {
-    text: 'Search coaching programmes by category',
+    text: 'Search coaching programmes by category.',
   },
   {
     text: 'When you find your match, select the date and time for your free intro call.',
@@ -28,7 +28,7 @@ const JourneyListText = [
     text: 'Your coach will approve your booking and be in touch with you to confirm your intro call.',
   },
   {
-    text: 'If you are not happy after you intro call, let us know withing 48 hours for a full refund.',
+    text: 'If you are not happy after you intro call, let us know within 12 hours for a full refund.',
   },
   {
     text: 'Otherwise, be open-minded, attend your session and embrace the changes!',

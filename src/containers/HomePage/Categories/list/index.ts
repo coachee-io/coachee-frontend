@@ -48,7 +48,7 @@ const list: any = [
     imgSrc: RelationshipImg,
     title: 'Relationship',
     description: `If you’re single and looking for love, married and you want to improve your valuable relationship, 
-    or divorced and want to start a new chapter in your life, a relationship coach can help you..`,
+    or divorced and want to start a new chapter in your life, a relationship coach can help you.`,
   },
 ]
 

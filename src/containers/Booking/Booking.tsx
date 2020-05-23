@@ -72,6 +72,7 @@ class Booking extends PureComponent<Props, State> {
         allAvailableDays: getAllAvailableDays(hashMap),
       })
     } else {
+      console.error('Error: ', {hashMap, firstAvailableDay})
       this.setState({error: true})
     }
   }

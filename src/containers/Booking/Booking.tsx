@@ -58,6 +58,8 @@ class Booking extends PureComponent<Props, State> {
       allAvailableDays: null,
       error: false,
     }
+
+    this.isDayBlocked = this.isDayBlocked.bind(this)
   }
 
   componentDidMount = () => {
@@ -135,6 +137,14 @@ class Booking extends PureComponent<Props, State> {
     return null
   }
 
+  isDayBlocked = (day: string): boolean => {
+    const {allAvailableDays} = this.state
+    if (!allAvailableDays) {
+      return false
+    }
+    return allAvailableDays.some((availableDay) => moment(day).day() === availableDay)
+  }
+
 
   render() {
     const {
@@ -145,7 +155,6 @@ class Booking extends PureComponent<Props, State> {
       weekDay,
       focusedDate,
       availabilityWeekDayMap,
-      allAvailableDays,
       error,
     } = this.state
 
@@ -174,13 +183,7 @@ class Booking extends PureComponent<Props, State> {
                   focused={focusedDate}
                   onDateChange={this.handleDateChange}
                   enableOutsideDays
-                  isDayBlocked={(day) => {
-                    if (!allAvailableDays) {
-                      return false
-                    }
-                    const found = allAvailableDays.find((availableDay) => moment(day).day() === availableDay)
-                    return !found
-                  }}
+                  isDayBlocked={this.isDayBlocked}
                   isOutsideRange={(day) => moment().diff(day) > 0}
                   onFocusChange={({focused}: {focused: boolean | null}) => this.handleFocusChange(focused)}
                   numberOfMonths={1}

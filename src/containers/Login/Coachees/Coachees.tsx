@@ -7,8 +7,15 @@ import LoginForm from '../../../components/Form/Login'
 
 import {loginCoachee} from '../../../store/auth/actions'
 
-interface Props extends RouteComponentProps {
-  login: (email: string, password: string, history: History) => Promise<any>,
+interface CoachHistoryState {
+  from?: string,
+  coach: any,
+  program: any
+  coachAvailability: any
+}
+
+interface Props extends RouteComponentProps<{}, {}, CoachHistoryState> {
+  login: (email: string, password: string, history: History<CoachHistoryState>) => Promise<any>,
   isLoading: boolean,
   error: Error | null
 }

@@ -55,7 +55,7 @@ class Content extends PureComponent<Props> {
     return {
       pathname: '/login',
       state: {
-        pathname: `/booking/${program.id}`,
+        from: `/booking/${program.id}`,
         ...state,
       },
     }

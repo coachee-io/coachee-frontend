@@ -3,7 +3,7 @@ import Auth from '../../../services/auth'
 import {AUTH} from '../constants'
 
 interface CoachHistoryState {
-  pathname: string,
+  from?: string,
   coach: any,
   program: any
   coachAvailability: any
@@ -15,7 +15,7 @@ export const loginCoachee = (email: string, password: string, history: History<C
     .then((res) => {
       dispatch({type: AUTH.LOGIN_SUCCESSFUL, payload: res})
       history.push({
-        pathname: history?.location?.state?.pathname || '/',
+        pathname: history?.location?.state?.from || '/',
         state: {
           ...history?.location?.state,
         },

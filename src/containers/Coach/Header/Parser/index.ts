@@ -1,6 +1,7 @@
+import { ReactElement } from 'react'
 import Parser, {convertNodeToElement} from 'react-html-parser'
 
-const transform = (node: any, index: any) => {
+const transform = (node: any, index: any): ReactElement | void | null | undefined => {
   if (node.type === 'tag' && node.name === 'p') {
     return convertNodeToElement(node, index, transform)
   }
@@ -8,6 +9,8 @@ const transform = (node: any, index: any) => {
   if (node.type === 'tag' && node.name === 'b') {
     return convertNodeToElement(node, index, transform)
   }
+
+  return undefined
 }
 
 export const options = {

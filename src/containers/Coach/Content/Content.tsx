@@ -97,7 +97,7 @@ class Content extends PureComponent<Props> {
               {programs && programs.map((program, index) => (
                 <Fragment key={`$${program.id}-${index}`}>
                   <Row>
-                    <Col xs={12} sm={9}>
+                    <Col xs={12} sm={8}>
                       <H3>{program.name}</H3>
                       <Para>
                         {`${program.sessions} sessions of ${program.duration} minutes`}
@@ -107,8 +107,8 @@ class Content extends PureComponent<Props> {
                       </Para>
                     </Col>
                     <MediaQuery>
-                      {({isTablet}) => isTablet() && (
-                      <Col xs={12} sm={3}>
+                      {({isDesktop}) => isDesktop() && (
+                      <Col xs={12} sm={4}>
                         <RouterButtonLink
                           to={() => this.handleRedirect(program)}
                           primary
@@ -127,16 +127,14 @@ class Content extends PureComponent<Props> {
                     </Col>
                   </Row>
                   <MediaQuery>
-                    {({isMobile}) => isMobile() && (
+                    {({isDesktop}) => !isDesktop() && (
                       <Flex flexDirection="row" marginTop="30px">
-                        <Col xs={12}>
-                          <RouterButtonLink
-                            to={() => this.handleRedirect(program)}
-                            primary
-                          >
-                            Book a Call
-                          </RouterButtonLink>
-                        </Col>
+                        <RouterButtonLink
+                          to={() => this.handleRedirect(program)}
+                          primary
+                        >
+                          Book a Call
+                        </RouterButtonLink>
                       </Flex>
                     )}
                   </MediaQuery>

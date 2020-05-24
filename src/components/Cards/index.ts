@@ -90,5 +90,7 @@ export const CardBody = styled.div<CardBodyProps>`
   `}
 `
 
-export const CardTitle = styled(H2)``
+export const CardTitle = styled(H2)`
+  white-space: pre-line;
+`
 export const CardText = styled(Para)``

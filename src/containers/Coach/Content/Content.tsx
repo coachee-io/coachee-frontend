@@ -106,7 +106,6 @@ class Content extends PureComponent<Props> {
                         {`£${formatNumber(program.totalPrice)}`}
                       </Para>
                     </Col>
-                    {Auth.isLoggedIn() && (
                     <MediaQuery>
                       {({isTablet}) => isTablet() && (
                       <Col xs={12} sm={3}>
@@ -119,7 +118,6 @@ class Content extends PureComponent<Props> {
                       </Col>
                       )}
                     </MediaQuery>
-                    )}
                   </Row>
                   <Row>
                     <Col xs={12}>
@@ -128,9 +126,8 @@ class Content extends PureComponent<Props> {
                       </Para>
                     </Col>
                   </Row>
-                  {Auth.isLoggedIn() && (
-                    <MediaQuery>
-                      {({isMobile}) => isMobile() && (
+                  <MediaQuery>
+                    {({isMobile}) => isMobile() && (
                       <Flex flexDirection="row" marginTop="30px">
                         <Col xs={12}>
                           <RouterButtonLink
@@ -141,9 +138,8 @@ class Content extends PureComponent<Props> {
                           </RouterButtonLink>
                         </Col>
                       </Flex>
-                      )}
-                    </MediaQuery>
-                  )}
+                    )}
+                  </MediaQuery>
                 </Fragment>
               ))}
               {!programs && (

@@ -15,6 +15,8 @@ import {Para} from '../../../ui/labels'
 
 import Rating from '../../../ui/images/star-rating.svg'
 
+import Parser from './Parser'
+
 const CoachImage = Image`
   height: 170px;
   width: 170px;
@@ -50,8 +52,6 @@ class Header extends PureComponent<Props> {
       lastName,
       city,
       country,
-      vatNo,
-      shortDescription,
       description,
       averageReviews,
       numberOfReviews,
@@ -96,11 +96,9 @@ class Header extends PureComponent<Props> {
         </Col>
         <Col xs={12} md={8}>
           {description ? (
-            <>
-              <Para breakAll>
-                {description}
-              </Para>
-            </>
+            <Para>
+              {Parser(description) || description}
+            </Para>
           ) : (
             <>
               <Para>

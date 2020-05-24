@@ -16,6 +16,8 @@ import {H2, H3} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
 import Rating from '../../../ui/images/star-rating.svg'
 
+import {isMonthPlural} from './helpers'
+
 
 const StarRating = Image.attrs({
   src: Rating,
@@ -73,7 +75,7 @@ class Content extends PureComponent<Props> {
                   <Para>
                     <b>Since:</b>
                     {' '}
-                    {`${el.month}/${el.year}`}
+                    {`${isMonthPlural(el.month)}/${el.year}`}
                   </Para>
                   <Para>{el.institution}</Para>
                 </Fragment>

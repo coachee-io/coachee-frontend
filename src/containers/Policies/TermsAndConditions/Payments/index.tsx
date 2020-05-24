@@ -18,7 +18,7 @@ class Payments extends PureComponent {
         </Para>
         <Para>
           4.2. Payment may be made by debit or credit card.
-          ny refunds will be paid to the same card that you used at the time of booking.
+          Any refunds will be paid to the same card that you used at the time of booking.
           You cannot pay by cash or cheque.
         </Para>
         <Para>
@@ -37,7 +37,7 @@ class Payments extends PureComponent {
         </Para>
         <Para>
           4.5. All payments will be made from coachee.io to your Stripe account.
-          We will pay you up to 42 hours after each booked session, and
+          We will pay you up to 72 hours after each booked session, and
           only after you let us know via email that the session has successfully happened.
           We will take our 15% fee from the total price of the coaching program,
           and pay you the remaining amount divided by each session.

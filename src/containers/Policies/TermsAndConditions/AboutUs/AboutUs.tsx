@@ -25,7 +25,7 @@ class AboutUs extends PureComponent {
             <OL padding="0 0 0 20px">
               <LI>
                 <Para>
-                  We will only charge your card if your intro call.
+                  We will only charge your card after your intro call.
                   You have 12 hours from the intro call to let us know via email or chat that you no longer
                   wish to proceed with booking the coaching program.
                   If you do not let us know within 12 hours, we’ll assume you are happy with your coach and wish to proceed!
@@ -70,7 +70,7 @@ class AboutUs extends PureComponent {
               </LI>
               <LI>
                 <Para>
-                  We will pay you up to 42 hours after each booked session,
+                  We will pay you up to 72 hours after each booked session,
                   and only after you let us know via email that the session has successfully happened.
                   We will take our 15% fee from the total price of the coaching program,
                   and pay you the remaining amount divided by each session.
@@ -111,13 +111,13 @@ class AboutUs extends PureComponent {
           otherwise the coachee will be charged and the program is considered bought.
         </Para>
         <Para>
-          Payments will be made accordingly up to 48 hours after each completed session to the Coach,
+          Payments will be made accordingly up to 72 hours after each completed session to the Coach,
           unless either the coachee or the coach let us know via email or chat within 12 hours
           after the session that it did not take place.
         </Para>
         <Para>
           1.4. If you have any questions or would like to get in touch with us,
-          please email us on elisabete@coachee.io or chat with us directly on the website.
+          please email us on admin@coachee.io or chat with us directly on the website.
         </Para>
         <Para>
           1.5. If we have to contact you we will do so by email (coachees) or telephone/email (coaches).

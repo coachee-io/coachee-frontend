@@ -59,8 +59,6 @@ class Booking extends PureComponent<Props, State> {
       allAvailableDays: null,
       error: false,
     }
-
-    this.isDayBlocked = this.isDayBlocked.bind(this)
   }
 
   componentDidMount = () => {

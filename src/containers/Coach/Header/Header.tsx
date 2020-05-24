@@ -15,7 +15,7 @@ import {Para} from '../../../ui/labels'
 
 import Rating from '../../../ui/images/star-rating.svg'
 
-import Parser from './Parser'
+import Parser from '../Parser'
 
 const CoachImage = Image`
   height: 170px;

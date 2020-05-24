@@ -16,6 +16,8 @@ import {H2, H3} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
 import Rating from '../../../ui/images/star-rating.svg'
 
+import Parser from '../Parser'
+
 import {isMonthPlural} from './helpers'
 
 
@@ -124,7 +126,7 @@ class Content extends PureComponent<Props> {
                   <Row>
                     <Col xs={12}>
                       <Para>
-                        {program.description}
+                        {Parser(program.description) || program.description}
                       </Para>
                     </Col>
                   </Row>

@@ -136,7 +136,9 @@ class Categories extends PureComponent<Props, State> {
                 <CardImage src={coach.pictureURL} alt="Coach Profile" width="100px" height="100px" borderRadius="50%" />
                 <Flex flexDirection="column" alignItems="center" marginTop="15px">
                   <CardTitle textAlign="center">
-                    {`${coach.firstName}\n${coach.lastName}`}
+                    {coach.firstName}
+                    <br />
+                    {coach.lastName}
                   </CardTitle>
                   <CardText textAlign="center">
                     {coach.tags.split(',').slice(0, 3).join(', ')}

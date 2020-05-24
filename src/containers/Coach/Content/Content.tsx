@@ -40,19 +40,24 @@ interface Props {
 class Content extends PureComponent<Props> {
   handleRedirect = (program: any) => {
     const {availability, coach} = this.props
+    const state = {
+      coach,
+      program,
+      coachAvailability: availability,
+    }
     if (Auth.isLoggedIn()) {
       return {
         pathname: `/booking/${program.id}`,
-        state: {
-          coach,
-          program,
-          coachAvailability: availability,
-        },
+        state,
       }
     }
 
     return {
       pathname: '/login',
+      state: {
+        pathname: `/booking/${program.id}`,
+        ...state,
+      },
     }
   }
 

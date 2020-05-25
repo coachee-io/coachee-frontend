@@ -154,7 +154,7 @@ class BookingForm extends PureComponent<Props, State> {
                     </Col>
                     <Col md={6} />
                   </Row>
-                  <Row>
+                  <Row marginTop="15px">
                     <Col xs={12}>
                       <Para bold>
                         Upon booking, your card will not be charged.
@@ -164,7 +164,7 @@ class BookingForm extends PureComponent<Props, State> {
                       </Para>
                     </Col>
                   </Row>
-                  <Row marginTop="15px">
+                  <Row>
                     <Col xs={12} md={6}>
                       <SubmitButton
                         onClick={() => this.onSubmit(stripe, getElement)}

@@ -152,11 +152,10 @@ class BookingForm extends PureComponent<Props, State> {
                         value={postalCode}
                       />
                     </Col>
-                    <Col xs={12} md={6} />
+                    <Col md={6} />
                   </Row>
                   <Row>
-                    <Col xs={12} md={6} />
-                    <Col xs={12} md={6}>
+                    <Col xs={12}>
                       <Para bold>
                         Upon booking, your card will not be charged.
                         We will charge the full price of the programme 12 hours after your intro call,
@@ -166,7 +165,6 @@ class BookingForm extends PureComponent<Props, State> {
                     </Col>
                   </Row>
                   <Row>
-                    <Col xs={12} md={6} />
                     <Col xs={12} md={6}>
                       <SubmitButton
                         onClick={() => this.onSubmit(stripe, getElement)}

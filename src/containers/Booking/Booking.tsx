@@ -234,12 +234,6 @@ class Booking extends PureComponent<Props, State> {
               <b>Price: </b>
               {`£${formatNumber(program.totalPrice)}`}
             </Para>
-            <Para small>
-              Upon booking, your card will not be charged.
-              We will charge the full price of the programme 12 hours after your intro call,
-              {' '}
-              unless you tell us that you do not wish to proceed.
-            </Para>
           </Col>
           <Col xs={12} md={6}>
             <BookingForm

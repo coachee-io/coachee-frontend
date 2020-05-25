@@ -3,13 +3,17 @@ import {ReactStripeElements} from 'react-stripe-elements'
 
 import {Row, Col} from '../../../components/Layout/Flexbox'
 import {Pulse} from '../../../components/Skeleton'
-import {SubmitButton, ErrorMessage, ErrorAlertCircle} from '../../../components/Form'
+import {
+  SubmitButton, ErrorMessage, ErrorAlertCircle,
+} from '../../../components/Form'
 import StripeForm from '../../../components/Stripe'
 
 import {BookingService} from '../../../services/public'
 import {parseDateToSeconds} from '../../../utils/parseDate/parseDate'
 
 import {H2} from '../../../ui/headings'
+import {Para} from '../../ui/labels'
+
 
 import PostalCode from './PostalCode'
 
@@ -149,6 +153,17 @@ class BookingForm extends PureComponent<Props, State> {
                       />
                     </Col>
                     <Col xs={12} md={6} />
+                  </Row>
+                  <Row>
+                    <Col xs={12} md={6} />
+                    <Col xs={12} md={6}>
+                      <Para bold>
+                        Upon booking, your card will not be charged.
+                        We will charge the full price of the programme 12 hours after your intro call,
+                        {' '}
+                        unless you tell us that you do not wish to proceed.
+                      </Para>
+                    </Col>
                   </Row>
                   <Row>
                     <Col xs={12} md={6} />

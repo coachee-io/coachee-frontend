@@ -90,7 +90,7 @@ class Booking extends PureComponent<Props, State> {
 
   handleTimeChange = (time: any) => {
     const {date} = this.state
-    const selectedDate = createDateFromHoursAndMinutes(date, time.hours, time.minutes)
+    const selectedDate = createDateFromHoursAndMinutes(date, time.hour, time.minutes)
     this.setState({time, selectedDate})
   }
 

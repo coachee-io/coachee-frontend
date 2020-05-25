@@ -1,42 +1,36 @@
 import moment, {Moment} from 'moment'
 import {Weekdays} from '../../../enums/Weekdays'
 
+const isMinutesPlural = (value: number): string => (value > 10 ? `${value}` : `${value}0`)
+
+export const createTimeRanges = (start: number, end: number, interval = 30) => {
+  const timeRanges: any[] = []
+
+  let currentTime = moment().set({hour: start, minute: 0})
+  timeRanges.push(currentTime)
+
+  while (currentTime.hour() < end) {
+    currentTime = moment(currentTime).add(interval, 'minutes')
+    timeRanges.push(currentTime)
+  }
+
+  const timeSlots: any[] = []
+
+  for (let i = 0; i < timeRanges.length - 1; i++) {
+    const slot: any = {}
+    slot.hour = timeRanges[i].hour()
+    slot.minutes = timeRanges[i].minutes()
+    slot.start = `${timeRanges[i].hour()}:${isMinutesPlural(timeRanges[i].minutes())}`
+    slot.end = `${timeRanges[i + 1].hour()}:${isMinutesPlural(timeRanges[i + 1].minutes())}`
+    timeSlots.push(slot)
+  }
+
+  return timeSlots
+}
+
 export function createDateHashMap(availability: any[]): {} | null{
   if (!availability || availability.length === 0) {
     return null
-  }
-
-  const timeToString = (start: number, end: number) => {
-    if (Number.isInteger(end)) {
-      return `${parseInt(start.toFixed(2), 10)}:30-${end.toFixed(2)}`
-    }
-
-    return `${start.toFixed(2)}-${start}:30`
-  }
-
-  const createTimeRanges = (start: number, end: number): any[] => {
-    const timeRanges: any[] = []
-
-    for (let i = start; i < end; i += 0.50) {
-      const time: any = {}
-
-      if (Number.isInteger(i)) {
-        time.hours = i
-        time.minutes = 0
-        time.start = i
-        time.end = i + 0.50
-        time.hour = timeToString(time.start, time.end)
-      } else {
-        time.hours = parseInt(i.toFixed(2), 10)
-        time.minutes = 30
-        time.start = i
-        time.end = i + 0.50
-        time.hour = timeToString(time.start, time.end)
-      }
-      timeRanges.push(time)
-    }
-
-    return timeRanges
   }
 
   const hashmap: {

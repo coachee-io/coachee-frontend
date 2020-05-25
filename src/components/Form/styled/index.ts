@@ -18,6 +18,7 @@ export interface ButtonProps {
   accent?: boolean,
   width?: string,
   selected?: boolean,
+  hover?: boolean,
   disabled?: boolean
 }
 
@@ -105,6 +106,17 @@ const Button = styled.button<ButtonProps>`
   ${({primary}) => primary && `
     background-color: ${colors.primary};
     color: ${colors.white};
+  `}
+  
+  ${({accent}) => accent && `
+    background-color: ${colors.accent};
+  `}
+
+  ${({primary, hover}) => primary && hover && `
+    &:hover {
+      color: ${colors.black};
+      background-color: ${colors.accent};
+    }
   `}
   
   ${({accent}) => accent && `

@@ -41,6 +41,7 @@ class TimeSelect extends PureComponent<Props> {
                 key={`${getDayOfTheWeek(weekDay)}-${day.hour}-${i}`}
                 onClick={() => onClick(day)}
                 primary
+                hover
                 selected={time ? time.hour === day.hour : false}
                 width="120px"
               >

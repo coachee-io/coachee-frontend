@@ -219,15 +219,21 @@ class SignUpCoachee extends PureComponent<{}, State> {
                         <ErrorAlertCircle />
                       </ErrorMessage>
                       )}
-                      <Checkbox
-                        label="Receive news and promotional emails"
-                        id="promotional"
-                        name="promotional"
-                        value={values.promotional}
-                        checked={values.promotional}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                      />
+                      <Flex
+                        flexDirection="row"
+                        width="100%"
+                        marginTop="15px"
+                      >
+                        <Checkbox
+                          label="Receive news and promotional emails"
+                          id="promotional"
+                          name="promotional"
+                          value={values.promotional}
+                          checked={values.promotional}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                        />
+                      </Flex>
                       <Checkbox
                         label="I agree to Terms and Conditions"
                         id="terms"

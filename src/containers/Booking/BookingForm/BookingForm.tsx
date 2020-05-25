@@ -164,7 +164,7 @@ class BookingForm extends PureComponent<Props, State> {
                       </Para>
                     </Col>
                   </Row>
-                  <Row>
+                  <Row marginTop="15px">
                     <Col xs={12} md={6}>
                       <SubmitButton
                         onClick={() => this.onSubmit(stripe, getElement)}

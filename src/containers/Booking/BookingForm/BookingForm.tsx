@@ -12,7 +12,7 @@ import {BookingService} from '../../../services/public'
 import {parseDateToSeconds} from '../../../utils/parseDate/parseDate'
 
 import {H2} from '../../../ui/headings'
-import {Para} from '../../ui/labels'
+import {Para} from '../../../ui/labels'
 
 
 import PostalCode from './PostalCode'

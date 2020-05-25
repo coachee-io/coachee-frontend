@@ -45,7 +45,7 @@ class TimeSelect extends PureComponent<Props> {
                 selected={time ? time.hour === day.hour : false}
                 width="120px"
               >
-                {`${day.hour}`}
+                {`${day.label}`}
               </Button>
             ))}
           </Grid>

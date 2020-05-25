@@ -3,6 +3,8 @@ import {Weekdays} from '../../../enums/Weekdays'
 
 const isMinutesPlural = (value: number): string => (value > 10 ? `${value}` : `${value}0`)
 
+const timeToLabel = (start: string, end: string) => `${start}-${end}`
+
 export const createTimeRanges = (start: number, end: number, interval = 30) => {
   const timeRanges: any[] = []
 
@@ -22,6 +24,7 @@ export const createTimeRanges = (start: number, end: number, interval = 30) => {
     slot.minutes = timeRanges[i].minutes()
     slot.start = `${timeRanges[i].hour()}:${isMinutesPlural(timeRanges[i].minutes())}`
     slot.end = `${timeRanges[i + 1].hour()}:${isMinutesPlural(timeRanges[i + 1].minutes())}`
+    slot.label = timeToLabel(slot.start, slot.end)
     timeSlots.push(slot)
   }
 

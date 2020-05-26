@@ -44,6 +44,7 @@ class Content extends PureComponent<Props> {
       coach,
       program,
       coachAvailability: availability,
+      firstCallDuration: coach?.firstCallDuration,
     }
     if (Auth.isLoggedIn()) {
       return {

@@ -27,7 +27,8 @@ import {
 interface LocationState {
   coach: string,
   coachAvailability: string | any,
-  program: string | any
+  program: string | any,
+  firstCallDuration?: number
 }
 
 interface Props extends RouteComponentProps<{}, {}, LocationState> {}
@@ -107,6 +108,19 @@ class Booking extends PureComponent<Props, State> {
 
     if (coachAvailability) {
       return coachAvailability
+    }
+    return null
+  }
+
+  getFirstCallDuration = (): any | null => {
+    const {location} = this.props
+    if (!location.state) {
+      return null
+    }
+    const {firstCallDuration} = location.state
+
+    if (firstCallDuration) {
+      return firstCallDuration
     }
     return null
   }

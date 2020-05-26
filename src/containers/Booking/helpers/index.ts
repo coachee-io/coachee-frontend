@@ -31,7 +31,7 @@ export const createTimeRanges = (start: number, end: number, firstCallDuration =
   return timeSlots
 }
 
-export function createDateHashMap(availability: any[]): {} | null{
+export function createDateHashMap(availability: any[], firstCallDuration = 30): {} | null{
   if (!availability || availability.length === 0) {
     return null
   }
@@ -42,7 +42,7 @@ export function createDateHashMap(availability: any[]): {} | null{
 
   availability.forEach((day: any) => {
     const {
-      weekDay, start, end, firstCallDuration,
+      weekDay, start, end,
     } = day
     if (!hashmap[Weekdays[weekDay]]) {
       hashmap[Weekdays[weekDay]] = createTimeRanges(start, end, firstCallDuration)

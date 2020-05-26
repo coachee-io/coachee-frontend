@@ -45,8 +45,8 @@ export function createDateHashMap(availability: any[]): {} | null{
     if (!hashmap[Weekdays[weekDay]]) {
       hashmap[Weekdays[weekDay]] = createTimeRanges(start, end)
     } else {
-      const timeRanges = createTimeRanges(start, end)
-      hashmap[Weekdays[weekDay]] = hashmap[Weekdays[weekDay]].concat(timeRanges)
+      // const timeRanges = createTimeRanges(start, end)
+      // hashmap[Weekdays[weekDay]] = hashmap[Weekdays[weekDay]].concat(timeRanges)
     }
   })
   return hashmap

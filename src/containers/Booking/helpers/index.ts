@@ -41,12 +41,13 @@ export function createDateHashMap(availability: any[]): {} | null{
   } = {}
 
   availability.forEach((day: any) => {
-    const {weekDay, start, end} = day
+    const {
+      weekDay, start, end, interval,
+    } = day
     if (!hashmap[Weekdays[weekDay]]) {
-      hashmap[Weekdays[weekDay]] = createTimeRanges(start, end)
+      hashmap[Weekdays[weekDay]] = createTimeRanges(start, end, interval)
     } else {
-      const timeRanges = createTimeRanges(start, end)
-      hashmap[Weekdays[weekDay]] = hashmap[Weekdays[weekDay]].concat(timeRanges)
+      hashmap[Weekdays[weekDay]] = hashmap[Weekdays[weekDay]].concat(createTimeRanges(start, end, interval))
     }
   })
   return hashmap

@@ -5,14 +5,14 @@ const isMinutesPlural = (value: number): string => (value > 10 ? `${value}` : `$
 
 const timeToLabel = (start: string, end: string) => `${start}-${end}`
 
-export const createTimeRanges = (start: number, end: number, interval = 30) => {
+export const createTimeRanges = (start: number, end: number, firstCallDuration = 30) => {
   const timeRanges: any[] = []
 
   let currentTime = moment().set({hour: start, minute: 0})
   timeRanges.push(currentTime)
 
   while (currentTime.hour() < end) {
-    currentTime = moment(currentTime).add(interval, 'minutes')
+    currentTime = moment(currentTime).add(firstCallDuration, 'minutes')
     timeRanges.push(currentTime)
   }
 
@@ -42,12 +42,12 @@ export function createDateHashMap(availability: any[]): {} | null{
 
   availability.forEach((day: any) => {
     const {
-      weekDay, start, end, interval,
+      weekDay, start, end, firstCallDuration,
     } = day
     if (!hashmap[Weekdays[weekDay]]) {
-      hashmap[Weekdays[weekDay]] = createTimeRanges(start, end, interval)
+      hashmap[Weekdays[weekDay]] = createTimeRanges(start, end, firstCallDuration)
     } else {
-      hashmap[Weekdays[weekDay]] = hashmap[Weekdays[weekDay]].concat(createTimeRanges(start, end, interval))
+      hashmap[Weekdays[weekDay]] = hashmap[Weekdays[weekDay]].concat(createTimeRanges(start, end, firstCallDuration))
     }
   })
   return hashmap

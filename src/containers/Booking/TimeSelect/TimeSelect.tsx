@@ -38,11 +38,11 @@ class TimeSelect extends PureComponent<Props> {
           <Grid>
             {availabilityMap && availabilityMap[getDayOfTheWeek(weekDay)].map((day: any, i: number) => (
               <Button
-                key={`${getDayOfTheWeek(weekDay)}-${day.hour}-${i}`}
+                key={`${getDayOfTheWeek(weekDay)}-${day.label}-${i}`}
                 onClick={() => onClick(day)}
                 primary
                 hover
-                selected={time ? time.hour === day.hour : false}
+                selected={time ? time.label === day.label : false}
                 width="120px"
               >
                 {`${day.label}`}

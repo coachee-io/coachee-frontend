@@ -13,11 +13,14 @@ import {Pulse} from '../../../components/Skeleton'
 import {Para} from '../../../ui/labels'
 
 import {CoachesService} from '../../../services/public'
+import {
+  GetCoachRequest,
+} from '../../../services/public/coaches/types'
 
 import CoachSearchImage from './Image'
 
 interface State {
-  coaches: any,
+  coaches: GetCoachRequest[],
   placeholder: any,
   isLoading: boolean,
   error?: any,

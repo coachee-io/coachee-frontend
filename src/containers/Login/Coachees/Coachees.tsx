@@ -4,14 +4,18 @@ import {RouteComponentProps, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import LoginForm from '../../../components/Form/Login'
+import {
+  GetCoachRequest,
+  GetCoachAvailabilityRequest,
+} from '../../../services/public/coaches/types'
 
 import {loginCoachee} from '../../../store/auth/actions'
 
 interface CoachHistoryState {
   from?: string,
-  coach: any,
-  program: any
-  coachAvailability: any
+  coach: GetCoachRequest,
+  program: string,
+  coachAvailability: GetCoachAvailabilityRequest[]
 }
 
 interface Props extends RouteComponentProps<{}, {}, CoachHistoryState> {

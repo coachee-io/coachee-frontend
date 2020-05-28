@@ -46,7 +46,6 @@ interface State {
   error: boolean
 }
 
-
 class Booking extends PureComponent<Props, State> {
   constructor(props: any) {
     super(props)

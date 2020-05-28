@@ -96,8 +96,8 @@ export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
   return firstAvailableDay
 }
 
-export function getFirstAvailableWeekDay(date: Moment | null): any {
-  return date ? date.day() : 0
+export function getFirstAvailableWeekDay(date: Moment | null): number | null {
+  return date ? date.day() : null
 }
 
 export function getAllAvailableDays(weekDayMap: {} | null): any {
@@ -108,8 +108,8 @@ export function getAllAvailableDays(weekDayMap: {} | null): any {
   return Object.keys(weekDayMap).map((key: any) => Weekdays[key])
 }
 
-export function getDayOfTheWeek(day: number | null): string | null {
-  return day ? Weekdays[day] : null
+export function getDayOfTheWeek(day: any): string {
+  return Weekdays[day]
 }
 
 export function createDateFromHoursAndMinutes(date: Moment | null, hour: number, minute: number): number | null{

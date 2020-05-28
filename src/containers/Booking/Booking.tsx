@@ -37,7 +37,7 @@ interface Props extends RouteComponentProps<{}, {}, LocationState> {}
 interface State {
   step: 1 | 2 | 3 | number,
   date: Moment | null,
-  weekDay: number | null,
+  weekDay: Moment | nulsl,
   selectedDate: number | string | null | any,
   time: string | number | null | any
   focusedDate: boolean,
@@ -67,14 +67,12 @@ class Booking extends PureComponent<Props, State> {
     const coachAvailability = this.getCoachAvailability()
     const hashMap = createDateHashMap(coachAvailability)
     const firstAvailableDay = getFirstAvailableDay(hashMap)
-    const firstWeekDay = getDayOfTheWeek(firstAvailableDay)
-    console.log(firstAvailableDay, firstWeekDay)
     if (hashMap) {
       this.setState({
         date: firstAvailableDay,
         availabilityWeekDayMap: hashMap,
         focusedDate: true,
-        weekDay: firstWeekDay,
+        weekDay: firstAvailableDay,
         allAvailableDays: getAllAvailableDays(hashMap),
       })
     } else {

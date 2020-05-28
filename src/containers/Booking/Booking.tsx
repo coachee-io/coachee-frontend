@@ -19,6 +19,7 @@ import Success from './Success'
 import {
   createDateHashMap,
   getFirstAvailableDay,
+  getDayOfTheWeek,
   getAllAvailableDays,
   createDateFromHoursAndMinutes,
   isDayBlocked,
@@ -66,11 +67,12 @@ class Booking extends PureComponent<Props, State> {
     const coachAvailability = this.getCoachAvailability()
     const hashMap = createDateHashMap(coachAvailability)
     const firstAvailableDay = getFirstAvailableDay(hashMap)
+    const firstWeekDay = getDayOfTheWeek(firstAvailableDay)
     if (hashMap) {
       this.setState({
-        date: moment().day(firstAvailableDay),
+        date: firstAvailableDay,
         availabilityWeekDayMap: hashMap,
-        weekDay: firstAvailableDay,
+        weekDay: firstWeekDay,
         allAvailableDays: getAllAvailableDays(hashMap),
       })
     } else {

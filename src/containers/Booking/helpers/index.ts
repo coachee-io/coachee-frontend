@@ -1,6 +1,8 @@
 import moment, {Moment} from 'moment'
 import {Weekdays} from '../../../enums/Weekdays'
 
+import {enumToArray} from '../../../utils/enumToArray'
+
 const isMinutesPlural = (value: number): string => (value > 10 ? `${value}` : `${value}0`)
 
 const timeToLabel = (start: string, end: string) => `${start}-${end}`
@@ -58,31 +60,58 @@ export function createDateHashMap(availability: any[], firstCallDuration = 30): 
 * If the first day of the week is in the past (today - 1)
 * We need to get the next following today + 1
 * */
-export function getFirstAvailableDay(weekDayMap: {} | null): string | number | any {
+
+/**
+ * Find first available day
+ * Conditions:
+ * Can't be before or today
+ * If
+ */
+
+export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
   if (!weekDayMap) {
-    return 0
+    return moment()
   }
 
-  const keys: any = Object.keys(weekDayMap)
-  const key: any = keys.find((objKey: any) => moment().day().toString() === Weekdays[objKey])
-  if (!key) {
-    return Weekdays[keys[0]]
-  }
-  const day: any = Weekdays[key]
-  const weekDay: any = Weekdays[day + 1]
+  const availableDays = Object.keys(weekDayMap).map((key: any) => Weekdays[key])
+  const today = moment()
+  const week = moment().utc().startOf('week')
 
-  return Weekdays[weekDay]
+  let firstAvailableDay = null
+
+  for (let i = 0; i < availableDays.length; i++) {
+    const found = false
+    for (let j = 0; j <= 13; j++) {
+      const weekDayDate = week.clone().add(j, 'day')
+      const isWeekDayDateGreaterThanToday = parseInt(today.format('X'), 10) < parseInt(weekDayDate.format('X'), 10)
+      const isSameDay = weekDayDate.weekday() === parseInt(availableDays[i], 10)
+      if (isWeekDayDateGreaterThanToday && isSameDay) {
+        firstAvailableDay = weekDayDate
+      }
+    }
+
+    if (found) {
+      break
+    }
+  }
+
+  return firstAvailableDay
+}
+
+export function getFirstAvailableWeekDay(weekDay: Moment): any {
+  return weekDay.day()
 }
 
 export function getAllAvailableDays(weekDayMap: {} | null): any {
   if (!weekDayMap) {
     return []
   }
+
   return Object.keys(weekDayMap).map((key: any) => Weekdays[key])
 }
 
-export function getDayOfTheWeek(day: any): any {
-  return Weekdays[day]
+export function getDayOfTheWeek(date: Moment | null): number {
+  return date ? date.day() : 0
 }
 
 export function createDateFromHoursAndMinutes(date: Moment | null, hour: number, minute: number): number | null{

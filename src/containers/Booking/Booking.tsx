@@ -11,6 +11,10 @@ import ErrorMessage from '../../components/ErrorMessage'
 import {H2} from '../../ui/headings'
 import {Para} from '../../ui/labels'
 import {formatNumber} from '../../utils/formatNumber'
+import {
+  GetCoachRequest,
+  GetCoachAvailabilityRequest,
+} from '../../services/public/coaches/types'
 
 import BookingForm from './BookingForm'
 import TimeSelect from './TimeSelect'
@@ -26,8 +30,8 @@ import {
 } from './helpers'
 
 interface LocationState {
-  coach: string,
-  coachAvailability: string | any,
+  coach: GetCoachRequest,
+  coachAvailability: GetCoachAvailabilityRequest[],
   program: string | any,
   firstCallDuration?: number
 }

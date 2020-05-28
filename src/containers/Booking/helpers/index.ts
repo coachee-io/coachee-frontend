@@ -1,4 +1,7 @@
 import moment, {Moment} from 'moment'
+import {
+  GetCoachAvailabilityRequest,
+} from '../../../services/public/coaches/types'
 import {Weekdays} from '../../../enums/Weekdays'
 
 const isMinutesPlural = (value: number): string => (value > 10 ? `${value}` : `${value}0`)
@@ -31,7 +34,7 @@ export const createTimeRanges = (start: number, end: number, firstCallDuration =
   return timeSlots
 }
 
-export function createDateHashMap(availability: any[], firstCallDuration = 30): {} | null{
+export function createDateHashMap(availability: GetCoachAvailabilityRequest[], firstCallDuration = 30): {} | null{
   if (!availability || availability.length === 0) {
     return null
   }
@@ -40,7 +43,7 @@ export function createDateHashMap(availability: any[], firstCallDuration = 30): 
     [index:string]: any[]
   } = {}
 
-  availability.forEach((day: any) => {
+  availability.forEach((day: GetCoachAvailabilityRequest) => {
     const {
       weekDay, start, end,
     } = day

@@ -11,6 +11,14 @@ import {Pulse} from '../../../components/Skeleton'
 import Auth from '../../../utils/tokens'
 import {formatNumber} from '../../../utils/formatNumber'
 
+import {
+  GetCoachRequest,
+  GetCoachAvailabilityRequest,
+  GetCoachCertificateRequest,
+  GetCoachProgramRequest,
+} from '../../../services/public/coaches/types'
+
+
 import {H2, H3} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
 import Rating from '../../../ui/images/star-rating.svg'
@@ -28,14 +36,14 @@ const StarRating = Image.attrs({
 `
 
 interface Props {
-  coach: any,
-  certifications?: any[],
-  programs?: any[],
-  availability?: any[],
+  coach: GetCoachRequest,
+  certifications?: GetCoachCertificateRequest[],
+  programs?: GetCoachProgramRequest[],
+  availability?: GetCoachAvailabilityRequest[],
 }
 
 class Content extends PureComponent<Props> {
-  handleRedirect = (program: any) => {
+  handleRedirect = (program: GetCoachProgramRequest) => {
     const {availability, coach} = this.props
     const state = {
       coach,

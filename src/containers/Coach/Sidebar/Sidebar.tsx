@@ -6,11 +6,15 @@ import Flex from '../../../components/Layout/Flexbox'
 import {Pulse} from '../../../components/Skeleton'
 import {H2} from '../../../ui/headings'
 
+import {
+  GetCoachAvailabilityRequest,
+} from '../../../services/public/coaches/types'
+
 import {Tag} from './styled'
 
 interface Props {
   tags: string,
-  availability: any[]
+  availability: GetCoachAvailabilityRequest[]
 }
 
 class Sidebar extends PureComponent<Props> {

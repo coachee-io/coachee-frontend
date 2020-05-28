@@ -5,7 +5,9 @@ import {Row, Col} from 'react-bootstrap'
 import {CoachesService} from '../../services/public'
 import ErrorMessage from '../../components/ErrorMessage'
 
-import Photo from '../../ui/images/coach-photo.jpg'
+import {
+  GetCoachRequest,
+} from '../../services/public/coaches/types'
 
 import Header from './Header'
 import Sidebar from './Sidebar'
@@ -40,7 +42,7 @@ interface Params {
 interface Props extends RouteComponentProps<Params> {}
 
 interface State {
-  coach: any,
+  coach: GetCoachRequest | any,
   error?: null | any,
   errorStatus?: string | number | any
 }

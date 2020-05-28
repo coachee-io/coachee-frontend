@@ -55,7 +55,7 @@ class Booking extends PureComponent<Props, State> {
       date: null,
       selectedDate: null,
       weekDay: null,
-      focusedDate: true,
+      focusedDate: false,
       time: null,
       availabilityWeekDayMap: null,
       allAvailableDays: null,
@@ -68,10 +68,12 @@ class Booking extends PureComponent<Props, State> {
     const hashMap = createDateHashMap(coachAvailability)
     const firstAvailableDay = getFirstAvailableDay(hashMap)
     const firstWeekDay = getDayOfTheWeek(firstAvailableDay)
+    console.log(firstAvailableDay, firstWeekDay)
     if (hashMap) {
       this.setState({
         date: firstAvailableDay,
         availabilityWeekDayMap: hashMap,
+        focusedDate: true,
         weekDay: firstWeekDay,
         allAvailableDays: getAllAvailableDays(hashMap),
       })

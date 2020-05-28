@@ -74,28 +74,18 @@ export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
   const availableDays = Object.keys(weekDayMap).map((key: any) => Weekdays[key])
   const today = moment()
   const week = moment().utc().startOf('week')
+  const weekDates: Moment[] = []
 
-  let firstAvailableDay = null
-
-  for (let i = 0; i < availableDays.length; i++) {
-    let found = false
-    for (let j = 0; j <= 13; j++) {
-      const weekDayDate = week.clone().add(j, 'day')
-      const isWeekDayDateGreaterThanToday = parseInt(today.format('X'), 10) < parseInt(weekDayDate.format('X'), 10)
-      const isSameDay = weekDayDate.weekday() === parseInt(availableDays[i], 10)
-      if (isWeekDayDateGreaterThanToday && isSameDay) {
-        firstAvailableDay = weekDayDate
-        found = true
-        break
-      }
-    }
-
-    if (found) {
-      break
+  for (let j = 0; j <= 13; j++) {
+    const weekDayDate = week.clone().add(j, 'day')
+    const isWeekDayDateGreaterThanToday = parseInt(today.format('x'), 10) < parseInt(weekDayDate.format('x'), 10)
+    const isSameDay = availableDays.some((day) => weekDayDate.weekday() === parseInt(day, 10))
+    if (isWeekDayDateGreaterThanToday && isSameDay) {
+      weekDates.push(weekDayDate)
     }
   }
 
-  return firstAvailableDay
+  return weekDates[0]
 }
 
 export function getFirstAvailableWeekDay(date: Moment | null): number | null {

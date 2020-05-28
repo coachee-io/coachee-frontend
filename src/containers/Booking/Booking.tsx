@@ -55,7 +55,7 @@ class Booking extends PureComponent<Props, State> {
       date: null,
       selectedDate: null,
       weekDay: null,
-      focusedDate: false,
+      focusedDate: true,
       time: null,
       availabilityWeekDayMap: null,
       allAvailableDays: null,

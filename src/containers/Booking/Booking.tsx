@@ -37,7 +37,6 @@ interface Props extends RouteComponentProps<{}, {}, LocationState> {}
 interface State {
   step: 1 | 2 | 3 | number,
   date: Moment | null,
-  startDate: Moment | null,
   weekDay: number | null,
   selectedDate: number | string | null | any,
   time: string | number | null | any
@@ -55,7 +54,6 @@ class Booking extends PureComponent<Props, State> {
       step: 1,
       date: null,
       selectedDate: null,
-      startDate: null,
       weekDay: null,
       focusedDate: false,
       time: null,
@@ -73,7 +71,6 @@ class Booking extends PureComponent<Props, State> {
     if (hashMap) {
       this.setState({
         date: firstAvailableDay,
-        startDate: firstAvailableDay,
         availabilityWeekDayMap: hashMap,
         weekDay: firstWeekDay,
         allAvailableDays: getAllAvailableDays(hashMap),
@@ -161,7 +158,6 @@ class Booking extends PureComponent<Props, State> {
       selectedDate,
       time,
       date,
-      startDate,
       weekDay,
       focusedDate,
       availabilityWeekDayMap,
@@ -191,7 +187,6 @@ class Booking extends PureComponent<Props, State> {
               <Flex flexDirection="column" alignItems="center" marginTop="30px">
                 <DayPickerSingleDateController
                   date={date}
-                  startDate={startDate}
                   focused={focusedDate}
                   onDateChange={this.handleDateChange}
                   enableOutsideDays

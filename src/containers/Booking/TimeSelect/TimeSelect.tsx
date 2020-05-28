@@ -25,7 +25,7 @@ interface Props {
   time: any,
   onClick: any,
   availabilityMap: any | null,
-  weekDay: Moment | null
+  weekDay: number | null
 }
 
 class TimeSelect extends PureComponent<Props> {

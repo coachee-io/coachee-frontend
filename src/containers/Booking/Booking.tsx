@@ -19,10 +19,10 @@ import Success from './Success'
 import {
   createDateHashMap,
   getFirstAvailableDay,
-  getDayOfTheWeek,
   getAllAvailableDays,
   createDateFromHoursAndMinutes,
   isDayBlocked,
+  getFirstAvailableWeekDay,
 } from './helpers'
 
 interface LocationState {
@@ -37,7 +37,7 @@ interface Props extends RouteComponentProps<{}, {}, LocationState> {}
 interface State {
   step: 1 | 2 | 3 | number,
   date: Moment | null,
-  weekDay: Moment | nulsl,
+  weekDay: number | null,
   selectedDate: number | string | null | any,
   time: string | number | null | any
   focusedDate: boolean,
@@ -72,7 +72,7 @@ class Booking extends PureComponent<Props, State> {
         date: firstAvailableDay,
         availabilityWeekDayMap: hashMap,
         focusedDate: true,
-        weekDay: firstAvailableDay,
+        weekDay: getFirstAvailableWeekDay(firstAvailableDay),
         allAvailableDays: getAllAvailableDays(hashMap),
       })
     } else {

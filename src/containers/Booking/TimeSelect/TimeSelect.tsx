@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react'
 import styled from 'styled-components'
+import {Moment} from 'moment'
 
 import {Button} from '../../../components/Form/styled'
 import Flex, {Col} from '../../../components/Layout/Flexbox'
@@ -24,7 +25,7 @@ interface Props {
   time: any,
   onClick: any,
   availabilityMap: any | null,
-  weekDay: Moment
+  weekDay: Moment | null
 }
 
 class TimeSelect extends PureComponent<Props> {

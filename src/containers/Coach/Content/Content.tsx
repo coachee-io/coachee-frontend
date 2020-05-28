@@ -9,7 +9,6 @@ import {RouterButtonLink} from '../../../components/Routing'
 import {Pulse} from '../../../components/Skeleton'
 
 import Auth from '../../../utils/tokens'
-import FeatureFlags from '../../../utils/featureFlags'
 import {formatNumber} from '../../../utils/formatNumber'
 
 import {H2, H3} from '../../../ui/headings'
@@ -33,8 +32,6 @@ interface Props {
   certifications?: any[],
   programs?: any[],
   availability?: any[],
-  reviews?: any[],
-  reviewsRef: any
 }
 
 class Content extends PureComponent<Props> {
@@ -64,10 +61,8 @@ class Content extends PureComponent<Props> {
 
   render() {
     const {
-      reviewsRef,
       certifications,
       programs,
-      reviews,
     } = this.props
     return (
       <>
@@ -160,24 +155,6 @@ class Content extends PureComponent<Props> {
             </Flex>
           </Col>
         </Row>
-        {FeatureFlags.isFeatureEnabled('reviewsEnabled') && (
-          <div ref={reviewsRef}>
-            <Row>
-              <Col xs={12}>
-                <Flex flexDirection="column" marginTop="30px">
-                  <H2>
-                    {reviews ? 'Reviews' : <Pulse height={24} />}
-                  </H2>
-                  <StarRating />
-                  <Flex flexDirection="column" marginTop="15px">
-                    <H3>[Review Heading]</H3>
-                    <Para>[Review Text]</Para>
-                  </Flex>
-                </Flex>
-              </Col>
-            </Row>
-          </div>
-        )}
       </>
     )
   }

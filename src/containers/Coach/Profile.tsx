@@ -127,8 +127,6 @@ class CoachProfile extends PureComponent<Props, State> {
               certifications={coach.certifications}
               programs={coach.programs}
               availability={coach.availability}
-              reviews={coach.reviews}
-              reviewsRef={this.reviews}
             />
           </Col>
         </Row>

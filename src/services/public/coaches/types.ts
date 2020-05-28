@@ -12,7 +12,7 @@ export interface CreateCoachRequest {
   textAvailability?: string,
   textCertifications: string,
   textPrograms: string,
-  password: string
+  password: string,
 }
 
 export interface CreateExpressCoachRequest {
@@ -27,22 +27,14 @@ export interface GetCoachRequest {
   description: string,
   city: string,
   country: string,
-  pictureUrl: string,
+  pictureURL: string,
   certifications: GetCoachProgramRequest[],
   programs: GetCoachCertificateRequest[],
-  availability: GetCoachAvailabilityRequest[]
+  availability: GetCoachAvailabilityRequest[],
+  firstCallDuration: number,
 }
 
-
-interface GetCoachProgramRequest {
-  id: string,
-  titlte: string,
-  description: string,
-  institution: string,
-  month: number,
-  year: number
-}
-interface GetCoachCertificateRequest {
+export interface GetCoachProgramRequest {
   id: string,
   name: string,
   sessions: number,
@@ -52,7 +44,19 @@ interface GetCoachCertificateRequest {
   taxPercent: number
 }
 
-interface GetCoachAvailabilityRequest {
+export interface GetCoachCertificateRequest {
+  id: string,
+  name: string,
+  duration: number,
+  title: string,
+  description: string,
+  institution: string,
+  month: number,
+  year: number
+}
+
+export interface GetCoachAvailabilityRequest {
+  dateLabel: string,
   id: string,
   start: number,
   end: number,

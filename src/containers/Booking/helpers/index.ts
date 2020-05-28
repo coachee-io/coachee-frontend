@@ -1,8 +1,6 @@
 import moment, {Moment} from 'moment'
 import {Weekdays} from '../../../enums/Weekdays'
 
-import {enumToArray} from '../../../utils/enumToArray'
-
 const isMinutesPlural = (value: number): string => (value > 10 ? `${value}` : `${value}0`)
 
 const timeToLabel = (start: string, end: string) => `${start}-${end}`

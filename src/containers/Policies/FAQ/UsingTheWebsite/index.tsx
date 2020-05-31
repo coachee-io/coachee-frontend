@@ -65,8 +65,8 @@ class UsingTheWebsite extends PureComponent {
           Are all sessions with a coach online?
         </Para>
         <Para>
-          Most of the sessions with our coaches will be online, and it is the coach’s
-          responsibility to setup a skype/zoom link or use any other tools they wish to.
+          Most of the sessions with our coaches will be online, and it is the coach’s responsibility
+          to setup the session using any tools they wish to use.
           Some coaches might also offer face to face coaching sessions,
           and we will include this in their profile description.
         </Para>

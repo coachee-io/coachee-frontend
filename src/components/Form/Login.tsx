@@ -12,7 +12,7 @@ import {
 
 import Flex from '../Layout/Flexbox'
 
-import {RegularRouterLink, RouterButtonLink} from '../Routing'
+import {RegularRouterLink, RouterLink} from '../Routing'
 
 const schema = object().shape({
   email: string()
@@ -100,9 +100,9 @@ class Login extends PureComponent<Props> {
                     </Flex>
                     {signUpURL && (
                       <Flex width="100%" flexDirection="row" marginTop="5px">
-                        <RouterButtonLink to={signUpURL} small>
+                        <RouterLink to={signUpURL} small primary>
                           Don&apos;t have an account? Sign up here.
-                        </RouterButtonLink>
+                        </RouterLink>
                       </Flex>
                     )}
                     <SubmitButton

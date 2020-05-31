@@ -41,6 +41,7 @@ class CoacheesLogin extends PureComponent<Props> {
         submitButtonText="Login"
         submitButtonAccentColour
         forgottenPasswordURL="/forgot-password"
+        signUpURL="/signup"
         onSubmit={this.onSubmit}
       />
     )

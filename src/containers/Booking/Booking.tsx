@@ -68,7 +68,8 @@ class Booking extends PureComponent<Props, State> {
 
   componentDidMount = () => {
     const coachAvailability = this.getCoachAvailability()
-    const hashMap = createDateHashMap(coachAvailability)
+    const firstCallDuration = this.getFirstCallDuration()
+    const hashMap = createDateHashMap(coachAvailability, firstCallDuration)
     const firstAvailableDay = getFirstAvailableDay(hashMap)
     if (hashMap) {
       this.setState({

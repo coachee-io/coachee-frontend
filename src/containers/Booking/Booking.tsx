@@ -238,19 +238,19 @@ class Booking extends PureComponent<Props, State> {
               , who will be in touch.
             </Para>
             <Para>
-              <b>Your free intro call: </b>
+              <strong>Your free intro call: </strong>
               {moment(selectedDate).format('DD/MM/YYYY')}
             </Para>
             <Para>
-              <b>Programme: </b>
+              <strong>Programme: </strong>
               {program.name}
             </Para>
             <Para>
-              <b>Sessions: </b>
+              <strong>Sessions: </strong>
               {`${program.sessions} sessions, ${program.duration} minutes`}
             </Para>
             <Para>
-              <b>Price: </b>
+              <strong>Price: </strong>
               {`£${formatNumber(program.totalPrice)}`}
             </Para>
           </Col>

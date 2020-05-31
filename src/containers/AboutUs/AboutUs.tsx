@@ -70,12 +70,12 @@ class AboutUs extends PureComponent {
                   {' '}
                   <strong>certified</strong>
                   , and a weekend coaching course doesn’t count;
-                  They need to provide coaching programs of at least
+                  they need to provide coaching programs of at least
                   {' '}
                   <strong>4 weeks</strong>
                   {' '}
                   to ensure maximum impact and results;
-                  We meet with all our coaches before
+                  we meet with all our coaches before
                   {' '}
                   <strong>approving</strong>
                   {' '}

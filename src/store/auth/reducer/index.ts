@@ -3,13 +3,12 @@ import LocalStorage from '../../../utils/localStorage'
 import {AUTH} from '../constants'
 
 function auth(token: string, expiry: number, user: {}) {
-  Auth.setToken(token)
+  Auth.setToken(token, expiry)
   LocalStorage.set('user', user)
 }
 
 function unAuth() {
   Auth.removeToken()
-  LocalStorage.remove('user')
 }
 
 interface State {

@@ -98,13 +98,6 @@ class Login extends PureComponent<Props> {
                         Forgotten password?
                       </RegularRouterLink>
                     </Flex>
-                    {signUpURL && (
-                      <Flex width="100%" flexDirection="row" marginTop="5px">
-                        <RouterLink to={signUpURL} small primary>
-                          Don&apos;t have an account? Sign up here.
-                        </RouterLink>
-                      </Flex>
-                    )}
                     <SubmitButton
                       isLoading={isLoading}
                       error={error}
@@ -113,6 +106,13 @@ class Login extends PureComponent<Props> {
                       loadingText="Loading..."
                       defaultText={submitButtonText}
                     />
+                    {signUpURL && (
+                      <Flex width="100%" flexDirection="row" marginTop="10px">
+                        <RouterLink to={signUpURL} primary>
+                          Don&apos;t have an account? Sign up here.
+                        </RouterLink>
+                      </Flex>
+                    )}
                   </Flex>
                 </Form>
               </>

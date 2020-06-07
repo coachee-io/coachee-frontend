@@ -11,7 +11,7 @@ export interface TagProps {
 export const Tag = styled.div`
   ${Lato};
   text-align: center;
-  width: 140px;
+  width: 150px;
   ${({primary}: TagProps) => primary && `
     background-color: ${colors.primary};
     color: #FFFFFF;

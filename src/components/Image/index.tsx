@@ -7,15 +7,15 @@ interface ImageProps {
   height?: number
 }
 
-export const DivBackgroundImage = styled.div`
-  background-image: ${({bgImage}: ImageProps) => bgImage && `
-   url(${bgImage});
+export const DivBackgroundImage = styled.div<ImageProps>`
+  ${({bgImage}) => bgImage && `
+   background-image: url(${bgImage});
   `}
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   height: ${HEIGHT}px;
-  ${({height}: ImageProps) => height && `
+  ${({height}) => height && `
     height: ${height}px;
   `}
   max-width: 100%;

@@ -70,12 +70,12 @@ class AboutUs extends PureComponent {
                   {' '}
                   <strong>certified</strong>
                   , and a weekend coaching course doesn’t count;
-                  They need to provide coaching programs of at least
+                  they need to provide coaching programs of at least
                   {' '}
                   <strong>4 weeks</strong>
                   {' '}
                   to ensure maximum impact and results;
-                  We meet with all our coaches before
+                  we meet with all our coaches before
                   {' '}
                   <strong>approving</strong>
                   {' '}
@@ -130,12 +130,13 @@ class AboutUs extends PureComponent {
                 was launched and I’m so happy about its success. I found coaching one of the
                 {' '}
                 <strong>most valuable investments</strong>
+                {' '}
                 I have ever made - and I know you will too.
               </Para>
               <Para>
                 To learn more about us, follow our
                 {' '}
-                <Anchor href="https://www.coachee.io" primary>Instagram</Anchor>
+                <Anchor href="https://www.instagram.com/coachee.io/" primary>Instagram</Anchor>
                 .
               </Para>
             </Col>

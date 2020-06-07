@@ -5,7 +5,9 @@ import {Row, Col} from 'react-bootstrap'
 import {CoachesService} from '../../services/public'
 import ErrorMessage from '../../components/ErrorMessage'
 
-import Photo from '../../ui/images/coach-photo.jpg'
+import {
+  GetCoachRequest,
+} from '../../services/public/coaches/types'
 
 import Header from './Header'
 import Sidebar from './Sidebar'
@@ -40,7 +42,7 @@ interface Params {
 interface Props extends RouteComponentProps<Params> {}
 
 interface State {
-  coach: any,
+  coach: GetCoachRequest | any,
   error?: null | any,
   errorStatus?: string | number | any
 }
@@ -103,7 +105,7 @@ class CoachProfile extends PureComponent<Props, State> {
               scrollToReviews={this.scrollToReviews}
               firstName={coach.firstName}
               lastName={coach.lastName}
-              pictureUrl={coach.pictureURL === '' ? Photo : undefined}
+              pictureUrl={coach.pictureURL}
               city={coach.city}
               country={coach.country}
               vatNo={coach.vatNo}
@@ -115,20 +117,18 @@ class CoachProfile extends PureComponent<Props, State> {
           </Col>
         </Row>
         <Row>
-          <Col xs={12} md={3}>
+          <Col xs={12} md={4}>
             <Sidebar
               tags={coach.tags}
               availability={coach.availability}
             />
           </Col>
-          <Col xs={12} md={9}>
+          <Col xs={12} md={8}>
             <Content
               coach={coach}
               certifications={coach.certifications}
               programs={coach.programs}
               availability={coach.availability}
-              reviews={coach.reviews}
-              reviewsRef={this.reviews}
             />
           </Col>
         </Row>

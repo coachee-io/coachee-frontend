@@ -26,7 +26,7 @@ class Dropdown extends PureComponent<Props> {
                 <option value="finance">Finance</option>
                 <option value="relationship">Relationship</option>
                 <option value="nutrition">Nutrition</option>
-                <option value="feminity">Feminity</option>
+                <option value="femininity">Femininity</option>
                 <option value="life">Life</option>
               </FormControl>
             </FormGroup>

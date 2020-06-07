@@ -6,6 +6,7 @@ import {
 } from 'formik'
 
 import Confirmation from '../../../components/Confirmation'
+import {RouterButtonLink } from '../../../components/Routing'
 
 import {
   Form, Checkbox, StyledLabel, StyledSelect, ErrorMessage, ErrorAlertCircle, SubmitButton, Input,
@@ -92,8 +93,14 @@ class SignUpCoachee extends PureComponent<{}, State> {
     if (successful) {
       return (
         <Confirmation
-          heading="Congratulations for taking this step!"
-          text="We will be in touch soon to confirm your details!"
+          heading="You are ready to go!"
+          text="Your registration was successful and you are now all set to find your perfect coach."
+          type="redirect"
+          buttonComponent={(
+            <RouterButtonLink to="/coaches" primary>
+              Browse all coaches
+            </RouterButtonLink>
+          )}
         />
       )
     }
@@ -212,15 +219,21 @@ class SignUpCoachee extends PureComponent<{}, State> {
                         <ErrorAlertCircle />
                       </ErrorMessage>
                       )}
-                      <Checkbox
-                        label="Receive news and promotional emails"
-                        id="promotional"
-                        name="promotional"
-                        value={values.promotional}
-                        checked={values.promotional}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                      />
+                      <Flex
+                        flexDirection="row"
+                        width="100%"
+                        marginTop="15px"
+                      >
+                        <Checkbox
+                          label="Receive news and promotional emails"
+                          id="promotional"
+                          name="promotional"
+                          value={values.promotional}
+                          checked={values.promotional}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                        />
+                      </Flex>
                       <Checkbox
                         label="I agree to Terms and Conditions"
                         id="terms"

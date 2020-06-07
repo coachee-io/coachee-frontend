@@ -6,13 +6,15 @@ import Flex from '../../../components/Layout/Flexbox'
 import {Pulse} from '../../../components/Skeleton'
 import {H2} from '../../../ui/headings'
 
-import {Weekdays} from '../../../enums/Weekdays'
+import {
+  GetCoachAvailabilityRequest,
+} from '../../../services/public/coaches/types'
 
 import {Tag} from './styled'
 
 interface Props {
   tags: string,
-  availability: any[]
+  availability: GetCoachAvailabilityRequest[]
 }
 
 class Sidebar extends PureComponent<Props> {
@@ -45,7 +47,7 @@ class Sidebar extends PureComponent<Props> {
               {availability && availability.map((el, id) => (
                 <Flex key={`${el}-${id}`} flexDirection="row" marginTop="15px">
                   <Tag primary>
-                    {`${Weekdays[el.weekDay]} ${el.start}-${el.end}` }
+                    {`${el.dateLabel}` }
                   </Tag>
                 </Flex>
               ))}

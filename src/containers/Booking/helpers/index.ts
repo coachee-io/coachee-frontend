@@ -1,55 +1,56 @@
 import moment, {Moment} from 'moment'
+import {
+  GetCoachAvailabilityRequest,
+} from '../../../services/public/coaches/types'
 import {Weekdays} from '../../../enums/Weekdays'
 
-export function createDateHashMap(availability: any[]): {} | null{
+const isMinutesPlural = (value: number): string => (value > 10 ? `${value}` : `${value}0`)
+
+const timeToLabel = (start: string, end: string) => `${start}-${end}`
+
+export const createTimeRanges = (start: number, end: number, firstCallDuration = 30) => {
+  const timeRanges: any[] = []
+
+  let currentTime = moment().set({hour: start, minute: 0})
+  timeRanges.push(currentTime)
+
+  while (currentTime.hour() < end) {
+    currentTime = moment(currentTime).add(firstCallDuration, 'minutes')
+    timeRanges.push(currentTime)
+  }
+
+  const timeSlots: any[] = []
+
+  for (let i = 0; i < timeRanges.length - 1; i++) {
+    const slot: any = {}
+    slot.hour = timeRanges[i].hour()
+    slot.minutes = timeRanges[i].minutes()
+    slot.start = `${timeRanges[i].hour()}:${isMinutesPlural(timeRanges[i].minutes())}`
+    slot.end = `${timeRanges[i + 1].hour()}:${isMinutesPlural(timeRanges[i + 1].minutes())}`
+    slot.label = timeToLabel(slot.start, slot.end)
+    timeSlots.push(slot)
+  }
+
+  return timeSlots
+}
+
+export function createDateHashMap(availability: GetCoachAvailabilityRequest[], firstCallDuration = 30): {} | null{
   if (!availability || availability.length === 0) {
     return null
-  }
-
-  const timeToString = (start: number, end: number) => {
-    if (Number.isInteger(end)) {
-      return `${parseInt(start.toFixed(2), 10)}.30-${end.toFixed(2)}`
-    }
-
-    return `${start.toFixed(2)}-${start}.30`
-  }
-
-  const createTimeRanges = (start: number, end: number): any[] => {
-    const timeRanges: any[] = []
-
-    for (let i = start; i < end; i += 0.50) {
-      const time: any = {}
-
-      if (Number.isInteger(i)) {
-        time.hours = i
-        time.minutes = 0
-        time.start = i
-        time.end = i + 0.50
-        time.hour = timeToString(time.start, time.end)
-      } else {
-        time.hours = parseInt(i.toFixed(2), 10)
-        time.minutes = 30
-        time.start = i
-        time.end = i + 0.50
-        time.hour = timeToString(time.start, time.end)
-      }
-      timeRanges.push(time)
-    }
-
-    return timeRanges
   }
 
   const hashmap: {
     [index:string]: any[]
   } = {}
 
-  availability.forEach((day: any) => {
-    const {weekDay, start, end} = day
+  availability.forEach((day: GetCoachAvailabilityRequest) => {
+    const {
+      weekDay, start, end,
+    } = day
     if (!hashmap[Weekdays[weekDay]]) {
-      hashmap[Weekdays[weekDay]] = createTimeRanges(start, end)
+      hashmap[Weekdays[weekDay]] = createTimeRanges(start, end, firstCallDuration)
     } else {
-      const timeRanges = createTimeRanges(start, end)
-      hashmap[Weekdays[weekDay]] = hashmap[Weekdays[weekDay]].concat(timeRanges)
+      hashmap[Weekdays[weekDay]] = hashmap[Weekdays[weekDay]].concat(createTimeRanges(start, end, firstCallDuration))
     }
   })
   return hashmap
@@ -60,30 +61,49 @@ export function createDateHashMap(availability: any[]): {} | null{
 * If the first day of the week is in the past (today - 1)
 * We need to get the next following today + 1
 * */
-export function getFirstAvailableDay(weekDayMap: {} | null): string | number | any {
+
+/**
+ * Find first available day
+ * Conditions:
+ * Can't be before or today
+ * If
+ */
+
+export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
   if (!weekDayMap) {
-    return 0
+    return moment()
   }
 
-  const keys: any = Object.keys(weekDayMap)
-  const key: any = keys.find((objKey: any) => moment().day().toString() === Weekdays[objKey])
-  if (!key) {
-    return Weekdays[keys[0]]
-  }
-  const day: any = Weekdays[key]
-  const weekDay: any = Weekdays[day + 1]
+  const availableDays = Object.keys(weekDayMap).map((key: any) => Weekdays[key])
+  const today = moment()
+  const week = moment().utc().startOf('week')
+  const weekDates: Moment[] = []
 
-  return Weekdays[weekDay]
+  for (let j = 0; j <= 13; j++) {
+    const weekDayDate = week.clone().add(j, 'day')
+    const isWeekDayDateGreaterThanToday = parseInt(today.format('x'), 10) < parseInt(weekDayDate.format('x'), 10)
+    const isSameDay = availableDays.some((day) => weekDayDate.weekday() === parseInt(day, 10))
+    if (isWeekDayDateGreaterThanToday && isSameDay) {
+      weekDates.push(weekDayDate)
+    }
+  }
+
+  return weekDates[0]
+}
+
+export function getFirstAvailableWeekDay(date: Moment | null): number | null {
+  return date ? date.day() : null
 }
 
 export function getAllAvailableDays(weekDayMap: {} | null): any {
   if (!weekDayMap) {
     return []
   }
+
   return Object.keys(weekDayMap).map((key: any) => Weekdays[key])
 }
 
-export function getDayOfTheWeek(day: any): any {
+export function getDayOfTheWeek(day: any): string {
   return Weekdays[day]
 }
 
@@ -96,5 +116,19 @@ export function createDateFromHoursAndMinutes(date: Moment | null, hour: number,
     hour,
     minute,
     second: 0,
-  }).format('X'), 10)
+  }).format('x'), 10)
+}
+
+export const isDayBlocked = (date: any, availableDays: number[] | null) => {
+  if (!availableDays) {
+    return false
+  }
+
+  const found = availableDays.some((availableDay: number) => moment(date).day() === availableDay)
+
+  if (found) {
+    return false
+  }
+
+  return true
 }

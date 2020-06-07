@@ -23,12 +23,13 @@ class CoachesForgotPassword extends PureComponent<Props, State> {
 
   onSubmit = (values: {email: string}) => {
     const {email} = values
+    this.setState({isLoading: true})
     PlatformService.coachForgotPassword(email)
       .then(() => {
-        this.setState({isSuccessful: true})
+        this.setState({isSuccessful: true, isLoading: false})
       })
       .catch((error) => {
-        this.setState({error})
+        this.setState({error, isLoading: false})
       })
   }
 

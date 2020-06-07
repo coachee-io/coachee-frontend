@@ -5,11 +5,16 @@ import moment, {Moment} from 'moment'
 import {DayPickerSingleDateController} from 'react-dates'
 
 import Flex, {Row, Col} from '../../components/Layout/Flexbox'
-
+import {Button} from '../../components/Form'
 import ErrorMessage from '../../components/ErrorMessage'
 
 import {H2} from '../../ui/headings'
 import {Para} from '../../ui/labels'
+import {formatNumber} from '../../utils/formatNumber'
+import {
+  GetCoachRequest,
+  GetCoachAvailabilityRequest,
+} from '../../services/public/coaches/types'
 
 import BookingForm from './BookingForm'
 import TimeSelect from './TimeSelect'
@@ -20,13 +25,15 @@ import {
   getFirstAvailableDay,
   getAllAvailableDays,
   createDateFromHoursAndMinutes,
+  isDayBlocked,
+  getFirstAvailableWeekDay,
 } from './helpers'
-import {Button} from '../../components/Form'
 
 interface LocationState {
-  coach: string,
-  coachAvailability: string | any,
-  program: string | any
+  coach: GetCoachRequest,
+  coachAvailability: GetCoachAvailabilityRequest[],
+  program: string | any,
+  firstCallDuration?: number
 }
 
 interface Props extends RouteComponentProps<{}, {}, LocationState> {}
@@ -42,7 +49,6 @@ interface State {
   allAvailableDays: number[] |null,
   error: boolean
 }
-
 
 class Booking extends PureComponent<Props, State> {
   constructor(props: any) {
@@ -62,13 +68,15 @@ class Booking extends PureComponent<Props, State> {
 
   componentDidMount = () => {
     const coachAvailability = this.getCoachAvailability()
-    const hashMap = createDateHashMap(coachAvailability)
+    const firstCallDuration = this.getFirstCallDuration()
+    const hashMap = createDateHashMap(coachAvailability, firstCallDuration)
     const firstAvailableDay = getFirstAvailableDay(hashMap)
-    if (!!hashMap && !!firstAvailableDay) {
+    if (hashMap) {
       this.setState({
-        date: moment().day(firstAvailableDay),
+        date: firstAvailableDay,
         availabilityWeekDayMap: hashMap,
-        weekDay: firstAvailableDay,
+        focusedDate: true,
+        weekDay: getFirstAvailableWeekDay(firstAvailableDay),
         allAvailableDays: getAllAvailableDays(hashMap),
       })
     } else {
@@ -89,7 +97,7 @@ class Booking extends PureComponent<Props, State> {
 
   handleTimeChange = (time: any) => {
     const {date} = this.state
-    const selectedDate = createDateFromHoursAndMinutes(date, time.hours, time.minutes)
+    const selectedDate = createDateFromHoursAndMinutes(date, time.hour, time.minutes)
     this.setState({time, selectedDate})
   }
 
@@ -106,6 +114,19 @@ class Booking extends PureComponent<Props, State> {
 
     if (coachAvailability) {
       return coachAvailability
+    }
+    return null
+  }
+
+  getFirstCallDuration = (): any | null => {
+    const {location} = this.props
+    if (!location.state) {
+      return null
+    }
+    const {firstCallDuration} = location.state
+
+    if (firstCallDuration) {
+      return firstCallDuration
     }
     return null
   }
@@ -134,7 +155,6 @@ class Booking extends PureComponent<Props, State> {
     }
     return null
   }
-
 
   render() {
     const {
@@ -174,13 +194,7 @@ class Booking extends PureComponent<Props, State> {
                   focused={focusedDate}
                   onDateChange={this.handleDateChange}
                   enableOutsideDays
-                  isDayBlocked={(day) => {
-                    if (!allAvailableDays) {
-                      return false
-                    }
-                    const found = allAvailableDays.find((availableDay) => moment(day).day() === availableDay)
-                    return !found
-                  }}
+                  isDayBlocked={(day) => isDayBlocked(day, allAvailableDays)}
                   isOutsideRange={(day) => moment().diff(day) > 0}
                   onFocusChange={({focused}: {focused: boolean | null}) => this.handleFocusChange(focused)}
                   numberOfMonths={1}
@@ -218,22 +232,27 @@ class Booking extends PureComponent<Props, State> {
             <H2 textAlign="center">
               Review your details
             </H2>
-            <Para>
-              Your free intro call:
-            </Para>
-            <Para>
-              {`${coach.firstName} ${coach.lastName}`}
+            <Para bold>
+              Your intro call date and time needs to be confirmed first by
               {' '}
-              will be in touch to confirm your booking
+              {`${coach.firstName} ${coach.lastName}`}
+              , who will be in touch.
             </Para>
             <Para>
+              <strong>Your free intro call: </strong>
+              {moment(selectedDate).format('DD/MM/YYYY')}
+            </Para>
+            <Para>
+              <strong>Programme: </strong>
               {program.name}
             </Para>
             <Para>
+              <strong>Sessions: </strong>
               {`${program.sessions} sessions, ${program.duration} minutes`}
             </Para>
             <Para>
-              {`£${program.totalPrice}`}
+              <strong>Price: </strong>
+              {`£${formatNumber(program.totalPrice)}`}
             </Para>
           </Col>
           <Col xs={12} md={6}>

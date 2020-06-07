@@ -84,7 +84,7 @@ class ForgotPassword extends PureComponent<Props> {
                         error={error}
                         accent
                         loadingText="Loading..."
-                        defaultText="Reset Passsword"
+                        defaultText="Reset Password"
                       />
                     </FormCard>
                   </Form>

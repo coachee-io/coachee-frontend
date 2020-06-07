@@ -4,11 +4,22 @@ import {RouteComponentProps, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import LoginForm from '../../../components/Form/Login'
+import {
+  GetCoachRequest,
+  GetCoachAvailabilityRequest,
+} from '../../../services/public/coaches/types'
 
 import {loginCoachee} from '../../../store/auth/actions'
 
-interface Props extends RouteComponentProps {
-  login: (email: string, password: string, history: History) => Promise<any>,
+interface CoachHistoryState {
+  from?: string,
+  coach: GetCoachRequest,
+  program: string,
+  coachAvailability: GetCoachAvailabilityRequest[]
+}
+
+interface Props extends RouteComponentProps<{}, {}, CoachHistoryState> {
+  login: (email: string, password: string, history: History<CoachHistoryState>) => Promise<any>,
   isLoading: boolean,
   error: Error | null
 }
@@ -30,6 +41,7 @@ class CoacheesLogin extends PureComponent<Props> {
         submitButtonText="Login"
         submitButtonAccentColour
         forgottenPasswordURL="/forgot-password"
+        signUpURL="/signup"
         onSubmit={this.onSubmit}
       />
     )

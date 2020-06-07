@@ -16,13 +16,13 @@ import HeroImage from './Image'
 
 const HeroListText = [
   {
-    text: 'Improve your relationship with fitness, food and body image',
+    text: 'Improve your relationship with fitness, food and body image.',
   },
   {
-    text: 'Gain financial awareness and start saving',
+    text: 'Gain financial awareness and start saving.',
   },
   {
-    text: 'Find Balance in your life no matter the obstacles',
+    text: 'Find balance in your life no matter the obstacles.',
   },
   {
     text: 'Find out more about who you are and who you want to be!',

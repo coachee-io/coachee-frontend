@@ -49,7 +49,7 @@ class HowWeSelectCoaches extends PureComponent {
         </UL>
         <Para>
           On top of this, we meet with all our coaches before they
-          oin the platform to ensure the best match possible.
+          join the platform to ensure the best match possible.
         </Para>
         <Para bold>
           I’m a certified coach, how do I join the platform?

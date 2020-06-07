@@ -12,7 +12,7 @@ import {
 
 import Flex from '../Layout/Flexbox'
 
-import {RegularRouterLink} from '../Routing'
+import {RegularRouterLink, RouterLink} from '../Routing'
 
 const schema = object().shape({
   email: string()
@@ -32,6 +32,7 @@ interface Props {
   isLoading: boolean,
   error: Error | null,
   forgottenPasswordURL: string,
+  signUpURL?: string,
   submitButtonText: string,
   submitButtonPrimaryColour?: boolean,
   submitButtonAccentColour?: boolean,
@@ -41,7 +42,7 @@ interface Props {
 class Login extends PureComponent<Props> {
   render() {
     const {
-      isLoading, error, onSubmit, forgottenPasswordURL, submitButtonText,
+      isLoading, error, onSubmit, forgottenPasswordURL, signUpURL, submitButtonText,
       submitButtonPrimaryColour, submitButtonAccentColour,
     } = this.props
 
@@ -92,9 +93,11 @@ class Login extends PureComponent<Props> {
                         <ErrorAlertCircle />
                       </ErrorMessage>
                     )}
-                    <RegularRouterLink to={forgottenPasswordURL} small bold underline>
-                      Forgotten password?
-                    </RegularRouterLink>
+                    <Flex width="100%" flexDirection="row" marginTop="5px">
+                      <RegularRouterLink to={forgottenPasswordURL} small bold underline>
+                        Forgotten password?
+                      </RegularRouterLink>
+                    </Flex>
                     <SubmitButton
                       isLoading={isLoading}
                       error={error}
@@ -103,6 +106,13 @@ class Login extends PureComponent<Props> {
                       loadingText="Loading..."
                       defaultText={submitButtonText}
                     />
+                    {signUpURL && (
+                      <Flex width="100%" flexDirection="row" marginTop="10px">
+                        <RouterLink to={signUpURL} primary>
+                          Don&apos;t have an account? Sign up.
+                        </RouterLink>
+                      </Flex>
+                    )}
                   </Flex>
                 </Form>
               </>

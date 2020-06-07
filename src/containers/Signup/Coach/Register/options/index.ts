@@ -14,10 +14,13 @@ export const coachingCategories: ICoachingCategory[] = [
     id: 'relationship', name: 'Relationship coaching',
   },
   {
-    id: 'feminity', name: 'Feminity coaching',
+    id: 'femininity', name: 'Femininity coaching',
   },
   {
-    id: 'financial', name: 'Financial coaching',
+    id: 'finance', name: 'Financial coaching',
+  },
+  {
+    id: 'nutrition', name: 'Nutrition coaching',
   },
 ]
 

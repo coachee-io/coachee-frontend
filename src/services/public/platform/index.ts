@@ -11,15 +11,15 @@ class PlatformAPI {
     .then((res) => res.data)
 
   coachForgotPassword = (email: string) => api
-    .post(`${getUrlEnvironmentDomain()}/recovery/coaches`, {email})
+    .post(`${getUrlEnvironmentDomain()}/coaches/recovery`, {email})
     .then((res) => res.data)
 
   coachVerifyForgotPasswordToken = (token: string) => api
-    .get(`${getUrlEnvironmentDomain()}/recovery/coaches/${token}`)
+    .get(`${getUrlEnvironmentDomain()}/coaches/recovery/${token}`)
     .then((res) => res.data)
 
   coachRecoverForgotPassword = (password: string, token: string) => api
-    .post(`${getUrlEnvironmentDomain()}/recovery/coaches/${token}`, {password})
+    .post(`${getUrlEnvironmentDomain()}/coaches/recovery/${token}`, {password})
     .then((res) => res.data)
 
   coacheeForgotPassword = (email: string) => api

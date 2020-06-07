@@ -1,31 +1,25 @@
-import React, {PureComponent} from 'react'
+import React, {PureComponent, ReactNode} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
 import {H2} from '../../ui/headings'
 import {Para} from '../../ui/labels'
-import HighFiveImg from '../../ui/images/high-five.svg'
 
 import Flex from '../Layout/Flexbox'
-import {Image} from '../Image'
 
-const HEIGHT = 350
-
-const HighFiveImage = Image.attrs({
-  src: HighFiveImg,
-})`
-  height: auto;
-  max-width: 100%;
-  max-height: ${HEIGHT}px;
-`
+import Illustrations from './Illustrations'
 
 interface Props {
   heading: string,
-  text: string
+  text: string,
+  buttonComponent?: ReactNode,
+  type?: 'redirect' | 'default'
 }
 
 class Confirmation extends PureComponent<Props> {
   render() {
-    const {heading, text} = this.props
+    const {
+      heading, text, type, buttonComponent,
+    } = this.props
     return (
       <>
         <Row>
@@ -36,8 +30,13 @@ class Confirmation extends PureComponent<Props> {
             <Para textAlign="center">
               {text}
             </Para>
+            {buttonComponent && (
+              <Flex flexDirection="row" justifyContent="center" marginTop="30px">
+                {buttonComponent}
+              </Flex>
+            )}
             <Flex flexDirection="row" justifyContent="center" marginTop="30px">
-              <HighFiveImage />
+              <Illustrations type={type} />
             </Flex>
           </Col>
         </Row>

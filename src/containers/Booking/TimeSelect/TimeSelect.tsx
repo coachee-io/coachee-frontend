@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react'
 import styled from 'styled-components'
+import {Moment} from 'moment'
 
 import {Button} from '../../../components/Form/styled'
 import Flex, {Col} from '../../../components/Layout/Flexbox'
@@ -21,10 +22,10 @@ const Grid = styled.div`
 `
 
 interface Props {
-  time: any
+  time: any,
   onClick: any,
   availabilityMap: any | null,
-  weekDay: any
+  weekDay: number | null
 }
 
 class TimeSelect extends PureComponent<Props> {
@@ -36,15 +37,16 @@ class TimeSelect extends PureComponent<Props> {
       <Col xs={12}>
         <Flex flexDirection="row" justifyContent="center">
           <Grid>
-            {availabilityMap && availabilityMap[getDayOfTheWeek(weekDay)].map((day: any) => (
+            {availabilityMap && availabilityMap[getDayOfTheWeek(weekDay)].map((day: any, i: number) => (
               <Button
-                key={`${getDayOfTheWeek(weekDay)}-${day.hour}`}
+                key={`${getDayOfTheWeek(weekDay)}-${day.label}-${i}`}
                 onClick={() => onClick(day)}
                 primary
-                selected={time ? time.hour === day.hour : false}
+                hover
+                selected={time ? time.label === day.label : false}
                 width="120px"
               >
-                {`${day.hour}`}
+                {`${day.label}`}
               </Button>
             ))}
           </Grid>

@@ -25,12 +25,12 @@ class WhatIsCoachee extends PureComponent {
           </LI>
           <LI>
             <Para>
-              Relationship coaching
+              Relationship coaching;
             </Para>
           </LI>
           <LI>
             <Para>
-              And financial coaching
+              And financial coaching.
             </Para>
           </LI>
         </UL>

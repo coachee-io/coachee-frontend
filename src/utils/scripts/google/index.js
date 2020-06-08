@@ -1,4 +1,4 @@
-const GoogleAnalyticsID = () => 'UA-153502128-1'
+export const GoogleAnalyticsID = () => 'UA-153502128-1'
 
 const GoogleAnalyticsScript = () => new Promise((resolve, reject) => {
   const script = document.createElement('script')

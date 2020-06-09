@@ -72,6 +72,8 @@ class AboutUs extends PureComponent {
                 <Para>
                   We will pay you up to 72 hours after each booked session,
                   and only after you let us know via email that the session has successfully happened.
+                  Please note that the payment for the first session after the intro call might take slightly longer,
+                  as the processing of the customer’s payment can take up to 7 business days after the intro call.
                   We will take our 15% fee from the total price of the coaching program,
                   and pay you the remaining amount divided by each session.
                 </Para>
@@ -112,8 +114,9 @@ class AboutUs extends PureComponent {
         </Para>
         <Para>
           Payments will be made accordingly up to 72 hours after each completed session to the Coach,
-          unless either the coachee or the coach let us know via email or chat within 12 hours
-          after the session that it did not take place.
+          unless either the coachee or the coach let us know via email or chat within 12 hours after the session that it did not take place.
+          Please note that the payment for the first session after the intro call might take slightly longer,
+          as the processing of the customer’s payment can take up to 7 business days after the intro call.
         </Para>
         <Para>
           1.4. If you have any questions or would like to get in touch with us,

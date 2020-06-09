@@ -37,8 +37,10 @@ class Payments extends PureComponent {
         </Para>
         <Para>
           4.5. All payments will be made from coachee.io to your Stripe account.
-          We will pay you up to 72 hours after each booked session, and
-          only after you let us know via email that the session has successfully happened.
+          We will pay you up to 72 hours after each booked session,
+          and only after you let us know via email that the session has successfully happened.
+          Please note that the payment for the first session after the intro call might take slightly longer,
+          as the processing of the customer’s payment can take up to 7 business days after the intro call.
           We will take our 15% fee from the total price of the coaching program,
           and pay you the remaining amount divided by each session.
         </Para>

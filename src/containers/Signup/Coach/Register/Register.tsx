@@ -54,6 +54,7 @@ class CoachSignup extends PureComponent<Props, State> {
       description: values.description,
       textCertifications: values.textCertifications,
       textPrograms: values.textPrograms,
+      acceptTerms: values.acceptTerms
     }
     await this.setState({isLoading: true, error: null, successful: false})
     CoachesService.createCoach(data)
@@ -95,7 +96,7 @@ class CoachSignup extends PureComponent<Props, State> {
                   textPrograms: '',
                   introCall: null,
                   vat: '',
-                  termsAndConditions: null,
+                  acceptTerms: null,
                 }}
                 onSubmit={this.onSubmit}
                 validationSchema={schema}
@@ -291,10 +292,10 @@ class CoachSignup extends PureComponent<Props, State> {
                             welcome pack after your registration is confirmed.
                           </span>
 )}
-                        name="termsAndConditions"
-                        value={values.termsAndConditions}
-                        error={errors.termsAndConditions && touched.termsAndConditions}
-                        errorMessage={errors.termsAndConditions}
+                        name="acceptTerms"
+                        value={values.acceptTerms}
+                        error={errors.acceptTerms && touched.acceptTerms}
+                        errorMessage={errors.acceptTerms}
                         onChange={handleChange}
                         onBlur={handleBlur}
                         list={termsAndConditions}

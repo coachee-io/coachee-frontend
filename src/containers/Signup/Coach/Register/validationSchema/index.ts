@@ -55,5 +55,6 @@ export default object().shape({
     .nullable(),
   vat: string(),
   acceptTerms: boolean()
-  .oneOf([true], 'You need to accept terms and conditions'),
+    .nullable()
+    .oneOf([true], 'You need to accept terms and conditions'),
 })

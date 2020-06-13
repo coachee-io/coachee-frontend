@@ -54,7 +54,7 @@ class CoachSignup extends PureComponent<Props, State> {
       description: values.description,
       textCertifications: values.textCertifications,
       textPrograms: values.textPrograms,
-      acceptTerms: values.acceptTerms
+      acceptTerms: values.acceptTerms,
     }
     await this.setState({isLoading: true, error: null, successful: false})
     CoachesService.createCoach(data)

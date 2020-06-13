@@ -33,8 +33,8 @@ class StripeRedirect extends PureComponent<Props, State> {
 
   componentDidMount = () => {
     CoachesService.createStripeExpressCoach({
-      authorizationCode: this.getCodeFromParams(), 
-      state: this.getStateFromParams()
+      authorizationCode: this.getCodeFromParams(),
+      state: this.getStateFromParams(),
     })
       .then(() => this.setState({isLoading: false}))
       .catch((error) => {

@@ -13,6 +13,7 @@ export interface CreateCoachRequest {
   textCertifications: string,
   textPrograms: string,
   password: string,
+  acceptTerms: boolean
 }
 
 export interface CreateExpressCoachRequest {

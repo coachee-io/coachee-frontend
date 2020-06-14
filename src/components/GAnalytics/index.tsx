@@ -25,10 +25,12 @@ class GAnalytics extends PureComponent<Props> {
   componentDidUpdate = (prevProps: Props) => {
     const {location: {pathname}} = this.props
     if (prevProps.location.pathname !== pathname) {
-      window.gtag()
-      window.gtag('config', GoogleAnalyticsID(), {
-        page_path: pathname,
-      })
+      if (window?.gtag) {
+        window.gtag()
+        window.gtag('config', GoogleAnalyticsID(), {
+          page_path: pathname,
+        })
+      }
     }
   }
 

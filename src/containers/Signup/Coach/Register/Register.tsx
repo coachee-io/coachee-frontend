@@ -96,7 +96,7 @@ class CoachSignup extends PureComponent<Props, State> {
                   textPrograms: '',
                   introCall: null,
                   vat: '',
-                  acceptTerms: null,
+                  acceptTerms: false,
                 }}
                 onSubmit={this.onSubmit}
                 validationSchema={schema}

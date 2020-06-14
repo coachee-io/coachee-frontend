@@ -80,6 +80,7 @@ class SignUpCoachee extends PureComponent<{}, State> {
       lastName: values.lastName,
       birthDate: parseDateToSeconds(values.birthDate),
       password: values.password,
+      acceptTerms: values.acceptTerms,
     }
     await this.setState({isLoading: true, error: null, successful: false})
     CoacheesService.createCoachee(data)

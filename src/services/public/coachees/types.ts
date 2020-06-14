@@ -3,7 +3,8 @@ export interface CreateCoacheeRequest {
   email: string,
   firstName: string,
   lastName: string,
-  password: string
+  password: string,
+  acceptTerms: boolean
 }
 
 export interface CreateCoacheeResponse {

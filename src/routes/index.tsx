@@ -49,7 +49,7 @@ class Routes extends PureComponent {
           <Route path="/about-us" component={AboutUs} />
           <Route exact path="/become-a-coach" component={CoachOnboarding} />
           <Route path="/become-a-coach/register" component={CoachRegister} />
-          <Route path="/coaches/:id/stripe-redirect" component={CoachStripeRedirect} />
+          <Route path="/coaches/stripe-redirect" component={CoachStripeRedirect} />
           <Route path="/coaches/:category?" component={CoachesCategories} />
           <Route path="/coach/:id" component={CoachProfile} />
           <Route path="/terms-and-conditions" component={TermsAndConditions} />

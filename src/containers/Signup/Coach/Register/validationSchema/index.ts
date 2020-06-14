@@ -1,5 +1,5 @@
 import {
-  string, object, array, number,
+  string, object, boolean, array, number,
 } from 'yup'
 
 
@@ -54,7 +54,7 @@ export default object().shape({
     .required('This is a required field')
     .nullable(),
   vat: string(),
-  termsAndConditions: string()
+  acceptTerms: boolean()
     .nullable()
-    .required('This is a required field'),
+    .oneOf([true], 'You need to accept terms and conditions'),
 })

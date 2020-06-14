@@ -124,7 +124,7 @@ class SignUpCoachee extends PureComponent<{}, State> {
                   confirmPassword: '',
                   aboutUs: '',
                   promotional: false,
-                  terms: false,
+                  acceptTerms: false,
                 }}
                 onSubmit={this.onSubmit}
                 validationSchema={schema}
@@ -236,14 +236,14 @@ class SignUpCoachee extends PureComponent<{}, State> {
                       </Flex>
                       <Checkbox
                         label="I agree to Terms and Conditions"
-                        id="terms"
-                        name="terms"
-                        value={values.terms}
-                        checked={values.terms}
+                        id="acceptTerms"
+                        name="acceptTerms"
+                        value={values.acceptTerms}
+                        checked={values.acceptTerms}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        error={errors.terms && touched.terms}
-                        errorMessage={errors.terms}
+                        error={errors.acceptTerms && touched.acceptTerms}
+                        errorMessage={errors.acceptTerms}
                       />
                       <Flex width="100%" flexDirection="row" justifyContent="center">
                         <SubmitButton

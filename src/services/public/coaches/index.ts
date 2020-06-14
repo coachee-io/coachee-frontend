@@ -21,8 +21,8 @@ class CoachesAPI {
     .post(`${getUrlEnvironmentDomain()}/coaches`, data)
     .then((res) => res.data)
 
-  createStripeExpressCoach = (id: string, data: CreateExpressCoachRequest) => api
-    .post(`${getUrlEnvironmentDomain()}/coaches/${id}/stripe`, data)
+  createStripeExpressCoach = ({authorizationCode, state}: CreateExpressCoachRequest) => api
+    .post(`${getUrlEnvironmentDomain()}/coaches/${state}/stripe`, {authorizationCode})
     .then((res) => res.data)
 }
 

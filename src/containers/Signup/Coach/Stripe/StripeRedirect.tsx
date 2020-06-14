@@ -32,9 +32,10 @@ class StripeRedirect extends PureComponent<Props, State> {
   }
 
   componentDidMount = () => {
-    const {match: {params}} = this.props
-    const {id} = params
-    CoachesService.createStripeExpressCoach(id, {authorizationCode: this.getCodeFromParams()})
+    CoachesService.createStripeExpressCoach({
+      authorizationCode: this.getCodeFromParams(),
+      state: this.getStateFromParams(),
+    })
       .then(() => this.setState({isLoading: false}))
       .catch((error) => {
         if (error && error.response && error.response.status) {
@@ -48,6 +49,11 @@ class StripeRedirect extends PureComponent<Props, State> {
   getCodeFromParams = () => {
     const {location: {search}} = this.props
     return qs.parse(search, {ignoreQueryPrefix: true})?.code
+  }
+
+  getStateFromParams = () => {
+    const {location: {search}} = this.props
+    return qs.parse(search, {ignoreQueryPrefix: true})?.state
   }
 
   render() {

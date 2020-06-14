@@ -31,7 +31,7 @@ const schema = object().shape({
     .notRequired(),
   promotional: boolean()
     .notRequired(),
-  terms: boolean()
+  acceptTerms: boolean()
     .oneOf([true], 'You need to accept terms and conditions'),
 })
 

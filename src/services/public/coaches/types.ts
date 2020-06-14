@@ -16,7 +16,8 @@ export interface CreateCoachRequest {
 }
 
 export interface CreateExpressCoachRequest {
-  authorizationCode: string
+  authorizationCode: string,
+  state: string
 }
 
 export interface GetCoachRequest {

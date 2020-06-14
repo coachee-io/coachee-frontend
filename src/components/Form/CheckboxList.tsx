@@ -48,7 +48,7 @@ class CheckboxList extends PureComponent<Props> {
                   key={item.id}
                   id={item.id}
                   value={item.id}
-                  checked={values[name].includes(item.id as never)}
+                  checked={values[name]?.includes(item.id as never)}
                   name={name}
                   label={item.name}
                   onChange={(e: any) => this.handleChange(e, arrayHelpers)}

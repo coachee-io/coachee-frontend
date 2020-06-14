@@ -9,7 +9,7 @@ import {
 interface List {
   label: string,
   id: string,
-  value: string,
+  value: boolean,
   checked: boolean,
   onChange: any,
   onBlur: any
@@ -22,7 +22,7 @@ interface Props {
   list: List[],
   error: boolean | string | undefined,
   errorMessage: string | undefined,
-  value: any,
+  value: boolean,
   onChange: any,
   onBlur: any
 }

@@ -54,7 +54,7 @@ class CoachSignup extends PureComponent<Props, State> {
       description: values.description,
       textCertifications: values.textCertifications,
       textPrograms: values.textPrograms,
-      acceptTerms: values.acceptTerms,
+      acceptTerms: !!values.acceptTerms, // cast "true" / "false" to their boolean values
     }
     await this.setState({isLoading: true, error: null, successful: false})
     CoachesService.createCoach(data)
@@ -291,7 +291,7 @@ class CoachSignup extends PureComponent<Props, State> {
                             We will include more details in your
                             welcome pack after your registration is confirmed.
                           </span>
-)}
+                        )}
                         name="acceptTerms"
                         value={values.acceptTerms}
                         error={errors.acceptTerms && touched.acceptTerms}

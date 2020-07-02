@@ -1,5 +1,4 @@
 export interface CreateCoacheeRequest {
-  birthDate: number,
   email: string,
   firstName: string,
   lastName: string,

@@ -10,7 +10,6 @@ import {RouterButtonLink } from '../../../components/Routing'
 
 import {
   Form, Checkbox, StyledLabel, StyledSelect, ErrorMessage, ErrorAlertCircle, SubmitButton, Input,
-  DatePicker,
 } from '../../../components/Form'
 import Flex from '../../../components/Layout/Flexbox'
 
@@ -78,7 +77,6 @@ class SignUpCoachee extends PureComponent<{}, State> {
       email: values.email,
       firstName: values.firstName,
       lastName: values.lastName,
-      birthDate: parseDateToSeconds(values.birthDate),
       password: values.password,
       acceptTerms: values.acceptTerms,
     }
@@ -119,7 +117,6 @@ class SignUpCoachee extends PureComponent<{}, State> {
                 initialValues={{
                   firstName: '',
                   lastName: '',
-                  birthDate: null,
                   email: '',
                   password: '',
                   confirmPassword: '',
@@ -159,12 +156,6 @@ class SignUpCoachee extends PureComponent<{}, State> {
                         value={values.lastName}
                         error={errors.lastName && touched.lastName}
                         errorMessage={errors.lastName}
-                      />
-                      <DatePicker
-                        label="Birthday"
-                        id="birthDate"
-                        name="birthDate"
-                        renderMonthElement
                       />
                       <Input
                         label="Email"

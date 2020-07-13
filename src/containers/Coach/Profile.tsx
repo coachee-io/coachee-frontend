@@ -13,14 +13,6 @@ import Header from './Header'
 import Sidebar from './Sidebar'
 import Content from './Content'
 
-const sortCertificationsByMostRecent = (certifications: any[]): any[] => {
-  if (!certifications || certifications.length === 0) {
-    return []
-  }
-
-  return [...certifications].sort((a, b) => b.year - a.year)
-}
-
 const sortAvailability = (availability: any[]): any[] => {
   if (!availability || availability.length === 0) {
     return []
@@ -71,7 +63,7 @@ class CoachProfile extends PureComponent<Props, State> {
       .then((res) => {
         const coach = {
           ...res,
-          certifications: sortCertificationsByMostRecent(res.certifications),
+          certifications: res.certifications,
           availability: sortAvailability(res.availability),
         }
         this.setState({coach})

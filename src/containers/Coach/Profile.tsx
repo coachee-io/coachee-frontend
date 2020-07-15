@@ -10,7 +10,6 @@ import {
 } from '../../services/public/coaches/types'
 
 import Header from './Header'
-import Sidebar from './Sidebar'
 import Content from './Content'
 
 const sortAvailability = (availability: any[]): any[] => {

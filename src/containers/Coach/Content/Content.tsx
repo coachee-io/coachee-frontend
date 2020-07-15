@@ -79,7 +79,7 @@ class Content extends PureComponent<Props> {
                       <Para>
                         {`${program.sessions} sessions of ${program.duration} minutes`}
                       </Para>
-                      <Para>
+                      <Para bold>
                         {`£${formatNumber(program.totalPrice)}`}
                       </Para>
                     </Col>
@@ -105,7 +105,7 @@ class Content extends PureComponent<Props> {
                   </Row>
                   <MediaQuery>
                     {({isDesktop}) => !isDesktop() && (
-                      <Flex flexDirection="row" justifyContent="center" marginTop="15px">
+                      <Flex flexDirection="row" marginTop="15px">
                         <RouterButtonLink
                           margin="0px 0px 8px 0px"
                           to={() => this.handleRedirect(program)}

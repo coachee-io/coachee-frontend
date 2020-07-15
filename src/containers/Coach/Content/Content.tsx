@@ -1,12 +1,13 @@
 import React, {PureComponent, Fragment} from 'react'
+import moment from 'moment'
 import {Row, Col} from 'react-bootstrap'
 
 import MediaQuery from '../../../components/Layout/MediaQuery'
 import Flex from '../../../components/Layout/Flexbox'
-import {Image} from '../../../components/Image'
 import {RouterButtonLink} from '../../../components/Routing'
 
 import {Pulse} from '../../../components/Skeleton'
+import Hr from '../../../components/Hr'
 
 import Auth from '../../../utils/tokens'
 import {formatNumber} from '../../../utils/formatNumber'
@@ -24,16 +25,6 @@ import {Para} from '../../../ui/labels'
 import Rating from '../../../ui/images/star-rating.svg'
 
 import Parser from '../Parser'
-
-import {isMonthPlural} from './helpers'
-
-
-const StarRating = Image.attrs({
-  src: Rating,
-})`
-  height: 24px;
-  width: 24px;
-`
 
 interface Props {
   coach: GetCoachRequest,
@@ -78,33 +69,6 @@ class Content extends PureComponent<Props> {
           <Col xs={12}>
             <Flex flexDirection="column" marginTop="30px">
               <H2>
-                {certifications ? 'Certifications' : <Pulse height={24} />}
-              </H2>
-              {certifications && certifications.map((el, id) => (
-                <Fragment key={`${el}-${id}`}>
-                  <H3>{el.title}</H3>
-                  <Para>
-                    <b>Since:</b>
-                    {' '}
-                    {`${isMonthPlural(el.month)}/${el.year}`}
-                  </Para>
-                  <Para>{el.institution}</Para>
-                </Fragment>
-              ))}
-              {!certifications && (
-                <>
-                  <H3><Pulse height={18} /></H3>
-                  <Para><Pulse height={16} width={300} /></Para>
-                  <Para><Pulse height={16} width={300} /></Para>
-                </>
-              )}
-            </Flex>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12}>
-            <Flex flexDirection="column" marginTop="30px">
-              <H2>
                 {programs ? 'Programmes' : <Pulse height={24} />}
               </H2>
               {programs && programs.map((program, index) => (
@@ -115,19 +79,21 @@ class Content extends PureComponent<Props> {
                       <Para>
                         {`${program.sessions} sessions of ${program.duration} minutes`}
                       </Para>
-                      <Para>
+                      <Para bold>
                         {`£${formatNumber(program.totalPrice)}`}
                       </Para>
                     </Col>
                     <MediaQuery>
                       {({isDesktop}) => isDesktop() && (
                       <Col xs={12} sm={4}>
-                        <RouterButtonLink
-                          to={() => this.handleRedirect(program)}
-                          primary
-                        >
-                          Book a Call
-                        </RouterButtonLink>
+                        <Flex justifyContent="flex-end">
+                          <RouterButtonLink
+                            to={() => this.handleRedirect(program)}
+                            primary
+                          >
+                            Book a Call
+                          </RouterButtonLink>
+                        </Flex>
                       </Col>
                       )}
                     </MediaQuery>
@@ -141,8 +107,9 @@ class Content extends PureComponent<Props> {
                   </Row>
                   <MediaQuery>
                     {({isDesktop}) => !isDesktop() && (
-                      <Flex flexDirection="row" marginTop="15px">
+                      <Flex marginTop="15px">
                         <RouterButtonLink
+                          margin="0px 0px 8px 0px"
                           to={() => this.handleRedirect(program)}
                           primary
                         >
@@ -151,9 +118,36 @@ class Content extends PureComponent<Props> {
                       </Flex>
                     )}
                   </MediaQuery>
+                  <Hr />
                 </Fragment>
               ))}
               {!programs && (
+                <>
+                  <H3><Pulse height={18} /></H3>
+                  <Para><Pulse height={16} width={300} /></Para>
+                  <Para><Pulse height={16} width={300} /></Para>
+                </>
+              )}
+            </Flex>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <Flex flexDirection="column" marginTop="45px">
+              <H2>
+                {certifications ? 'Certifications' : <Pulse height={24} />}
+              </H2>
+              {certifications && certifications.map((el, id) => (
+                <Fragment key={`${el}-${id}`}>
+                  <H3>{el.title}</H3>
+                  <Para>
+                    {`${moment().month(el.month - 1).format('MMMM')} ${el.year}`}
+                  </Para>
+                  <Para>{el.institution}</Para>
+                  <Hr />
+                </Fragment>
+              ))}
+              {!certifications && (
                 <>
                   <H3><Pulse height={18} /></H3>
                   <Para><Pulse height={16} width={300} /></Para>

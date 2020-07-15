@@ -86,12 +86,14 @@ class Content extends PureComponent<Props> {
                     <MediaQuery>
                       {({isDesktop}) => isDesktop() && (
                       <Col xs={12} sm={4}>
-                        <RouterButtonLink
-                          to={() => this.handleRedirect(program)}
-                          primary
-                        >
-                          Book a Call
-                        </RouterButtonLink>
+                        <Flex justifyContent="flex-end">
+                          <RouterButtonLink
+                            to={() => this.handleRedirect(program)}
+                            primary
+                          >
+                            Book a Call
+                          </RouterButtonLink>
+                        </Flex>
                       </Col>
                       )}
                     </MediaQuery>
@@ -105,7 +107,7 @@ class Content extends PureComponent<Props> {
                   </Row>
                   <MediaQuery>
                     {({isDesktop}) => !isDesktop() && (
-                      <Flex flexDirection="row" marginTop="15px">
+                      <Flex justifyContent="flex-end" marginTop="15px">
                         <RouterButtonLink
                           margin="0px 0px 8px 0px"
                           to={() => this.handleRedirect(program)}

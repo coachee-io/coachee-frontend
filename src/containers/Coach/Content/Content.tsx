@@ -107,7 +107,7 @@ class Content extends PureComponent<Props> {
                   </Row>
                   <MediaQuery>
                     {({isDesktop}) => !isDesktop() && (
-                      <Flex justifyContent="flex-end" marginTop="15px">
+                      <Flex marginTop="15px">
                         <RouterButtonLink
                           margin="0px 0px 8px 0px"
                           to={() => this.handleRedirect(program)}

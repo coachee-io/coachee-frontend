@@ -139,7 +139,7 @@ class Content extends PureComponent<Props> {
                 <Fragment key={`${el}-${id}`}>
                   <H3>{el.title}</H3>
                   <Para>
-                    {`${moment().month(el.month - 1)} ${el.year}`}
+                    {`${moment().month(el.month - 1).format('MMMM')} ${el.year}`}
                   </Para>
                   <Para>{el.institution}</Para>
                   <Hr />

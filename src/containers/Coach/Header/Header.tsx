@@ -59,8 +59,8 @@ class Header extends PureComponent<Props> {
     } = this.props
     return (
       <Row>
-        <Col xs={12} md={4}>
-          <Flex flexDirection="column" alignItems="center">
+        <Col xs={12}>
+          <Flex flexDirection="column" justifyContent="center" alignItems="center">
             {pictureUrl ? <CoachImage src={pictureUrl} /> : <Pulse circle height={170} width={170} />}
             <Flex marginTop="15px">
               <H3>
@@ -94,7 +94,7 @@ class Header extends PureComponent<Props> {
             )}
           </Flex>
         </Col>
-        <Col xs={12} md={8}>
+        <Col xs={12}>
           {description ? (
             <Para>
               {Parser(description) || description}

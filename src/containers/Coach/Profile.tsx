@@ -109,13 +109,7 @@ class CoachProfile extends PureComponent<Props, State> {
           </Col>
         </Row>
         <Row>
-          <Col xs={12} md={4}>
-            <Sidebar
-              tags={coach.tags}
-              availability={coach.availability}
-            />
-          </Col>
-          <Col xs={12} md={8}>
+          <Col xs={12}>
             <Content
               coach={coach}
               certifications={coach.certifications}

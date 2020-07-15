@@ -7,7 +7,8 @@ import {LatoBold, BodyFontSizes, BodyFontSizesProps} from '../../ui/fonts'
 export interface RouterLinkProps extends LinkProps, BodyFontSizesProps {
   primary?: boolean,
   accent?: boolean,
-  noUnderline?: boolean
+  noUnderline?: boolean,
+  margin?: string
 }
 
 export interface UnstyledRouterLinkProps extends LinkProps, BodyFontSizesProps {
@@ -141,6 +142,8 @@ export const RouterButtonLink = styled(Link)<RouterLinkProps>`
     background-color: ${colors.accent};
     color: ${colors.black};
   `}
+
+  ${({margin}) => margin && `margin: ${margin};`}
 
   &:hover {
     ${({primary}) => primary && `

@@ -133,7 +133,7 @@ class Content extends PureComponent<Props> {
         </Row>
         <Row>
           <Col xs={12}>
-            <Flex flexDirection="column" marginTop="30px">
+            <Flex flexDirection="column" marginTop="45px">
               <H2>
                 {certifications ? 'Certifications' : <Pulse height={24} />}
               </H2>

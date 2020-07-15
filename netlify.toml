@@ -21,9 +21,8 @@
 
 # Cache control headers
 [[headers]]
-  for = "/static/media"
+  for = "/static/media/*"
   [headers.values]
     cache-control = '''
       public,
-      max-age=604800
-    '''
+      max-age=604800'''

@@ -19,10 +19,17 @@
   to = "/index.html"
   status = 200
 
-# Cache control headers
+# Cache control headers for static media images
 [[headers]]
   for = "/static/media/*"
   [headers.values]
     cache-control = '''
       public,
       max-age=604800'''
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"

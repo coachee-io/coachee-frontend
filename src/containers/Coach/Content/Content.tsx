@@ -4,7 +4,6 @@ import {Row, Col} from 'react-bootstrap'
 
 import MediaQuery from '../../../components/Layout/MediaQuery'
 import Flex from '../../../components/Layout/Flexbox'
-import {Image} from '../../../components/Image'
 import {RouterButtonLink} from '../../../components/Routing'
 
 import {Pulse} from '../../../components/Skeleton'
@@ -106,7 +105,7 @@ class Content extends PureComponent<Props> {
                   </Row>
                   <MediaQuery>
                     {({isDesktop}) => !isDesktop() && (
-                      <Flex flexDirection="row" marginTop="15px">
+                      <Flex flexDirection="row" justifyContent="center" marginTop="15px">
                         <RouterButtonLink
                           margin="0px 0px 8px 0px"
                           to={() => this.handleRedirect(program)}

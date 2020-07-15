@@ -116,9 +116,7 @@ class Content extends PureComponent<Props> {
                       </Flex>
                     )}
                   </MediaQuery>
-                  <Flex justifyContent="center">
-                    <Hr />
-                  </Flex>
+                  <Hr />
                 </Fragment>
               ))}
               {!programs && (
@@ -144,9 +142,7 @@ class Content extends PureComponent<Props> {
                     {`${moment().month(el.month - 1).format('MMMM')} ${el.year}`}
                   </Para>
                   <Para>{el.institution}</Para>
-                  <Flex justifyContent="center">
-                    <Hr />
-                  </Flex>
+                  <Hr />
                 </Fragment>
               ))}
               {!certifications && (

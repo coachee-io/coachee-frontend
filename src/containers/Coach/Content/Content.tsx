@@ -79,14 +79,14 @@ class Content extends PureComponent<Props> {
                       <Para>
                         {`${program.sessions} sessions of ${program.duration} minutes`}
                       </Para>
-                      <Para bold>
-                        {`£${formatNumber(program.totalPrice)}`}
-                      </Para>
                     </Col>
                     <MediaQuery>
                       {({isDesktop}) => isDesktop() && (
                       <Col xs={12} sm={4}>
-                        <Flex justifyContent="flex-end">
+                        <Flex flexDirection="column" justifyContent="space-between" alignItems="flex-end">
+                          <Para bold primaryColor>
+                            {`£${formatNumber(program.totalPrice)}`}
+                          </Para>
                           <RouterButtonLink
                             to={() => this.handleRedirect(program)}
                             primary
@@ -107,7 +107,10 @@ class Content extends PureComponent<Props> {
                   </Row>
                   <MediaQuery>
                     {({isDesktop}) => !isDesktop() && (
-                      <Flex marginTop="15px">
+                      <Flex marginTop="15px" justifyContent="center">
+                        <Para bold primaryColor>
+                          {`£${formatNumber(program.totalPrice)}`}
+                        </Para>
                         <RouterButtonLink
                           margin="0px 0px 8px 0px"
                           to={() => this.handleRedirect(program)}

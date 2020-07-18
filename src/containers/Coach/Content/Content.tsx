@@ -84,7 +84,7 @@ class Content extends PureComponent<Props> {
                       {({isDesktop}) => isDesktop() && (
                       <Col xs={12} sm={4}>
                         <Flex justifyContent="flex-end" marginBottom="15px">
-                          <Flex flexDirection="column" justifyContent="center" width="156px">
+                          <Flex flexDirection="column" alignItems="center" width="156px">
                             <Para bold primaryColor>
                               {`£${formatNumber(program.totalPrice)}`}
                             </Para>
@@ -109,7 +109,7 @@ class Content extends PureComponent<Props> {
                   </Row>
                   <MediaQuery>
                     {({isDesktop}) => !isDesktop() && (
-                      <Flex marginTop="15px" flexDirection="column" justifyContent="center" width="156px">
+                      <Flex marginTop="15px" flexDirection="column" alignItems="center" width="156px">
                         <Para bold primaryColor>
                           {`£${formatNumber(program.totalPrice)}`}
                         </Para>

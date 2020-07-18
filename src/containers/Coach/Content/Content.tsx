@@ -83,16 +83,18 @@ class Content extends PureComponent<Props> {
                     <MediaQuery>
                       {({isDesktop}) => isDesktop() && (
                       <Col xs={12} sm={4}>
-                        <Flex flexDirection="column" justifyContent="space-between" alignItems="flex-end">
-                          <Para bold primaryColor>
-                            {`£${formatNumber(program.totalPrice)}`}
-                          </Para>
-                          <RouterButtonLink
-                            to={() => this.handleRedirect(program)}
-                            primary
-                          >
-                            Book a Call
-                          </RouterButtonLink>
+                        <Flex justifyContent="flex-end" marginBottom="15px">
+                          <Flex flexDirection="column" justifyContent="center" width="156px">
+                            <Para bold primaryColor>
+                              {`£${formatNumber(program.totalPrice)}`}
+                            </Para>
+                            <RouterButtonLink
+                              to={() => this.handleRedirect(program)}
+                              primary
+                            >
+                              Book a Call
+                            </RouterButtonLink>
+                          </Flex>
                         </Flex>
                       </Col>
                       )}
@@ -107,7 +109,7 @@ class Content extends PureComponent<Props> {
                   </Row>
                   <MediaQuery>
                     {({isDesktop}) => !isDesktop() && (
-                      <Flex marginTop="15px" justifyContent="center">
+                      <Flex marginTop="15px" flexDirection="column" justifyContent="center" width="156px">
                         <Para bold primaryColor>
                           {`£${formatNumber(program.totalPrice)}`}
                         </Para>

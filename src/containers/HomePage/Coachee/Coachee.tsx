@@ -7,8 +7,8 @@ import {DivBackgroundImage} from '../../../components/Image'
 import {H1} from '../../../ui/headings'
 import {Para} from '../../../ui/labels'
 
-import certificate from '../../../ui/images/certificate.svg'
-import conversation from '../../../ui/images/conversation.svg'
+import award from '../../../ui/images/award.svg'
+import smile from '../../../ui/images/smile.svg'
 import search from '../../../ui/images/search.svg'
 
 
@@ -26,7 +26,7 @@ class Coachee extends PureComponent {
           </Row>
           <Row>
             <Col xs={12} md={4}>
-              <DivBackgroundImage bgImage={certificate} />
+              <DivBackgroundImage bgImage={award} />
               <Para textAlign="center">
                 All our coaches are
                 <strong> certified</strong>
@@ -34,7 +34,7 @@ class Coachee extends PureComponent {
               </Para>
             </Col>
             <Col xs={12} md={4}>
-              <DivBackgroundImage bgImage={conversation} />
+              <DivBackgroundImage bgImage={smile} />
               <Para textAlign="center">
                 Coaching
                 <strong> works </strong>

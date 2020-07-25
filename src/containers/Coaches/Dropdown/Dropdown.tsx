@@ -3,7 +3,6 @@ import {
   Row, Col, FormGroup, FormLabel, FormControl,
 } from 'react-bootstrap'
 
-
 interface Props {
   onChange: (data: any) => any,
   category: string,
@@ -25,7 +24,7 @@ class Dropdown extends PureComponent<Props> {
                 <option value="health">Health</option>
                 <option value="finance">Finance</option>
                 <option value="relationship">Relationship</option>
-                <option value="nutrition">Nutrition</option>
+                <option value="career">Career</option>
                 <option value="femininity">Femininity</option>
                 <option value="life">Life</option>
               </FormControl>

@@ -70,7 +70,7 @@ class Coaches extends PureComponent<any, State> {
             {categoryMap[category] && (
               <>
                 <H1 textAlign="center">
-                  {`Our ${categoryMap[category].title} Coaches`}
+                  {`${categoryMap[category].title} Coaches`}
                 </H1>
                 <Para bold textAlign="center">
                   {categoryMap[category].description}

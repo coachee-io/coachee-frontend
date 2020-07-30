@@ -144,7 +144,7 @@ class Categories extends PureComponent<Props, State> {
                     {coach.lastName}
                   </CardTitle>
                   <CardText textAlign="center">
-                    {coach.tags.split(',').slice(0, 3).join(', ')}
+                    {coach.cardDescription}
                   </CardText>
                   <CardText textAlign="center">
                     {coach.price}

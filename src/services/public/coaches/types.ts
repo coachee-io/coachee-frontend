@@ -27,6 +27,7 @@ export interface GetCoachRequest {
   lastName: string,
   tags: string,
   description: string,
+  cardDescription: string,
   city: string,
   country: string,
   pictureURL: string,

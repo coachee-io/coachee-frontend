@@ -28,7 +28,8 @@ class Categories extends PureComponent {
                 <Card>
                   <CardImage
                     src={category.imgSrc}
-                    alt="Coach"
+                    alt={category.title}
+                    borderRadius="5px 5px 0px 0px"
                   />
                   <CardBody padding="1rem">
                     <CardTitle>

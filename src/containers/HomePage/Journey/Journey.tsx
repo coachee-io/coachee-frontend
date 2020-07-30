@@ -28,7 +28,8 @@ const JourneyListText = [
     text: 'Your coach will approve your booking and be in touch with you to confirm your intro call.',
   },
   {
-    text: 'If you are not happy after you intro call, let us know within 12 hours for a full refund.',
+    text: `If you are not happy after your intro call, let us know within 12 hours and we will cancel your transaction, 
+    no questions asked.`,
   },
   {
     text: 'Otherwise, be open-minded, attend your sessions and embrace the changes!',

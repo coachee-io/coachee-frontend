@@ -157,10 +157,11 @@ class BookingForm extends PureComponent<Props, State> {
                   <Row marginTop="15px">
                     <Col xs={12}>
                       <Para bold>
-                        Upon booking, your card will not be charged.
-                        We will charge the full price of the programme 12 hours after your intro call,
-                        {' '}
-                        unless you tell us that you do not wish to proceed.
+                        Upon booking, we request a temporary hold on your account for the total
+                        amount of your purchase, but no payment will be taken.
+                        If you do not wish to proceed after your intro call, let us know up to
+                        12 hours after by emailing admin@coachee.io and
+                        we will cancel your booking, no questions asked.
                       </Para>
                     </Col>
                   </Row>

@@ -44,7 +44,7 @@ class Categories extends PureComponent<Props, State> {
 
   componentDidMount = async () => {
     await this.setState({isLoading: true})
-    setTimeout(this.getCoaches, 500)
+    this.getCoaches()
   }
 
   componentDidUpdate = async (prevProps: any) => {
@@ -52,7 +52,7 @@ class Categories extends PureComponent<Props, State> {
     /* eslint-disable react/no-did-update-set-state */
     if (category !== prevProps.category) {
       await this.setState({isLoading: true, coaches: [], error: null})
-      setTimeout(this.getNewCoaches, 500)
+      this.getNewCoaches()
     }
     /* eslint-enable react/no-did-update-set-state */
   }
@@ -144,7 +144,7 @@ class Categories extends PureComponent<Props, State> {
                     {coach.lastName}
                   </CardTitle>
                   <CardText textAlign="center">
-                    {coach.tags.split(',').slice(0, 3).join(', ')}
+                    {coach.cardDescription}
                   </CardText>
                   <CardText textAlign="center">
                     {coach.price}

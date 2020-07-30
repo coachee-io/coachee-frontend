@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const HEIGHT = 190
+const HEIGHT = 80
 
 interface ImageProps {
   bgImage: string,

@@ -1,54 +1,57 @@
-import HealthImg from '../../../../ui/images/health-category.jpg'
-import NutritionImg from '../../../../ui/images/nutrition-category.jpg'
-import LifeImg from '../../../../ui/images/life-category.jpg'
-import FeminityImg from '../../../../ui/images/femininity-category.jpg'
-import FinancialImg from '../../../../ui/images/financial-category.jpg'
-import RelationshipImg from '../../../../ui/images/relationship-category.jpg'
+import HealthImg from '../../../../ui/images/health-category-coach.jpg'
+import CareerImg from '../../../../ui/images/career-category-coach.jpg'
+import LifeImg from '../../../../ui/images/life-category-coach.jpg'
+import FeminityImg from '../../../../ui/images/femininity-category-coach.jpg'
+import FinanceImg from '../../../../ui/images/finance-category-coach.jpg'
+import RelationshipImg from '../../../../ui/images/relationship-category-coach.jpg'
 
-const list: any = [
-  {
-    url: '/coaches/health',
-    imgSrc: HealthImg,
-    title: 'Health',
-    description: `Achieve a happier, healthier life by understanding 
-    why you make certain choices and
-     changing your habits regarding food, exercise, stress levels and wellbeing.`,
-  },
-  {
-    url: '/coaches/nutrition',
-    imgSrc: NutritionImg,
-    title: 'Nutrition',
-    description: `Improve your relationship with food by going deeper 
-    into the reasons why you feel this way, how it is impacting your 
-    life and what you can do to feel fulfilled and free again.`,
-  },
+interface Category {
+  url: string,
+  imgSrc: string,
+  title: string,
+  description: string
+}
+
+const list: Category[] = [
   {
     url: '/coaches/life',
     imgSrc: LifeImg,
     title: 'Life',
-    description: `If you want to improve a specific area of your life or need advice 
-      and support to reach your goals and ambitions,
-     your life coach will support you by tapping into your strengths and potential.`,
+    description: `Improve any area of your life with the guidance 
+    and support of your coach so you can reach your goals.`,
   },
+  {
+    url: '/coaches/health',
+    imgSrc: HealthImg,
+    title: 'Health',
+    description: `Achieve a happier, healthier life through understanding how to 
+    make better choices and changing your habits around food, fitness, stress levels and your wellbeing.`,
+  },
+  {
+    url: '/coaches/career',
+    imgSrc: CareerImg,
+    title: 'Career',
+    description: 'Identify and achieve your career ambitions with confidence through the guidance and advice of your coach.',
+  },
+
   {
     url: '/coaches/femininity',
     imgSrc: FeminityImg,
     title: 'Femininity',
-    description: `If you feel there is a lack of balance in your relationships, 
-    your work and your time off, or how you show your sexuality, your coach can help you.`,
+    description: `Find the right path and balance in your life as a woman and 
+    learn how to better navigate difficult situations and relationships.`,
   },
   {
     url: '/coaches/finance',
-    imgSrc: FinancialImg,
+    imgSrc: FinanceImg,
     title: 'Finance',
-    description: 'Improve your relationship with money by understanding how to make better financial choices.',
+    description: 'Learn how to make better financial decisions and deal with the emotions and beliefs you have around money.',
   },
   {
     url: '/coaches/relationship',
     imgSrc: RelationshipImg,
     title: 'Relationship',
-    description: `If you’re single and looking for love, married and you want to improve your valuable relationship, 
-    or divorced and want to start a new chapter in your life, a relationship coach can help you.`,
+    description: 'Move forward with your life by understanding the practical steps you can take to improve your relationships.',
   },
 ]
 

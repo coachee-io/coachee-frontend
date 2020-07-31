@@ -12,6 +12,9 @@ export const IframeContainer = styled.div`
   padding-top: 35px;
   height: 0;
   overflow: hidden;
+  ${minWidthSize.tablet`
+    width: 560px;
+  `}
 `
 /**
  * <iframe id="ytplayer" type="text/html" width="640" height="360"

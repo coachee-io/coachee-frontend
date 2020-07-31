@@ -119,7 +119,6 @@ class Header extends PureComponent<Props> {
               <IframeContainer>
                 <Iframe
                   src={videoURL}
-                  frameborder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 />

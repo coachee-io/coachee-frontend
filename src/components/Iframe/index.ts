@@ -28,6 +28,7 @@ export const Iframe = styled.iframe`
   left: 0;
   width: 100%;
   height: 100%;
+  border-width: 0px;
   ${minWidthSize.tablet`
     width: 560px;
     height: 340px;

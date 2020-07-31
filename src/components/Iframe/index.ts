@@ -14,7 +14,6 @@ export const Iframe = styled.iframe``
 export const IframeContainer = styled.div`
   position: relative; 
   padding-bottom: 56.25%; 
-  height: 0; 
   overflow: hidden;
   max-width: 100%;
 

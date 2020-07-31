@@ -8,9 +8,10 @@ import {
  */
 export const IframeContainer = styled.div`
   position: relative;
-  height: 0;
-  overflow: hidden;
+  height: 100%;
+  width: 100%;
   ${minWidthSize.tablet`
+    height: 360px;
     width: 560px;
   `}
 `

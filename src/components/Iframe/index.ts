@@ -18,6 +18,7 @@ export const IframeContainer = styled.div`
   max-width: 100%;
 
   ${Iframe} {
+    display: block;
     border: 0;
     position: absolute;
     top:0;

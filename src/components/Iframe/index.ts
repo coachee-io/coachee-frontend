@@ -17,6 +17,7 @@ export const Iframe = styled.iframe``
 export const IframeContainer = styled.div`
   overflow: hidden;
   position: relative;
+  padding-bottom: 56.25%;
   ${minWidthSize.tablet`
     height: 360px;
     width: 560px;
@@ -29,9 +30,5 @@ export const IframeContainer = styled.div`
     left: 0;
     position: absolute;
     top: 0;
-    ${minWidthSize.tablet`
-      width: 560px;
-      height: 340px;
-    `}
   }
 `

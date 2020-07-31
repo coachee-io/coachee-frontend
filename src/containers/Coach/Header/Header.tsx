@@ -115,7 +115,7 @@ class Header extends PureComponent<Props> {
         </Col>
         {videoURL && (
           <Col xs={12}>
-            <Flex justifyContent="center">
+            <Flex justifyContent="center" marginTop="15px">
               <IframeContainer>
                 <Iframe
                   src={videoURL}

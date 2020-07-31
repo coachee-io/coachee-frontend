@@ -12,12 +12,11 @@ export const Iframe = styled.iframe``
  * https://alistapart.com/article/creating-intrinsic-ratios-for-video/
  */
 export const IframeContainer = styled.div`
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 35px;
-  height: 0;
-  border: 0;
+  position: relative; 
+  padding-bottom: 56.25%; 
+  height: 0; 
   overflow: hidden;
+  max-width: 100%;
 
   ${Iframe} {
     border: 0;

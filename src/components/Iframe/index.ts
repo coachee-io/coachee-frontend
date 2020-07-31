@@ -8,8 +8,6 @@ import {
  */
 export const IframeContainer = styled.div`
   position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 35px;
   height: 0;
   overflow: hidden;
   ${minWidthSize.tablet`

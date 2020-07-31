@@ -7,9 +7,9 @@ import {
  * https://alistapart.com/article/creating-intrinsic-ratios-for-video/
  */
 export const IframeContainer = styled.div`
+  overflow: hidden;
+  padding-top: 56.25%;
   position: relative;
-  height: 100%;
-  width: 100%;
   ${minWidthSize.tablet`
     height: 360px;
     width: 560px;
@@ -22,12 +22,12 @@ export const IframeContainer = styled.div`
  */
 
 export const Iframe = styled.iframe`
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
+  border: 0;
   height: 100%;
-  border-width: 0px;
+  width: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
   ${minWidthSize.tablet`
     width: 560px;
     height: 340px;

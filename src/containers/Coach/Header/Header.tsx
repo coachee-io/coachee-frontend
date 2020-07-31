@@ -118,8 +118,8 @@ class Header extends PureComponent<Props> {
             <Flex justifyContent="center" marginTop="15px">
               <IframeContainer>
                 <Iframe
-                  height="360px"
-                  width="560px"
+                  height="360"
+                  width="560"
                   src={videoURL}
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

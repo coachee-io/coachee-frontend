@@ -6,7 +6,15 @@ import styled from 'styled-components'
  * frameborder="0"></iframe>
  */
 
-export const Iframe = styled.iframe``
+export const Iframe = styled.iframe`
+  display: block;
+  border: 0;
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`
 
 /**
  * https://alistapart.com/article/creating-intrinsic-ratios-for-video/
@@ -16,14 +24,4 @@ export const IframeContainer = styled.div`
   padding-bottom: 56.25%; 
   overflow: hidden;
   max-width: 100%;
-
-  ${Iframe} {
-    display: block;
-    border: 0;
-    position: absolute;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
 `

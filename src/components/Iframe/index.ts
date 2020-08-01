@@ -32,5 +32,6 @@ export const IframeContainer = styled.div`
   ${minWidthSize.tablet`
     width: 560px;
     height: 315px;
+    padding-bottom: 0; 
   `}
 `

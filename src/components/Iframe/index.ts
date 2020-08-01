@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+import {
+  minWidthSize,
+} from '../../ui/global/mediaQuery'
+
 /**
  * <iframe id="ytplayer" type="text/html" width="640" height="360"
  * src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
@@ -23,5 +27,10 @@ export const IframeContainer = styled.div`
   position: relative; 
   padding-bottom: 56.25%; 
   overflow: hidden;
-  max-width: 100%;
+  width: 100%;
+
+  ${minWidthSize.tablet`
+    width: 560px;
+    height: 315px;
+  `}
 `

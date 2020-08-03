@@ -7,6 +7,7 @@ import {Image} from '../../../components/Image'
 import {RouterLink} from '../../../components/Routing'
 
 import {Pulse} from '../../../components/Skeleton'
+import {Iframe, IframeContainer} from '../../../components/Iframe'
 
 import FeatureFlags from '../../../utils/featureFlags'
 
@@ -41,7 +42,8 @@ interface Props {
   shortDescription: string,
   averageReviews: number,
   numberOfReviews: number,
-  pictureUrl: string | undefined
+  pictureUrl?: string,
+  videoURL?: string
 }
 
 class Header extends PureComponent<Props> {
@@ -56,6 +58,7 @@ class Header extends PureComponent<Props> {
       averageReviews,
       numberOfReviews,
       pictureUrl,
+      videoURL,
     } = this.props
     return (
       <Row>
@@ -67,15 +70,9 @@ class Header extends PureComponent<Props> {
                 {firstName && lastName ? `${firstName} ${lastName}` : <Pulse height={18} width={150} />}
               </H1>
             </Flex>
-            {/* <Para textAlign="center">
-              {shortDescription || <Pulse height={18} width={150} />}
-            </Para> */}
             <H3 textAlign="center">
               {city && country ? `${city}, ${country}` : <Pulse height={18} width={150} />}
             </H3>
-            {/* <Para textAlign="center">
-              {vatNo ? `VAT No.: ${vatNo}` : <Pulse height={18} width={150} />}
-            </Para> */}
             {FeatureFlags.isFeatureEnabled('reviewsEnabled') && (
               <>
                 <Para>
@@ -116,6 +113,19 @@ class Header extends PureComponent<Props> {
             </>
           )}
         </Col>
+        {videoURL && (
+          <Col xs={12}>
+            <Flex justifyContent="center" marginTop="15px">
+              <IframeContainer>
+                <Iframe
+                  src={videoURL}
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </IframeContainer>
+            </Flex>
+          </Col>
+        )}
       </Row>
     )
   }

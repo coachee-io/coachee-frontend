@@ -104,6 +104,7 @@ class CoachProfile extends PureComponent<Props, State> {
               shortDescription={coach.shortDescription}
               averageReviews={coach.averageReviews}
               numberOfReviews={coach.numberOfReviews}
+              videoURL={coach.videoURL}
             />
           </Col>
         </Row>

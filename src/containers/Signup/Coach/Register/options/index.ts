@@ -20,7 +20,7 @@ export const coachingCategories: ICoachingCategory[] = [
     id: 'finance', name: 'Financial coaching',
   },
   {
-    id: 'nutrition', name: 'Nutrition coaching',
+    id: 'career', name: 'Career coaching',
   },
 ]
 

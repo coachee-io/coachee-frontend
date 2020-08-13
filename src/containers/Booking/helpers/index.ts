@@ -8,6 +8,8 @@ const isMinutesPlural = (value: number): string => (value > 10 ? `${value}` : `$
 
 const timeToLabel = (start: string, end: string) => `${start}-${end}`
 
+const getTomorrow = (): number => moment().add(1, 'day').day()
+
 export const createTimeRanges = (start: number, end: number, firstCallDuration = 30) => {
   const timeRanges: any[] = []
 
@@ -83,7 +85,8 @@ export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
     const weekDayDate = week.clone().add(j, 'day')
     const isWeekDayDateGreaterThanToday = parseInt(today.format('x'), 10) < parseInt(weekDayDate.format('x'), 10)
     const isSameDay = availableDays.some((day) => weekDayDate.weekday() === parseInt(day, 10))
-    if (isWeekDayDateGreaterThanToday && isSameDay) {
+    const isTomorrow = availableDays.some((day) => parseInt(day, 10) === getTomorrow())
+    if (isWeekDayDateGreaterThanToday && isSameDay && !isTomorrow) {
       weekDates.push(weekDayDate)
     }
   }
@@ -138,7 +141,11 @@ export const isDayBlocked = (date: Moment, availableDays: number[] | null) => {
   // }
 
   // Otherwise, block any other unavailable day
-  const found = availableDays.some((availableDay: number) => moment(date).day() === availableDay)
+  const found = availableDays.find((availableDay: number) => moment(date).day() === availableDay)
+
+  if (found && found === getTomorrow()) {
+    return true
+  }
 
   if (found) {
     return false

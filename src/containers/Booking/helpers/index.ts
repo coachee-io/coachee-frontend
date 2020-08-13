@@ -8,8 +8,6 @@ const isMinutesPlural = (value: number): string => (value > 10 ? `${value}` : `$
 
 const timeToLabel = (start: string, end: string) => `${start}-${end}`
 
-const getTomorrow = (): number => moment().add(1, 'day').day()
-
 export const createTimeRanges = (start: number, end: number, firstCallDuration = 30) => {
   const timeRanges: any[] = []
 
@@ -85,20 +83,15 @@ export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
     const weekDayDate = week.clone().add(j, 'day')
     const isWeekDayDateGreaterThanToday = parseInt(today.format('x'), 10) < parseInt(weekDayDate.format('x'), 10)
     const isSameDay = availableDays.some((day) => weekDayDate.weekday() === parseInt(day, 10))
-    // const isTomorrow = availableDays.some((day) => parseInt(day, 10) === getTomorrow())
     if (isWeekDayDateGreaterThanToday && isSameDay) {
       weekDates.push(weekDayDate)
     }
   }
 
-  // /**
-  //  * Check if the first day of the week is tomorrow,
-  //  * if it is, we want to get the very next week day date.
-  //  * */
-  // if (weekDates[0].day() === moment().add(1, 'd').day() && weekDates.length > 0) {
-  //   return weekDates[1]
-  // }
-  console.log(weekDates.map((date) => moment(date).day()))
+  console.log(today, week, availableDays)
+
+  weekDates.forEach((date) => console.log(date))
+
   return weekDates[0]
 }
 
@@ -130,7 +123,7 @@ export function createDateFromHoursAndMinutes(date: Moment | null, hour: number,
   }).format('x'), 10)
 }
 
-export const isDayBlocked = (date: Moment, availableDays: number[] | null) => {
+export const isDayBlocked = (date: any, availableDays: number[] | null) => {
   if (!availableDays) {
     return false
   }

@@ -65,8 +65,7 @@ export function createDateHashMap(availability: GetCoachAvailabilityRequest[], f
 /**
  * Find first available day
  * Conditions:
- * Can't be before or today
- * If
+ * Can't be before today, today nor tomorrow
  */
 
 export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
@@ -87,10 +86,6 @@ export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
       weekDates.push(weekDayDate)
     }
   }
-
-  console.log(today, week, availableDays)
-
-  weekDates.forEach((date) => console.log(date))
 
   return weekDates[0]
 }

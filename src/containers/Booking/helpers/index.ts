@@ -85,8 +85,8 @@ export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
     const weekDayDate = week.clone().add(j, 'day')
     const isWeekDayDateGreaterThanToday = parseInt(today.format('x'), 10) < parseInt(weekDayDate.format('x'), 10)
     const isSameDay = availableDays.some((day) => weekDayDate.weekday() === parseInt(day, 10))
-    const isTomorrow = availableDays.some((day) => parseInt(day, 10) === getTomorrow())
-    if (isWeekDayDateGreaterThanToday && isSameDay && !isTomorrow) {
+    // const isTomorrow = availableDays.some((day) => parseInt(day, 10) === getTomorrow())
+    if (isWeekDayDateGreaterThanToday && isSameDay) {
       weekDates.push(weekDayDate)
     }
   }
@@ -98,7 +98,7 @@ export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
   // if (weekDates[0].day() === moment().add(1, 'd').day() && weekDates.length > 0) {
   //   return weekDates[1]
   // }
-
+  console.log(weekDates.map((date) => moment(date).day()))
   return weekDates[0]
 }
 

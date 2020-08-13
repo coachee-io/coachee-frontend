@@ -88,6 +88,14 @@ export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
     }
   }
 
+  /**
+   * Check if the first day of the week is tomorrow,
+   * if it is, we want to get the very next week day date.
+   * */
+  if (weekDates[0].day() === moment().add(1, 'd').day() && weekDates.length > 0) {
+    return weekDates[1]
+  }
+
   return weekDates[0]
 }
 

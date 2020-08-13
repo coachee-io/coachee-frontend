@@ -119,11 +119,17 @@ export function createDateFromHoursAndMinutes(date: Moment | null, hour: number,
   }).format('x'), 10)
 }
 
-export const isDayBlocked = (date: any, availableDays: number[] | null) => {
+export const isDayBlocked = (date: Moment, availableDays: number[] | null) => {
   if (!availableDays) {
     return false
   }
 
+  // Block tomorrow / next 24 hours
+  if (moment(date).day() === moment().add(1, 'd').day()) {
+    return true
+  }
+
+  // Otherwise, block any other unavailable day
   const found = availableDays.some((availableDay: number) => moment(date).day() === availableDay)
 
   if (found) {

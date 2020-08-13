@@ -88,13 +88,13 @@ export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
     }
   }
 
-  /**
-   * Check if the first day of the week is tomorrow,
-   * if it is, we want to get the very next week day date.
-   * */
-  if (weekDates[0].day() === moment().add(1, 'd').day() && weekDates.length > 0) {
-    return weekDates[1]
-  }
+  // /**
+  //  * Check if the first day of the week is tomorrow,
+  //  * if it is, we want to get the very next week day date.
+  //  * */
+  // if (weekDates[0].day() === moment().add(1, 'd').day() && weekDates.length > 0) {
+  //   return weekDates[1]
+  // }
 
   return weekDates[0]
 }
@@ -132,10 +132,10 @@ export const isDayBlocked = (date: Moment, availableDays: number[] | null) => {
     return false
   }
 
-  // Block tomorrow / next 24 hours
-  if (moment(date).day() === moment().add(1, 'd').day()) {
-    return true
-  }
+  // // Block tomorrow / next 24 hours
+  // if (moment(date).day() === moment().add(1, 'd').day()) {
+  //   return true
+  // }
 
   // Otherwise, block any other unavailable day
   const found = availableDays.some((availableDay: number) => moment(date).day() === availableDay)

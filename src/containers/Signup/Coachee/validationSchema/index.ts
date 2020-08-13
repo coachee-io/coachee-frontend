@@ -24,9 +24,9 @@ const schema = object().shape({
     .test('passwords-match', "Passwords don't match", function passwordMatch(value) {
       return this.parent.password === value
     }),
-  hearAboutUs: string()
+  reason: string()
     .notRequired(),
-  promotional: boolean()
+  newsletter: boolean()
     .notRequired(),
   acceptTerms: boolean()
     .oneOf([true], 'You need to accept terms and conditions'),

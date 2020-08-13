@@ -16,7 +16,6 @@ import Flex from '../../../components/Layout/Flexbox'
 import {H2} from '../../../ui/headings'
 
 import {CoacheesService} from '../../../services/public'
-import {parseDateToSeconds} from '../../../utils/parseDate/parseDate'
 
 import schema from './validationSchema'
 
@@ -79,6 +78,8 @@ class SignUpCoachee extends PureComponent<{}, State> {
       lastName: values.lastName,
       password: values.password,
       acceptTerms: values.acceptTerms,
+      reason: values.reason,
+      newsletter: values.newsletter,
     }
     await this.setState({isLoading: true, error: null, successful: false})
     CoacheesService.createCoachee(data)
@@ -120,8 +121,8 @@ class SignUpCoachee extends PureComponent<{}, State> {
                   email: '',
                   password: '',
                   confirmPassword: '',
-                  aboutUs: '',
-                  promotional: false,
+                  reason: '',
+                  newsletter: false,
                   acceptTerms: false,
                 }}
                 onSubmit={this.onSubmit}
@@ -193,10 +194,10 @@ class SignUpCoachee extends PureComponent<{}, State> {
                       <StyledLabel htmlFor="hearAboutUs">How did you hear about us?</StyledLabel>
                       <StyledSelect
                         id="hearAboutUs"
-                        name="aboutUs"
+                        name="reason"
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.aboutUs}
+                        value={values.reason}
                       >
                         {options.map((option) => (
                           <option key={option.label} value={option.value}>
@@ -204,9 +205,9 @@ class SignUpCoachee extends PureComponent<{}, State> {
                           </option>
                         ))}
                       </StyledSelect>
-                      {errors.aboutUs && touched.aboutUs && (
+                      {errors.reason && touched.reason && (
                       <ErrorMessage>
-                        {errors.aboutUs}
+                        {errors.reason}
                         {' '}
                         <ErrorAlertCircle />
                       </ErrorMessage>
@@ -218,10 +219,10 @@ class SignUpCoachee extends PureComponent<{}, State> {
                       >
                         <Checkbox
                           label="Receive news and promotional emails"
-                          id="promotional"
-                          name="promotional"
-                          value={values.promotional}
-                          checked={values.promotional}
+                          id="newsletter"
+                          name="newsletter"
+                          value={values.newsletter}
+                          checked={values.newsletter}
                           onChange={handleChange}
                           onBlur={handleBlur}
                         />

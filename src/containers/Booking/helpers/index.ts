@@ -135,17 +135,7 @@ export const isDayBlocked = (date: Moment, availableDays: number[] | null) => {
     return false
   }
 
-  // // Block tomorrow / next 24 hours
-  // if (moment(date).day() === moment().add(1, 'd').day()) {
-  //   return true
-  // }
-
-  // Otherwise, block any other unavailable day
-  const found = availableDays.find((availableDay: number) => moment(date).day() === availableDay)
-
-  if (found && found === getTomorrow()) {
-    return true
-  }
+  const found = availableDays.some((availableDay: number) => moment(date).day() === availableDay)
 
   if (found) {
     return false

@@ -10,8 +10,6 @@ const timeToLabel = (start: string, end: string) => `${start}-${end}`
 
 const getTomorrowDateInMs = moment().add(1, 'day').format('x')
 
-const getTodayInMs = moment().format('x')
-
 export const createTimeRanges = (start: number, end: number, firstCallDuration = 30) => {
   const timeRanges: any[] = []
 

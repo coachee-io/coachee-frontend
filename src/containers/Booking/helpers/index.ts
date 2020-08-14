@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import moment, {Moment} from 'moment'
 import {
   GetCoachAvailabilityRequest,

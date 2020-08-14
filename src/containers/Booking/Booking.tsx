@@ -156,7 +156,7 @@ class Booking extends PureComponent<Props, State> {
     return null
   }
 
-  isOutsideRange = (day: Moment) => moment().diff(day) > 0 || day.isSame(moment(), 'day') || day.isSame(moment().add(1), 'day')
+  isOutsideRange = (day: Moment) => moment().diff(day) > 0 || day.isSame(moment(), 'day') || day.isSame(moment().add(1, 'day'), 'day')
 
   render() {
     const {

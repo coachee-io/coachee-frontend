@@ -131,10 +131,12 @@ export const isDayBlocked = (date: Moment, availableDays: number[] | null) => {
    * There is a bug in react-dates where the library still allows for click events on a blocked but available day date
    * This should disable it in outside range controller
    */
+  console.log('today:', parseInt(date.format('x'), 10) === parseInt(getTodayInMs(), 10))
   if (parseInt(date.format('x'), 10) === parseInt(getTodayInMs(), 10)) {
     return true
   }
 
+  console.log('tomorrow:', date.format('x'), getTomorrowDateInMs(), parseInt(date.format('x'), 10) === parseInt(getTomorrowDateInMs(), 10))
   // If day is tomorrow, we want to block it to not allow any calls
   if (parseInt(date.format('x'), 10) === parseInt(getTomorrowDateInMs(), 10)) {
     return true

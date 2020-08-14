@@ -8,6 +8,8 @@ const isMinutesPlural = (value: number): string => (value > 10 ? `${value}` : `$
 
 const timeToLabel = (start: string, end: string) => `${start}-${end}`
 
+const getTomorrowDateInMs = moment().add(1, 'day').format('x')
+
 export const createTimeRanges = (start: number, end: number, firstCallDuration = 30) => {
   const timeRanges: any[] = []
 
@@ -65,8 +67,7 @@ export function createDateHashMap(availability: GetCoachAvailabilityRequest[], f
 /**
  * Find first available day
  * Conditions:
- * Can't be before or today
- * If
+ * Can't be before today, today nor tomorrow
  */
 
 export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
@@ -75,15 +76,15 @@ export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
   }
 
   const availableDays = Object.keys(weekDayMap).map((key: any) => Weekdays[key])
-  const today = moment()
   const week = moment().utc().startOf('week')
   const weekDates: Moment[] = []
 
   for (let j = 0; j <= 13; j++) {
     const weekDayDate = week.clone().add(j, 'day')
-    const isWeekDayDateGreaterThanToday = parseInt(today.format('x'), 10) < parseInt(weekDayDate.format('x'), 10)
-    const isSameDay = availableDays.some((day) => weekDayDate.weekday() === parseInt(day, 10))
-    if (isWeekDayDateGreaterThanToday && isSameDay) {
+    const isWeekDayDateGreaterThanTomorrow = parseInt(getTomorrowDateInMs, 10) < parseInt(weekDayDate.format('x'), 10)
+    const isSameWeekDay = availableDays.some((day) => weekDayDate.weekday() === parseInt(day, 10))
+
+    if (isWeekDayDateGreaterThanTomorrow && isSameWeekDay) {
       weekDates.push(weekDayDate)
     }
   }
@@ -119,7 +120,7 @@ export function createDateFromHoursAndMinutes(date: Moment | null, hour: number,
   }).format('x'), 10)
 }
 
-export const isDayBlocked = (date: any, availableDays: number[] | null) => {
+export const isDayBlocked = (date: Moment, availableDays: number[] | null) => {
   if (!availableDays) {
     return false
   }

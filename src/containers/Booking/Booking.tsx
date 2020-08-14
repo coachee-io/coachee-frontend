@@ -156,6 +156,8 @@ class Booking extends PureComponent<Props, State> {
     return null
   }
 
+  isOutsideRange = (day: Moment) => moment().diff(day) > 0 || day.isSame(moment(), 'day') || day.isSame(moment().add(1, 'day'), 'day')
+
   render() {
     const {
       step,
@@ -195,7 +197,7 @@ class Booking extends PureComponent<Props, State> {
                   onDateChange={this.handleDateChange}
                   enableOutsideDays
                   isDayBlocked={(day) => isDayBlocked(day, allAvailableDays)}
-                  isOutsideRange={(day) => moment().diff(day) > 0}
+                  isOutsideRange={this.isOutsideRange}
                   onFocusChange={({focused}: {focused: boolean | null}) => this.handleFocusChange(focused)}
                   numberOfMonths={1}
                   hideKeyboardShortcutsPanel

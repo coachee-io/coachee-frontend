@@ -9,9 +9,9 @@ const isMinutesPlural = (value: number): string => (value > 10 ? `${value}` : `$
 
 const timeToLabel = (start: string, end: string) => `${start}-${end}`
 
-const getTomorrowDateInMs = () => moment().add(1, 'day').format('x')
+const getTomorrowDateInMs = moment().add(1, 'day').format('x')
 
-const getTodayInMs = () => moment().format('x')
+const getTodayInMs = moment().format('x')
 
 export const createTimeRanges = (start: number, end: number, firstCallDuration = 30) => {
   const timeRanges: any[] = []
@@ -84,7 +84,7 @@ export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
 
   for (let j = 0; j <= 13; j++) {
     const weekDayDate = week.clone().add(j, 'day')
-    const isWeekDayDateGreaterThanTomorrow = parseInt(getTomorrowDateInMs(), 10) < parseInt(weekDayDate.format('x'), 10)
+    const isWeekDayDateGreaterThanTomorrow = parseInt(getTomorrowDateInMs, 10) < parseInt(weekDayDate.format('x'), 10)
     const isSameWeekDay = availableDays.some((day) => weekDayDate.weekday() === parseInt(day, 10))
 
     if (isWeekDayDateGreaterThanTomorrow && isSameWeekDay) {
@@ -132,14 +132,14 @@ export const isDayBlocked = (date: Moment, availableDays: number[] | null) => {
    * There is a bug in react-dates where the library still allows for click events on a blocked but available day date
    * This should disable it in outside range controller
    */
-  console.log('today:', parseInt(date.format('x'), 10) === parseInt(getTodayInMs(), 10))
-  if (parseInt(date.format('x'), 10) === parseInt(getTodayInMs(), 10)) {
+  console.log('today:', parseInt(date.format('x'), 10) === parseInt(getTodayInMs, 10))
+  if (parseInt(date.format('x'), 10) === parseInt(getTodayInMs, 10)) {
     return true
   }
 
-  console.log('tomorrow:', date.format('x'), getTomorrowDateInMs(), parseInt(date.format('x'), 10) === parseInt(getTomorrowDateInMs(), 10))
+  console.log('tomorrow:', date.format('x'), getTomorrowDateInMs, parseInt(date.format('x'), 10) === parseInt(getTomorrowDateInMs, 10))
   // If day is tomorrow, we want to block it to not allow any calls
-  if (parseInt(date.format('x'), 10) === parseInt(getTomorrowDateInMs(), 10)) {
+  if (parseInt(date.format('x'), 10) === parseInt(getTomorrowDateInMs, 10)) {
     return true
   }
 

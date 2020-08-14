@@ -8,6 +8,10 @@ const isMinutesPlural = (value: number): string => (value > 10 ? `${value}` : `$
 
 const timeToLabel = (start: string, end: string) => `${start}-${end}`
 
+const getTomorrowDateInMs = () => moment().add(1, 'day').format('x')
+
+const getTodayInMs = () => moment().format('x')
+
 export const createTimeRanges = (start: number, end: number, firstCallDuration = 30) => {
   const timeRanges: any[] = []
 
@@ -74,13 +78,12 @@ export function getFirstAvailableDay(weekDayMap: {} | null): Moment | null {
   }
 
   const availableDays = Object.keys(weekDayMap).map((key: any) => Weekdays[key])
-  const tomorrow = moment().add(1, 'day')
   const week = moment().utc().startOf('week')
   const weekDates: Moment[] = []
 
   for (let j = 0; j <= 13; j++) {
     const weekDayDate = week.clone().add(j, 'day')
-    const isWeekDayDateGreaterThanTomorrow = parseInt(tomorrow.format('x'), 10) < parseInt(weekDayDate.format('x'), 10)
+    const isWeekDayDateGreaterThanTomorrow = parseInt(getTomorrowDateInMs(), 10) < parseInt(weekDayDate.format('x'), 10)
     const isSameWeekDay = availableDays.some((day) => weekDayDate.weekday() === parseInt(day, 10))
 
     if (isWeekDayDateGreaterThanTomorrow && isSameWeekDay) {
@@ -119,9 +122,22 @@ export function createDateFromHoursAndMinutes(date: Moment | null, hour: number,
   }).format('x'), 10)
 }
 
-export const isDayBlocked = (date: any, availableDays: number[] | null) => {
+export const isDayBlocked = (date: Moment, availableDays: number[] | null) => {
   if (!availableDays) {
     return false
+  }
+
+  /**
+   * There is a bug in react-dates where the library still allows for click events on a blocked but available day date
+   * This should disable it in outside range controller
+   */
+  if (parseInt(date.format('x'), 10) === parseInt(getTodayInMs(), 10)) {
+    return true
+  }
+
+  // If day is tomorrow, we want to block it to not allow any calls
+  if (parseInt(date.format('x'), 10) === parseInt(getTomorrowDateInMs(), 10)) {
+    return true
   }
 
   const found = availableDays.some((availableDay: number) => moment(date).day() === availableDay)

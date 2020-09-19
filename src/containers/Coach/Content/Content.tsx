@@ -61,8 +61,9 @@ class Content extends PureComponent<Props> {
 
   convertTextSession = (program: GetCoachProgramRequest) => {
     if (program?.extraSessions?.length > 0) {
-      return `${program.sessions} ${this.isPluralSession(program.sessions)} of ${program.duration} and ${program.extraSessions.length} 
-      ${this.isPluralSession(program.extraSessions.length)} of ${program.extraSessions[0].duration}`
+      return `${program.sessions} ${this.isPluralSession(program.sessions)} 
+      of ${program.duration} minutes and ${program.extraSessions.length} 
+      ${this.isPluralSession(program.extraSessions.length)} of ${program.extraSessions[0].duration} minutes`
     }
 
     return `${program.sessions} sessions of ${program.duration} minutes`

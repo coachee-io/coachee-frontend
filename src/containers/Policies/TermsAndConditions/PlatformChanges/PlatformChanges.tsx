@@ -19,8 +19,8 @@ class PlatformChanges extends PureComponent {
           to add new products, coaches and coaching programmes, and/or to address our coach or coachee needs.
         </Para>
         <Para>
-          3.3. We will notify you of any significant changes and/or any changes that require any action from you.
-          If you do not agree to any changes, you should stop using the Platform.
+          3.3. We will notify you of any significant changes and/or any changes that require any action from you,
+          including fees and pricing. If you do not agree to these changes, you should stop using the Platform.
         </Para>
       </>
     )

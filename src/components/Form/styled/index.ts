@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 import {Field} from 'formik'
 
-import colors from '../../../ui/colors'
-import {Lato, LatoBold, BodyFontSizes} from '../../../ui/fonts'
-import AlertCircle from '../../../ui/images/alert-circle.svg'
+import colors from 'ui/colors'
+import {Lato, LatoBold, BodyFontSizes} from 'ui/fonts'
+import AlertCircle from 'ui/images/alert-circle.svg'
 
-import {Image} from '../../Image'
+import {Image} from 'components/Image'
 
 interface InputProps {
   error?: boolean | string | undefined | any,

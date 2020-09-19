@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react'
 
-import {Para} from '../../../../ui/labels'
-import {H3} from '../../../../ui/headings'
-import {UL, LI, OL} from '../../../../ui/list'
+import {Para} from 'ui/labels'
+import {H3} from 'ui/headings'
+import {UL, LI, OL} from 'ui/list'
 
 class AboutUs extends PureComponent {
   render() {

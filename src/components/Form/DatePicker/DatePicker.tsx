@@ -4,7 +4,7 @@ import {Field, FieldProps} from 'formik'
 import {SingleDatePicker} from 'react-dates'
 import 'react-dates/initialize'
 
-import {Para} from '../../../ui/labels'
+import {Para} from 'ui/labels'
 
 import {
   StyledLabel, ErrorMessage, ErrorAlertCircle,

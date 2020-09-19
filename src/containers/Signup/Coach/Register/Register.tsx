@@ -6,14 +6,14 @@ import {
 
 import {
   Form, Input, CheckboxList, RadioGroup, SubmitButton, DatePicker,
-} from '../../../../components/Form'
-import Flex from '../../../../components/Layout/Flexbox'
-import Confirmation from '../../../../components/Confirmation'
+} from 'components/Form'
+import Flex from 'components/Layout/Flexbox'
+import Confirmation from 'components/Confirmation'
 
-import {H2} from '../../../../ui/headings'
+import {H2} from 'ui/headings'
 
-import {CoachesService} from '../../../../services/public'
-import {parseDateToSeconds} from '../../../../utils/parseDate/parseDate'
+import {CoachesService} from 'services/public'
+import {parseDateToSeconds} from 'utils/parseDate/parseDate'
 
 import schema from './validationSchema'
 

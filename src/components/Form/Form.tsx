@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {Form} from 'formik'
-import colors from '../../ui/colors'
+import colors from 'ui/colors'
 
 interface FormProps {
   maxWidth?: number

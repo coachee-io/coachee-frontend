@@ -1,9 +1,9 @@
 import React, {PureComponent} from 'react'
 import {RouteComponentProps} from 'react-router-dom'
 
-import ConfirmPassword from '../../../components/Form/ConfirmPassword'
+import ConfirmPassword from 'components/Form/ConfirmPassword'
 
-import {PlatformService} from '../../../services/public'
+import {PlatformService} from 'services/public'
 
 interface Params {
   id: string

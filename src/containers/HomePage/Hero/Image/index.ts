@@ -1,5 +1,5 @@
-import {Image} from '../../../../components/Image'
-import Winners from '../../../../ui/images/hero.svg'
+import {Image} from 'components/Image'
+import Winners from 'ui/images/hero.svg'
 
 const HEIGHT = 350
 

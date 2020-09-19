@@ -1,9 +1,9 @@
 import {Row as BSRow, Col as BSCol} from 'react-bootstrap'
 import styled from 'styled-components'
 
-import setMargin, {MarginProps} from '../../ui/global/margin'
-import setPadding, {PaddingProps} from '../../ui/global/padding'
-import {minWidthSize, maxWidthSize} from '../../ui/global/mediaQuery'
+import setMargin, {MarginProps} from 'ui/global/margin'
+import setPadding, {PaddingProps} from 'ui/global/padding'
+import {minWidthSize, maxWidthSize} from 'ui/global/mediaQuery'
 
 
 interface Props extends MarginProps, PaddingProps {

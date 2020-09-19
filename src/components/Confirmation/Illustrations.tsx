@@ -1,8 +1,8 @@
 import React, {FC} from 'react'
 
-import HighFiveImg from '../../ui/images/high-five.svg'
-import RedirectWelcomeImg from '../../ui/images/welcome-coachee.svg'
-import {Image} from '../Image'
+import HighFiveImg from 'ui/images/high-five.svg'
+import RedirectWelcomeImg from 'ui/images/welcome-coachee.svg'
+import {Image} from 'components/Image'
 
 const HEIGHT = 350
 

@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 
-import {RouterLink} from '../../../../components/Routing'
-import {Para} from '../../../../ui/labels'
-import {H3} from '../../../../ui/headings'
-import {OL, LI} from '../../../../ui/list'
+import {RouterLink} from 'components/Routing'
+import {Para} from 'ui/labels'
+import {H3} from 'ui/headings'
+import {OL, LI} from 'ui/list'
 
 class UsingTheWebsite extends PureComponent {
   render() {

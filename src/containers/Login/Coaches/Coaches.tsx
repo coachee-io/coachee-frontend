@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react'
 
-import LoginForm from '../../../components/Form/Login'
+import LoginForm from 'components/Form/Login'
 
-import {PlatformService} from '../../../services/public'
+import {PlatformService} from 'services/public'
 
 interface Props {}
 

@@ -1,7 +1,7 @@
 import {PureComponent, ReactNode} from 'react'
 import {withRouter, RouteComponentProps} from 'react-router-dom'
 
-import gaSetup, {GoogleAnalyticsID} from '../../utils/scripts/google'
+import gaSetup, {GoogleAnalyticsID} from 'utils/scripts/google'
 
 // Scoped to file since it will not be used anywhere else
 declare global {

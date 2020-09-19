@@ -4,12 +4,12 @@ import {Row, Col} from 'react-bootstrap'
 
 import {
   FormCard,
-} from '../../components/Form'
+} from 'components/Form'
 
-import Flex from '../../components/Layout/Flexbox'
+import Flex from 'components/Layout/Flexbox'
 
-import Alert from '../../components/Alert'
-import Tab from '../../components/Tab'
+import Alert from 'components/Alert'
+import Tab from 'components/Tab'
 
 import CoacheeLogin from './Coachees'
 import CoachLogin from './Coaches'

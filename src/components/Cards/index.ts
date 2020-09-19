@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import colors from '../../ui/colors'
-import {H2} from '../../ui/headings'
-import {Para} from '../../ui/labels'
-import {minWidthSize} from '../../ui/global/mediaQuery'
+import colors from 'ui/colors'
+import {H2} from 'ui/headings'
+import {Para} from 'ui/labels'
+import {minWidthSize} from 'ui/global/mediaQuery'
 
 interface CardsGridProps {
   gap?: string,

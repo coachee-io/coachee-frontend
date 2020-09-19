@@ -1,5 +1,5 @@
-import {Image} from '../../../../components/Image'
-import CoachSearch from '../../../../ui/images/looking-for-coaches.svg'
+import {Image} from 'components/Image'
+import CoachSearch from 'ui/images/looking-for-coaches.svg'
 
 const HEIGHT = 350
 

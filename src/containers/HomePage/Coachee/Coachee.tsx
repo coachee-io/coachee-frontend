@@ -1,15 +1,15 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import Flex from '../../../components/Layout/Flexbox'
-import {DivBackgroundImage} from '../../../components/Image'
+import Flex from 'components/Layout/Flexbox'
+import {DivBackgroundImage} from 'components/Image'
 
-import {H1} from '../../../ui/headings'
-import {Para} from '../../../ui/labels'
+import {H1} from 'ui/headings'
+import {Para} from 'ui/labels'
 
-import award from '../../../ui/images/award.svg'
-import thumbsUp from '../../../ui/images/thumbs-up.svg'
-import search from '../../../ui/images/search.svg'
+import award from 'ui/images/award.svg'
+import thumbsUp from 'ui/images/thumbs-up.svg'
+import search from 'ui/images/search.svg'
 
 
 class Coachee extends PureComponent {
@@ -30,9 +30,9 @@ class Coachee extends PureComponent {
               <Para textAlign="center">
                 All our coaches are
                 {' '}
-                <strong>certified</strong>
+                <strong>certified,</strong>
                 {' '}
-                and have hours of training and experience to help
+                vetted and have the training and experience to help
                 {' '}
                 <strong>YOU</strong>
                 {' '}
@@ -53,7 +53,7 @@ class Coachee extends PureComponent {
             <Col xs={12} md={4}>
               <DivBackgroundImage bgImage={search} />
               <Para textAlign="center">
-                Check programmes, prices and book your coach in
+                Browse programmes, prices and book your coach in
                 {' '}
                 <strong>
                   one single platform

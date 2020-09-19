@@ -1,5 +1,5 @@
 import {History} from 'history'
-import Auth from '../../../services/auth'
+import Auth from 'services/auth'
 import {AUTH} from '../constants'
 
 interface CoachHistoryState {

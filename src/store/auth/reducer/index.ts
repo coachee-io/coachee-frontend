@@ -1,5 +1,5 @@
-import Auth from '../../../utils/tokens'
-import LocalStorage from '../../../utils/localStorage'
+import Auth from 'utils/tokens'
+import LocalStorage from 'utils/localStorage'
 import {AUTH} from '../constants'
 
 function auth(token: string, expiry: number, user: {}) {

@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 
-import {PlatformService} from '../../../services/public'
-import ForgotPassword from '../../../components/Form/ForgotPassword'
+import {PlatformService} from 'services/public'
+import ForgotPassword from 'components/Form/ForgotPassword'
 
 interface Props {}
 

@@ -1,21 +1,21 @@
 import React, {PureComponent} from 'react'
 
-import {RouterButtonLink} from '../../../components/Routing'
-import Flex from '../../../components/Layout/Flexbox'
-import Error from '../../../components/ErrorMessage'
+import {RouterButtonLink} from 'components/Routing'
+import Flex from 'components/Layout/Flexbox'
+import Error from 'components/ErrorMessage'
 
 import {
   CardsGrid, CardTitle, CardText, Card, CardImage, CardBody,
-} from '../../../components/Cards'
+} from 'components/Cards'
 
-import {Pulse} from '../../../components/Skeleton'
+import {Pulse} from 'components/Skeleton'
 
-import {Para} from '../../../ui/labels'
+import {Para} from 'ui/labels'
 
-import {CoachesService} from '../../../services/public'
+import {CoachesService} from 'services/public'
 import {
   GetCoachRequest,
-} from '../../../services/public/coaches/types'
+} from 'services/public/coaches/types'
 
 import CoachSearchImage from './Image'
 

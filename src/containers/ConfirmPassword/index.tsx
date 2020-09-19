@@ -8,15 +8,15 @@ import {string, object} from 'yup'
 
 import {
   Form, Input, SubmitButton,
-} from '../../components/Form'
+} from 'components/Form'
 
-import Flex from '../../components/Layout/Flexbox'
-import {Pulse} from '../../components/Skeleton'
-import ErrorMessage from '../../components/ErrorMessage'
+import Flex from 'components/Layout/Flexbox'
+import {Pulse} from 'components/Skeleton'
+import ErrorMessage from 'components/ErrorMessage'
 
-import {H2} from '../../ui/headings'
+import {H2} from 'ui/headings'
 
-import {PlatformService} from '../../services/public'
+import {PlatformService} from 'services/public'
 
 const schema = object().shape({
   password: string()

@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 import {
   Lato, LatoBold, BodyFontSizes, BodyFontSizesProps,
-} from '../fonts'
+} from 'ui/fonts'
 
-import colors from '../colors'
+import colors from 'ui/colors'
 
 interface ParaProps extends BodyFontSizesProps {
   large?: boolean,

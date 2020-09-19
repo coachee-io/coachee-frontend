@@ -6,15 +6,15 @@ import {
 } from 'formik'
 import {string, object} from 'yup'
 
-import {H2} from '../../ui/headings'
+import {H2} from 'ui/headings'
 
 import {
   FormCard, Input, SubmitButton,
-} from '.'
+} from 'components/Form'
 
-import Flex from '../Layout/Flexbox'
-import {Pulse} from '../Skeleton'
-import ErrorMessage from '../ErrorMessage'
+import Flex from 'components/Layout/Flexbox'
+import {Pulse} from 'components/Skeleton'
+import ErrorMessage from 'components/ErrorMessage'
 
 const schema = object().shape({
   password: string()

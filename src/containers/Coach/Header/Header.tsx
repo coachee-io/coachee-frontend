@@ -1,20 +1,20 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import Flex from '../../../components/Layout/Flexbox'
+import Flex from 'components/Layout/Flexbox'
 
-import {Image} from '../../../components/Image'
-import {RouterLink} from '../../../components/Routing'
+import {Image} from 'components/Image'
+import {RouterLink} from 'components/Routing'
 
-import {Pulse} from '../../../components/Skeleton'
-import {Iframe, IframeContainer} from '../../../components/Iframe'
+import {Pulse} from 'components/Skeleton'
+import {Iframe, IframeContainer} from 'components/Iframe'
 
-import FeatureFlags from '../../../utils/featureFlags'
+import FeatureFlags from 'utils/featureFlags'
 
-import {H1, H3} from '../../../ui/headings'
-import {Para} from '../../../ui/labels'
+import {H1, H3} from 'ui/headings'
+import {Para} from 'ui/labels'
 
-import Rating from '../../../ui/images/star-rating.svg'
+import Rating from 'ui/images/star-rating.svg'
 
 import Parser from '../Parser'
 

@@ -2,8 +2,8 @@ import React, {PureComponent} from 'react'
 import {Alert} from 'react-bootstrap'
 import styled from 'styled-components'
 
-import {Para} from '../../ui/labels'
-import colors from '../../ui/colors'
+import {Para} from 'ui/labels'
+import colors from 'ui/colors'
 
 const StyledAlert = styled(Alert)`
   background-color: ${colors.accent};

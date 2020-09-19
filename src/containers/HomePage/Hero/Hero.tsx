@@ -1,31 +1,31 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import CheckmarkList from '../../../components/CheckmarkList'
-import Flex from '../../../components/Layout/Flexbox'
-import {RouterButtonLink} from '../../../components/Routing'
+import CheckmarkList from 'components/CheckmarkList'
+import Flex from 'components/Layout/Flexbox'
+import {RouterButtonLink} from 'components/Routing'
 
-import MediaQuery from '../../../components/Layout/MediaQuery'
+import MediaQuery from 'components/Layout/MediaQuery'
 
-import {H1} from '../../../ui/headings'
-import {Para} from '../../../ui/labels'
+import {H1} from 'ui/headings'
+import {Para} from 'ui/labels'
 
-import FeatureFlags from '../../../utils/featureFlags'
+import FeatureFlags from 'utils/featureFlags'
 
 import HeroImage from './Image'
 
 const HeroListText = [
   {
-    text: 'Improve your relationship with fitness, food and body image.',
+    text: 'Find the right path and balance in your life no matter the obstacles.',
+  },
+  {
+    text: 'Improve your relationship with yourself and others.',
+  },
+  {
+    text: 'Identify and achieve your career ambitions.',
   },
   {
     text: 'Gain financial awareness and start saving.',
-  },
-  {
-    text: 'Find balance in your life no matter the obstacles.',
-  },
-  {
-    text: 'Find out more about who you are and who you want to be!',
   },
 ]
 
@@ -44,7 +44,6 @@ class Hero extends PureComponent {
               </H1>
               <Para large>
                 Coaching is more than a trend, it&apos;s a powerful resource!
-                Some of the results you can achieve with our coaches include:
               </Para>
               <CheckmarkList list={HeroListText} withCheckmark />
               {FeatureFlags.isFeatureEnabled('platformEnabled') && (

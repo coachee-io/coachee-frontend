@@ -1,7 +1,7 @@
 import React, {PureComponent, ReactNode} from 'react'
 import {throttle} from 'lodash'
 
-import {mediaQueryFunctions, MediaQueryInterface} from '../../ui/global/mediaQuery'
+import {mediaQueryFunctions, MediaQueryInterface} from 'ui/global/mediaQuery'
 
 interface State {
   media: MediaQueryInterface | any

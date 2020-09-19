@@ -2,12 +2,12 @@ import React, {PureComponent} from 'react'
 import {RouteComponentProps} from 'react-router-dom'
 import {Row, Col} from 'react-bootstrap'
 
-import {CoachesService} from '../../services/public'
-import ErrorMessage from '../../components/ErrorMessage'
+import {CoachesService} from 'services/public'
+import ErrorMessage from 'components/ErrorMessage'
 
 import {
   GetCoachRequest,
-} from '../../services/public/coaches/types'
+} from 'services/public/coaches/types'
 
 import Header from './Header'
 import Content from './Content'

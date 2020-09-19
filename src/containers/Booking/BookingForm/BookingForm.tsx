@@ -1,18 +1,18 @@
 import React, {PureComponent} from 'react'
 import {ReactStripeElements} from 'react-stripe-elements'
 
-import {Row, Col} from '../../../components/Layout/Flexbox'
-import {Pulse} from '../../../components/Skeleton'
+import {Row, Col} from 'components/Layout/Flexbox'
+import {Pulse} from 'components/Skeleton'
 import {
   SubmitButton, ErrorMessage, ErrorAlertCircle,
-} from '../../../components/Form'
-import StripeForm from '../../../components/Stripe'
+} from 'components/Form'
+import StripeForm from 'components/Stripe'
 
-import {BookingService} from '../../../services/public'
-import {parseDateToSeconds} from '../../../utils/parseDate/parseDate'
+import {BookingService} from 'services/public'
+import {parseDateToSeconds} from 'utils/parseDate/parseDate'
 
-import {H2} from '../../../ui/headings'
-import {Para} from '../../../ui/labels'
+import {H2} from 'ui/headings'
+import {Para} from 'ui/labels'
 
 
 import PostalCode from './PostalCode'

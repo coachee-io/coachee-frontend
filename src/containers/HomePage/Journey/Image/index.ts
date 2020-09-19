@@ -1,5 +1,5 @@
-import {Image} from '../../../../components/Image'
-import Laptop from '../../../../ui/images/laptop-blog.jpg'
+import {Image} from 'components/Image'
+import Laptop from 'ui/images/laptop-blog.jpg'
 
 const HEIGHT = 480
 

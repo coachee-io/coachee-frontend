@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import {
   minWidthSize,
-} from '../../ui/global/mediaQuery'
+} from 'ui/global/mediaQuery'
 
 /**
  * <iframe id="ytplayer" type="text/html" width="640" height="360"

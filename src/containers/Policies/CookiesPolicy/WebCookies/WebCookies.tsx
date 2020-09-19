@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 
-import {Anchor} from '../../../../components/Routing'
+import {Anchor} from 'components/Routing'
 
-import {Para} from '../../../../ui/labels'
-import {H3} from '../../../../ui/headings'
+import {Para} from 'ui/labels'
+import {H3} from 'ui/headings'
 
 class WebCookies extends PureComponent {
   render() {

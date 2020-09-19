@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 
-import {Para} from '../../../../ui/labels'
-import {H3} from '../../../../ui/headings'
+import {Para} from 'ui/labels'
+import {H3} from 'ui/headings'
 
 class CancellationRights extends PureComponent {
   render() {

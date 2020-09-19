@@ -3,11 +3,11 @@ import {connect} from 'react-redux'
 import styled from 'styled-components'
 import {Navbar, Container, Nav} from 'react-bootstrap'
 
-import colors from '../../ui/colors'
-import {minWidthSize, maxWidthSize} from '../../ui/global/mediaQuery'
+import colors from 'ui/colors'
+import {minWidthSize, maxWidthSize} from 'ui/global/mediaQuery'
 
-import {RouterButtonLink, UnstyledRouterLink} from '../Routing'
-import Logo from '../Logo'
+import {RouterButtonLink, UnstyledRouterLink} from 'components/Routing'
+import Logo from 'components/Logo'
 
 interface HeaderProps {
   boxShadow: boolean,

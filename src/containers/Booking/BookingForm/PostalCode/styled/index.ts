@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import colors from '../../../../../ui/colors'
+import colors from 'ui/colors'
 
 interface Props {
   error: boolean

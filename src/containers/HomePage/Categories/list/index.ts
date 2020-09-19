@@ -1,9 +1,9 @@
-import HealthImg from '../../../../ui/images/health-category-coach.jpg'
-import CareerImg from '../../../../ui/images/career-category-coach.jpg'
-import LifeImg from '../../../../ui/images/life-category-coach.jpg'
-import FeminityImg from '../../../../ui/images/femininity-category-coach.jpg'
-import FinanceImg from '../../../../ui/images/finance-category-coach.jpg'
-import RelationshipImg from '../../../../ui/images/relationship-category-coach.jpg'
+import HealthImg from 'ui/images/health-category-coach.jpg'
+import CareerImg from 'ui/images/career-category-coach.jpg'
+import LifeImg from 'ui/images/life-category-coach.jpg'
+import FeminityImg from 'ui/images/femininity-category-coach.jpg'
+import FinanceImg from 'ui/images/finance-category-coach.jpg'
+import RelationshipImg from 'ui/images/relationship-category-coach.jpg'
 
 interface Category {
   url: string,

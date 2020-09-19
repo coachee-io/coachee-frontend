@@ -30,9 +30,9 @@ class Coachee extends PureComponent {
               <Para textAlign="center">
                 All our coaches are
                 {' '}
-                <strong>certified</strong>
+                <strong>certified,</strong>
                 {' '}
-                and have hours of training and experience to help
+                vetted and have the training and experience to help
                 {' '}
                 <strong>YOU</strong>
                 {' '}
@@ -53,7 +53,7 @@ class Coachee extends PureComponent {
             <Col xs={12} md={4}>
               <DivBackgroundImage bgImage={search} />
               <Para textAlign="center">
-                Check programmes, prices and book your coach in
+                Browse programmes, prices and book your coach in
                 {' '}
                 <strong>
                   one single platform

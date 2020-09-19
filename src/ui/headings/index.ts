@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import {OpenSansBold} from '../fonts'
+import {OpenSansBold} from 'ui/fonts'
 
 interface HeadingProps {
   textAlign?: string

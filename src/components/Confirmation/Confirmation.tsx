@@ -4,7 +4,7 @@ import {Row, Col} from 'react-bootstrap'
 import {H2} from 'ui/headings'
 import {Para} from 'ui/labels'
 
-import Flex from '../Layout/Flexbox'
+import Flex from 'components/Layout/Flexbox'
 
 import Illustrations from './Illustrations'
 

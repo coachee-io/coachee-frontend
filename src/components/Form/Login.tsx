@@ -8,11 +8,11 @@ import {
 
 import {
   StyledLabel, StyledInput, SubmitButton, ErrorMessage, ErrorAlertCircle,
-} from '.'
+} from 'components/Form'
 
-import Flex from '../Layout/Flexbox'
+import Flex from 'components/Layout/Flexbox'
 
-import {RegularRouterLink, RouterLink} from '../Routing'
+import {RegularRouterLink, RouterLink} from 'components/Routing'
 
 const schema = object().shape({
   email: string()

@@ -1,36 +1,36 @@
 import React, {PureComponent} from 'react'
 import {Switch, Route} from 'react-router-dom'
 
-import Layout from '../components/Layout/Layout'
+import Layout from 'components/Layout/Layout'
 
-import HomePage from '../containers/HomePage'
-import Login from '../containers/Login'
-import Logout from '../containers/Logout'
-import CoachForgotPassword from '../containers/ForgotPassword/Coaches'
-import CoacheeForgotPassword from '../containers/ForgotPassword/Coachees'
-import CoachConfirmPassword from '../containers/ConfirmPassword/Coaches'
-import CoacheeConfirmPassword from '../containers/ConfirmPassword/Coachees'
+import HomePage from 'containers/HomePage'
+import Login from 'containers/Login'
+import Logout from 'containers/Logout'
+import CoachForgotPassword from 'containers/ForgotPassword/Coaches'
+import CoacheeForgotPassword from 'containers/ForgotPassword/Coachees'
+import CoachConfirmPassword from 'containers/ConfirmPassword/Coaches'
+import CoacheeConfirmPassword from 'containers/ConfirmPassword/Coachees'
 
-import AboutUs from '../containers/AboutUs'
+import AboutUs from 'containers/AboutUs'
 
-import TermsAndConditions from '../containers/Policies/TermsAndConditions'
-import PrivacyPolicy from '../containers/Policies/PrivacyPolicy'
-import CookiesPolicy from '../containers/Policies/CookiesPolicy'
-import FairUsePolicy from '../containers/Policies/FairUsePolicy'
-import FAQ from '../containers/Policies/FAQ'
+import TermsAndConditions from 'containers/Policies/TermsAndConditions'
+import PrivacyPolicy from 'containers/Policies/PrivacyPolicy'
+import CookiesPolicy from 'containers/Policies/CookiesPolicy'
+import FairUsePolicy from 'containers/Policies/FairUsePolicy'
+import FAQ from 'containers/Policies/FAQ'
 
-import Booking from '../containers/Booking'
+import Booking from 'containers/Booking'
 
-import CoachProfile from '../containers/Coach'
-import CoachOnboarding from '../containers/Signup/Coach/Onboarding'
-import CoachRegister from '../containers/Signup/Coach/Register'
-import CoachStripeRedirect from '../containers/Signup/Coach/Stripe'
+import CoachProfile from 'containers/Coach'
+import CoachOnboarding from 'containers/Signup/Coach/Onboarding'
+import CoachRegister from 'containers/Signup/Coach/Register'
+import CoachStripeRedirect from 'containers/Signup/Coach/Stripe'
 
-import CoacheeSignup from '../containers/Signup/Coachee'
-import CoachesCategories from '../containers/Coaches'
+import CoacheeSignup from 'containers/Signup/Coachee'
+import CoachesCategories from 'containers/Coaches'
 
-import ErrorMessage from '../components/ErrorMessage'
-import ProtectedRoute from '../components/Routing/ProtectedRoute'
+import ErrorMessage from 'components/ErrorMessage'
+import ProtectedRoute from 'components/Routing/ProtectedRoute'
 
 class Routes extends PureComponent {
   render() {

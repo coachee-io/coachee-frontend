@@ -4,7 +4,7 @@ import {StripeProvider, ReactStripeElements, Elements} from 'react-stripe-elemen
 import {Row, Col} from 'react-bootstrap'
 
 import StripeScript from 'utils/scripts/stripe'
-import {Pulse} from '../Skeleton'
+import {Pulse} from 'components/Skeleton'
 
 import Form from './Form'
 

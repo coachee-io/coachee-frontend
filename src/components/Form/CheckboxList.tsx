@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react'
-import {FieldArrayRenderProps, FieldArray} from 'formik'
+import {FieldArray} from 'formik'
 
 import {Para} from 'ui/labels'
 

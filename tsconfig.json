@@ -23,7 +23,8 @@
     "paths": {
       "*": [
         "*", 
-        "components/*", 
+        "components/*",
+        "containers/*",
         "enums/*", 
         "routes/*", 
         "services/*", 

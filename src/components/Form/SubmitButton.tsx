@@ -1,9 +1,9 @@
 import React, {PureComponent, MouseEvent} from 'react'
 
+import Flex from 'components/Layout/Flexbox'
 import {
   Button, ButtonProps, ErrorMessage, ErrorAlertCircle,
 } from './styled'
-import Flex from '../Layout/Flexbox'
 
 interface Props extends ButtonProps {
   isLoading: boolean,

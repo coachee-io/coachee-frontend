@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import colors from 'ui/colors'
 import {maxWidthSize} from 'ui/global/mediaQuery'
 
-import {RegularRouterLink} from '../Routing'
+import {RegularRouterLink} from 'components/Routing'
 
 const StyledFooter = styled.footer`
   width: 100%;

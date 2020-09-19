@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import {OL, LI, UL} from 'ui/list'
 
-import {Anchor} from '../Routing'
+import {Anchor} from 'components/Routing'
 
 const Nav = styled.nav`
   overflow-x: hidden;

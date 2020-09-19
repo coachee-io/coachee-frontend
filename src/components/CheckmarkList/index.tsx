@@ -6,7 +6,7 @@ import {Para} from 'ui/labels'
 import setMargin, {MarginProps} from 'ui/global/margin'
 import Checkmark from 'ui/images/checkmark.svg'
 
-import Flex from '../Layout/Flexbox'
+import Flex from 'components/Layout/Flexbox'
 
 const List = styled.div`
   margin: 0;

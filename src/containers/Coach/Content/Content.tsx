@@ -2,27 +2,26 @@ import React, {PureComponent, Fragment} from 'react'
 import moment from 'moment'
 import {Row, Col} from 'react-bootstrap'
 
-import MediaQuery from '../../../components/Layout/MediaQuery'
-import Flex from '../../../components/Layout/Flexbox'
-import {RouterButtonLink} from '../../../components/Routing'
+import MediaQuery from 'components/Layout/MediaQuery'
+import Flex from 'components/Layout/Flexbox'
+import {RouterButtonLink} from 'components/Routing'
 
-import {Pulse} from '../../../components/Skeleton'
-import Hr from '../../../components/Hr'
+import {Pulse} from 'components/Skeleton'
+import Hr from 'components/Hr'
 
-import Auth from '../../../utils/tokens'
-import {formatNumber} from '../../../utils/formatNumber'
+import Auth from 'utils/tokens'
+import {formatNumber} from 'utils/formatNumber'
 
 import {
   GetCoachRequest,
   GetCoachAvailabilityRequest,
   GetCoachCertificateRequest,
   GetCoachProgramRequest,
-} from '../../../services/public/coaches/types'
+} from 'services/public/coaches/types'
 
 
-import {H2, H3} from '../../../ui/headings'
-import {Para} from '../../../ui/labels'
-import Rating from '../../../ui/images/star-rating.svg'
+import {H2, H3} from 'ui/headings'
+import {Para} from 'ui/labels'
 
 import Parser from '../Parser'
 
@@ -58,6 +57,15 @@ class Content extends PureComponent<Props> {
     }
   }
 
+  convertTextSession = (program: GetCoachProgramRequest) => {
+    if (program?.extraSessions?.length > 0) {
+      return `${program.sessions} session of ${program.duration} and ${program.extraSessions.length} 
+      sessions of ${program.extraSessions[0].duration}`
+    }
+
+    return `${program.sessions} sessions of ${program.duration} minutes`
+  }
+
   render() {
     const {
       certifications,
@@ -77,7 +85,7 @@ class Content extends PureComponent<Props> {
                     <Col xs={12} sm={8}>
                       <H3>{program.name}</H3>
                       <Para>
-                        {`${program.sessions} sessions of ${program.duration} minutes`}
+                        {this.convertTextSession(program)}
                       </Para>
                     </Col>
                     <MediaQuery>

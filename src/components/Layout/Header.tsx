@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 import styled from 'styled-components'
 import {Navbar, Container, Nav} from 'react-bootstrap'
 
-import colors from '../../ui/colors'
-import {minWidthSize, maxWidthSize} from '../../ui/global/mediaQuery'
+import colors from 'ui/colors'
+import {minWidthSize, maxWidthSize} from 'ui/global/mediaQuery'
 
 import {RouterButtonLink, UnstyledRouterLink} from '../Routing'
 import Logo from '../Logo'

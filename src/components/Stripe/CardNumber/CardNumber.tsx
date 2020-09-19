@@ -7,7 +7,7 @@ import {
   ReactStripeElements,
 } from 'react-stripe-elements'
 
-import {StyledLabel, Hidden} from '../../Form'
+import {StyledLabel, Hidden} from 'components/Form'
 
 import {style, ElementWrapper} from '../styled'
 

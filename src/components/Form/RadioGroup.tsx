@@ -1,6 +1,6 @@
 import React, {PureComponent, ReactNode} from 'react'
 
-import {Para} from '../../ui/labels'
+import {Para} from 'ui/labels'
 
 import {
   StyledInput, StyledLabel, ErrorMessage, ErrorAlertCircle,

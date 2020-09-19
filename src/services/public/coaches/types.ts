@@ -44,7 +44,13 @@ export interface GetCoachProgramRequest {
   duration: number,
   description: string,
   totalPrice: number,
-  taxPercent: number
+  taxPercent: number,
+  extraSessions: GetCoachProgramRequestExtraSession[]
+}
+
+export interface GetCoachProgramRequestExtraSession {
+  duration: number,
+  sessions: number
 }
 
 export interface GetCoachCertificateRequest {

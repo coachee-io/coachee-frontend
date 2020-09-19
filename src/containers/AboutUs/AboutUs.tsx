@@ -1,12 +1,12 @@
 import React, {PureComponent} from 'react'
 import {Col, Row} from 'react-bootstrap'
 
-import Flex from '../../components/Layout/Flexbox'
+import Flex from 'components/Layout/Flexbox'
 
-import {Anchor} from '../../components/Routing'
+import {Anchor} from 'components/Routing'
 
-import {Para} from '../../ui/labels'
-import {H3} from '../../ui/headings'
+import {Para} from 'ui/labels'
+import {H3} from 'ui/headings'
 
 import {FounderImage, OnlineChatImage} from './images'
 

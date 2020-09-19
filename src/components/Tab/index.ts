@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import colors from '../../ui/colors'
-import {LatoBold, BodyFontSizes, BodyFontSizesProps} from '../../ui/fonts'
+import colors from 'ui/colors'
+import {LatoBold, BodyFontSizes, BodyFontSizesProps} from 'ui/fonts'
 
 interface TabProps extends BodyFontSizesProps {
   accent?: boolean,

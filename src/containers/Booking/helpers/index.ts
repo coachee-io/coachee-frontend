@@ -1,8 +1,8 @@
 import moment, {Moment} from 'moment'
 import {
   GetCoachAvailabilityRequest,
-} from '../../../services/public/coaches/types'
-import {Weekdays} from '../../../enums/Weekdays'
+} from 'services/public/coaches/types'
+import {Weekdays} from 'enums/Weekdays'
 
 const isMinutesPlural = (value: number): string => (value > 10 ? `${value}` : `${value}0`)
 

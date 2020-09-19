@@ -1,12 +1,12 @@
 import React, {PureComponent} from 'react'
 
-import Flex, {Row, Col} from '../../../components/Layout/Flexbox'
-import {Image} from '../../../components/Image'
+import Flex, {Row, Col} from 'components/Layout/Flexbox'
+import {Image} from 'components/Image'
 
-import {H2} from '../../../ui/headings'
-import {Para} from '../../../ui/labels'
+import {H2} from 'ui/headings'
+import {Para} from 'ui/labels'
 
-import SuccessImgPath from '../../../ui/images/high-five.svg'
+import SuccessImgPath from 'ui/images/high-five.svg'
 
 const HEIGHT = 350
 

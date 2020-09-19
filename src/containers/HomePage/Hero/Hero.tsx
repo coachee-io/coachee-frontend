@@ -1,16 +1,16 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import CheckmarkList from '../../../components/CheckmarkList'
-import Flex from '../../../components/Layout/Flexbox'
-import {RouterButtonLink} from '../../../components/Routing'
+import CheckmarkList from 'components/CheckmarkList'
+import Flex from 'components/Layout/Flexbox'
+import {RouterButtonLink} from 'components/Routing'
 
-import MediaQuery from '../../../components/Layout/MediaQuery'
+import MediaQuery from 'components/Layout/MediaQuery'
 
-import {H1} from '../../../ui/headings'
-import {Para} from '../../../ui/labels'
+import {H1} from 'ui/headings'
+import {Para} from 'ui/labels'
 
-import FeatureFlags from '../../../utils/featureFlags'
+import FeatureFlags from 'utils/featureFlags'
 
 import HeroImage from './Image'
 

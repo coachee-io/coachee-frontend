@@ -1,7 +1,7 @@
 import React, {FC} from 'react'
 import moment from 'moment'
 
-import Flex from '../../Layout/Flexbox'
+import Flex from 'components/Layout/Flexbox'
 
 import {StyledSelect} from './styled'
 

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import {Link, LinkProps} from 'react-router-dom'
 
-import colors from '../../ui/colors'
-import {LatoBold, BodyFontSizes, BodyFontSizesProps} from '../../ui/fonts'
+import colors from 'ui/colors'
+import {LatoBold, BodyFontSizes, BodyFontSizesProps} from 'ui/fonts'
 
 export interface RouterLinkProps extends LinkProps, BodyFontSizesProps {
   primary?: boolean,

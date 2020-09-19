@@ -1,13 +1,13 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import {Para} from '../../../ui/labels'
-import Error404ImgPath from '../../../ui/images/error-not-found.svg'
+import {Para} from 'ui/labels'
+import Error404ImgPath from 'ui/images/error-not-found.svg'
 
-import {RouterButtonLink} from '../../Routing'
+import {RouterButtonLink} from 'components/Routing'
 
-import Flex from '../../Layout/Flexbox'
-import {Image} from '../../Image'
+import Flex from 'components/Layout/Flexbox'
+import {Image} from 'components/Image'
 
 const HEIGHT = 350
 

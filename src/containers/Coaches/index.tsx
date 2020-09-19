@@ -3,10 +3,10 @@ import {
   Row, Col,
 } from 'react-bootstrap'
 
-import Flex from '../../components/Layout/Flexbox'
+import Flex from 'components/Layout/Flexbox'
 
-import {H1} from '../../ui/headings'
-import {Para} from '../../ui/labels'
+import {H1} from 'ui/headings'
+import {Para} from 'ui/labels'
 import Dropdown from './Dropdown'
 import Categories from './Categories'
 

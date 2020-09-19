@@ -1,7 +1,7 @@
-import {Image} from '../../../../../components/Image'
-import SecurityLockCoach from '../../../../../ui/images/lock-secure-coach.svg'
-import DocumentCoach from '../../../../../ui/images/document-coach.svg'
-import WatchCoach from '../../../../../ui/images/watch-coach.svg'
+import {Image} from 'components/Image'
+import SecurityLockCoach from 'ui/images/lock-secure-coach.svg'
+import DocumentCoach from 'ui/images/document-coach.svg'
+import WatchCoach from 'ui/images/watch-coach.svg'
 
 const HEIGHT = 80
 

@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 
-import {RouterLink, Anchor} from '../../../../components/Routing'
-import {Para} from '../../../../ui/labels'
-import {H3} from '../../../../ui/headings'
-import {UL, LI} from '../../../../ui/list'
+import {RouterLink, Anchor} from 'components/Routing'
+import {Para} from 'ui/labels'
+import {H3} from 'ui/headings'
+import {UL, LI} from 'ui/list'
 
 class HowWeSelectCoaches extends PureComponent {
   render() {

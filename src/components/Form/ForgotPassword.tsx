@@ -13,8 +13,8 @@ import {
 import Flex from '../Layout/Flexbox'
 import Confirmation from '../Confirmation'
 
-import {H2} from '../../ui/headings'
-import {Para} from '../../ui/labels'
+import {H2} from 'ui/headings'
+import {Para} from 'ui/labels'
 
 const schema = object().shape({
   email: string()

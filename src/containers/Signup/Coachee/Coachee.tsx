@@ -5,17 +5,17 @@ import {
   Formik,
 } from 'formik'
 
-import Confirmation from '../../../components/Confirmation'
-import {RouterButtonLink } from '../../../components/Routing'
+import Confirmation from 'components/Confirmation'
+import {RouterButtonLink } from 'components/Routing'
 
 import {
   Form, Checkbox, StyledLabel, StyledSelect, ErrorMessage, ErrorAlertCircle, SubmitButton, Input,
-} from '../../../components/Form'
-import Flex from '../../../components/Layout/Flexbox'
+} from 'components/Form'
+import Flex from 'components/Layout/Flexbox'
 
-import {H2} from '../../../ui/headings'
+import {H2} from 'ui/headings'
 
-import {CoacheesService} from '../../../services/public'
+import {CoacheesService} from 'services/public'
 
 import schema from './validationSchema'
 

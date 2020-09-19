@@ -1,5 +1,5 @@
-import api from '../../../utils/api'
-import {getUrlEnvironmentDomain} from '../../../utils/getUrlEnv'
+import api from 'utils/api'
+import {getUrlEnvironmentDomain} from 'utils/getUrlEnv'
 
 import {
   CreateCoacheeRequest,

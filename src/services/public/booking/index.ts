@@ -1,6 +1,6 @@
-import api from '../../../utils/api'
-import Auth from '../../../utils/tokens'
-import {getUrlEnvironmentDomain} from '../../../utils/getUrlEnv'
+import api from 'utils/api'
+import Auth from 'utils/tokens'
+import {getUrlEnvironmentDomain} from 'utils/getUrlEnv'
 
 import {
   BookingRequest,

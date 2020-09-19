@@ -1,4 +1,4 @@
-import store from '../../store'
+import store from 'store'
 
 class FeatureFlags {
   isFeatureEnabled = (flag: string): boolean => {

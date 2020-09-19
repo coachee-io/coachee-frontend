@@ -4,17 +4,17 @@ import moment, {Moment} from 'moment'
 
 import {DayPickerSingleDateController} from 'react-dates'
 
-import Flex, {Row, Col} from '../../components/Layout/Flexbox'
-import {Button} from '../../components/Form'
-import ErrorMessage from '../../components/ErrorMessage'
+import Flex, {Row, Col} from 'components/Layout/Flexbox'
+import {Button} from 'components/Form'
+import ErrorMessage from 'components/ErrorMessage'
 
-import {H2} from '../../ui/headings'
-import {Para} from '../../ui/labels'
-import {formatNumber} from '../../utils/formatNumber'
+import {H2} from 'ui/headings'
+import {Para} from 'ui/labels'
+import {formatNumber} from 'utils/formatNumber'
 import {
   GetCoachRequest,
   GetCoachAvailabilityRequest,
-} from '../../services/public/coaches/types'
+} from 'services/public/coaches/types'
 
 import BookingForm from './BookingForm'
 import TimeSelect from './TimeSelect'

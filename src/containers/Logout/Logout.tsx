@@ -2,7 +2,7 @@ import {PureComponent} from 'react'
 import {RouteComponentProps} from 'react-router-dom'
 import {connect} from 'react-redux'
 
-import {logoutCoachee} from '../../store/auth/actions'
+import {logoutCoachee} from 'store/auth/actions'
 
 interface Props extends RouteComponentProps {
   logout: () => void

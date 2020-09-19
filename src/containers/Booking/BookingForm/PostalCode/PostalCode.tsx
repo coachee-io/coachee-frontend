@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 import {string} from 'yup'
 
-import {StyledLabel, ErrorMessage} from '../../../../components/Form'
+import {StyledLabel, ErrorMessage} from 'components/Form'
 import {Input} from './styled'
 
 const schema = string().trim()

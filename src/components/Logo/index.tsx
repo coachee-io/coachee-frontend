@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import coacheeLogo from '../../ui/images/coachee-logo.svg'
+import coacheeLogo from 'ui/images/coachee-logo.svg'
 
 const HEIGHT = 38
 const WIDTH = 148

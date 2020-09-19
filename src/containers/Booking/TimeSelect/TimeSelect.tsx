@@ -2,10 +2,10 @@ import React, {PureComponent} from 'react'
 import styled from 'styled-components'
 import {Moment} from 'moment'
 
-import {Button} from '../../../components/Form/styled'
-import Flex, {Col} from '../../../components/Layout/Flexbox'
+import {Button} from 'components/Form/styled'
+import Flex, {Col} from 'components/Layout/Flexbox'
 
-import {minWidthSize} from '../../../ui/global/mediaQuery'
+import {minWidthSize} from 'ui/global/mediaQuery'
 
 import {
   getDayOfTheWeek,

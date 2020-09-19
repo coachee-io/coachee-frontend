@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {Col, Row} from 'react-bootstrap'
 
-import SideNav from '../../../components/Layout/SideNav'
+import SideNav from 'components/Layout/SideNav'
 
 import ContentHeader from './ContentHeader'
 import AboutUs from './AboutUs'

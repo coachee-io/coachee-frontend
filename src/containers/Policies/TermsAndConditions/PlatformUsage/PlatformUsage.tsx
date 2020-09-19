@@ -1,10 +1,10 @@
 import React, {PureComponent} from 'react'
 
-import {RouterLink} from '../../../../components/Routing'
+import {RouterLink} from 'components/Routing'
 
-import {Para} from '../../../../ui/labels'
-import {H3} from '../../../../ui/headings'
-import {UL, LI} from '../../../../ui/list'
+import {Para} from 'ui/labels'
+import {H3} from 'ui/headings'
+import {UL, LI} from 'ui/list'
 
 interface Props {
   ref: any

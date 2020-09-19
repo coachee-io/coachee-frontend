@@ -3,13 +3,13 @@ import {History} from 'history'
 import {RouteComponentProps, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 
-import LoginForm from '../../../components/Form/Login'
+import LoginForm from 'components/Form/Login'
 import {
   GetCoachRequest,
   GetCoachAvailabilityRequest,
-} from '../../../services/public/coaches/types'
+} from 'services/public/coaches/types'
 
-import {loginCoachee} from '../../../store/auth/actions'
+import {loginCoachee} from 'store/auth/actions'
 
 interface CoachHistoryState {
   from?: string,

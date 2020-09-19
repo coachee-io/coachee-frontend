@@ -3,7 +3,7 @@ import React, {PureComponent, ReactNode} from 'react'
 import {StripeProvider, ReactStripeElements, Elements} from 'react-stripe-elements'
 import {Row, Col} from 'react-bootstrap'
 
-import StripeScript from '../../utils/scripts/stripe'
+import StripeScript from 'utils/scripts/stripe'
 import {Pulse} from '../Skeleton'
 
 import Form from './Form'

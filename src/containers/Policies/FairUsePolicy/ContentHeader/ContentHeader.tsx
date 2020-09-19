@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 
-import {Para} from '../../../../ui/labels'
+import {Para} from 'ui/labels'
 
 class ContentHeader extends PureComponent {
   render() {

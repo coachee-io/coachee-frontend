@@ -2,13 +2,13 @@ import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 import styled from 'styled-components'
 
-import Flex from '../../../../components/Layout/Flexbox'
+import Flex from 'components/Layout/Flexbox'
 
-import CheckMarkList from '../../../../components/CheckmarkList'
-import {RouterButtonLink} from '../../../../components/Routing'
+import CheckMarkList from 'components/CheckmarkList'
+import {RouterButtonLink} from 'components/Routing'
 
-import {H2} from '../../../../ui/headings'
-import {Para} from '../../../../ui/labels'
+import {H2} from 'ui/headings'
+import {Para} from 'ui/labels'
 
 import {
   WatchCoachImage,

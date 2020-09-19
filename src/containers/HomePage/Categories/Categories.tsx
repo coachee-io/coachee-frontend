@@ -1,14 +1,14 @@
 import React, {PureComponent} from 'react'
 import {Row, Col} from 'react-bootstrap'
 
-import {RouterLink, UnstyledRouterLink} from '../../../components/Routing'
-import Flex from '../../../components/Layout/Flexbox'
+import {RouterLink, UnstyledRouterLink} from 'components/Routing'
+import Flex from 'components/Layout/Flexbox'
 
 import {
   CardsGrid, Card, CardImage, CardTitle, CardBody, CardText,
-} from '../../../components/Cards'
+} from 'components/Cards'
 
-import {H1} from '../../../ui/headings'
+import {H1} from 'ui/headings'
 
 import list from './list'
 

@@ -1,7 +1,7 @@
 import React, {PureComponent, ChangeEvent, FocusEvent} from 'react'
 import {FormikTouched, FormikErrors} from 'formik'
 
-import {Para} from '../../ui/labels'
+import {Para} from 'ui/labels'
 
 import {
   StyledInput, StyledLabel, ErrorMessage, ErrorAlertCircle,

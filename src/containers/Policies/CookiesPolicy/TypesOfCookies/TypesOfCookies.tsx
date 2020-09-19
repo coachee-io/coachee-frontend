@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
 
-import {Anchor} from '../../../../components/Routing'
+import {Anchor} from 'components/Routing'
 
-import {Para} from '../../../../ui/labels'
-import {H3} from '../../../../ui/headings'
-import {OL, LI} from '../../../../ui/list'
+import {Para} from 'ui/labels'
+import {H3} from 'ui/headings'
+import {OL, LI} from 'ui/list'
 
 class TypesOfCookies extends PureComponent {
   render() {

@@ -2,8 +2,8 @@ import React, {PureComponent } from 'react'
 import {Container, Col, Row} from 'react-bootstrap'
 import styled from 'styled-components'
 
-import colors from '../../ui/colors'
-import {maxWidthSize} from '../../ui/global/mediaQuery'
+import colors from 'ui/colors'
+import {maxWidthSize} from 'ui/global/mediaQuery'
 
 import {RegularRouterLink} from '../Routing'
 

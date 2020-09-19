@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 
-import {Anchor} from '../../../../components/Routing'
-import {Para} from '../../../../ui/labels'
-import {H3} from '../../../../ui/headings'
+import {Anchor} from 'components/Routing'
+import {Para} from 'ui/labels'
+import {H3} from 'ui/headings'
 
 class Payments extends PureComponent {
   render() {

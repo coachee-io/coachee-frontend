@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import colors from '../../../../ui/colors'
-import {Lato} from '../../../../ui/fonts'
+import colors from 'ui/colors'
+import {Lato} from 'ui/fonts'
 
 export const StyledSelect = styled.select`
   ${Lato};

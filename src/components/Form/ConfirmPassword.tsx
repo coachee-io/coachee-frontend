@@ -6,7 +6,7 @@ import {
 } from 'formik'
 import {string, object} from 'yup'
 
-import {H2} from '../../ui/headings'
+import {H2} from 'ui/headings'
 
 import {
   FormCard, Input, SubmitButton,

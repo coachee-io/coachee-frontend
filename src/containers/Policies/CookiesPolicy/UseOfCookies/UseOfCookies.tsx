@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 
-import {Para} from '../../../../ui/labels'
-import {H3} from '../../../../ui/headings'
-import {OL, LI} from '../../../../ui/list'
+import {Para} from 'ui/labels'
+import {H3} from 'ui/headings'
+import {OL, LI} from 'ui/list'
 
 class UseOfCookies extends PureComponent {
   render() {

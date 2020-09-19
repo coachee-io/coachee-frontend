@@ -3,12 +3,12 @@ import {RouteComponentProps} from 'react-router-dom'
 import {Col, Row} from 'react-bootstrap'
 import qs from 'qs'
 
-import {Pulse} from '../../../../components/Skeleton'
-import Flex from '../../../../components/Layout/Flexbox'
-import Confirmation from '../../../../components/Confirmation'
-import ErrorMessage from '../../../../components/ErrorMessage'
+import {Pulse} from 'components/Skeleton'
+import Flex from 'components/Layout/Flexbox'
+import Confirmation from 'components/Confirmation'
+import ErrorMessage from 'components/ErrorMessage'
 
-import {CoachesService} from '../../../../services/public'
+import {CoachesService} from 'services/public'
 
 interface Params {
   id: string | any

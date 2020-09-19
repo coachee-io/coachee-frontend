@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/core": "7.7.7",
     "@svgr/webpack": "5.0.0",
+    "@types/chai": "^4.2.12",
     "@types/enzyme": "3.10.4",
     "@types/enzyme-adapter-react-16": "1.0.5",
     "@types/history": "4.7.3",

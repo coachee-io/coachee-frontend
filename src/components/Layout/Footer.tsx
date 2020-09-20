@@ -48,6 +48,10 @@ const links = [
     label: 'About us',
   },
   {
+    to: '/what-is-coaching',
+    label: 'What is coaching?',
+  },
+  {
     to: '/terms-and-conditions',
     label: 'Terms and Conditions',
   },

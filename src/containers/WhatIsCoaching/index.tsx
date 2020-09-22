@@ -9,6 +9,11 @@ import {H3} from 'ui/headings'
 import {Anchor} from 'components/Routing'
 
 import {
+  LaptopRemoteImage,
+  FeelingsOfJoyImage,
+} from './images'
+
+import {
   benefits, questions, coachingAndCounselling, coachingProcess,
 } from './bullet-points'
 
@@ -17,36 +22,47 @@ class WhatIsCoaching extends PureComponent {
     return (
       <Flex flexDirection="column" marginTop="30px">
         <Row>
-          <Col xs={12} md={8}>
-            <H3>
-              What is coaching?
-            </H3>
-            <Para>
-              In its simplest form, coaching is having an expert you can talk to that will
-              {' '}
-              <strong>listen, probe, challenge and motivate</strong>
-              {' '}
-              you to overcome any obstacles you are facing and support you in achieving your goals
-              in non-judgemental setting. Your coach will very likely have gone through a very similar
-              journey to the one you’re on, and they can use
-              {' '}
-              <strong>their past experience and qualifications</strong>
-              {' '}
-              to guide you to think about your life or a particular situation in a different way.
-            </Para>
-            <Para>
-              Coaching might seem to some as just a trend, but in reality coaching has been around for decades, if not centuries.
-              Executive coaching, for example, is a particular tool that has been used by leaders of companies for a long time,
-              and has helped many directors and CEOs achieve a better work-life balance,
-              reach their goals and ambitions and create impactful results for their organisations.
-            </Para>
-            <Para>
-              The best coaches
-              {' '}
-              <strong>will not dictate what your end point looks like, and will not judge your starting point either</strong>
-              . It’s up to you to decide to move on from where you are right now and
-              think through what you would like to achieve at the end, always with the guidance of your coach.
-            </Para>
+          <Col xs={12} md={6}>
+            <Flex flexDirection="column">
+              <H3>
+                What is coaching?
+              </H3>
+              <Para>
+                In its simplest form, coaching is having an expert you can talk to that will
+                {' '}
+                <strong>listen, probe, challenge and motivate</strong>
+                {' '}
+                you to overcome any obstacles you are facing and support you in achieving your goals
+                in non-judgemental setting. Your coach will very likely have gone through a very similar
+                journey to the one you’re on, and they can use
+                {' '}
+                <strong>their past experience and qualifications</strong>
+                {' '}
+                to guide you to think about your life or a particular situation in a different way.
+              </Para>
+              <Para>
+                Coaching might seem to some as just a trend, but in reality coaching has been around for decades, if not centuries.
+                Executive coaching, for example, is a particular tool that has been used by leaders of companies for a long time,
+                and has helped many directors and CEOs achieve a better work-life balance,
+                reach their goals and ambitions and create impactful results for their organisations.
+              </Para>
+              <Para>
+                The best coaches
+                {' '}
+                <strong>will not dictate what your end point looks like, and will not judge your starting point either</strong>
+                . It’s up to you to decide to move on from where you are right now and
+                think through what you would like to achieve at the end, always with the guidance of your coach.
+              </Para>
+            </Flex>
+          </Col>
+          <Col xs={12} md={6}>
+            <Flex flexDirection="column" justifyContent="center" alignItems="center" height="100%">
+              <LaptopRemoteImage />
+            </Flex>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} md={6}>
             <Flex flexDirection="column" marginTop="30px">
               <H3>
                 How will coaching benefit me?
@@ -79,6 +95,10 @@ class WhatIsCoaching extends PureComponent {
               </Para>
               <CheckmarkList list={benefits} withCheckmark />
             </Flex>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} md={6}>
             <Flex flexDirection="column" marginTop="30px">
               <H3>
                 How do I know if coaching is right for me?
@@ -102,6 +122,15 @@ class WhatIsCoaching extends PureComponent {
                 and they will explain their programmes, methodology and process in more detail.
               </Para>
             </Flex>
+          </Col>
+          <Col xs={12} md={6}>
+            <Flex flexDirection="column" justifyContent="center" alignItems="center" height="100%">
+              <FeelingsOfJoyImage />
+            </Flex>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} md={6}>
             <Flex flexDirection="column" marginTop="30px">
               <H3>
                 What is the difference between coaching and counselling?
@@ -131,6 +160,10 @@ class WhatIsCoaching extends PureComponent {
                 - we all have the right to improve our mental health and never be judged by doing so. Most of all, you’re not alone.
               </Para>
             </Flex>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} md={6}>
             <Flex flexDirection="column" marginTop="30px">
               <H3>
                 What does a coaching process look like?

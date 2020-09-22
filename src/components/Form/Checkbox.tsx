@@ -7,7 +7,6 @@ interface Props {
   id: string,
   label: string,
   name: string,
-  value: any,
   checked: boolean | string | undefined,
   onChange: any,
   onBlur?: any,
@@ -18,7 +17,7 @@ interface Props {
 class Checkbox extends PureComponent<Props> {
   render() {
     const {
-      id, label, name, value, checked, onChange, error, errorMessage, onBlur,
+      id, label, name, checked, onChange, error, errorMessage, onBlur,
     } = this.props
     return (
       <>
@@ -27,7 +26,6 @@ class Checkbox extends PureComponent<Props> {
             id={id}
             name={name}
             type="checkbox"
-            value={value}
             checked={checked}
             onChange={onChange}
             onBlur={onBlur}

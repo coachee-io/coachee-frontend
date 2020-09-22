@@ -221,7 +221,6 @@ class SignUpCoachee extends PureComponent<{}, State> {
                           label="Receive news and promotional emails"
                           id="newsletter"
                           name="newsletter"
-                          value={values.newsletter}
                           checked={values.newsletter}
                           onChange={handleChange}
                           onBlur={handleBlur}
@@ -231,7 +230,6 @@ class SignUpCoachee extends PureComponent<{}, State> {
                         label="I agree to Terms and Conditions"
                         id="acceptTerms"
                         name="acceptTerms"
-                        value={values.acceptTerms}
                         checked={values.acceptTerms}
                         onChange={handleChange}
                         onBlur={handleBlur}

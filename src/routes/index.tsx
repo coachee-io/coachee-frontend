@@ -12,6 +12,7 @@ import CoachConfirmPassword from 'containers/ConfirmPassword/Coaches'
 import CoacheeConfirmPassword from 'containers/ConfirmPassword/Coachees'
 
 import AboutUs from 'containers/AboutUs'
+import WhatIsCoaching from 'containers/WhatIsCoaching'
 
 import TermsAndConditions from 'containers/Policies/TermsAndConditions'
 import PrivacyPolicy from 'containers/Policies/PrivacyPolicy'
@@ -47,6 +48,7 @@ class Routes extends PureComponent {
           <Route path="/coaches/forgot-password" component={CoachForgotPassword} />
           <Route path="/coaches/confirm-password/:id" component={CoachConfirmPassword} />
           <Route path="/about-us" component={AboutUs} />
+          <Route path="/what-is-coaching" component={WhatIsCoaching} />
           <Route exact path="/become-a-coach" component={CoachOnboarding} />
           <Route path="/become-a-coach/register" component={CoachRegister} />
           <Route path="/coaches/stripe-redirect" component={CoachStripeRedirect} />

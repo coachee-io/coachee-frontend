@@ -47,7 +47,6 @@ class CheckboxList extends PureComponent<Props> {
                 <Checkbox
                   key={item.id}
                   id={item.id}
-                  value={item.id}
                   checked={values[name]?.includes(item.id as never)}
                   name={name}
                   label={item.name}

@@ -9,9 +9,6 @@ import {RouterButtonLink} from 'components/Routing'
 import {Pulse} from 'components/Skeleton'
 import Hr from 'components/Hr'
 
-import Auth from 'utils/tokens'
-import {formatNumber} from 'utils/formatNumber'
-
 import {
   GetCoachRequest,
   GetCoachAvailabilityRequest,
@@ -19,6 +16,10 @@ import {
   GetCoachProgramRequest,
 } from 'services/public/coaches/types'
 
+import Auth from 'utils/tokens'
+import {formatNumber} from 'utils/formatNumber'
+
+import {createConversion} from 'utils/scripts/google/conversions'
 
 import {H2, H3} from 'ui/headings'
 import {Para} from 'ui/labels'
@@ -42,6 +43,7 @@ class Content extends PureComponent<Props> {
       firstCallDuration: coach?.firstCallDuration,
     }
     if (Auth.isLoggedIn()) {
+      createConversion()
       return {
         pathname: `/booking/${program.id}`,
         state,

@@ -1,15 +1,10 @@
 class Conversions {
-  _isGTagAvailable = false
-
   _account = 'AW-622817811/4M-rCNG6nNsBEJPk_agC'
 
-  constructor() {
-    this._isGTagAvailable = !!window?.gtag
-  }
-
+  _isGTagAvailable = () => !!window?.gtag
 
   createConversion = () => {
-    if (this._isGTagAvailable) {
+    if (this._isGTagAvailable()) {
       window.gtag('event', 'conversion', {send_to: this._account})
     }
   }

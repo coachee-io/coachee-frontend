@@ -15,18 +15,31 @@ interface Props extends RouteComponentProps {
   children: ReactNode
 }
 
-class GAnalytics extends PureComponent<Props> {
+interface State {
+  _isGaAvailable: boolean
+}
+
+class GAnalytics extends PureComponent<Props, State> {
+  constructor(props: Props) {
+    super(props)
+    this.state = {
+      _isGaAvailable: false,
+    }
+  }
+
   componentDidMount = () => {
-    if (!window.ga) {
+    const {_isGaAvailable} = this.state
+    if (!_isGaAvailable) {
       gaSetup()
+      this.setState({_isGaAvailable: true})
     }
   }
 
   componentDidUpdate = (prevProps: Props) => {
     const {location: {pathname}} = this.props
+    const {_isGaAvailable} = this.state
     if (prevProps.location.pathname !== pathname) {
-      if (window?.gtag) {
-        window.gtag()
+      if (_isGaAvailable) {
         window.gtag('config', GoogleAnalyticsID(), {
           page_path: pathname,
         })

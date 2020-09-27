@@ -10,10 +10,10 @@ import StripeForm from 'components/Stripe'
 
 import {BookingService} from 'services/public'
 import {parseDateToSeconds} from 'utils/parseDate/parseDate'
+import {createConversion} from 'utils/scripts/google/conversions'
 
 import {H2} from 'ui/headings'
 import {Para} from 'ui/labels'
-
 
 import PostalCode from './PostalCode'
 
@@ -82,6 +82,7 @@ class BookingForm extends PureComponent<Props, State> {
       })
         .then(({paymentIntent, error}) => {
           if (paymentIntent) {
+            createConversion()
             onStepChange()
           } else if (error) {
             throw new Error(error.message)

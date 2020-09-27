@@ -1,4 +1,6 @@
+/* eslint-disable */
 export const GoogleAnalyticsID = () => 'UA-153502128-1'
+export const GoogleAdwordsID = () => 'AW-622817811'
 
 const GoogleAnalyticsScript = () => new Promise((resolve, reject) => {
   const script = document.createElement('script')
@@ -14,7 +16,8 @@ const setup = () => GoogleAnalyticsScript().then(() => {
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   
-    gtag('config', "${GoogleAnalyticsID()}");`
+    gtag('config', "${GoogleAnalyticsID()}");
+    gtag('config', "${GoogleAdwordsID()}");`
   document.body.appendChild(script)
 })
 

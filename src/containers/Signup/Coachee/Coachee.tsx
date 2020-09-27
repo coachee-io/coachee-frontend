@@ -17,6 +17,8 @@ import {H2} from 'ui/headings'
 
 import {CoacheesService} from 'services/public'
 
+import {createConversion} from 'utils/scripts/google/conversions'
+
 import schema from './validationSchema'
 
 const options = [
@@ -83,7 +85,10 @@ class SignUpCoachee extends PureComponent<{}, State> {
     }
     await this.setState({isLoading: true, error: null, successful: false})
     CoacheesService.createCoachee(data)
-      .then(() => this.setState({successful: true}))
+      .then(() => {
+        createConversion()
+        this.setState({successful: true})
+      })
       .catch((error) => this.setState({error, isLoading: false}))
   }
 

@@ -31,7 +31,8 @@
         "store/*", 
         "types/*", 
         "ui/*", 
-        "utils/*"
+        "utils/*",
+        "worker/*"
       ],
     }
   },

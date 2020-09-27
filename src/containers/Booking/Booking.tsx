@@ -7,14 +7,16 @@ import {DayPickerSingleDateController} from 'react-dates'
 import Flex, {Row, Col} from 'components/Layout/Flexbox'
 import {Button} from 'components/Form'
 import ErrorMessage from 'components/ErrorMessage'
-
 import {H2} from 'ui/headings'
 import {Para} from 'ui/labels'
-import {formatNumber} from 'utils/formatNumber'
+
 import {
   GetCoachRequest,
   GetCoachAvailabilityRequest,
 } from 'services/public/coaches/types'
+
+import {formatNumber} from 'utils/formatNumber'
+import {convertTextSession} from 'utils/text/sessions'
 
 import BookingForm from './BookingForm'
 import TimeSelect from './TimeSelect'
@@ -250,7 +252,7 @@ class Booking extends PureComponent<Props, State> {
             </Para>
             <Para>
               <strong>Sessions: </strong>
-              {`${program.sessions} sessions, ${program.duration} minutes`}
+              {`${convertTextSession(program)}`}
             </Para>
             <Para>
               <strong>Price: </strong>

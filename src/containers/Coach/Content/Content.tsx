@@ -20,6 +20,7 @@ import Auth from 'utils/tokens'
 import {formatNumber} from 'utils/formatNumber'
 
 import {createConversion} from 'utils/scripts/google/conversions'
+import {convertTextSession} from 'utils/text/sessions'
 
 import {H2, H3} from 'ui/headings'
 import {Para} from 'ui/labels'
@@ -59,18 +60,6 @@ class Content extends PureComponent<Props> {
     }
   }
 
-  isPluralSession = (sessions: number) => (sessions > 1 ? 'sessions' : 'session')
-
-  convertTextSession = (program: GetCoachProgramRequest) => {
-    if (program?.extraSessions?.length > 0) {
-      return `${program.sessions} ${this.isPluralSession(program.sessions)} 
-      of ${program.duration} minutes and ${program.extraSessions.length} 
-      ${this.isPluralSession(program.extraSessions.length)} of ${program.extraSessions[0].duration} minutes`
-    }
-
-    return `${program.sessions} sessions of ${program.duration} minutes`
-  }
-
   render() {
     const {
       certifications,
@@ -90,7 +79,7 @@ class Content extends PureComponent<Props> {
                     <Col xs={12} sm={8}>
                       <H3>{program.name}</H3>
                       <Para>
-                        {this.convertTextSession(program)}
+                        {convertTextSession(program)}
                       </Para>
                     </Col>
                     <MediaQuery>

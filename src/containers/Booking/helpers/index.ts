@@ -36,7 +36,7 @@ export const createTimeRanges = (start: number, end: number, firstCallDuration =
   return timeSlots
 }
 
-export function createDateHashMap(availability: GetCoachAvailabilityRequest[], firstCallDuration = 30): {} | null{
+export function createDateHashMap(availability: GetCoachAvailabilityRequest[], firstCallDuration = 30): {} | null {
   if (!availability || availability.length === 0) {
     return null
   }
@@ -108,7 +108,7 @@ export function getDayOfTheWeek(day: any): string {
   return Weekdays[day]
 }
 
-export function createDateFromHoursAndMinutes(date: Moment | null, hour: number, minute: number): number | null{
+export function createDateFromHoursAndMinutes(date: Moment | null, hour: number, minute: number): number | null {
   if (!date) {
     return null
   }

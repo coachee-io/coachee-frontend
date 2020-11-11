@@ -52,6 +52,9 @@
         "react/no-array-index-key": 0,
         "react/jsx-filename-extension": "off",
         "semi": ["error", "never"],
+        "no-shadow": 0,
+        "react/require-default-props": 0,
+        "no-use-before-define": 0,
         "object-curly-spacing": 0,
         "no-underscore-dangle": "off"
     }

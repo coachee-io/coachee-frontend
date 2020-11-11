@@ -31,13 +31,13 @@ const Icon = styled.img.attrs({
   ${(props: IconProps) => props && setMargin(props)}
 `
 
-interface List {
+interface IList {
   text: string,
   heading?: string
 }
 
 interface Props {
-  list: List[],
+  list: IList[],
   paraSmall?: boolean,
   paraLarge?: boolean,
   withCheckmark?: boolean

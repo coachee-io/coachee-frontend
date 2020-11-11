@@ -18,7 +18,7 @@ const setup = () => GoogleAnalyticsScript().then(() => {
   
     gtag('config', "${GoogleAnalyticsID()}");
     gtag('config', "${GoogleAdwordsID()}");`
-  document.body.appendChild(script)
+    document.body.appendChild(script)
 })
 
 export default setup

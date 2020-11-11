@@ -30,8 +30,9 @@ class GAnalytics extends PureComponent<Props, State> {
   componentDidMount = () => {
     const {_isGaAvailable} = this.state
     if (!_isGaAvailable) {
-      gaSetup()
-      this.setState({_isGaAvailable: true})
+      gaSetup().then(() => {
+        this.setState({_isGaAvailable: true})
+      })
     }
   }
 
